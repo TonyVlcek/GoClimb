@@ -15,6 +15,7 @@ application:
 
 extensions:
 	translation: Kdyby\Translation\DI\TranslationExtension
+	leanMapper: App\DI\LeanMapperExtension
 
 
 session:
