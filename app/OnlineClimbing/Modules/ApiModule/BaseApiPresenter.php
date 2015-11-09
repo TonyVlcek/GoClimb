@@ -14,7 +14,6 @@ abstract class BaseApiPresenter extends ResourcePresenter
 
 	public function beforeRender()
 	{
-		$this->resource->foo = 'bar';
 		$this->sendJson();
 	}
 

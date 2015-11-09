@@ -11,6 +11,7 @@ class RouterFactory
 {
 
 	/**
+	 * TODO
 	 * @return Nette\Application\IRouter
 	 */
 	public static function createRouter()
