@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../vendor/others/Framework.php'; // FIXME FIXME FIXME
+require __DIR__ . '/Framework.php'; // FIXME FIXME FIXME
 
 $configurator = new Nette\Configurator;
 
