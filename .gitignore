@@ -1,4 +1,5 @@
 /vendor
+!/vendor/others
 app/config/config.local.neon
 
 .idea
