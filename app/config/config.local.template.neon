@@ -4,5 +4,3 @@ doctrine:
 	user: root
 	password:
 	dbname: online_climbing
-	metadata:
-		App: %appDir%
