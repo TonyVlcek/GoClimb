@@ -15,7 +15,7 @@ application:
 
 doctrine:
 	metadata:
-		OnlineClimbing\Model\Entities: %appDir%/model/Entities
+		OnlineClimbing\Model\Entities: %appDir%/OnlineClimbing/Model/Entities
 
 extensions:
 	translation: Kdyby\Translation\DI\TranslationExtension
