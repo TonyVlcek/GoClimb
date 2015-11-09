@@ -1,7 +1,8 @@
 parameters:
 
-
-database:
-	dsn: 'mysql:host=127.0.0.1;dbname=test'
-	user:
-	password:
+doctrine:
+    user: root
+    password:
+    dbname: online_climbing
+    metadata:
+        App: %appDir%
