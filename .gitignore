@@ -1,5 +1,6 @@
 /vendor
 app/config/config.local.neon
+app/bootstrap.local.php
 
 .idea
 nbproject

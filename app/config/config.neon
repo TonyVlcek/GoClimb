@@ -18,12 +18,20 @@ doctrine:
 		OnlineClimbing\Model\Entities: %appDir%/OnlineClimbing/Model/Entities
 
 extensions:
-	translation: Kdyby\Translation\DI\TranslationExtension
-	console: Kdyby\Console\DI\ConsoleExtension
-	events: Kdyby\Events\DI\EventsExtension
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	console: Kdyby\Console\DI\ConsoleExtension
 	doctrine: Kdyby\Doctrine\DI\OrmExtension
+	eventDispatcher: Symnedi\EventDispatcher\DI\EventDispatcherExtension
+	events: Kdyby\Events\DI\EventsExtension
+	migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
 	restful: Drahak\Restful\DI\RestfulExtension
+	translation: Kdyby\Translation\DI\TranslationExtension
+
+migrations:
+	table: _doctrine_migrations
+	directory: %appDir%/../migrations
+	namespace: OnlineClimbing\Migrations
+	codingStandard: tabs
 
 restful:
 	convention: 'camelCase'
