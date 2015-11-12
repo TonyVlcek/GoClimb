@@ -8,6 +8,7 @@ before_install:
 
 install:
   - composer install --no-interaction --prefer-source
+  - composer create-project nette/code-checker temp/code-checker ~2.5 --no-interaction
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing;'
@@ -16,6 +17,7 @@ before_script:
 script:
 #  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-travis.ini ./tests
+  - php temp/code-checker/src/code-checker.php --short-arrays
 
 #after_failure:
   # Print *.actual file contents
