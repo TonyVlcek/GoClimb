@@ -9,4 +9,3 @@ use InvalidArgumentException as PhpInvalidArgumentException;
 
 
 abstract class InvalidArgumentException extends PhpInvalidArgumentException {}
-
