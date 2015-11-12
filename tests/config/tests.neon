@@ -6,4 +6,4 @@ doctrine:
 	dbname: online_climbing
 
 console:
-	url: http://example.com
+	url: http://localhost

@@ -13,6 +13,10 @@ application:
 	mapping:
 		*: OnlineClimbing\Modules\*Module\*Presenter
 
+console:
+	commands:
+		- OnlineClimbing\Console\Commands\CreateUserCommand
+
 doctrine:
 	metadata:
 		OnlineClimbing\Model\Entities: %appDir%/OnlineClimbing/Model/Entities
@@ -54,6 +58,14 @@ session:
 
 services:
 	router: OnlineClimbing\RouterFactory::createRouter
+
+	# facades
+
+	- OnlineClimbing\Model\Facades\UserFacade
+
+	# repositories
+
+	- OnlineClimbing\Model\Repositories\UserRepository
 
 translation:
 	default: cs
