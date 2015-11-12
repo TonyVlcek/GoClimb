@@ -11,18 +11,15 @@ install:
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing;'
-#  - mysql -u root online_climbing < tests/data/testData.sql
+  #- mysql -u root online_climbing < tests/data/testData.sql
 
 script:
   - php www/index.php migrations:migrate --no-interaction
-  - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-unix.ini ./tests
+  - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-travis.ini ./tests
 
-after_failure:
+#after_failure:
   # Print *.actual file contents
-  - for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
-
-  # Print error logs
-  - for i in $(find ./log -name \*.log); do echo "--- $i"; cat $i; echo; echo; done
+  #- for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
 
 addons:
   artifacts: true
