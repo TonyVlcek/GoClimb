@@ -11,10 +11,10 @@ install:
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing;'
-  - php www/index.php migrations:migrate --no-interaction
 #  - mysql -u root online_climbing < tests/data/testData.sql
 
 script:
+  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-unix.ini ./tests
 
 after_failure:
