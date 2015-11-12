@@ -23,3 +23,7 @@ after_failure:
 
   # Print error logs
   - for i in $(find ./log -name \*.log); do echo "--- $i"; cat $i; echo; echo; done
+
+addons:
+  artifacts: true
+  s3_region: Oregon
