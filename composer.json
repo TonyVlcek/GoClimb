@@ -20,8 +20,8 @@
 		"nette/utils": "~2.3.0",
 		"latte/latte": "~2.3.0",
 		"tracy/tracy": "~2.3.0",
-        "kdyby/doctrine": "^3.0",
-        "kdyby/translation": "^2.2",
+		"kdyby/doctrine": "^3.0",
+		"kdyby/translation": "^2.2",
 		"drahak/restful": "@dev",
 		"zenify/doctrine-migrations": "^2.3"
 	},
