@@ -14,7 +14,7 @@ before_script:
   #- mysql -u root online_climbing < tests/data/testData.sql
 
 script:
-  - php www/index.php migrations:migrate --no-interaction
+#  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-travis.ini ./tests
 
 #after_failure:
