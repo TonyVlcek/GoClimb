@@ -18,5 +18,8 @@ script:
   - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-unix.ini ./tests
 
 after_failure:
-  # Vytiskne obsah souborů *.actual
+  # Print *.actual file contents
   - for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
+
+  # Print error logs
+  - for i in $(find ./log -name \*.log); do echo "--- $i"; cat $i; echo; echo; done
