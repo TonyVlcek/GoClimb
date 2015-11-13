@@ -28,9 +28,9 @@ script:
 
 addons:
   artifacts:
-    s3_region: eu-central-1
     paths:
       - ./log
+  s3_region: eu-central-1
 
 notifications:
   slack: online-climbing:lfDdbU5bapiHaU0xyakS14WU
