@@ -24,8 +24,10 @@ script:
   #- for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
 
 addons:
-#  artifacts: true
-  s3_region: eu-west-1
+  artifacts:
+    s3_region: eu-west-1
+    paths:
+      - ./log
 
 notifications:
   slack: online-climbing:lfDdbU5bapiHaU0xyakS14WU
