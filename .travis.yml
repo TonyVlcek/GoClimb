@@ -10,6 +10,7 @@ install:
   - composer install --no-interaction --prefer-source
   - composer create-project nette/code-checker temp/code-checker ~2.5 --no-interaction
   - npm install
+  - gem install sass
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing;'
