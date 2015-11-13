@@ -55,14 +55,4 @@ class UserRepository extends BaseRepository
 
 		return $user;
 	}
-
-
-	/**
-	 * @return string
-	 */
-	protected function getEntityClass()
-	{
-		return User::class;
-	}
-
 }
