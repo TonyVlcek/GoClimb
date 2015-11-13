@@ -9,6 +9,8 @@ before_install:
 install:
   - composer install --no-interaction --prefer-source
   - composer create-project nette/code-checker temp/code-checker ~2.5 --no-interaction
+  - npm install
+  - gem install sass
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing;'
@@ -18,6 +20,7 @@ script:
 #  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester -p php-cgi -s -c ./tests/php-travis.ini ./tests
   - php temp/code-checker/src/code-checker.php --short-arrays
+  - grunt build
 
 #after_failure:
   # Print *.actual file contents
@@ -25,9 +28,9 @@ script:
 
 addons:
   artifacts:
-    s3_region: eu-central-1
     paths:
       - ./log
+  s3_region: eu-central-1
 
 notifications:
   slack: online-climbing:lfDdbU5bapiHaU0xyakS14WU

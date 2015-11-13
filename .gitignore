@@ -1,6 +1,13 @@
 /vendor
+/node_modules
+
 app/config/config.local.neon
 app/bootstrap.local.php
+
+www/assets/app.css
+www/assets/app.js
+www/assets/build/*
+!www/assets/build/.gitkeep
 
 .idea
 nbproject
