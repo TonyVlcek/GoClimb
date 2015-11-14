@@ -16,7 +16,6 @@ application:
 console:
 	commands:
 		- OnlineClimbing\Console\Commands\CreateUserCommand
-		- OnlineClimbing\Console\Commands\DeleteCacheCommand(%appDir%)
 
 doctrine:
 	metadata:
