@@ -19,14 +19,12 @@ class User
 
 	/**
 	 * @var string
-	 *
 	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
 	 */
 	private $name;
 
 	/**
 	 * @var string
-	 *
 	 * @ORM\Column(type="string", nullable=FALSE, length=60, options={"fixed": TRUE})
 	 */
 	private $password;
