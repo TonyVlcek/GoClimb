@@ -65,6 +65,7 @@ services:
 
 	# repositories
 
+	- OnlineClimbing\Model\Repositories\RoleRepository
 	- OnlineClimbing\Model\Repositories\UserRepository
 
 translation:
