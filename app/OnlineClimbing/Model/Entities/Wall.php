@@ -21,7 +21,7 @@ class Wall
 	/**
 	 * @var User
 	 *
-	 * @ORM\OneToMany(targetEntity="User")
+	 * @ORM\ManyToOne(targetEntity="User")
 	 */
 	private $user;
 
