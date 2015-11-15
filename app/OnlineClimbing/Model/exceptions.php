@@ -30,3 +30,15 @@ class UserException extends ModelException
 		return new self(sprintf('User with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
 	}
 }
+
+
+class WallException extends ModelException
+{
+	const DUPLICATE_NAME = 1;
+
+
+	public static function duplicateName($name)
+	{
+		return new self(sprintf('Wall with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
+	}
+}
