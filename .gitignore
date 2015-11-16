@@ -9,6 +9,9 @@ www/assets/app.js
 www/assets/build/*
 !www/assets/build/.gitkeep
 
+.tscache
+.sass-cache
+
 .idea
 nbproject
 .DS_Store
