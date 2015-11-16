@@ -1,6 +1,7 @@
 <?php
 /**
  * @author Tomáš Blatný
+ * @author Martin Mikšík
  */
 
 namespace OnlineClimbing\Model\Entities;
@@ -19,6 +20,12 @@ class Wall
 	use Id;
 
 	/**
+	 * @var string
+	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
+	 */
+	private $name;
+
+	/**
 	 * @var User
 	 * @ORM\ManyToOne(targetEntity="User")
 	 */
@@ -34,6 +41,26 @@ class Wall
 	public function __construct()
 	{
 		$this->roles = new ArrayCollection;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+
+
+	/**
+	 * @param string $name
+	 * @return $this
+	 */
+	public function setName($name)
+	{
+		$this->name = $name;
+		return $this;
 	}
 
 
