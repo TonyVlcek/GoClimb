@@ -19,6 +19,13 @@ class User
 	use Id;
 
 	/**
+	 * @var Wall[]|ArrayCollection
+	 * @ORM\ManyToMany(targetEntity="Wall", inversedBy="userFavorites")
+	 * @ORM\JoinTable(name="user_favorite_wall")
+	 */
+	private $favoriteWalls;
+
+	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
 	 */
@@ -40,6 +47,48 @@ class User
 	public function __construct()
 	{
 		$this->articles = new ArrayCollection;
+		$this->favoriteWalls = new ArrayCollection;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return $this
+	 */
+	public function addFavoriteWall(Wall $wall)
+	{
+		$this->favoriteWalls->add($wall);
+		return $this;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return $this
+	 */
+	public function removeFavoriteWall(Wall $wall)
+	{
+		$this->favoriteWalls->remove($wall);
+		return $this;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return bool
+	 */
+	public function hasFavoriteWall(Wall $wall)
+	{
+		return $this->favoriteWalls->contains($wall);
+	}
+
+
+	/**
+	 * @return Wall[]
+	 */
+	public function getFavoriteWalls()
+	{
+		return $this->favoriteWalls->toArray();
 	}
 
 
