@@ -65,6 +65,7 @@ services:
 
 	# repositories
 
+	- OnlineClimbing\Model\Repositories\ArticleRepository
 	- OnlineClimbing\Model\Repositories\RoleRepository
 	- OnlineClimbing\Model\Repositories\UserRepository
 	- OnlineClimbing\Model\Repositories\WallRepository
