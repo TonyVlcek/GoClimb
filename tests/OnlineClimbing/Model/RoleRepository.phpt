@@ -32,6 +32,7 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 		}, $roles));
 
 		Assert::equal($roles[0], $roles[1]->getParent());
+		Assert::null($roles[0]->getParent());
 	}
 }
 
