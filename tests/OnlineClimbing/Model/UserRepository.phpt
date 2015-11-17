@@ -6,6 +6,7 @@
  */
 
 use Nette\DI\Container;
+use Nette\Security\Passwords;
 use OnlineClimbing\Model\Repositories\UserRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
@@ -41,6 +42,16 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		Assert::truthy($testUser = $userRepository->getByName(self::TEST_USER_NAME));
 		Assert::equal(self::TEST_USER_ID, $testUser->getId());
 		Assert::equal(self::TEST_USER_NAME, $testUser->getName());
+	}
+
+
+	public function testCreateUser()
+	{
+		/** @var UserRepository $userRepository */
+		$userRepository = $this->container->getByType(UserRepository::class);
+		Assert::truthy($testUser = $userRepository->createUser('a', 'b'));
+		Assert::equal('a', $testUser->getName());
+		Assert::true(Passwords::verify('b', $testUser->getPassword()));
 	}
 }
 
