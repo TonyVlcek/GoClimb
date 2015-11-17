@@ -19,7 +19,7 @@ class SectorRepository extends BaseRepository
 	 */
 	public function getByName(Wall $wall, $name)
 	{
-		return $this->getDoctrineRepository()->findOneBy(["wall"=> $wall,"name" => $name]);
+		return $this->getDoctrineRepository()->findOneBy(["wall" => $wall, "name" => $name]);
 	}
 
 
