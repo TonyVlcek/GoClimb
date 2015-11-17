@@ -127,7 +127,7 @@ class Article
 	 */
 	public function isPublished()
 	{
-		return $this->published === NULL;
+		return $this->published !== NULL;
 	}
 
 
