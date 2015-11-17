@@ -5,6 +5,7 @@
 
 namespace OnlineClimbing\Model\Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
 
@@ -18,6 +19,13 @@ class User
 	use Id;
 
 	/**
+	 * @var Wall[]
+	 * @ORM\ManyToMany(targetEntity="Wall", inversedBy="userFavorites")
+	 * @ORM\JoinTable(name="user_favorite_wall")
+	 */
+	private $wallFavorites;
+
+	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
 	 */
@@ -29,6 +37,59 @@ class User
 	 */
 	private $password;
 
+	/**
+	 * @var Article[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Article", mappedBy="author")
+	 */
+	private $articles;
+
+
+	public function __construct()
+	{
+		$this->articles = new ArrayCollection;
+		$this->wallFavorites = new ArrayCollection;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return $this
+	 */
+	public function addFavoriteWall(Wall $wall)
+	{
+		$this->wallFavorites->add($wall);
+		return $this;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return $this
+	 */
+	public function removeFavouriteWall(Wall $wall)
+	{
+		$this->wallFavorites->remove($wall);
+		return $this;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return bool
+	 */
+	public function hasFavoriteWall(Wall $wall)
+	{
+		return $this->wallFavorites->contains($wall);
+	}
+
+
+	/**
+	 * @return Wall[]
+	 */
+	public function getFavoritedWall()
+	{
+		return $this->wallFavorites->toArray();
+	}
 
 	/**
 	 * @return string
@@ -66,6 +127,37 @@ class User
 	public function setPassword($password)
 	{
 		$this->password = $password;
+		return $this;
+	}
+
+
+	/**
+	 * @return Article[]
+	 */
+	public function getArticles()
+	{
+		return $this->articles->toArray();
+	}
+
+
+	/**
+	 * @param Article $article
+	 * @return $this
+	 */
+	public function addArticle(Article $article)
+	{
+		$this->articles->add($article);
+		return $this;
+	}
+
+
+	/**
+	 * @param Article $article
+	 * @return $this
+	 */
+	public function removeArticle(Article $article)
+	{
+		$this->articles->remove($article);
 		return $this;
 	}
 

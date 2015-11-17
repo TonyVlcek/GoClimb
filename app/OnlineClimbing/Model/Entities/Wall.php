@@ -20,6 +20,12 @@ class Wall
 	use Id;
 
 	/**
+	 * @var User[]
+	 * @ORM\ManyToMany(targetEntity="User", mappedBy="wallFavorites")
+	 **/
+	private $userFavorites;
+
+	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
 	 */
@@ -37,10 +43,58 @@ class Wall
 	 */
 	private $roles;
 
+	/**
+	 * @var Article[]|ArrayCollection
+	 * @ORM\OneToOne(targetEntity="Article", mappedBy="wall")
+	 */
+	private $articles;
 
 	public function __construct()
 	{
+		$this->userFavorites = new ArrayCollection;
 		$this->roles = new ArrayCollection;
+		$this->articles = new ArrayCollection;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return $this
+	 */
+	public function addUserFavorite(User $user)
+	{
+		$this->userFavorites->add($user);
+		return $this;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return $this
+	 */
+	public function removeUserFavorite(User $user)
+	{
+		$this->userFavorites->remove($user);
+		return $this;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return bool
+	 */
+	public function hasUserFavorited(User $user)
+	{
+		return $this->userFavorites->contains($user);
+	}
+
+
+	/**
+	 * @return User[]
+	 */
+	public function getUserFavorited()
+	{
+		return $this->userFavorites->toArray();
 	}
 
 
@@ -114,4 +168,34 @@ class Wall
 		return $this;
 	}
 
+
+	/**
+	 * @return Article[]
+	 */
+	public function getArticles()
+	{
+		return $this->articles->toArray();
+	}
+
+
+	/**
+	 * @param Article $article
+	 * @return $this
+	 */
+	public function addArticle(Article $article)
+	{
+		$this->articles->add($article);
+		return $this;
+	}
+
+
+	/**
+	 * @param Article $article
+	 * @return $this
+	 */
+	public function removeArticle(Article $article)
+	{
+		$this->articles->remove($article);
+		return $this;
+	}
 }
