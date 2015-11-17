@@ -72,7 +72,7 @@ class DatabaseTestCase extends TestCase
 		'COLUMNS TERMINATED BY \',\' ' .
 		'OPTIONALLY ENCLOSED BY \'"\' ' .
 		'ESCAPED BY \'"\' ' .
-		'LINES TERMINATED BY \'\n\' ' .
+		'LINES TERMINATED BY \'' . $this->getLineSeparator() . '\' ' .
 		'IGNORE 1 LINES';
 		$this->connection->prepare(sprintf($sql, $this->fixFilePath($file), $table))->execute();
 	}
@@ -84,6 +84,12 @@ class DatabaseTestCase extends TestCase
 			return str_replace('\\', '\\\\', $path);
 		}
 		return $path;
+	}
+
+
+	private function getLineSeparator()
+	{
+		return DIRECTORY_SEPARATOR === '\\' ? '\r\n' : '\n';
 	}
 
 }
