@@ -4,15 +4,27 @@
  */
 
 use Nette\DI\Container;
+use OnlineClimbing\Tests\Utils\Locker;
 use Tester\Environment;
+use Tester\TestCase;
 
 
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/utils/loader.php';
 
 Environment::setup();
 date_default_timezone_set('Europe/Prague');
 
 $appDir = __DIR__ . '/../app';
+$tempDir = __DIR__ . '/temp';
+
+Locker::$path = $tempDir . '/locks';
+
+define('DATA_DIR', __DIR__ . '/data');
+
+if (!is_dir($tempDir . '/locks')) {
+	mkdir($tempDir . '/locks', 0777, TRUE);
+};
 
 $localBootstrap = $appDir . '/bootstrap.local.php';
 if (file_exists($localBootstrap)) {
@@ -29,11 +41,14 @@ if (extension_loaded('xdebug')) {
 
 $configurator = new Nette\Configurator;
 $configurator->setDebugMode(FALSE);
-$configurator->setTempDirectory(__DIR__ . '/../temp');
+$configurator->setTempDirectory($tempDir);
 $configurator->createRobotLoader()
 	->addDirectory($appDir)
 	->register();
 $configurator->addConfig($appDir . '/config/config.neon');
+if (file_exists($localConfig = $appDir . '/config/config.local.neon')) {
+	$configurator->addConfig($localConfig);
+}
 $configurator->addConfig(__DIR__ . '/config/tests.neon');
 
 $configurator->addParameters([
@@ -42,5 +57,9 @@ $configurator->addParameters([
 
 /** @var Container $container */
 $container = $configurator->createContainer();
+
+function testCase(TestCase $testCase) {
+	$testCase->run();
+}
 
 return $container;

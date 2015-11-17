@@ -1,0 +1,23 @@
+<?php
+/**
+ * @author Tomáš Blatný
+ */
+
+namespace OnlineClimbing\Tests\Utils;
+
+use Tester\Environment;
+
+
+class Locker
+{
+
+	const DATABASE = 'database';
+
+	public static $path;
+
+
+	public static function lock($name)
+	{
+		Environment::lock($name, self::$path);
+	}
+}

@@ -47,7 +47,7 @@ abstract class BaseRepository
 		$matches = [];
 		$class = get_called_class();
 		if (preg_match('#([a-z0-9]+)repository$#i', $class, $matches)) {
-			return $this->entityNamespace . strtolower($matches[1]);
+			return $this->entityNamespace . $matches[1];
 		}
 		throw MappingException::cannotDetermineRepositoryName($class);
 	}

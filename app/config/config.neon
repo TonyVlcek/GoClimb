@@ -18,6 +18,8 @@ console:
 		- OnlineClimbing\Console\Commands\CreateUserCommand
 
 doctrine:
+	user: root
+	password:
 	metadata:
 		OnlineClimbing\Model\Entities: %appDir%/OnlineClimbing/Model/Entities
 
@@ -58,6 +60,8 @@ session:
 
 services:
 	router: OnlineClimbing\RouterFactory::createRouter
+
+	# - OnlineClimbing\Console\NullOutputWriter TODO
 
 	# facades
 
