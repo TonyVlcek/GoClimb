@@ -30,6 +30,7 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([1, 2], Helpers::mapIds($roles));
 
 		Assert::equal($roles[0], $roles[1]->getParent());
+		Assert::null($roles[0]->getParent());
 	}
 }
 
