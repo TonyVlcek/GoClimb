@@ -7,6 +7,7 @@ namespace OnlineClimbing\Model\Repositories;
 
 use Nette\Security\Passwords;
 use OnlineClimbing\Model\Entities\User;
+use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\UserException;
 
 
@@ -54,5 +55,43 @@ class UserRepository extends BaseRepository
 			->flush($user);
 
 		return $user;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @param Wall $wall
+	 * @return bool
+	 */
+	public function addFavoriteWall(User $user, Wall $wall)
+	{
+		$user->addFavoriteWall($wall);
+		$wall->addUserFavorite($user);
+
+		$this->getEntityManager()
+			->persist($user)
+			->persist($wall)
+			->flush($user);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @param Wall $wall
+	 * @return bool
+	 */
+	public function removeFavoriteWall(User $user, Wall $wall)
+	{
+		$user->removeFavouriteWall($wall);
+		$wall->removeUserFavorite($user);
+
+		$this->getEntityManager()
+				->persist($user)
+				->persist($wall)
+				->flush($user);
+
+		return $this;
 	}
 }

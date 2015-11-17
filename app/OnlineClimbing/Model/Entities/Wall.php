@@ -20,9 +20,10 @@ class Wall
 	use Id;
 
 	/**
-	 * @ORM\ManyToMany(targetEntity="User", mappedBy="favoriteWalls")
+	 * @var User[]
+	 * @ORM\ManyToMany(targetEntity="User", mappedBy="wallFavorites")
 	 **/
-	private $favorites;
+	private $userFavorites;
 
 	/**
 	 * @var string
@@ -45,7 +46,7 @@ class Wall
 
 	public function __construct()
 	{
-		$this->favorites = new ArrayCollection;
+		$this->userFavorites = new ArrayCollection;
 		$this->roles = new ArrayCollection;
 	}
 
@@ -54,9 +55,9 @@ class Wall
 	 * @param User $user
 	 * @return $this
 	 */
-	public function addFavorite(User $user)
+	public function addUserFavorite(User $user)
 	{
-		$this->favorites[] = $user;
+		$this->userFavorites->add($user);
 		return $this;
 	}
 
@@ -65,9 +66,9 @@ class Wall
 	 * @param User $user
 	 * @return $this
 	 */
-	public function removeFavorite(User $user)
+	public function removeUserFavorite(User $user)
 	{
-		$this->favorites->removeElement($user);
+		$this->userFavorites->remove($user);
 		return $this;
 	}
 
@@ -76,18 +77,18 @@ class Wall
 	 * @param User $user
 	 * @return bool
 	 */
-	public function hasFavoriteUser(User $user)
+	public function hasUserFavorited(User $user)
 	{
-		return $this->favorites->contains($user);
+		return $this->userFavorites->contains($user);
 	}
 
 
 	/**
 	 * @return User[]
 	 */
-	public function getFavorites()
+	public function getUserFavorited()
 	{
-		return $this->favorites->toArray();
+		return $this->userFavorites->toArray();
 	}
 
 
