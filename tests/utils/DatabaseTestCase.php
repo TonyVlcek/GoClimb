@@ -83,6 +83,7 @@ class DatabaseTestCase extends TestCase
 		if (DIRECTORY_SEPARATOR === '\\') {
 			return str_replace('\\', '\\\\', $path);
 		}
+		return $path;
 	}
 
 }
