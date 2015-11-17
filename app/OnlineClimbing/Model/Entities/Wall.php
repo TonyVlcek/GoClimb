@@ -37,10 +37,16 @@ class Wall
 	 */
 	private $roles;
 
+	/**
+	 * @var Article[]|ArrayCollection
+	 * @ORM\OneToOne(targetEntity="Article", mappedBy="wall")
+	 */
+	private $articles;
 
 	public function __construct()
 	{
 		$this->roles = new ArrayCollection;
+		$this->articles = new ArrayCollection;
 	}
 
 
@@ -114,4 +120,34 @@ class Wall
 		return $this;
 	}
 
+
+	/**
+	 * @return Article[]
+	 */
+	public function getArticles()
+	{
+		return $this->articles->toArray();
+	}
+
+
+	/**
+	 * @param Article $article
+	 * @return $this
+	 */
+	public function addArticle(Article $article)
+	{
+		$this->articles->add($article);
+		return $this;
+	}
+
+
+	/**
+	 * @param Article $article
+	 * @return $this
+	 */
+	public function removeArticle(Article $article)
+	{
+		$this->articles->remove($article);
+		return $this;
+	}
 }
