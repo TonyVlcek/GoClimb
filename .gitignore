@@ -9,6 +9,8 @@ www/assets/app.js
 www/assets/build/*
 !www/assets/build/.gitkeep
 
+tests/temp
+
 .tscache
 .sass-cache
 

@@ -1,9 +1,7 @@
 parameters:
 
 doctrine:
-	user: root
-	password:
-	dbname: online_climbing
+	dbname: online_climbing_tests
 
 console:
 	url: http://localhost

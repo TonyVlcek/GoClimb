@@ -1,5 +1,7 @@
 <?php
 /**
+ * TEST: BaseRepository mapping test.
+ *
  * @author Tomáš Blatný
  */
 
@@ -10,6 +12,7 @@ use Kdyby\Doctrine\EntityManager;
 use Nette\DI\Container;
 use OnlineClimbing\Model\Repositories\BaseRepository;
 use Tester\Assert;
+
 
 /** @var Container $container */
 $container = require __DIR__ . '/../../bootstrap.php';
