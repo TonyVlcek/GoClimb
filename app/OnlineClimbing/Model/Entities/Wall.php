@@ -99,6 +99,47 @@ class Wall
 
 
 	/**
+	 * @param User $user
+	 * @return $this
+	 */
+	public function addUserFavorite(User $user)
+	{
+		$this->userFavorites->add($user);
+		return $this;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return $this
+	 */
+	public function removeUserFavorite(User $user)
+	{
+		$this->userFavorites->remove($user);
+		return $this;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return bool
+	 */
+	public function hasUserFavorited(User $user)
+	{
+		return $this->userFavorites->contains($user);
+	}
+
+
+	/**
+	 * @return User[]
+	 */
+	public function getUserFavorited()
+	{
+		return $this->userFavorites->toArray();
+	}
+
+
+	/**
 	 * @return string
 	 */
 	public function getName()

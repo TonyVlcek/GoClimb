@@ -91,6 +91,53 @@ class User
 	}
 
 
+	public function __construct()
+	{
+		$this->wallFavorites = new ArrayCollection;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return $this
+	 */
+	public function addFavoriteWall(Wall $wall)
+	{
+		$this->wallFavorites->add($wall);
+		return $this;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return $this
+	 */
+	public function removeFavouriteWall(Wall $wall)
+	{
+		$this->wallFavorites->remove($wall);
+		return $this;
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return bool
+	 */
+	public function hasFavoriteWall(Wall $wall)
+	{
+		return $this->wallFavorites->contains($wall);
+	}
+
+
+	/**
+	 * @return Wall[]
+	 */
+	public function getFavoritedWall()
+	{
+		return $this->wallFavorites->toArray();
+	}
+
+
 	/**
 	 * @return string
 	 */
