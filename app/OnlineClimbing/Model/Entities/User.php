@@ -50,12 +50,6 @@ class User
 	}
 
 
-	public function __construct()
-	{
-		$this->wallFavorites = new ArrayCollection;
-	}
-
-
 	/**
 	 * @param Wall $wall
 	 * @return $this
