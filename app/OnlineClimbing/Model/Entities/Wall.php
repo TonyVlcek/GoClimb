@@ -43,10 +43,18 @@ class Wall
 	 */
 	private $articles;
 
+	/**
+	 * @var Sector[]|ArrayCollection
+	 * @ORM\OneToOne(targetEntity="Sector", mappedBy="wall")
+	 */
+	private $sectors;
+
+
 	public function __construct()
 	{
 		$this->roles = new ArrayCollection;
 		$this->articles = new ArrayCollection;
+		$this->sectors = new ArrayCollection;
 	}
 
 
@@ -150,4 +158,36 @@ class Wall
 		$this->articles->remove($article);
 		return $this;
 	}
+
+
+	/**
+	 * @return Sector[]
+	 */
+	public function getSectors()
+	{
+		return $this->sectors->toArray();
+	}
+
+
+	/**
+	 * @param Sector $sector
+	 * @return $this
+	 */
+	public function addSector(Sector $sector)
+	{
+		$this->sectors->add($sector);
+		return $this;
+	}
+
+
+	/**
+	 * @param Sector $sector
+	 * @return $this
+	 */
+	public function removeSector(Sector $sector)
+	{
+		$this->sectors->remove($sector);
+		return $this;
+	}
+
 }
