@@ -74,7 +74,15 @@ class DatabaseTestCase extends TestCase
 		'ESCAPED BY \'"\' ' .
 		'LINES TERMINATED BY \'\n\' ' .
 		'IGNORE 1 LINES';
-		$this->connection->prepare(sprintf($sql, $file, $table))->execute();
+		$this->connection->prepare(sprintf($sql, $this->fixFilePath($file), $table))->execute();
+	}
+
+
+	private function fixFilePath($path)
+	{
+		if (DIRECTORY_SEPARATOR === '\\') {
+			return str_replace('\\', '\\\\', $path);
+		}
 	}
 
 }
