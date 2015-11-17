@@ -6,9 +6,9 @@
  */
 
 use Nette\DI\Container;
-use OnlineClimbing\Model\Entities\Role;
 use OnlineClimbing\Model\Repositories\RoleRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
+use OnlineClimbing\Tests\Helpers;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
@@ -27,9 +27,7 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 
 		Assert::count(2, $roles = $roleRepository->getByWall($wallRepository->getById(1)));
 
-		Assert::equal([1, 2], array_map(function (Role $role) {
-			return $role->getId();
-		}, $roles));
+		Assert::equal([1, 2], Helpers::mapIds($roles));
 
 		Assert::equal($roles[0], $roles[1]->getParent());
 	}
