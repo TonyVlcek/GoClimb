@@ -15,6 +15,7 @@ application:
 
 console:
 	commands:
+		- OnlineClimbing\Console\Commands\CleanCacheCommand
 		- OnlineClimbing\Console\Commands\CreateUserCommand
 
 doctrine:

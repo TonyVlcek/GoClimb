@@ -8,7 +8,7 @@ before_install:
 
 install:
   - composer install --no-interaction --prefer-source
-  - composer create-project nette/code-checker temp/code-checker ~2.5 --no-interaction --prefer-source
+  - composer create-project nette/code-checker tmp/code-checker ~2.5 --no-interaction --prefer-source
   - npm install
   - gem install sass
 
@@ -19,7 +19,7 @@ before_script:
 script:
 #  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester ./tests -c ./tests/php-travis.ini --setup ./tests/setup.php -p php-cgi -s
-  - php temp/code-checker/src/code-checker.php --short-arrays
+  - php tmp/code-checker/src/code-checker.php --short-arrays
   - grunt build
 
 #after_failure:
