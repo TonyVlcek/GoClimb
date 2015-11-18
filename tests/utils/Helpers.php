@@ -16,9 +16,10 @@ class Helpers
 	 */
 	public static function mapIds(array $entities)
 	{
-		return array_map(function ($entity) {
+		$ids = array_values(array_map(function ($entity) {
 			return $entity->getId();
-		}, $entities);
+		}, $entities));
+		sort($ids);
+		return $ids;
 	}
-
 }
