@@ -82,7 +82,7 @@ class Wall
 	 */
 	public function removeUserFavorite(User $user)
 	{
-		$this->userFavorites->remove($user);
+		$this->userFavorites->removeElement($user);
 		return $this;
 	}
 

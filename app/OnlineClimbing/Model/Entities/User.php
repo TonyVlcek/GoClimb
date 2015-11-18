@@ -68,7 +68,7 @@ class User
 	 */
 	public function removeFavoriteWall(Wall $wall)
 	{
-		$this->favoriteWalls->remove($wall);
+		$this->favoriteWalls->removeElement($wall);
 		return $this;
 	}
 
