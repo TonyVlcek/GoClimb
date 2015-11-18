@@ -11,6 +11,7 @@ use OnlineClimbing\Model\Entities\Wall;
 
 class ArticleRepository extends BaseRepository
 {
+
 	/**
 	 * @param int $id
 	 * @return Article|NULL
@@ -50,7 +51,7 @@ class ArticleRepository extends BaseRepository
 	{
 		if ($published === TRUE) {
 			return $this->getDoctrineRepository()->findBy(["wall" => $wall, "published !=" => NULL]);
-		} else if ($published === FALSE) {
+		} elseif ($published === FALSE) {
 			return $this->getDoctrineRepository()->findBy(["wall" => $wall, "published" => NULL]);
 		} else {
 			return $this->getDoctrineRepository()->findBy(["wall" => $wall]);

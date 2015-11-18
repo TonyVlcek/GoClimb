@@ -15,6 +15,7 @@ use OnlineClimbing\Model\Entities\Attributes\Id;
  */
 class Article
 {
+
 	use Id;
 
 	/**
