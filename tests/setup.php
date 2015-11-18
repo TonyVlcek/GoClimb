@@ -8,8 +8,6 @@ use Kdyby\Doctrine\Connection;
 use Kdyby\Doctrine\EntityManager;
 use Nette\DI\Container;
 use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\Console\Output\NullOutput;
 
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -53,13 +51,18 @@ while ($table = $statement->fetchColumn(0)) {
 	$connection->prepare('DROP TABLE ' . $table)->execute();
 }
 
-$input = new ArrayInput([
+$cacheCommand = new ArrayInput([
+	'command' => 'app:cache:clean',
+	'--no-interaction',
+]);
+$migrateCommand = new ArrayInput([
 	'command' => 'migrations:migrate',
 	'--no-interaction',
 	'--allow-no-migration',
 ]);
-$output = new BufferedOutput;
+//$output = new BufferedOutput;
 
 /** @var Application $application */
 $application = $container->getByType(Application::class);
-$application->run($input, new NullOutput);
+$application->run($cacheCommand, NULL /*new NullOutput*/);
+$application->run($migrateCommand, NULL /*new NullOutput*/);
