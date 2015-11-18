@@ -30,8 +30,9 @@ class CacheCleaner
 
 	private static function normalizePath($path)
 	{
-		while (strpos($path, '/../') !== FALSE) {
-			$path = Strings::replace($path, '~[a-zA-Z0-9]+/\\.\\./~', '');
+		$path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+		while (strpos($path, DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR) !== FALSE) {
+			$path = Strings::replace($path, '~[a-zA-Z0-9]+' . DIRECTORY_SEPARATOR . '\\.\\.' . DIRECTORY_SEPARATOR . '~', '');
 		}
 		return $path;
 	}
