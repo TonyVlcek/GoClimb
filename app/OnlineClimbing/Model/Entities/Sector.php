@@ -5,6 +5,7 @@
 
 namespace OnlineClimbing\Model\Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
 
@@ -19,6 +20,12 @@ class Sector
 	use Id;
 
 	/**
+	 * @var Line[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Line", mappedBy="sector")
+	 */
+	private $lines;
+
+	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE)
 	 */
@@ -30,6 +37,43 @@ class Sector
 	 * @ORM\JoinColumn(nullable=FALSE)
 	 */
 	private $wall;
+
+
+	public function __construct()
+	{
+		$this->lines = new ArrayCollection;
+	}
+
+
+	/**
+	 * @return Line[]
+	 */
+	public function getLines()
+	{
+		return $this->lines->toArray();
+	}
+
+
+	/**
+	 * @param Line $line
+	 * @return $this
+	 */
+	public function addLine(Line $line)
+	{
+		$this->lines->add($line);
+		return $this;
+	}
+
+
+	/**
+	 * @param Line $line
+	 * @return $this
+	 */
+	public function removeLine(Line $line)
+	{
+		$this->lines->removeElement($line);
+		return $this;
+	}
 
 
 	/**
