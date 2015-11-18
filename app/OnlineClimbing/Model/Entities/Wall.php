@@ -39,13 +39,13 @@ class Wall
 
 	/**
 	 * @var Article[]|ArrayCollection
-	 * @ORM\OneToOne(targetEntity="Article", mappedBy="wall")
+	 * @ORM\OneToMany(targetEntity="Article", mappedBy="wall")
 	 */
 	private $articles;
 
 	/**
 	 * @var Sector[]|ArrayCollection
-	 * @ORM\OneToOne(targetEntity="Sector", mappedBy="wall")
+	 * @ORM\OneToMany(targetEntity="Sector", mappedBy="wall")
 	 */
 	private $sectors;
 
