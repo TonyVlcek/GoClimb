@@ -15,32 +15,32 @@ use OnlineClimbing\Model\Entities\Attributes\Id;
 class Resource
 {
 
-    use Id;
+	use Id;
 
-    /**
-     * @var string
-     * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
-     */
-    private $name;
-
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+	/**
+	 * @var string
+	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
+	 */
+	private $name;
 
 
-    /**
-     * @param string $name
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+
+
+	/**
+	 * @param string $name
+	 * @return $this
+	 */
+	public function setName($name)
+	{
+		$this->name = $name;
+		return $this;
+	}
 
 }

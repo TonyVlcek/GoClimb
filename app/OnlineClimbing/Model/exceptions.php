@@ -22,6 +22,7 @@ class ModelException extends Exception {}
 
 class UserException extends ModelException
 {
+
 	const DUPLICATE_NAME = 1;
 
 
@@ -29,11 +30,13 @@ class UserException extends ModelException
 	{
 		return new self(sprintf('User with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
 	}
+
 }
 
 
 class WallException extends ModelException
 {
+
 	const DUPLICATE_NAME = 1;
 
 
@@ -41,4 +44,5 @@ class WallException extends ModelException
 	{
 		return new self(sprintf('Wall with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
 	}
+
 }

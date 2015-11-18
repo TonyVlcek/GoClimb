@@ -27,12 +27,15 @@ class Foo
 
 class FooRepository extends BaseRepository
 {
+
 	protected $entityNamespace = '\\Bar\\';
+
 
 	public function testMapping()
 	{
 		Assert::equal('\\' . strtolower(Foo::class), strtolower($this->getEntityClass()));
 	}
+
 }
 
 /** @var EntityManager $entityManager */

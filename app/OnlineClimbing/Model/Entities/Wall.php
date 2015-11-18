@@ -105,6 +105,7 @@ class Wall
 		return $this->userFavorites->toArray();
 	}
 
+
 	/**
 	 * @return string
 	 */

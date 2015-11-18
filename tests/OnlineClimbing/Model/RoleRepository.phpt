@@ -18,6 +18,7 @@ $container = require __DIR__ . "/../../bootstrap.php";
 
 class RoleRepositoryTestCase extends DatabaseTestCase
 {
+
 	public function testGetById()
 	{
 		/** @var RoleRepository $roleRepository */
@@ -32,6 +33,7 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 		Assert::equal($roles[0], $roles[1]->getParent());
 		Assert::null($roles[0]->getParent());
 	}
+
 }
 
 testCase(new RoleRepositoryTestCase($container));

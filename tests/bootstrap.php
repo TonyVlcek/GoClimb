@@ -58,7 +58,8 @@ $configurator->addParameters([
 /** @var Container $container */
 $container = $configurator->createContainer();
 
-function testCase(TestCase $testCase) {
+function testCase(TestCase $testCase)
+{
 	$testCase->run();
 }
 

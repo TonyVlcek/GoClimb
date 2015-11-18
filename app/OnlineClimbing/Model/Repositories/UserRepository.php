@@ -87,8 +87,8 @@ class UserRepository extends BaseRepository
 		$wall->removeUserFavorite($user);
 
 		$this->getEntityManager()
-				->persist([$user, $wall])
-				->flush([$user, $wall]);
+			->persist([$user, $wall])
+			->flush([$user, $wall]);
 
 		return $this;
 	}

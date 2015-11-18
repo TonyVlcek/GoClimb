@@ -32,6 +32,7 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	/** @var WallRepository */
 	private $wallRepository;
 
+
 	public function __construct(Container $container)
 	{
 		parent::__construct($container);
@@ -83,11 +84,11 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([2], Helpers::mapIds($wall1->getUsersFavorited()));
 
 		//test one favorite wall
-			//user -> wall
+		//user -> wall
 		Assert::true($user1->hasFavoriteWall($wall2));
 		Assert::false($user1->hasFavoriteWall($wall1));
 
-			//wall -> user
+		//wall -> user
 		Assert::true($wall1->hasUserFavorited($user2));
 		Assert::false($wall1->hasUserFavorited($user1));
 

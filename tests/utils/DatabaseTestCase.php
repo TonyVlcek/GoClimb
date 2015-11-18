@@ -37,6 +37,7 @@ class DatabaseTestCase extends TestCase
 		Locker::lock(Locker::DATABASE);
 	}
 
+
 	protected function setUp()
 	{
 		$this->importData();
@@ -69,11 +70,11 @@ class DatabaseTestCase extends TestCase
 	private function importTable($table, $file)
 	{
 		$sql = 'LOAD DATA INFILE "%s" INTO TABLE %s ' .
-		'COLUMNS TERMINATED BY \',\' ' .
-		'OPTIONALLY ENCLOSED BY \'"\' ' .
-		'ESCAPED BY \'"\' ' .
-		'LINES TERMINATED BY \'' . $this->getLineSeparator() . '\' ' .
-		'IGNORE 1 LINES';
+			'COLUMNS TERMINATED BY \',\' ' .
+			'OPTIONALLY ENCLOSED BY \'"\' ' .
+			'ESCAPED BY \'"\' ' .
+			'LINES TERMINATED BY \'' . $this->getLineSeparator() . '\' ' .
+			'IGNORE 1 LINES';
 		$this->connection->prepare(sprintf($sql, $this->fixFilePath($file), $table))->execute();
 	}
 

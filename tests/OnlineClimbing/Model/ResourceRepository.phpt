@@ -16,6 +16,7 @@ $container = require __DIR__ . "/../../bootstrap.php";
 
 class ResourceRepositoryTestCase extends DatabaseTestCase
 {
+
 	public function testGetByName()
 	{
 		/** @var ResourceRepository $resourceRepository */
@@ -23,6 +24,7 @@ class ResourceRepositoryTestCase extends DatabaseTestCase
 		Assert::truthy($resource = $resourceRepository->getByName('Resource 1'));
 		Assert::equal('Resource 1', $resource->getName());
 	}
+
 }
 
 testCase(new ResourceRepositoryTestCase($container));

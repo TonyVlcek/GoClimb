@@ -27,8 +27,8 @@ $configurator = new Nette\Configurator;
 $configurator->setDebugMode(FALSE);
 $configurator->setTempDirectory($tempDir);
 $configurator->createRobotLoader()
-		->addDirectory($appDir)
-		->register();
+	->addDirectory($appDir)
+	->register();
 $configurator->addConfig($appDir . '/config/config.neon');
 if (file_exists($localConfig = $appDir . '/config/config.local.neon')) {
 	$configurator->addConfig($localConfig);
@@ -36,7 +36,7 @@ if (file_exists($localConfig = $appDir . '/config/config.local.neon')) {
 $configurator->addConfig(__DIR__ . '/config/tests.neon');
 
 $configurator->addParameters([
-		'appDir' => $appDir,
+	'appDir' => $appDir,
 ]);
 
 /** @var Container $container */

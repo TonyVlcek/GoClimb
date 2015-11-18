@@ -5,7 +5,6 @@
 
 namespace OnlineClimbing\Model\Entities\Attributes;
 
-
 trait Id
 {
 
@@ -19,7 +18,6 @@ trait Id
 	private $id;
 
 
-
 	/**
 	 * @return integer
 	 */
@@ -27,7 +25,6 @@ trait Id
 	{
 		return $this->id;
 	}
-
 
 
 	public function __clone()
