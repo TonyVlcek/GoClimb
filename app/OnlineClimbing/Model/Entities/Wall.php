@@ -45,13 +45,13 @@ class Wall
 
 	/**
 	 * @var Article[]|ArrayCollection
-	 * @ORM\OneToOne(targetEntity="Article", mappedBy="wall")
+	 * @ORM\OneToMany(targetEntity="Article", mappedBy="wall")
 	 */
 	private $articles;
 
 	/**
 	 * @var Sector[]|ArrayCollection
-	 * @ORM\OneToOne(targetEntity="Sector", mappedBy="wall")
+	 * @ORM\OneToMany(targetEntity="Sector", mappedBy="wall")
 	 */
 	private $sectors;
 
@@ -151,7 +151,7 @@ class Wall
 	 */
 	public function removeRole(Role $role)
 	{
-		$this->roles->remove($role);
+		$this->roles->removeElement($role);
 		return $this;
 	}
 
@@ -202,7 +202,7 @@ class Wall
 	 */
 	public function removeArticle(Article $article)
 	{
-		$this->articles->remove($article);
+		$this->articles->removeElement($article);
 		return $this;
 	}
 
@@ -233,7 +233,7 @@ class Wall
 	 */
 	public function removeSector(Sector $sector)
 	{
-		$this->sectors->remove($sector);
+		$this->sectors->removeElement($sector);
 		return $this;
 	}
 
