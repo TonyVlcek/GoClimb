@@ -109,7 +109,7 @@ class User
 	 */
 	public function removeArticle(Article $article)
 	{
-		$this->articles->remove($article);
+		$this->articles->removeElement($article);
 		return $this;
 	}
 

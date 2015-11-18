@@ -96,7 +96,7 @@ class Role
 	 */
 	public function removeChild(Role $role)
 	{
-		$this->children->remove($role);
+		$this->children->removeElement($role);
 		return $this;
 	}
 
