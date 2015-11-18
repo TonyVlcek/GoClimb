@@ -13,13 +13,13 @@ class SectorRepository extends BaseRepository
 {
 
 	/**
-	 * @param Wall $wall
 	 * @param string $name
+	 * @param Wall $wall
 	 * @return Sector|NULL
 	 */
-	public function getByName(Wall $wall, $name)
+	public function getByName($name, Wall $wall)
 	{
-		return $this->getDoctrineRepository()->findOneBy(["wall"=> $wall,"name" => $name]);
+		return $this->getDoctrineRepository()->findOneBy(["name" => $name, "wall" => $wall]);
 	}
 
 
