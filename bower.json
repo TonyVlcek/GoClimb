@@ -1,0 +1,19 @@
+{
+	"name": "online-climbing",
+	"version": "0.1.0",
+	"homepage": "https://github.com/greeny/OnlineClimbing",
+	"authors": [
+		"Tomáš Blatný <blatny.tomas@seznam.cz>"
+	],
+	"description": "Powerful CMS for indoor climbing websites",
+	"main": "",
+	"moduleType": [
+		"globals"
+	],
+	"license": "Propietary",
+	"private": true,
+	"ignore": [],
+	"dependencies": {
+		"bootstrap": "twitter/bootstrap#~3.3.5"
+	}
+}

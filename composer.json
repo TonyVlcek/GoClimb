@@ -1,8 +1,8 @@
 {
-	"name": "nette/web-project",
-	"description": "Nette: Standard Web Project",
+	"name": "greeny/OnlineClimbing",
+	"description": "Powerful CMS for indoor climbing websites.",
 	"type": "project",
-	"license": ["MIT", "BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"license": ["proprietary"],
 	"require": {
 		"php": ">= 5.4.0",
 		"nette/application": "~2.3.6",
@@ -23,7 +23,8 @@
 		"kdyby/doctrine": "^3.0",
 		"kdyby/translation": "^2.2",
 		"drahak/restful": "@dev",
-		"zenify/doctrine-migrations": "^2.3"
+		"zenify/doctrine-migrations": "^2.3",
+		"nextras/datagrid": "^2.1"
 	},
 	"require-dev": {
 		"nette/tester": "~1.4"

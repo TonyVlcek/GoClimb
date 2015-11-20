@@ -1,5 +1,4 @@
-# OnlineClimbing
-
-[![Build Status](https://magnum.travis-ci.com/greeny/OnlineClimbing.svg?token=f9kYturTCBvEMz2Tinmy)](https://magnum.travis-ci.com/greeny/OnlineClimbing)
-
-Powerful CMS for indoor climbing providers
+|                                                         Branch |                                                                                                                                                           Build status |
+|---------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [master](https://github.com/greeny/OnlineClimbing/tree/master) | [![Build Status](https://magnum.travis-ci.com/greeny/OnlineClimbing.svg?token=f9kYturTCBvEMz2Tinmy&branch=master)](https://magnum.travis-ci.com/greeny/OnlineClimbing) |
+|       [dev](https://github.com/greeny/OnlineClimbing/tree/dev) |    [![Build Status](https://magnum.travis-ci.com/greeny/OnlineClimbing.svg?token=f9kYturTCBvEMz2Tinmy&branch=dev)](https://magnum.travis-ci.com/greeny/OnlineClimbing) |

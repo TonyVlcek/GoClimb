@@ -3,8 +3,8 @@
 namespace OnlineClimbing;
 
 use Nette;
-use Nette\Application\Routers\RouteList;
 use Nette\Application\Routers\Route;
+use Nette\Application\Routers\RouteList;
 
 
 class RouterFactory
@@ -17,7 +17,12 @@ class RouterFactory
 	public static function createRouter()
 	{
 		$router = new RouteList;
-		/*$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');*/
+		$router[] = new Route('[<locale [a-z]{2}>/]admin/<presenter>/<action>[/<id>]', [
+			'locale' => NULL,
+			'module' => 'Admin',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+		]);
 		return $router;
 	}
 
