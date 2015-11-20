@@ -31,6 +31,7 @@ extensions:
 	eventDispatcher: Symnedi\EventDispatcher\DI\EventDispatcherExtension
 	events: Kdyby\Events\DI\EventsExtension
 	migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
+	onlineClimbing: OnlineClimbing\DI\OnlineClimbingExtension
 	restful: Drahak\Restful\DI\RestfulExtension
 	translation: Kdyby\Translation\DI\TranslationExtension
 
@@ -63,6 +64,12 @@ services:
 	router: OnlineClimbing\RouterFactory::createRouter
 
 	# - OnlineClimbing\Console\NullOutputWriter TODO
+	- OnlineClimbing\Annotations\RecursiveClassParser
+	- OnlineClimbing\Annotations\RecursiveMethodParser
+
+	# forms
+
+	- OnlineClimbing\UI\Forms\User\ISignInFormFactory
 
 	# facades
 
@@ -78,5 +85,9 @@ services:
 	- OnlineClimbing\Model\Repositories\WallRepository
 
 translation:
-	default: cs
-	fallback: [cs_CZ, cs]
+	default: en
+	fallback: [en]
+	whitelist:
+		- en
+	dirs:
+		- %appDir%/../lang

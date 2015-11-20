@@ -1,0 +1,13 @@
+core:
+	websiteName: OnlineClimbing
+
+admin:
+	layout:
+		title: Administration
+		toggleNav: Toggle navigation
+		brand: Administration
+		topMenu:
+			dashboard: Dashboard
+	dashboard:
+		default:
+			title: Dashboard

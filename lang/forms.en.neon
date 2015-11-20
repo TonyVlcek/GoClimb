@@ -1,0 +1,13 @@
+user:
+	signIn:
+		fields:
+			name: Name
+			password: Password
+			submit: Sign in
+		errors:
+			name:
+				required: Please enter name.
+				notFound: User with this name not found.
+			password:
+				required: Please enter password.
+				invalid: Invalid password.
