@@ -50,9 +50,6 @@ abstract class BasePresenter extends Presenter
 	protected function startup()
 	{
 		parent::startup();
-		if ($this->locale) {
-			$this->translator->setLocale($this->locale);
-		}
 		if ($this->translator->getLocale() !== $this->locale) {
 			$this->redirect('this', ['locale' => $this->translator->getLocale()]);
 		}

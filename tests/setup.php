@@ -8,6 +8,7 @@ use Kdyby\Doctrine\Connection;
 use Kdyby\Doctrine\EntityManager;
 use Nette\DI\Container;
 use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
 
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -64,5 +65,5 @@ $migrateCommand = new ArrayInput([
 
 /** @var Application $application */
 $application = $container->getByType(Application::class);
-$application->run($cacheCommand, NULL /*new NullOutput*/);
-$application->run($migrateCommand, NULL /*new NullOutput*/);
+$application->run($cacheCommand, new NullOutput);
+$application->run($migrateCommand, new NullOutput);

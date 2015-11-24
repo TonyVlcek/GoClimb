@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "58bb6c39f51f08150bc38cf64c1e6e28",
-    "content-hash": "677ea3506d41a5e488ad3c1e47072dc6",
+    "hash": "bce805d3f8343de8799c644f0b61bedd",
+    "content-hash": "2455cde5d331d2c40246dd3a4b381605",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2811,28 +2811,28 @@
         },
         {
             "name": "zenify/doctrine-migrations",
-            "version": "v2.3.2",
+            "version": "v2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zenify/DoctrineMigrations.git",
-                "reference": "ab3a9cfa696d0f30e838a1783ff3873197a6b4b4"
+                "reference": "bc3c0aad99330be90ae2a29d5916753bc1a820b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zenify/DoctrineMigrations/zipball/ab3a9cfa696d0f30e838a1783ff3873197a6b4b4",
-                "reference": "ab3a9cfa696d0f30e838a1783ff3873197a6b4b4",
+                "url": "https://api.github.com/repos/Zenify/DoctrineMigrations/zipball/bc3c0aad99330be90ae2a29d5916753bc1a820b1",
+                "reference": "bc3c0aad99330be90ae2a29d5916753bc1a820b1",
                 "shasum": ""
             },
             "require": {
                 "doctrine/migrations": "~1.0",
                 "nette/di": "~2.3",
                 "php": ">=5.6",
-                "symfony/console": "~2.7",
+                "symfony/console": "~2.7|~3.0",
                 "symnedi/event-dispatcher": "~0.3.1"
             },
             "require-dev": {
                 "kdyby/console": "~2.4",
-                "kdyby/doctrine": "~2.3",
+                "kdyby/doctrine": "~2.3|~3.0",
                 "kdyby/events": "~2.4",
                 "nette/bootstrap": "~2.3",
                 "tracy/tracy": "~2.3"
@@ -2854,7 +2854,7 @@
                 }
             ],
             "description": "Implementation of Doctrine Migrations to Nette",
-            "time": "2015-10-27 22:02:52"
+            "time": "2015-11-22 23:45:28"
         }
     ],
     "packages-dev": [
