@@ -6,6 +6,7 @@
  */
 
 use OnlineClimbing\Model\Entities\Article;
+use OnlineClimbing\Model\Entities\Page;
 use OnlineClimbing\Model\Entities\Role;
 use OnlineClimbing\Model\Entities\Sector;
 use OnlineClimbing\Model\Entities\User;
@@ -87,6 +88,9 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 		Helpers::assertTypesRecursive(Sector::class, $sectors = $wall->getSectors());
 		Assert::equal([1], Helpers::mapIds($sectors));
+
+		Helpers::assertTypesRecursive(Page::class, $pages = $wall->getPages());
+		Assert::equal([1], Helpers::mapIds($pages));
 	}
 
 }
