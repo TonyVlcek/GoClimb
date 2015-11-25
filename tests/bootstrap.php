@@ -4,6 +4,7 @@
  */
 
 use Nette\DI\Container;
+use OnlineClimbing\Tests\Helpers;
 use OnlineClimbing\Tests\Utils\Locker;
 use Tester\Environment;
 use Tester\TestCase;
@@ -58,9 +59,15 @@ $configurator->addParameters([
 /** @var Container $container */
 $container = $configurator->createContainer();
 
-function testCase(TestCase $testCase)
+Helpers::$container = $container;
+
+function testCase($className)
 {
-	$testCase->run();
+	if (is_object($className) && $className instanceof TestCase) { // back compatibility
+		$className->run();
+	} else {
+		Helpers::runTestCase($className);
+	}
 }
 
 return $container;

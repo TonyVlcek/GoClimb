@@ -5,8 +5,9 @@
  * @author Tomáš Blatný
  */
 
-use Nette\DI\Container;
 use Nette\Security\Passwords;
+use OnlineClimbing\Model\Entities\Article;
+use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Repositories\UserRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
 use OnlineClimbing\Tests\Helpers;
@@ -14,17 +15,10 @@ use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-/** @var Container $container */
-$container = require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 class UserRepositoryTestCase extends DatabaseTestCase
 {
-
-	const ADMIN_USER_ID = 1;
-	const TEST_USER_ID = 2;
-
-	const ADMIN_USER_NAME = 'admin';
-	const TEST_USER_NAME = 'test';
 
 	/** @var UserRepository */
 	private $userRepository;
@@ -33,35 +27,36 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	private $wallRepository;
 
 
-	public function __construct(Container $container)
+	public function __construct(UserRepository $userRepository, WallRepository $wallRepository)
 	{
-		parent::__construct($container);
-		$this->userRepository = $this->container->getByType(UserRepository::class);
-		$this->wallRepository = $this->container->getByType(WallRepository::class);
+		parent::__construct();
+		$this->userRepository = $userRepository;
+		$this->wallRepository = $wallRepository;
 	}
 
 
 	public function testGetById()
 	{
-		Assert::truthy($adminUser = $this->userRepository->getById(self::ADMIN_USER_ID));
-		Assert::equal(self::ADMIN_USER_ID, $adminUser->getId());
-		Assert::equal(self::ADMIN_USER_NAME, $adminUser->getName());
+		Assert::type(User::class, $adminUser = $this->userRepository->getById(1));
+		Assert::equal(1, $adminUser->getId());
 	}
 
 
 	public function testGetByName()
 	{
-		Assert::truthy($testUser = $this->userRepository->getByName(self::TEST_USER_NAME));
-		Assert::equal(self::TEST_USER_ID, $testUser->getId());
-		Assert::equal(self::TEST_USER_NAME, $testUser->getName());
+		Assert::type(User::class, $testUser = $this->userRepository->getByName('test'));
+		Assert::equal(2, $testUser->getId());
 	}
 
 
 	public function testCreateUser()
 	{
-		Assert::truthy($testUser = $this->userRepository->createUser('a', 'b'));
+		Assert::type(User::class, $testUser = $this->userRepository->createUser('a', 'b'));
 		Assert::equal('a', $testUser->getName());
 		Assert::true(Passwords::verify('b', $testUser->getPassword()));
+
+		//Test state after
+		Assert::equal($testUser, $this->userRepository->getByName('a'));
 	}
 
 
@@ -100,6 +95,14 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([1, 2], Helpers::mapIds($wall1->getUsersFavorited()));
 	}
 
+
+	public function testMapping()
+	{
+		$user = $this->userRepository->getById(1);
+		Helpers::assertTypesRecursive(Article::class, $articles = $user->getArticles());
+		Assert::equal([1, 2], Helpers::mapIds($articles));
+	}
+
 }
 
-testCase(new UserRepositoryTestCase($container));
+testCase(UserRepositoryTestCase::class);

@@ -5,26 +5,34 @@
  * @author Tomáš Blatný
  */
 
-use Nette\DI\Container;
+use OnlineClimbing\Model\Entities\Resource;
 use OnlineClimbing\Model\Repositories\ResourceRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-/** @var Container $container */
-$container = require __DIR__ . "/../../bootstrap.php";
+require __DIR__ . "/../../bootstrap.php";
 
 class ResourceRepositoryTestCase extends DatabaseTestCase
 {
 
+	/** @var ResourceRepository */
+	private $resourceRepository;
+
+
+	public function __construct(ResourceRepository $resourceRepository)
+	{
+		parent::__construct();
+		$this->resourceRepository = $resourceRepository;
+	}
+
+
 	public function testGetByName()
 	{
-		/** @var ResourceRepository $resourceRepository */
-		$resourceRepository = $this->container->getByType(ResourceRepository::class);
-		Assert::truthy($resource = $resourceRepository->getByName('Resource 1'));
+		Assert::type(Resource::class, $resource = $this->resourceRepository->getByName('Resource 1'));
 		Assert::equal('Resource 1', $resource->getName());
 	}
 
 }
 
-testCase(new ResourceRepositoryTestCase($container));
+testCase(ResourceRepositoryTestCase::class);

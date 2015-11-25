@@ -19,7 +19,7 @@ class Route
 
 	/**
 	 * @var Line
-	 * @ORM\ManyToOne(targetEntity="Wall", inversedBy="route")
+	 * @ORM\ManyToOne(targetEntity="Line", inversedBy="routes")
 	 * @ORM\JoinColumn(nullable=FALSE)
 	 */
 	private $line;

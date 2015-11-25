@@ -5,8 +5,27 @@
 
 namespace OnlineClimbing\Tests;
 
+use Nette\DI\Container;
+use OnlineClimbing\Tests\Utils\TestCase;
+use Tester\Assert;
+
+
 class Helpers
 {
+
+	/** @var Container */
+	public static $container;
+
+
+	public static function runTestCase($className)
+	{
+		$testCase = self::$container->createInstance($className);
+		if ($testCase instanceof TestCase) {
+			self::$container->callInjects($testCase);
+		}
+		$testCase->run();
+	}
+
 
 	/**
 	 * Returns IDs of given entities
@@ -21,5 +40,13 @@ class Helpers
 		}, $entities));
 		sort($ids);
 		return $ids;
+	}
+
+
+	public static function assertTypesRecursive($type, array $array)
+	{
+		foreach ($array as $item) {
+			Assert::type($type, $item);
+		}
 	}
 }

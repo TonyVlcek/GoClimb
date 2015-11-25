@@ -5,7 +5,7 @@
  * @author Tomáš Blatný
  */
 
-use Nette\DI\Container;
+use OnlineClimbing\Model\Entities\Role;
 use OnlineClimbing\Model\Repositories\RoleRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
 use OnlineClimbing\Tests\Helpers;
@@ -13,27 +13,62 @@ use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-/** @var Container $container */
-$container = require __DIR__ . "/../../bootstrap.php";
+require __DIR__ . "/../../bootstrap.php";
 
 class RoleRepositoryTestCase extends DatabaseTestCase
 {
 
-	public function testGetById()
-	{
-		/** @var RoleRepository $roleRepository */
-		$roleRepository = $this->container->getByType(RoleRepository::class);
-		/** @var WallRepository $wallRepository */
-		$wallRepository = $this->container->getByType(WallRepository::class);
+	/** @var RoleRepository */
+	private $roleRepository;
 
-		Assert::count(2, $roles = $roleRepository->getByWall($wallRepository->getById(1)));
+	/** @var WallRepository */
+	private $wallRepository;
+
+
+	public function __construct(RoleRepository $roleRepository, WallRepository $wallRepository)
+	{
+		parent::__construct();
+		$this->roleRepository = $roleRepository;
+		$this->wallRepository = $wallRepository;
+	}
+
+
+	public function testGetByName()
+	{
+		$wall = $this->wallRepository->getById(1);
+		$role = $this->roleRepository->getByName('Role 1', $wall);
+		Assert::type(Role::class, $role);
+		Assert::equal(1, $role->getId());
+	}
+
+
+	public function testGetByWall()
+	{
+		$wall = $this->wallRepository->getById(1);
+		Assert::count(2, $roles = $this->roleRepository->getByWall($wall));
 
 		Assert::equal([1, 2], Helpers::mapIds($roles));
+	}
 
-		Assert::equal($roles[0], $roles[1]->getParent());
-		Assert::null($roles[0]->getParent());
+
+	public function testMapping()
+	{
+		$wall = $this->wallRepository->getById(1);
+		$roles = $this->roleRepository->getByWall($wall);
+
+		$parent = $roles[0];
+		$child = $roles[1];
+
+		Helpers::assertTypesRecursive(Role::class, $parent->getChildren());
+		Helpers::assertTypesRecursive(Role::class, $child->getChildren());
+
+		Assert::equal($parent, $child->getParent());
+		Assert::null($parent->getParent());
+
+		Assert::equal([2], Helpers::mapIds($parent->getChildren()));
+		Assert::equal([], Helpers::mapIds($child->getChildren()));
 	}
 
 }
 
-testCase(new RoleRepositoryTestCase($container));
+testCase(RoleRepositoryTestCase::class);
