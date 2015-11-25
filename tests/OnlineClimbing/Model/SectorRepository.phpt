@@ -5,14 +5,16 @@
  * @author Tony Vlček
  */
 
-use Nette\DI\Container;
+use OnlineClimbing\Model\Entities\Line;
+use OnlineClimbing\Model\Entities\Sector;
+use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\Repositories\SectorRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
+use OnlineClimbing\Tests\Helpers;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
-
-$container = $container = require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 class SectorRepositoryTestCase extends DatabaseTestCase
 {
@@ -24,11 +26,11 @@ class SectorRepositoryTestCase extends DatabaseTestCase
 	private $wallRepository;
 
 
-	public function __construct(Container $container)
+	public function __construct(SectorRepository $sectorRepository, WallRepository $wallRepository)
 	{
-		parent::__construct($container);
-		$this->sectorRepository = $this->container->getByType(SectorRepository::class);
-		$this->wallRepository = $this->container->getByType(WallRepository::class);
+		parent::__construct();
+		$this->sectorRepository = $sectorRepository;
+		$this->wallRepository = $wallRepository;
 	}
 
 
@@ -36,16 +38,25 @@ class SectorRepositoryTestCase extends DatabaseTestCase
 	{
 		Assert::truthy($sector = $this->sectorRepository->getByName('TestSector', $this->wallRepository->getById(1)));
 		Assert::equal(1, $sector->getId());
-		Assert::equal(1, $sector->getWall()->getId());
 	}
 
 
 	public function testGetByWall()
 	{
-		Assert::type('array', $sectors = $this->sectorRepository->getByWall($this->wallRepository->getById(1)));
-		Assert::equal(1, reset($sectors)->getId());
+		Helpers::assertTypesRecursive(Sector::class, $sectors = $this->sectorRepository->getByWall($this->wallRepository->getById(1)));
+		Assert::equal([1], Helpers::mapIds($sectors));
+	}
+
+
+	public function testMapping()
+	{
+		$sector = $this->sectorRepository->getByName('TestSector', $this->wallRepository->getById(1));
+		Assert::type(Wall::class, $wall = $sector->getWall());
+		Assert::equal(1, $wall->getId());
+		Helpers::assertTypesRecursive(Line::class, $lines = $sector->getLines());
+		Assert::equal([1], Helpers::mapIds($lines));
 	}
 
 }
 
-testCase(new SectorRepositoryTestCase($container));
+testCase(SectorRepositoryTestCase::class);
