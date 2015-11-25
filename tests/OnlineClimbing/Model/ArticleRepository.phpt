@@ -5,7 +5,8 @@
  * @author Tony Vlček
  */
 
-use Nette\DI\Container;
+use OnlineClimbing\Model\Entities\User;
+use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\Repositories\ArticleRepository;
 use OnlineClimbing\Model\Repositories\UserRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
@@ -14,8 +15,7 @@ use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-/** @var Container $container */
-$container = require __DIR__ . "/../../bootstrap.php";
+require __DIR__ . "/../../bootstrap.php";
 
 class ArticleRepositoryTestCase extends DatabaseTestCase
 {
@@ -30,13 +30,12 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 	private $userRepository;
 
 
-	public function __construct(Container $container)
+	public function __construct(ArticleRepository $articleRepository, WallRepository $wallRepository, UserRepository $userRepository)
 	{
-		parent::__construct($container);
-
-		$this->articleRepository = $container->getByType(ArticleRepository::class);
-		$this->wallRepository = $container->getByType(WallRepository::class);
-		$this->userRepository = $container->getByType(UserRepository::class);
+		parent::__construct();
+		$this->articleRepository = $articleRepository;
+		$this->wallRepository = $wallRepository;
+		$this->userRepository = $userRepository;
 	}
 
 
@@ -44,8 +43,6 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 	{
 		Assert::truthy($article = $this->articleRepository->getById(1));
 		Assert::equal(1, $article->getId());
-		Assert::equal(1, $article->getAuthor()->getId());
-		Assert::equal(1, $article->getWall()->getId());
 	}
 
 
@@ -63,6 +60,18 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([5, 6], Helpers::mapIds($this->articleRepository->getGlobal(NULL)));
 		Assert::equal([6], Helpers::mapIds($this->articleRepository->getGlobal(FALSE)));
 	}
+
+
+	public function testMapping()
+	{
+		Assert::truthy($article = $this->articleRepository->getById(1));
+
+		Assert::type(User::class, $article->getAuthor());
+		Assert::equal(1, $article->getAuthor()->getId());
+
+		Assert::type(Wall::class, $article->getWall());
+		Assert::equal(1, $article->getWall()->getId());
+	}
 }
 
-testCase(new ArticleRepositoryTestCase($container));
+testCase(ArticleRepositoryTestCase::class);
