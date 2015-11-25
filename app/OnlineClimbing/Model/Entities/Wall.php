@@ -38,6 +38,12 @@ class Wall
 	private $user;
 
 	/**
+	 * @var Page[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Page", mappedBy="wall")
+	 */
+	private $pages;
+
+	/**
 	 * @var Role[]|ArrayCollection
 	 * @ORM\OneToMany(targetEntity="Role", mappedBy="wall")
 	 */
@@ -59,6 +65,7 @@ class Wall
 	public function __construct()
 	{
 		$this->userFavorites = new ArrayCollection;
+		$this->pages = new ArrayCollection;
 		$this->roles = new ArrayCollection;
 		$this->articles = new ArrayCollection;
 		$this->sectors = new ArrayCollection;
@@ -122,6 +129,37 @@ class Wall
 	public function setName($name)
 	{
 		$this->name = $name;
+		return $this;
+	}
+
+
+	/**
+	 * @return Page[]
+	 */
+	public function getPages()
+	{
+		return $this->pages->toArray();
+	}
+
+
+	/**
+	 * @param Page $page
+	 * @return $this
+	 */
+	public function addPage(Page $page)
+	{
+		$this->pages->add($page);
+		return $this;
+	}
+
+
+	/**
+	 * @param Page $page
+	 * @return $this
+	 */
+	public function removePage(Page $page)
+	{
+		$this->pages->removeElement($page);
 		return $this;
 	}
 
