@@ -1,6 +1,4 @@
 <?php
-use Tester\TestCase;
-
 
 /**
  * @author Tomáš Blatný
@@ -10,17 +8,12 @@ namespace OnlineClimbing\Tests\Utils;
 
 use Kdyby\Doctrine\Connection;
 use Kdyby\Doctrine\EntityManager;
-use Nette\DI\Container;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Tester\TestCase;
 
 
 class DatabaseTestCase extends TestCase
 {
-
-	/** @var Container */
-	protected $container;
 
 	/** @var EntityManager */
 	protected $entityManager;
@@ -29,11 +22,15 @@ class DatabaseTestCase extends TestCase
 	protected $connection;
 
 
-	public function __construct(Container $container)
+	public function injectConnection(EntityManager $entityManager)
 	{
-		$this->container = $container;
-		$this->entityManager = $this->container->getByType(EntityManager::class);
-		$this->connection = $this->entityManager->getConnection();
+		$this->entityManager = $entityManager;
+		$this->connection = $entityManager->getConnection();
+	}
+
+
+	public function __construct()
+	{
 		Locker::lock(Locker::DATABASE);
 	}
 

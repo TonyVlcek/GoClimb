@@ -6,6 +6,7 @@
 namespace OnlineClimbing\Tests;
 
 use Nette\DI\Container;
+use OnlineClimbing\Tests\Utils\TestCase;
 
 
 class Helpers
@@ -18,6 +19,9 @@ class Helpers
 	public static function runTestCase($className)
 	{
 		$testCase = self::$container->createInstance($className);
+		if ($testCase instanceof TestCase) {
+			self::$container->callInjects($testCase);
+		}
 		$testCase->run();
 	}
 
