@@ -5,8 +5,22 @@
 
 namespace OnlineClimbing\Tests;
 
+use Nette\DI\Container;
+
+
 class Helpers
 {
+
+	/** @var Container */
+	public static $container;
+
+
+	public static function runTestCase($className)
+	{
+		$testCase = self::$container->createInstance($className);
+		$testCase->run();
+	}
+
 
 	/**
 	 * Returns IDs of given entities
