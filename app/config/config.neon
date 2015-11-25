@@ -79,6 +79,7 @@ services:
 
 	- OnlineClimbing\Model\Repositories\ArticleRepository
 	- OnlineClimbing\Model\Repositories\LineRepository
+	- OnlineClimbing\Model\Repositories\PrivilegeRepository
 	- OnlineClimbing\Model\Repositories\ResourceRepository
 	- OnlineClimbing\Model\Repositories\RoleRepository
 	- OnlineClimbing\Model\Repositories\SectorRepository
