@@ -11,6 +11,7 @@ use OnlineClimbing\Model\Entities\Attributes\Id;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="unique_name_sector", columns={"name", "sector_id"})})
  */
 class Line
 {
