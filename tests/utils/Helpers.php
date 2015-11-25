@@ -7,6 +7,7 @@ namespace OnlineClimbing\Tests;
 
 use Nette\DI\Container;
 use OnlineClimbing\Tests\Utils\TestCase;
+use Tester\Assert;
 
 
 class Helpers
@@ -39,5 +40,13 @@ class Helpers
 		}, $entities));
 		sort($ids);
 		return $ids;
+	}
+
+
+	public static function assertTypesRecursive($type, array $array)
+	{
+		foreach ($array as $item) {
+			Assert::type($type, $item);
+		}
 	}
 }
