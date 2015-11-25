@@ -5,23 +5,33 @@
  * @author Martin Mikšik
  */
 
+use OnlineClimbing\Model\Entities\Privilege;
 use OnlineClimbing\Model\Repositories\PrivilegeRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-$container = require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 class PrivilegeRepositoryTestCase extends DatabaseTestCase
 {
 
+	/** @var PrivilegeRepository */
+	private $privilegeRepository;
+
+
+	public function __construct(PrivilegeRepository $privilegeRepository)
+	{
+		parent::__construct();
+		$this->privilegeRepository = $privilegeRepository;
+	}
+
+
 	public function testGetByName()
 	{
-		/** @var PrivilegeRepository $privilegeRepository */
-		$privilegeRepository = $this->container->getByType(PrivilegeRepository::class);
-		Assert::truthy($wall = $privilegeRepository->getByName("edit"));
+		Assert::type(Privilege::class, $this->privilegeRepository->getByName("edit"));
 	}
 
 }
 
-testCase(new PrivilegeRepositoryTestCase($container));
+testCase(PrivilegeRepositoryTestCase::class);
