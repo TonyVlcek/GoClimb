@@ -64,7 +64,7 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 
 	public function testMapping()
 	{
-		Assert::truthy($article = $this->articleRepository->getById(1));
+		$article = $this->articleRepository->getById(1);
 
 		Assert::type(User::class, $article->getAuthor());
 		Assert::equal(1, $article->getAuthor()->getId());
