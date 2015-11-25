@@ -65,7 +65,7 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 		Assert::equal($parent, $child->getParent());
 		Assert::null($parent->getParent());
 
-		Assert::equal([1], Helpers::mapIds($parent->getChildren()));
+		Assert::equal([2], Helpers::mapIds($parent->getChildren()));
 		Assert::equal([], Helpers::mapIds($child->getChildren()));
 	}
 
