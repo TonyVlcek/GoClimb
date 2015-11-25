@@ -5,6 +5,7 @@
 
 namespace OnlineClimbing\Model\Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
 
@@ -29,6 +30,18 @@ class Line
 	 * @ORM\JoinColumn(nullable=FALSE)
 	 */
 	private $sector;
+
+	/**
+	 * @var Route[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Route", mappedBy="line")
+	 */
+	private $routes;
+
+
+	public function __construct()
+	{
+		$this->routes = new ArrayCollection;
+	}
 
 
 	/**
@@ -70,4 +83,34 @@ class Line
 		return $this;
 	}
 
+
+	/**
+	 * @return Route[]
+	 */
+	public function getRoutes()
+	{
+		return $this->routes->toArray();
+	}
+
+
+	/**
+	 * @param Route $route
+	 * @return $this
+	 */
+	public function addRoute(Route $route)
+	{
+		$this->routes->add($route);
+		return $this;
+	}
+
+
+	/**
+	 * @param Route $route
+	 * @return $this
+	 */
+	public function removeRoute(Route $route)
+	{
+		$this->routes->removeElement($route);
+		return $this;
+	}
 }
