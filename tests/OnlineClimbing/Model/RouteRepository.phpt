@@ -5,28 +5,42 @@
  * @author Tony Vlček
  */
 
-use Nette\DI\Container;
+use OnlineClimbing\Model\Entities\Line;
+use OnlineClimbing\Model\Entities\Route;
 use OnlineClimbing\Model\Repositories\RouteRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-/** @var Container $container */
-$container = require __DIR__ . "/../../bootstrap.php";
+require __DIR__ . "/../../bootstrap.php";
 
 class RouteRepositoryTestCase extends DatabaseTestCase
 {
 
+	/** @var RouteRepository */
+	private $routeRepository;
+
+
+	public function __construct(RouteRepository $routeRepository)
+	{
+		parent::__construct();
+		$this->routeRepository = $routeRepository;
+	}
+
+
 	public function testGetById()
 	{
-		/** @var RouteRepository $routeRepository */
-		$routeRepository = $this->container->getByType(RouteRepository::class);
-
-		Assert::truthy($route = $routeRepository->getById(1));
+		Assert::type(Route::class, $route = $this->routeRepository->getById(1));
 		Assert::equal(1, $route->getId());
-		Assert::equal(1, $route->getLine()->getId());
+	}
 
+
+	public function testMapping()
+	{
+		$route = $this->routeRepository->getById(1);
+		Assert::type(Line::class, $line = $route->getLine());
+		Assert::equal(1, $line->getId());
 	}
 }
 
-testCase(new RouteRepositoryTestCase($container));
+testCase(RouteRepositoryTestCase::class);
