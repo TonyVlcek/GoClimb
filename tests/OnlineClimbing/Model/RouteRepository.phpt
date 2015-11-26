@@ -7,6 +7,7 @@
 
 use OnlineClimbing\Model\Entities\Line;
 use OnlineClimbing\Model\Entities\Route;
+use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Repositories\RouteRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
@@ -40,6 +41,9 @@ class RouteRepositoryTestCase extends DatabaseTestCase
 		$route = $this->routeRepository->getById(1);
 		Assert::type(Line::class, $line = $route->getLine());
 		Assert::equal(1, $line->getId());
+
+		Assert::type(User::class, $builder = $route->getBuilder());
+		Assert::equal(1, $builder->getId());
 	}
 }
 
