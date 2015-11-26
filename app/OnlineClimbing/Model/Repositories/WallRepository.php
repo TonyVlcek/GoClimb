@@ -5,7 +5,7 @@
 
 namespace OnlineClimbing\Model\Repositories;
 
-use OnlineClimbing\Model\Entities\User;
+use OnlineClimbing\Model\Entities\Company;
 use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\WallException;
 
@@ -34,12 +34,12 @@ class WallRepository extends BaseRepository
 
 
 	/**
-	 * @param User $user
+	 * @param Company $company
 	 * @param string $name
 	 * @return Wall
 	 * @throws WallException
 	 */
-	public function createWall(User $user, $name)
+	public function createWall(Company $company, $name)
 	{
 		if ($this->getByName($name)) {
 			throw WallException::duplicateName($name);
@@ -47,7 +47,7 @@ class WallRepository extends BaseRepository
 
 		$wall = new Wall();
 		$wall->setName($name);
-		$wall->setUser($user);
+		$wall->setCompany($company);
 
 		$this->getEntityManager()
 			->persist($wall)
