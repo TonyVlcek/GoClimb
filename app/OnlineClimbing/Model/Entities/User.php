@@ -25,6 +25,13 @@ class User
 	 */
 	private $favoriteWalls;
 
+
+	/**
+	 * @var Company[]|ArrayCollection
+	 * @ORM\ManyToMany(targetEntity="Company", mappedBy="users")
+	 */
+	private $companies;
+
 	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
@@ -55,6 +62,7 @@ class User
 		$this->builtRoutes = new ArrayCollection;
 		$this->articles = new ArrayCollection;
 		$this->favoriteWalls = new ArrayCollection;
+		$this->companies = new ArrayCollection;
 	}
 
 
@@ -96,6 +104,37 @@ class User
 	public function getFavoriteWalls()
 	{
 		return $this->favoriteWalls->toArray();
+	}
+
+
+	/**
+	 * @return Company[]
+	 */
+	public function getCompanies()
+	{
+		return $this->companies->toArray();
+	}
+
+
+	/**
+	 * @param Company $company
+	 * @return $this
+	 */
+	public function addCompany(Company $company)
+	{
+		$this->companies->add($company);
+		return $this;
+	}
+
+
+	/**
+	 * @param Company $company
+	 * @return $this
+	 */
+	public function removeCompany(Company $company)
+	{
+		$this->companies->removeElement($company);
+		return $this;
 	}
 
 

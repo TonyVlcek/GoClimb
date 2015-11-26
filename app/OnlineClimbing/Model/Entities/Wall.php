@@ -32,10 +32,10 @@ class Wall
 	private $name;
 
 	/**
-	 * @var User
-	 * @ORM\ManyToOne(targetEntity="User")
+	 * @var Company
+	 * @ORM\ManyToOne(targetEntity="Company", inversedBy="walls")
 	 */
-	private $user;
+	private $company;
 
 	/**
 	 * @var Page[]|ArrayCollection
@@ -196,21 +196,21 @@ class Wall
 
 
 	/**
-	 * @return User
+	 * @return Company
 	 */
-	public function getUser()
+	public function getCompany()
 	{
-		return $this->user;
+		return $this->company;
 	}
 
 
 	/**
-	 * @param User $user
+	 * @param Company $company
 	 * @return $this
 	 */
-	public function setUser($user)
+	public function setCompany($company)
 	{
-		$this->user = $user;
+		$this->company = $company;
 		return $this;
 	}
 

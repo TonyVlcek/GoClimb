@@ -78,6 +78,7 @@ services:
 	# repositories
 
 	- OnlineClimbing\Model\Repositories\ArticleRepository
+	- OnlineClimbing\Model\Repositories\CompanyRepository
 	- OnlineClimbing\Model\Repositories\LineRepository
 	- OnlineClimbing\Model\Repositories\PageRepository
 	- OnlineClimbing\Model\Repositories\PrivilegeRepository

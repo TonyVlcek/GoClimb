@@ -11,7 +11,7 @@ use OnlineClimbing\Model\Entities\Role;
 use OnlineClimbing\Model\Entities\Sector;
 use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Entities\Wall;
-use OnlineClimbing\Model\Repositories\UserRepository;
+use OnlineClimbing\Model\Repositories\CompanyRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
 use OnlineClimbing\Model\WallException;
 use OnlineClimbing\Tests\Helpers;
@@ -27,15 +27,15 @@ class WallRepositoryTestCase extends DatabaseTestCase
 	/** @var WallRepository */
 	private $wallRepository;
 
-	/** @var  UserRepository */
-	private $userRepository;
+	/** @var CompanyRepository */
+	private $companyRepository;
 
 
-	public function __construct(WallRepository $wallRepository, UserRepository $userRepository)
+	public function __construct(WallRepository $wallRepository, CompanyRepository $companyRepository)
 	{
 		parent::__construct();
 		$this->wallRepository = $wallRepository;
-		$this->userRepository = $userRepository;
+		$this->companyRepository = $companyRepository;
 	}
 
 
@@ -59,14 +59,14 @@ class WallRepositoryTestCase extends DatabaseTestCase
 		Assert::null($this->wallRepository->getById(3));
 
 		//Create wall with an exception
-		$user = $this->userRepository->getById(1);
+		$company = $this->companyRepository->getById(1);
 		$that = $this;
-		Assert::exception(function () use ($user, $that) {
-			$that->wallRepository->createWall($user, 'Test Wall');
+		Assert::exception(function () use ($company, $that) {
+			$that->wallRepository->createWall($company, 'Test Wall');
 		}, WallException::class);
 
 		//Create wall without exception
-		Assert::type(Wall::class, $wall = $this->wallRepository->createWall($user, 'This Will Exist'));
+		Assert::type(Wall::class, $wall = $this->wallRepository->createWall($company, 'This Will Exist'));
 
 		//Test state after
 		Assert::equal('This Will Exist', $wall->getName());
@@ -77,8 +77,8 @@ class WallRepositoryTestCase extends DatabaseTestCase
 	{
 		$wall = $this->wallRepository->getById(1);
 
-		Assert::type(User::class, $user = $wall->getUser());
-		Assert::equal(1, $user->getId());
+		Helpers::assertTypesRecursive(User::class, $users = $wall->getCompany()->getUsers());
+		Assert::equal([1, 2], Helpers::mapIds($users));
 
 		Helpers::assertTypesRecursive(Role::class, $roles = $wall->getRoles());
 		Assert::equal([1, 2], Helpers::mapIds($roles));
