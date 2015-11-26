@@ -43,9 +43,16 @@ class User
 	 */
 	private $articles;
 
+	/**
+	 * @var Route[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Route", mappedBy="builder")
+	 */
+	private $builtRoutes;
+
 
 	public function __construct()
 	{
+		$this->builtRoutes = new ArrayCollection;
 		$this->articles = new ArrayCollection;
 		$this->favoriteWalls = new ArrayCollection;
 	}
@@ -162,4 +169,34 @@ class User
 		return $this;
 	}
 
+
+	/**
+	 * @return Route[]
+	 */
+	public function getBuiltRoutes()
+	{
+		return $this->builtRoutes->toArray();
+	}
+
+
+	/**
+	 * @param Route $route
+	 * @return $this
+	 */
+	public function addBuiltRoute(Route $route)
+	{
+		$this->builtRoutes->add($route);
+		return $this;
+	}
+
+
+	/**
+	 * @param Route $route
+	 * @return $this
+	 */
+	public function removeBuiltRoute(Route $route)
+	{
+		$this->builtRoutes->removeElement($route);
+		return $this;
+	}
 }

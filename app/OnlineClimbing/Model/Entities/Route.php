@@ -25,6 +25,13 @@ class Route
 	private $line;
 
 	/**
+	 * @var User
+	 * @ORM\ManyToOne(targetEntity="User", inversedBy="builtRoutes")
+	 * @ORM\JoinColumn(nullable=FALSE)
+	 */
+	private $builder;
+
+	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE)
 	 */
@@ -67,6 +74,26 @@ class Route
 	public function setName($name)
 	{
 		$this->name = $name;
+		return $this;
+	}
+
+
+	/**
+	 * @return User
+	 */
+	public function getBuilder()
+	{
+		return $this->builder;
+	}
+
+
+	/**
+	 * @param User $builder
+	 * @return $this
+	 */
+	public function setBuilder(User $builder)
+	{
+		$this->builder = $builder;
 		return $this;
 	}
 
