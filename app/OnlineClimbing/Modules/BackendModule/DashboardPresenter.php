@@ -3,7 +3,7 @@
  * @author Tomáš Blatný
  */
 
-namespace OnlineClimbing\Modules\AdminModule;
+namespace OnlineClimbing\Modules\BackendModule;
 
 use OnlineClimbing\UI\Forms\User\ISignInFormFactory;
 

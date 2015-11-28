@@ -3,7 +3,7 @@
  * @author Tomáš Blatný
  */
 
-namespace OnlineClimbing\Modules\ApiModule;
+namespace OnlineClimbing\Modules\RestModule;
 
 use Drahak\Restful\Application\UI\ResourcePresenter;
 use Drahak\Restful\IResource;
