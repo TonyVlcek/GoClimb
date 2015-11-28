@@ -9,7 +9,7 @@ namespace OnlineClimbing\Model\Entities;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
-
+use OnlineClimbing\Model\Entities\File;
 
 /**
  * @ORM\Entity
@@ -44,6 +44,12 @@ class Wall
 	private $pages;
 
 	/**
+	 * @var Page[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Page", mappedBy="wall")
+	 */
+	private $pages;
+
+	/**
 	 * @var Role[]|ArrayCollection
 	 * @ORM\OneToMany(targetEntity="Role", mappedBy="wall")
 	 */
@@ -61,6 +67,12 @@ class Wall
 	 */
 	private $sectors;
 
+	/**
+	 * @var File[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="File", mappedBy="wall")
+	 */
+	private $files;
+
 
 	public function __construct()
 	{
@@ -69,6 +81,7 @@ class Wall
 		$this->roles = new ArrayCollection;
 		$this->articles = new ArrayCollection;
 		$this->sectors = new ArrayCollection;
+		$this->files = new ArrayCollection;
 	}
 
 
@@ -273,6 +286,37 @@ class Wall
 	public function removeSector(Sector $sector)
 	{
 		$this->sectors->removeElement($sector);
+		return $this;
+	}
+
+
+	/**
+	 * @return File[]
+	 */
+	public function getFiles()
+	{
+		return $this->files->toArray();
+	}
+
+
+	/**
+	 * @param File $file
+	 * @return $this
+	 */
+	public function addFile(File $file)
+	{
+		$this->files->add($file);
+		return $this;
+	}
+
+
+	/**
+	 * @param File $file
+	 * @return $this
+	 */
+	public function removeFile(File $file)
+	{
+		$this->files->removeElement($file);
 		return $this;
 	}
 
