@@ -6,13 +6,21 @@
 namespace OnlineClimbing\Modules;
 
 use Kdyby\Translation\Translator;
+use Nette\Application;
 use Nette\Application\UI\Presenter;
 use Nette\Reflection\ClassType;
 use Nette\Reflection\Method;
 use OnlineClimbing\Annotations\RecursiveClassParser;
 use OnlineClimbing\Annotations\RecursiveMethodParser;
+use OnlineClimbing\Model\Facades\AuthFacade;
+use OnlineClimbing\Security\ApplicationPartsManager;
+use OnlineClimbing\Security\Identity;
+use OnlineClimbing\Security\User;
 
 
+/**
+ * @property-read User $user
+ */
 abstract class BasePresenter extends Presenter
 {
 
@@ -28,10 +36,42 @@ abstract class BasePresenter extends Presenter
 	/** @var RecursiveMethodParser */
 	private $methodParser;
 
+	/** @var ApplicationPartsManager */
+	protected $applicationPartsManager;
 
-	public function injectEssentials(Translator $translator, RecursiveClassParser $classParser, RecursiveMethodParser $methodParser)
+	/** @var AuthFacade */
+	protected $authFacade;
+
+
+	public function run(Application\Request $request)
+	{
+		$this->init();
+		return parent::run($request);
+	}
+
+
+	abstract protected function init();
+
+
+	/**
+	 * @return User
+	 */
+	public function getUser()
+	{
+		return parent::getUser();
+	}
+
+
+	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, AuthFacade $authFacade)
 	{
 		$this->translator = $translator;
+		$this->applicationPartsManager = $applicationPartsManager;
+		$this->authFacade = $authFacade;
+	}
+
+
+	public function injectAnnotationParsers(RecursiveClassParser $classParser, RecursiveMethodParser $methodParser)
+	{
 		$this->classParser = $classParser;
 		$this->methodParser = $methodParser;
 	}
@@ -53,6 +93,28 @@ abstract class BasePresenter extends Presenter
 		if ($this->translator->getLocale() !== $this->locale) {
 			$this->redirect('this', ['locale' => $this->translator->getLocale()]);
 		}
+	}
+
+
+	public function handleTokenLogin($token)
+	{
+		$this->resolveLogin($token);
+	}
+
+
+	protected function resolveLogin($token)
+	{
+		if ($user = $this->authFacade->getUserByToken($token)) {
+			$this->user->login(new Identity($user));
+		}
+		$this->redirect('this', ['token' => NULL]);
+	}
+
+
+	public function handleLogout() // TODO add redirect to AuthServer for logout
+	{
+		$this->user->logout(TRUE);
+		$this->redirect('this');
 	}
 
 

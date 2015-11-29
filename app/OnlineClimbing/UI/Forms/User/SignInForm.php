@@ -5,12 +5,12 @@
 
 namespace OnlineClimbing\UI\Forms\User;
 
-use Nette\Security\Identity;
 use Nette\Security\Passwords;
-use Nette\Security\User as SecurityUser;
 use Nette\Utils\ArrayHash;
 use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Facades\UserFacade;
+use OnlineClimbing\Security\Identity;
+use OnlineClimbing\Security\User as SecurityUser;
 use OnlineClimbing\UI\Forms\BaseForm;
 use OnlineClimbing\UI\Forms\Form;
 use OnlineClimbing\UI\Forms\ITranslatableFormFactory;
@@ -36,7 +36,7 @@ class SignInForm extends BaseForm
 	private $user;
 
 
-	public function __construct(UserFacade $userFacade, SecurityUser $securityUser) // TODO own User
+	public function __construct(UserFacade $userFacade, SecurityUser $securityUser)
 	{
 		parent::__construct();
 		$this->userFacade = $userFacade;
@@ -80,7 +80,7 @@ class SignInForm extends BaseForm
 	 */
 	public function formSuccess(Form $form, ArrayHash $values)
 	{
-		$this->securityUser->login(new Identity($this->user->getId(), [], [])); // TODO own identity
+		$this->securityUser->login(new Identity($this->user));
 	}
 
 
@@ -91,4 +91,14 @@ class SignInForm extends BaseForm
 	{
 		return 'user.signIn';
 	}
+
+
+	/**
+	 * @return User
+	 */
+	public function getUser()
+	{
+		return $this->user;
+	}
+
 }

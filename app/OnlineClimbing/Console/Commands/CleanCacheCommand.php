@@ -37,8 +37,8 @@ class CleanCacheCommand extends Command
 	{
 		$dirTag = $result['dirsToRemove'] === $result['dirsRemoved'] ? 'info' : 'error';
 		$fileTag = $result['filesToRemove'] === $result['filesRemoved'] ? 'info' : 'error';
-		$output->writeln(sprintf('%s: <%s>Removed %d/%d directories</%s>', $path, $dirTag, $result['dirsToRemove'], $result['dirsRemoved'], $dirTag));
-		$output->writeln(sprintf('%s: <%s>Removed %d/%d files</%s>', $path, $fileTag, $result['filesToRemove'], $result['filesRemoved'], $fileTag));
+		$output->writeln(sprintf('%s: <%s>Removed %d/%d directories</%s>', $path, $dirTag, $result['dirsRemoved'], $result['dirsToRemove'], $dirTag));
+		$output->writeln(sprintf('%s: <%s>Removed %d/%d files</%s>', $path, $fileTag, $result['filesRemoved'], $result['filesToRemove'], $fileTag));
 	}
 
 }

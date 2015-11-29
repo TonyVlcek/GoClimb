@@ -67,9 +67,12 @@ session:
 
 
 services:
-	# - OnlineClimbing\Console\NullOutputWriter TODO
 	- OnlineClimbing\Annotations\RecursiveClassParser
 	- OnlineClimbing\Annotations\RecursiveMethodParser
+
+	- OnlineClimbing\Security\ApplicationPartsManager
+	security.user:
+		class: OnlineClimbing\Security\User
 
 	# forms
 
@@ -77,15 +80,18 @@ services:
 
 	# facades
 
+	- OnlineClimbing\Model\Facades\AuthFacade
 	- OnlineClimbing\Model\Facades\UserFacade
 
 	# repositories
 
+	- OnlineClimbing\Model\Repositories\ApplicationRepository
 	- OnlineClimbing\Model\Repositories\ArticleRepository
 	- OnlineClimbing\Model\Repositories\CompanyRepository
 	- OnlineClimbing\Model\Repositories\ContentPartRepository
 	- OnlineClimbing\Model\Repositories\FileRepository
 	- OnlineClimbing\Model\Repositories\LineRepository
+	- OnlineClimbing\Model\Repositories\LoginTokenRepository
 	- OnlineClimbing\Model\Repositories\PageRepository
 	- OnlineClimbing\Model\Repositories\PrivilegeRepository
 	- OnlineClimbing\Model\Repositories\ResourceRepository
