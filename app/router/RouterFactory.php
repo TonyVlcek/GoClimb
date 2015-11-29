@@ -17,6 +17,12 @@ class RouterFactory
 	public static function createRouter()
 	{
 		$router = new RouteList;
+		$router[] = new Route('[<locale [a-z]{2}>/]auth', [
+			'locale' => NULL,
+			'module' => 'Auth',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+		]);
 		$router[] = new Route('[<locale [a-z]{2}>/]admin/<presenter>/<action>[/<id>]', [
 			'locale' => NULL,
 			'module' => 'Backend',

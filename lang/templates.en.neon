@@ -1,6 +1,13 @@
 core:
 	websiteName: OnlineClimbing
 
+auth:
+	layout:
+		title: Auth
+	dashboard:
+		default:
+			title: Sign in
+
 backend:
 	layout:
 		title: Administration

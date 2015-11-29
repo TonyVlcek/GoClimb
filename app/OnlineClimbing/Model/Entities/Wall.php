@@ -21,6 +21,12 @@ class Wall
 	use Id;
 
 	/**
+	 * @var Application|NULL
+	 * @ORM\OneToOne(targetEntity="Application", mappedBy="wall")
+	 */
+	private $application;
+
+	/**
 	 * @var User[]|ArrayCollection
 	 * @ORM\ManyToMany(targetEntity="User", mappedBy="favoriteWalls")
 	 */
@@ -77,6 +83,26 @@ class Wall
 		$this->articles = new ArrayCollection;
 		$this->sectors = new ArrayCollection;
 		$this->files = new ArrayCollection;
+	}
+
+
+	/**
+	 * @return Application|NULL
+	 */
+	public function getApplication()
+	{
+		return $this->application;
+	}
+
+
+	/**
+	 * @param Application|NULL $application
+	 * @return $this
+	 */
+	public function setApplication(Application $application = NULL)
+	{
+		$this->application = $application;
+		return $this;
 	}
 
 

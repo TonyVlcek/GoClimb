@@ -8,10 +8,12 @@ namespace OnlineClimbing\Modules\BackendModule;
 use OnlineClimbing\Modules\BasePresenter;
 
 
-/**
- * @TODO loggedIn
- */
 abstract class BaseAdminPresenter extends BasePresenter
 {
+
+	protected function init()
+	{
+		$this->applicationPartsManager->setAsBackend();
+	}
 
 }

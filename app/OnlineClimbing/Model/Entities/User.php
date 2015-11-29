@@ -56,6 +56,12 @@ class User
 	 */
 	private $builtRoutes;
 
+	/**
+	 * @var LoginToken[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="LoginToken", mappedBy="user", cascade={"persist"})
+	 */
+	private $loginTokens;
+
 
 	public function __construct()
 	{
@@ -63,6 +69,7 @@ class User
 		$this->articles = new ArrayCollection;
 		$this->favoriteWalls = new ArrayCollection;
 		$this->companies = new ArrayCollection;
+		$this->loginTokens = new ArrayCollection;
 	}
 
 
@@ -238,4 +245,36 @@ class User
 		$this->builtRoutes->removeElement($route);
 		return $this;
 	}
+
+
+	/**
+	 * @return LoginToken[]
+	 */
+	public function getLoginTokens()
+	{
+		return $this->loginTokens->toArray();
+	}
+
+
+	/**
+	 * @param LoginToken $loginToken
+	 * @return $this
+	 */
+	public function addLoginToken(LoginToken $loginToken)
+	{
+		$this->loginTokens->add($loginToken);
+		return $this;
+	}
+
+
+	/**
+	 * @param LoginToken $loginToken
+	 * @return $this
+	 */
+	public function removeLoginToken(LoginToken $loginToken)
+	{
+		$this->loginTokens->removeElement($loginToken);
+		return $this;
+	}
+
 }

@@ -11,4 +11,9 @@ use OnlineClimbing\Modules\BasePresenter;
 abstract class BasePublicPresenter extends BasePresenter
 {
 
+	protected function init()
+	{
+		$this->applicationPartsManager->setAsBackend();
+	}
+
 }
