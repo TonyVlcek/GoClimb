@@ -6,7 +6,7 @@
 
 	<title>
 		{ifset #title}{include title|striptags} &middot; {/ifset}
-		{_templates.admin.layout.title} &middot;
+		{_templates.public.layout.title} &middot;
 		{_templates.core.websiteName}
 	</title>
 
@@ -17,18 +17,15 @@
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-					<span class="sr-only">{_templates.admin.layout.toggleNav}</span>
-					<span class="icon-bar"></span>
+					<span class="sr-only">{_templates.public.layout.toggleNav}</span>
+					<span class="icon-bar"></span>`
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" n:href=":Admin:Dashboard:default">{_templates.admin.layout.title}</a>
+				<a class="navbar-brand">{_templates.core.websiteName}</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li n:class="$presenter->isLinkCurrent(':Admin:Dashboard:default') ? active">
-						<a n:href=":Admin:Dashboard:default">{_templates.admin.layout.topMenu.dashboard}</a>
-					</li>
 				</ul>
 			</div>
 		</div>

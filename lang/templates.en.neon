@@ -1,7 +1,7 @@
 core:
 	websiteName: OnlineClimbing
 
-admin:
+backend:
 	layout:
 		title: Administration
 		toggleNav: Toggle navigation
@@ -11,3 +11,8 @@ admin:
 	dashboard:
 		default:
 			title: Dashboard
+
+public:
+	layout:
+		title: Project Name
+		toggleNav: Toggle navigation

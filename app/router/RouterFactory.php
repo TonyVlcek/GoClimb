@@ -19,7 +19,13 @@ class RouterFactory
 		$router = new RouteList;
 		$router[] = new Route('[<locale [a-z]{2}>/]admin/<presenter>/<action>[/<id>]', [
 			'locale' => NULL,
-			'module' => 'Admin',
+			'module' => 'Backend',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+		]);
+		$router[] = new Route('[<locale [a-z]{2}>/]<presenter>/<action>[/<id>]', [
+			'locale' => NULL,
+			'module' => 'Public',
 			'presenter' => 'Dashboard',
 			'action' => 'default',
 		]);
