@@ -29,7 +29,7 @@ final class DashboardPresenter extends BaseAuthPresenter
 	}
 
 
-	public function actionDefault($token, $back)
+	public function actionLogin($token, $back)
 	{
 		$this->back = $back;
 		if (!$this->application = $this->authFacade->getApplicationByToken($token)) {
@@ -38,6 +38,13 @@ final class DashboardPresenter extends BaseAuthPresenter
 		if ($this->user->isLoggedIn()) {
 			$this->redirectLoggedUser();
 		}
+	}
+
+
+	public function actionLogout($back)
+	{
+		$this->user->logout(TRUE);
+		$this->redirectUrl($this->addTokenToUrl($back, NULL));
 	}
 
 

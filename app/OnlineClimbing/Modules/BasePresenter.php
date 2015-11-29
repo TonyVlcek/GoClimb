@@ -104,17 +104,12 @@ abstract class BasePresenter extends Presenter
 
 	protected function resolveLogin($token)
 	{
-		if ($user = $this->authFacade->getUserByToken($token)) {
+		if ($token === '') {
+			$this->user->logout(TRUE);
+		} elseif ($user = $this->authFacade->getUserByToken($token)) {
 			$this->user->login(new Identity($user));
 		}
 		$this->redirect('this', ['token' => NULL]);
-	}
-
-
-	public function handleLogout() // TODO add redirect to AuthServer for logout
-	{
-		$this->user->logout(TRUE);
-		$this->redirect('this');
 	}
 
 
