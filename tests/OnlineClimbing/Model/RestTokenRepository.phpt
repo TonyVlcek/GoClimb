@@ -20,7 +20,7 @@ require __DIR__ . "/../../bootstrap.php";
 class RestTokenRepositoryTestCase extends DatabaseTestCase
 {
 
-	const TEST_TOKEN_IP = "192.168.10.1";
+	const TEST_TOKEN_IP = '192.168.10.1';
 
 	/** @var RestTokenRepository */
 	private $restTokenRepository;
@@ -53,6 +53,7 @@ class RestTokenRepositoryTestCase extends DatabaseTestCase
 		$this->wall = $this->wallRepository->getById(1);
 		$this->user = $this->userRepository->getById(1);
 	}
+
 
 	public function testGetRestToken()
 	{
