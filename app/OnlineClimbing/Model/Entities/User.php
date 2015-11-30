@@ -62,6 +62,12 @@ class User
 	 */
 	private $loginTokens;
 
+	/**
+	 * @var RestToken[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="RestToken", mappedBy="user")
+	 */
+	private $restTokens;
+
 
 	public function __construct()
 	{
@@ -70,6 +76,7 @@ class User
 		$this->favoriteWalls = new ArrayCollection;
 		$this->companies = new ArrayCollection;
 		$this->loginTokens = new ArrayCollection;
+		$this->restTokens = new ArrayCollection;
 	}
 
 
@@ -274,6 +281,36 @@ class User
 	public function removeLoginToken(LoginToken $loginToken)
 	{
 		$this->loginTokens->removeElement($loginToken);
+		return $this;
+	}
+
+	/**
+	 * @return RestToken[]
+	 */
+	public function getRestTokens()
+	{
+		return $this->restTokens->toArray();
+	}
+
+
+	/**
+	 * @param RestToken $restToken
+	 * @return $this
+	 */
+	public function addRestToken(RestToken $restToken)
+	{
+		$this->restTokens->add($restToken);
+		return $this;
+	}
+
+
+	/**
+	 * @param RestToken $restToken
+	 * @return $this
+	 */
+	public function removeRestToken(RestToken $restToken)
+	{
+		$this->restTokens->removeElement($restToken);
 		return $this;
 	}
 

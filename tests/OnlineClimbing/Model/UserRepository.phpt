@@ -7,6 +7,7 @@
 
 use Nette\Security\Passwords;
 use OnlineClimbing\Model\Entities\Article;
+use OnlineClimbing\Model\Entities\RestToken;
 use OnlineClimbing\Model\Entities\Route;
 use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Repositories\UserRepository;
@@ -100,11 +101,15 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	public function testMapping()
 	{
 		$user = $this->userRepository->getById(1);
+
 		Helpers::assertTypesRecursive(Article::class, $articles = $user->getArticles());
 		Assert::equal([1, 2], Helpers::mapIds($articles));
 
 		Helpers::assertTypesRecursive(Route::class, $routes = $user->getBuiltRoutes());
 		Assert::equal([1], Helpers::mapIds($routes));
+
+		Helpers::assertTypesRecursive(RestToken::class, $restTokens = $user->getRestTokens());
+		Assert::equal([1], Helpers::mapIds($restTokens));
 	}
 
 }

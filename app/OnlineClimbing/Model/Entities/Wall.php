@@ -74,6 +74,12 @@ class Wall
 	 */
 	private $files;
 
+	/**
+	 * @var RestToken[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="RestToken", mappedBy="wall")
+	 */
+	private $restTokens;
+
 
 	public function __construct()
 	{
@@ -83,6 +89,7 @@ class Wall
 		$this->articles = new ArrayCollection;
 		$this->sectors = new ArrayCollection;
 		$this->files = new ArrayCollection;
+		$this->restTokens = new ArrayCollection;
 	}
 
 
@@ -341,4 +348,34 @@ class Wall
 		return $this;
 	}
 
+
+	/**
+	 * @return RestToken[]
+	 */
+	public function getRestTokens()
+	{
+		return $this->restTokens->toArray();
+	}
+
+
+	/**
+	 * @param RestToken $restToken
+	 * @return $this
+	 */
+	public function addRestToken(RestToken $restToken)
+	{
+		$this->restTokens->add($restToken);
+		return $this;
+	}
+
+
+	/**
+	 * @param RestToken $restToken
+	 * @return $this
+	 */
+	public function removeRestToken(RestToken $restToken)
+	{
+		$this->restTokens->removeElement($restToken);
+		return $this;
+	}
 }
