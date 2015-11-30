@@ -5,8 +5,10 @@
 
 namespace OnlineClimbing\Model\Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
+use OnlineClimbing\Model\Entities\Image;
 
 
 /**
@@ -42,6 +44,18 @@ class ContentPart
 	 * @ORM\Column(type="integer")
 	 */
 	private $order;
+
+	/**
+	 * @var Image[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Image", mappedBy="contentPart")
+	 */
+	private $images;
+
+
+	public function __construct()
+	{
+		$this->images = new ArrayCollection;
+	}
 
 
 	/**
@@ -122,5 +136,37 @@ class ContentPart
 		$this->order = $order;
 		return $this;
 	}
+
+
+	/**
+	 * @return Image[]
+	 */
+	public function getImages()
+	{
+		return $this->images->toArray();
+	}
+
+
+	/**
+	 * @param Image $image
+	 * @return $this
+	 */
+	public function addImage(Image $image)
+	{
+		$this->images->add($image);
+		return $this;
+	}
+
+
+	/**
+	 * @param Image $image
+	 * @return $this
+	 */
+	public function removeImage(Image $image)
+	{
+		$this->images->removeElement($image);
+		return $this;
+	}
+
 
 }
