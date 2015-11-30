@@ -82,6 +82,7 @@ services:
 
 	- OnlineClimbing\Model\Facades\AuthFacade
 	- OnlineClimbing\Model\Facades\UserFacade
+	- OnlineClimbing\Model\Facades\RestFacade
 
 	# repositories
 

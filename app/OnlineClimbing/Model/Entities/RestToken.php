@@ -34,7 +34,7 @@ class RestToken
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="string")
+	 * @ORM\Column(type="string", unique=TRUE)
 	 */
 	private $token;
 
@@ -42,7 +42,7 @@ class RestToken
 	 * @var string
 	 * @ORM\Column(type="string")
 	 */
-	private $remote_ip;
+	private $remoteIp;
 
 	/**
 	 * @var DateTime
@@ -116,17 +116,17 @@ class RestToken
 	 */
 	public function getRemoteIp()
 	{
-		return $this->remote_ip;
+		return $this->remoteIp;
 	}
 
 
 	/**
-	 * @param string $remote_ip
+	 * @param string $remoteIp
 	 * @return $this
 	 */
-	public function setRemoteIp($remote_ip)
+	public function setRemoteIp($remoteIp)
 	{
-		$this->remote_ip = $remote_ip;
+		$this->remoteIp = $remoteIp;
 		return $this;
 	}
 
