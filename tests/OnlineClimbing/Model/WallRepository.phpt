@@ -5,6 +5,7 @@
  * @author Tony Vlček
  */
 
+use OnlineClimbing\Model\Entities\Application;
 use OnlineClimbing\Model\Entities\Article;
 use OnlineClimbing\Model\Entities\Page;
 use OnlineClimbing\Model\Entities\RestToken;
@@ -92,6 +93,9 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 		Helpers::assertTypesRecursive(Page::class, $pages = $wall->getPages());
 		Assert::equal([1], Helpers::mapIds($pages));
+
+		Assert::type(Application::class, $app = $wall->getApplication());
+		Assert::equal(1, $app->getId());
 
 		Helpers::assertTypesRecursive(RestToken::class, $restTokens = $wall->getRestTokens());
 		Assert::equal([1], Helpers::mapIds($restTokens));
