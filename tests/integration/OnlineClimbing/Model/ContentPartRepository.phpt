@@ -12,7 +12,7 @@ use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../bootstrap.php";
+require __DIR__ . "/../../../bootstrap.php";
 
 class ContentPartRepositoryTestCase extends DatabaseTestCase
 {
