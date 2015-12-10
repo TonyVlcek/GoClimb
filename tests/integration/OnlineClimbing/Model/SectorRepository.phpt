@@ -14,7 +14,7 @@ use OnlineClimbing\Tests\Helpers;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
-require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../../bootstrap.php';
 
 class SectorRepositoryTestCase extends DatabaseTestCase
 {

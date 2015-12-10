@@ -15,7 +15,7 @@ use Tester\Assert;
 
 
 /** @var Container $container */
-$container = require __DIR__ . '/../../bootstrap.php';
+$container = require __DIR__ . '/../../../bootstrap.php';
 
 /**
  * @ORM\Entity
