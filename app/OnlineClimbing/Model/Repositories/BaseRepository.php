@@ -7,7 +7,9 @@ namespace OnlineClimbing\Model\Repositories;
 
 use Kdyby\Doctrine\EntityManager;
 use Kdyby\Doctrine\EntityRepository;
+use Kdyby\Doctrine\QueryBuilder;
 use OnlineClimbing\Model\MappingException;
+use OnlineClimbing\Model\Query\IFilter;
 
 
 abstract class BaseRepository
@@ -26,6 +28,23 @@ abstract class BaseRepository
 	public function __construct(EntityManager $entityManager)
 	{
 		$this->entityManager = $entityManager;
+	}
+
+
+	/**
+	 * @param IFilter[] ...$filters
+	 * @return QueryBuilder
+	 */
+	public function getBuilderByFilters(IFilter ...$filters)
+	{
+		$queryBuilder = $this->getDoctrineRepository()->createQueryBuilder($entityAlias = 'e');
+		foreach ($filters as $filter) {
+			$part = $filter->applyFilter($queryBuilder, $entityAlias);
+			if ($part) {
+				$queryBuilder->andWhere($part);
+			}
+		}
+		return $queryBuilder;
 	}
 
 

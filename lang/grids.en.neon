@@ -1,0 +1,15 @@
+base:
+	paginator:
+		first: First
+		previous: Previous
+		next: Next
+		last: Last
+
+user:
+	fields:
+		id: ID
+		name: Name
+	filter:
+		name: Name
+		apply: Search
+		cancel: Cancel

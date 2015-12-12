@@ -30,18 +30,17 @@ abstract class BaseForm extends Control
 	{
 		parent::__construct();
 		$form = $this->getForm();
-		$that = $this;
-		$form->onValidate[] = function () use ($that) {
-			call_user_func_array([$that, 'onValidate'], func_get_args());
+		$form->onValidate[] = function () {
+			call_user_func_array([$this, 'onValidate'], func_get_args());
 		};
-		$form->onSuccess[] = function () use ($that) {
-			call_user_func_array([$that, 'onSuccess'], func_get_args());
+		$form->onSuccess[] = function () {
+			call_user_func_array([$this, 'onSuccess'], func_get_args());
 		};
-		$this->onValidate[] = function (Form $form) use ($that) {
-			$that->validateForm($form, $form->getValues());
+		$this->onValidate[] = function (Form $form) {
+			$this->validateForm($form, $form->getValues());
 		};
-		$this->onSuccess[] = function (Form $form) use ($that) {
-			$that->formSuccess($form, $form->getValues());
+		$this->onSuccess[] = function (Form $form) {
+			$this->formSuccess($form, $form->getValues());
 		};
 	}
 

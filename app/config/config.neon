@@ -35,6 +35,10 @@ extensions:
 	restful: Drahak\Restful\DI\RestfulExtension
 	translation: Kdyby\Translation\DI\TranslationExtension
 
+latte:
+	macros:
+		- Nextras\Latte\Macros\RedefineMacro::install
+
 migrations:
 	table: _doctrine_migrations
 	directory: %appDir%/../migrations
@@ -73,6 +77,10 @@ services:
 	- OnlineClimbing\Security\ApplicationPartsManager
 	security.user:
 		class: OnlineClimbing\Security\User
+
+	# grids
+
+	- OnlineClimbing\UI\Grids\User\IUserGridFactory
 
 	# forms
 

@@ -7,7 +7,7 @@ namespace OnlineClimbing\Modules\BackendModule;
 
 
 
-class DashboardPresenter extends BaseAdminPresenter
+class DashboardPresenter extends BaseBackendPresenter
 {
 
 }

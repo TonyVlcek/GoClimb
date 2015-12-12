@@ -10,6 +10,7 @@ use Nette\Utils\Strings;
 use Nette\Utils\Validators;
 use OnlineClimbing\Routing\ModularRouter;
 use OnlineClimbing\UI\Forms\ITranslatableFormFactory;
+use OnlineClimbing\UI\Grids\ITranslatableGridFactory;
 
 
 class OnlineClimbingExtension extends CompilerExtension
@@ -39,13 +40,17 @@ class OnlineClimbingExtension extends CompilerExtension
 				->setFactory(NULL);
 
 		foreach ($config['routers'] as $module => $router) {
-			$provider = $builder->addDefinition($this->prefix(str_replace('-', '.', Strings::webalize($module . '-' . $router))))
+			$definition = $builder->addDefinition($this->prefix(str_replace('-', '.', Strings::webalize($module . '-' . $router))))
 					->setClass($router);
-			$modularRouter->addSetup('addRouterProvider', [$module, $provider]);
+			$modularRouter->addSetup('addRouterProvider', [$module, $definition]);
 		}
 
-		foreach ($this->getContainerBuilder()->findByType(ITranslatableFormFactory::class) as $provider) {
-			$provider->addSetup('setTranslator');
+		foreach ($this->getContainerBuilder()->findByType(ITranslatableFormFactory::class) as $definition) {
+			$definition->addSetup('setTranslator');
+		}
+
+		foreach ($this->getContainerBuilder()->findByType(ITranslatableGridFactory::class) as $definition) {
+			$definition->addSetup('setTranslator');
 		}
 	}
 
