@@ -94,6 +94,9 @@ services:
 
 	# repositories
 
+	- OnlineClimbing\Model\Repositories\AclPrivilegeRepository
+	- OnlineClimbing\Model\Repositories\AclResourceRepository
+	- OnlineClimbing\Model\Repositories\AclRoleRepository
 	- OnlineClimbing\Model\Repositories\ApplicationRepository
 	- OnlineClimbing\Model\Repositories\ArticleRepository
 	- OnlineClimbing\Model\Repositories\CompanyRepository
@@ -103,10 +106,7 @@ services:
 	- OnlineClimbing\Model\Repositories\LineRepository
 	- OnlineClimbing\Model\Repositories\LoginTokenRepository
 	- OnlineClimbing\Model\Repositories\PageRepository
-	- OnlineClimbing\Model\Repositories\PrivilegeRepository
-	- OnlineClimbing\Model\Repositories\ResourceRepository
 	- OnlineClimbing\Model\Repositories\RestTokenRepository
-	- OnlineClimbing\Model\Repositories\RoleRepository
 	- OnlineClimbing\Model\Repositories\RouteRepository
 	- OnlineClimbing\Model\Repositories\SectorRepository
 	- OnlineClimbing\Model\Repositories\UserRepository

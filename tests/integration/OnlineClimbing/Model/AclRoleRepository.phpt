@@ -1,12 +1,12 @@
 <?php
 /**
- * Test: RoleRepository
+ * Test: AclRoleRepository
  *
  * @author Tomáš Blatný
  */
 
-use OnlineClimbing\Model\Entities\Role;
-use OnlineClimbing\Model\Repositories\RoleRepository;
+use OnlineClimbing\Model\Entities\AclRole;
+use OnlineClimbing\Model\Repositories\AclRoleRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
 use OnlineClimbing\Tests\Helpers;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
@@ -15,20 +15,20 @@ use Tester\Assert;
 
 require __DIR__ . "/../../../bootstrap.php";
 
-class RoleRepositoryTestCase extends DatabaseTestCase
+class AclRoleRepositoryTestCase extends DatabaseTestCase
 {
 
-	/** @var RoleRepository */
-	private $roleRepository;
+	/** @var AclRoleRepository */
+	private $aclRoleRepository;
 
 	/** @var WallRepository */
 	private $wallRepository;
 
 
-	public function __construct(RoleRepository $roleRepository, WallRepository $wallRepository)
+	public function __construct(AclRoleRepository $roleRepository, WallRepository $wallRepository)
 	{
 		parent::__construct();
-		$this->roleRepository = $roleRepository;
+		$this->aclRoleRepository = $roleRepository;
 		$this->wallRepository = $wallRepository;
 	}
 
@@ -36,8 +36,8 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 	public function testGetByName()
 	{
 		$wall = $this->wallRepository->getById(1);
-		$role = $this->roleRepository->getByName('Role 1', $wall);
-		Assert::type(Role::class, $role);
+		$role = $this->aclRoleRepository->getByName('Role 1', $wall);
+		Assert::type(AclRole::class, $role);
 		Assert::equal(1, $role->getId());
 	}
 
@@ -45,7 +45,7 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 	public function testGetByWall()
 	{
 		$wall = $this->wallRepository->getById(1);
-		Assert::count(2, $roles = $this->roleRepository->getByWall($wall));
+		Assert::count(2, $roles = $this->aclRoleRepository->getByWall($wall));
 
 		Assert::equal([1, 2], Helpers::mapIds($roles));
 	}
@@ -54,13 +54,13 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 	public function testMapping()
 	{
 		$wall = $this->wallRepository->getById(1);
-		$roles = $this->roleRepository->getByWall($wall);
+		$roles = $this->aclRoleRepository->getByWall($wall);
 
 		$parent = $roles[0];
 		$child = $roles[1];
 
-		Helpers::assertTypesRecursive(Role::class, $parent->getChildren());
-		Helpers::assertTypesRecursive(Role::class, $child->getChildren());
+		Helpers::assertTypesRecursive(AclRole::class, $parent->getChildren());
+		Helpers::assertTypesRecursive(AclRole::class, $child->getChildren());
 
 		Assert::equal($parent, $child->getParent());
 		Assert::null($parent->getParent());
@@ -71,4 +71,4 @@ class RoleRepositoryTestCase extends DatabaseTestCase
 
 }
 
-testCase(RoleRepositoryTestCase::class);
+testCase(AclRoleRepositoryTestCase::class);

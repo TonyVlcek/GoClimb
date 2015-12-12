@@ -51,8 +51,8 @@ class Wall
 	private $pages;
 
 	/**
-	 * @var Role[]|ArrayCollection
-	 * @ORM\OneToMany(targetEntity="Role", mappedBy="wall")
+	 * @var AclRole[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="AclRole", mappedBy="wall")
 	 */
 	private $roles;
 
@@ -206,7 +206,7 @@ class Wall
 
 
 	/**
-	 * @return Role[]
+	 * @return AclRole[]
 	 */
 	public function getRoles()
 	{
@@ -215,10 +215,10 @@ class Wall
 
 
 	/**
-	 * @param Role $role
+	 * @param AclRole $role
 	 * @return $this
 	 */
-	public function addRole(Role $role)
+	public function addRole(AclRole $role)
 	{
 		$this->roles->add($role);
 		return $this;
@@ -226,10 +226,10 @@ class Wall
 
 
 	/**
-	 * @param Role $role
+	 * @param AclRole $role
 	 * @return $this
 	 */
-	public function removeRole(Role $role)
+	public function removeRole(AclRole $role)
 	{
 		$this->roles->removeElement($role);
 		return $this;

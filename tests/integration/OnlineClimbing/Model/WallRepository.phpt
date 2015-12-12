@@ -9,7 +9,7 @@ use OnlineClimbing\Model\Entities\Application;
 use OnlineClimbing\Model\Entities\Article;
 use OnlineClimbing\Model\Entities\Page;
 use OnlineClimbing\Model\Entities\RestToken;
-use OnlineClimbing\Model\Entities\Role;
+use OnlineClimbing\Model\Entities\AclRole;
 use OnlineClimbing\Model\Entities\Sector;
 use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Entities\Wall;
@@ -82,7 +82,7 @@ class WallRepositoryTestCase extends DatabaseTestCase
 		Helpers::assertTypesRecursive(User::class, $users = $wall->getCompany()->getUsers());
 		Assert::equal([1, 2], Helpers::mapIds($users));
 
-		Helpers::assertTypesRecursive(Role::class, $roles = $wall->getRoles());
+		Helpers::assertTypesRecursive(AclRole::class, $roles = $wall->getRoles());
 		Assert::equal([1, 2], Helpers::mapIds($roles));
 
 		Helpers::assertTypesRecursive(Article::class, $articles = $wall->getArticles());
