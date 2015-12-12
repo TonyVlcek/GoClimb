@@ -11,6 +11,7 @@ www/assets/build/*
 !www/assets/build/.gitkeep
 
 tests/temp
+tests/php-local.ini
 
 .tscache
 .sass-cache
