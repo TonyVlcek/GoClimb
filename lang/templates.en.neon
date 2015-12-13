@@ -15,6 +15,7 @@ backend:
 		brand: Administration
 		topMenu:
 			dashboard: Dashboard
+			users: Users
 	dashboard:
 		default:
 			title: Dashboard
