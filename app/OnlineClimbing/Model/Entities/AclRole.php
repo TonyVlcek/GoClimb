@@ -9,12 +9,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="unique_name_wall", columns={"name", "wall_id"})})
  */
-class Role
+class AclRole
 {
 
 	use Id;
@@ -26,14 +25,14 @@ class Role
 	private $name;
 
 	/**
-	 * @var Role|NULL
-	 * @ORM\ManyToOne(targetEntity="Role", inversedBy="children")
+	 * @var AclRole|NULL
+	 * @ORM\ManyToOne(targetEntity="AclRole", inversedBy="children")
 	 */
 	private $parent;
 
 	/**
-	 * @var Role[]|ArrayCollection
-	 * @ORM\OneToMany(targetEntity="Role", mappedBy="parent")
+	 * @var AclRole[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="AclRole", mappedBy="parent")
 	 */
 	private $children;
 
@@ -51,7 +50,7 @@ class Role
 
 
 	/**
-	 * @return Role|NULL
+	 * @return AclRole|NULL
 	 */
 	public function getParent()
 	{
@@ -60,10 +59,10 @@ class Role
 
 
 	/**
-	 * @param Role|NULL $parent
-	 * @return Role
+	 * @param AclRole|NULL $parent
+	 * @return $this
 	 */
-	public function setParent(Role $parent = NULL)
+	public function setParent(AclRole $parent = NULL)
 	{
 		$this->parent = $parent;
 		return $this;
@@ -71,7 +70,7 @@ class Role
 
 
 	/**
-	 * @return Role[]
+	 * @return AclRole[]
 	 */
 	public function getChildren()
 	{
@@ -80,10 +79,10 @@ class Role
 
 
 	/**
-	 * @param Role $role
+	 * @param AclRole $role
 	 * @return $this
 	 */
-	public function addChild(Role $role)
+	public function addChild(AclRole $role)
 	{
 		$this->children->add($role);
 		return $this;
@@ -91,10 +90,10 @@ class Role
 
 
 	/**
-	 * @param Role $role
+	 * @param AclRole $role
 	 * @return $this
 	 */
-	public function removeChild(Role $role)
+	public function removeChild(AclRole $role)
 	{
 		$this->children->removeElement($role);
 		return $this;
@@ -112,7 +111,7 @@ class Role
 
 	/**
 	 * @param string $name
-	 * @return Role
+	 * @return $this
 	 */
 	public function setName($name)
 	{
@@ -132,7 +131,7 @@ class Role
 
 	/**
 	 * @param Wall|NULL $wall
-	 * @return Role
+	 * @return $this
 	 */
 	public function setWall(Wall $wall = NULL)
 	{

@@ -5,12 +5,15 @@
 
 namespace OnlineClimbing\Model\Repositories;
 
-class ResourceRepository extends BaseRepository
+use OnlineClimbing\Model\Entities\AclResource;
+
+
+class AclResourceRepository extends BaseRepository
 {
 
 	/**
 	 * @param string $name
-	 * @return Resource|NULL
+	 * @return AclResource|NULL
 	 */
 	public function getByName($name)
 	{

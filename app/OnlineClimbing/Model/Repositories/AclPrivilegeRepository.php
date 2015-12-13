@@ -5,15 +5,15 @@
 
 namespace OnlineClimbing\Model\Repositories;
 
-use OnlineClimbing\Model\Entities\Privilege;
+use OnlineClimbing\Model\Entities\AclPrivilege;
 
 
-class PrivilegeRepository extends BaseRepository
+class AclPrivilegeRepository extends BaseRepository
 {
 
 	/**
 	 * @param string $name
-	 * @return Privilege|NULL
+	 * @return AclPrivilege|NULL
 	 */
 	public function getByName($name)
 	{

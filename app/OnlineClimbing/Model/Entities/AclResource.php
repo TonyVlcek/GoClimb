@@ -12,7 +12,7 @@ use OnlineClimbing\Model\Entities\Attributes\Id;
 /**
  * @ORM\Entity
  */
-class Resource
+class AclResource
 {
 
 	use Id;

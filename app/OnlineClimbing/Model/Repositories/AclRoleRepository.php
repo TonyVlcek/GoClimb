@@ -5,16 +5,16 @@
 
 namespace OnlineClimbing\Model\Repositories;
 
-use OnlineClimbing\Model\Entities\Role;
+use OnlineClimbing\Model\Entities\AclRole;
 use OnlineClimbing\Model\Entities\Wall;
 
 
-class RoleRepository extends BaseRepository
+class AclRoleRepository extends BaseRepository
 {
 
 	/**
 	 * @param Wall $wall
-	 * @return Role[]
+	 * @return AclRole[]
 	 */
 	public function getByWall(Wall $wall)
 	{
@@ -23,7 +23,7 @@ class RoleRepository extends BaseRepository
 
 
 	/**
-	 * @return Role[]
+	 * @return AclRole[]
 	 */
 	public function getGlobal()
 	{
@@ -34,7 +34,7 @@ class RoleRepository extends BaseRepository
 	/**
 	 * @param string $name
 	 * @param Wall $wall
-	 * @return Role|NULL
+	 * @return AclRole|NULL
 	 */
 	public function getByName($name, Wall $wall)
 	{
@@ -44,7 +44,7 @@ class RoleRepository extends BaseRepository
 
 	/**
 	 * @param string $name
-	 * @return Role|NULL
+	 * @return AclRole|NULL
 	 */
 	public function getGlobalByName($name)
 	{
