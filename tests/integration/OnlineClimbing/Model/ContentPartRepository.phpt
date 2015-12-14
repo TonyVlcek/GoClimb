@@ -30,6 +30,7 @@ class ContentPartRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
+		Assert::null($this->contentPartRepository->getById(0));
 		Assert::type(ContentPart::class, $cp = $this->contentPartRepository->getById(1));
 		Assert::equal(1, $cp->getId());
 	}
