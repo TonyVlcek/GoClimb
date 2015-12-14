@@ -32,6 +32,7 @@ class CompanyRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
+		Assert::null($this->companyRepository->getById(0));
 		Assert::type(Company::class, $company = $this->companyRepository->getById(1));
 		Assert::equal(1, $company->getId());
 	}
