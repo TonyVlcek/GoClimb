@@ -5,6 +5,7 @@
  * @author Tony Vlček
  */
 
+use OnlineClimbing\Model\Entities\Article;
 use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\Repositories\ArticleRepository;
@@ -41,7 +42,8 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
-		Assert::truthy($article = $this->articleRepository->getById(1));
+		Assert::null($this->articleRepository->getById(0));
+		Assert::type(Article::class, $article = $this->articleRepository->getById(1));
 		Assert::equal(1, $article->getId());
 	}
 
