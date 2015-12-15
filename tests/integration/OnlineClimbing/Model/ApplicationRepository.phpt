@@ -17,6 +17,7 @@ require __DIR__ . "/../../../bootstrap.php";
 class ApplicationRepositoryTestCase extends DatabaseTestCase
 {
 
+	const NOT_EXISTING_TOKEN = 'ThisTokenDoesNotExist';
 	const TOKEN = 'someRandomToken';
 
 	/** @var ApplicationRepository */
@@ -32,6 +33,7 @@ class ApplicationRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByToken()
 	{
+		Assert::null($this->applicationRepository->getByToken(self::NOT_EXISTING_TOKEN));
 		Assert::type(Application::class, $app = $this->applicationRepository->getByToken(self::TOKEN));
 		Assert::equal(1, $app->getId());
 	}
