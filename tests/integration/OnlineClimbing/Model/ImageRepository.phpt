@@ -7,6 +7,7 @@
 
 use OnlineClimbing\Model\Entities\ContentPart;
 use OnlineClimbing\Model\Entities\File;
+use OnlineClimbing\Model\Entities\Image;
 use OnlineClimbing\Model\Repositories\ImageRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
@@ -25,6 +26,14 @@ class ImageRepositoryTestCase extends DatabaseTestCase
 	{
 		parent::__construct();
 		$this->imageRepository = $imageRepository;
+	}
+
+
+	public function testGetById()
+	{
+		Assert::null($this->imageRepository->getById(0));
+		Assert::type(Image::class, $image = $this->imageRepository->getById(1));
+		Assert::equal(1, $image->getId());
 	}
 
 
