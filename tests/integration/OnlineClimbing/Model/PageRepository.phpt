@@ -32,6 +32,7 @@ class PageRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
+		Assert::null($this->pageRepository->getById(0));
 		Assert::type(Page::class, $page = $this->pageRepository->getById(1));
 		Assert::equal(1, $page->getId());
 	}
