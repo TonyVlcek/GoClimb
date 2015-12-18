@@ -31,6 +31,7 @@ class RouteRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
+		Assert::null($this->routeRepository->getById(0));
 		Assert::type(Route::class, $route = $this->routeRepository->getById(1));
 		Assert::equal(1, $route->getId());
 	}
