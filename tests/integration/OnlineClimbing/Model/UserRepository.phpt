@@ -107,22 +107,22 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	{
 		$user = $this->userRepository->getById(1);
 
-		Helpers::assertTypesRecursive(Article::class, $articles = $user->getArticles());
+		Helpers::assertTypeRecursive(Article::class, $articles = $user->getArticles());
 		Assert::equal([1, 2], Helpers::mapIds($articles));
 
-		Helpers::assertTypesRecursive(Route::class, $routes = $user->getBuiltRoutes());
+		Helpers::assertTypeRecursive(Route::class, $routes = $user->getBuiltRoutes());
 		Assert::equal([1], Helpers::mapIds($routes));
 
-		Helpers::assertTypesRecursive(LoginToken::class, $loginTokens = $user->getLoginTokens());
+		Helpers::assertTypeRecursive(LoginToken::class, $loginTokens = $user->getLoginTokens());
 		Assert::equal([1, 2], Helpers::mapIds($loginTokens));
 
-		Helpers::assertTypesRecursive(RestToken::class, $restTokens = $user->getRestTokens());
+		Helpers::assertTypeRecursive(RestToken::class, $restTokens = $user->getRestTokens());
 		Assert::equal([1], Helpers::mapIds($restTokens));
 
-		Helpers::assertTypesRecursive(Wall::class, $favoriteWalls = $user->getFavoriteWalls());
+		Helpers::assertTypeRecursive(Wall::class, $favoriteWalls = $user->getFavoriteWalls());
 		Assert::equal([1, 2], Helpers::mapIds($favoriteWalls));
 
-		Helpers::assertTypesRecursive(Company::class, $companies = $user->getCompanies());
+		Helpers::assertTypeRecursive(Company::class, $companies = $user->getCompanies());
 		Assert::equal([1], Helpers::mapIds($companies));
 	}
 

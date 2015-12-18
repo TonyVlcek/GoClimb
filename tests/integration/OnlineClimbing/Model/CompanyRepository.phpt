@@ -42,10 +42,10 @@ class CompanyRepositoryTestCase extends DatabaseTestCase
 	{
 		$company = $this->companyRepository->getById(1);
 
-		Helpers::assertTypesRecursive(User::class, $company->getUsers());
+		Helpers::assertTypeRecursive(User::class, $company->getUsers());
 		Assert::equal([1,2], Helpers::mapIds($company->getUsers()));
 
-		Helpers::assertTypesRecursive(Wall::class, $company->getWalls());
+		Helpers::assertTypeRecursive(Wall::class, $company->getWalls());
 		Assert::equal([1,2], Helpers::mapIds($company->getWalls()));
 	}
 

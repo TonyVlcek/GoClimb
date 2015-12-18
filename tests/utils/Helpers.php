@@ -43,7 +43,7 @@ class Helpers
 	}
 
 
-	public static function assertTypesRecursive($type, array $array)
+	public static function assertTypeRecursive($type, array $array)
 	{
 		foreach ($array as $item) {
 			Assert::type($type, $item);
