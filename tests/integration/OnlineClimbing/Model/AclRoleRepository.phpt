@@ -35,7 +35,13 @@ class AclRoleRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
+		$invalidWall = $this->wallRepository->getById(3);
 		$wall = $this->wallRepository->getById(1);
+
+		Assert::null($this->aclRoleRepository->getByName("Role 1", $invalidWall));
+		Assert::null($this->aclRoleRepository->getByName("InvalidAclTest", $wall));
+
+
 		$role = $this->aclRoleRepository->getByName('Role 1', $wall);
 		Assert::type(AclRole::class, $role);
 		Assert::equal(1, $role->getId());
@@ -45,8 +51,7 @@ class AclRoleRepositoryTestCase extends DatabaseTestCase
 	public function testGetByWall()
 	{
 		$wall = $this->wallRepository->getById(1);
-		Assert::count(2, $roles = $this->aclRoleRepository->getByWall($wall));
-
+		Helpers::assertTypeRecursive(AclRole::class, $roles = $this->aclRoleRepository->getByWall($wall));
 		Assert::equal([1, 2], Helpers::mapIds($roles));
 	}
 
