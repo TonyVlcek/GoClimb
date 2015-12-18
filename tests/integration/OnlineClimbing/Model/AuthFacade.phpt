@@ -20,7 +20,9 @@ class AuthFacadeTestCase extends DatabaseTestCase
 {
 
 	const APPLICATION_TOKEN = 'someRandomToken';
+	const NOT_EXISTING_APPLICATION_TOKEN = 'I_DO_NOT_EXIST';
 	const ACTIVE_TOKEN = 'ACTIVE_TokenString';
+	const EXPIRED_TOKEN = 'EXPIRED_TokenString';
 	const NOT_ASSIGNED_TOKEN = 'NO_User_Has_This_Token';
 
 
@@ -41,6 +43,7 @@ class AuthFacadeTestCase extends DatabaseTestCase
 
 	public function testGetApplicationByToken()
 	{
+		Assert::null($this->authFacade->getApplicationByToken(self::NOT_EXISTING_APPLICATION_TOKEN));
 		Assert::type(Application::class, $app = $this->authFacade->getApplicationByToken(self::APPLICATION_TOKEN));
 		Assert::equal(1, $app->getId());
 	}
@@ -55,6 +58,9 @@ class AuthFacadeTestCase extends DatabaseTestCase
 		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getLoginTokenForUser($userWithToken));
 		Assert::equal(1, $loginToken->getUser()->getId());
 
+		//test expiration
+		Assert::true($loginToken->getExpiration() > new DateTime);
+
 		//created
 		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getLoginTokenForUser($userWithoutToken));
 		Assert::equal(2, $loginToken->getUser()->getId());
@@ -63,6 +69,7 @@ class AuthFacadeTestCase extends DatabaseTestCase
 
 	public function testGetUserByToken()
 	{
+		Assert::null($this->authFacade->getUserByToken(self::EXPIRED_TOKEN));
 		Assert::type(User::class, $user = $this->authFacade->getUserByToken(self::ACTIVE_TOKEN));
 		Assert::equal(1, $user->getId());
 
