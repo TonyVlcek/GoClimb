@@ -31,11 +31,17 @@ class RestTokenRepositoryTestCase extends DatabaseTestCase
 	/** @var UserRepository */
 	private $userRepository;
 
-	/** @var  Wall */
+	/** @var Wall */
 	private $wall;
 
-	/** @var  User */
+	/** @var User */
 	private $user;
+
+	/** @var Wall */
+	private $invalidWall;
+
+	/** @var User */
+	private $invalidUser;
 
 
 	public function __construct(RestTokenRepository $restTokenRepository, WallRepository $wallRepository, UserRepository $userRepository)
@@ -52,11 +58,17 @@ class RestTokenRepositoryTestCase extends DatabaseTestCase
 	{
 		$this->wall = $this->wallRepository->getById(1);
 		$this->user = $this->userRepository->getById(1);
+
+		$this->invalidWall = $this->wallRepository->getById(3);
+		$this->invalidUser = $this->userRepository->getById(4);
 	}
 
 
 	public function testGetRestToken()
 	{
+		Assert::null($this->restTokenRepository->getRestToken($this->wall, $this->invalidUser, self::TEST_TOKEN_IP));
+		Assert::null($this->restTokenRepository->getRestToken($this->invalidWall, $this->user, self::TEST_TOKEN_IP));
+		Assert::null($this->restTokenRepository->getRestToken($this->invalidWall, $this->invalidUser, self::TEST_TOKEN_IP));
 
 		Assert::type(RestToken::class, $restToken = $this->restTokenRepository->getRestToken($this->wall, $this->user, self::TEST_TOKEN_IP));
 		Assert::equal(1, $restToken->getId());

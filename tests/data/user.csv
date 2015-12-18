@@ -2,3 +2,4 @@ id,name,password
 1,admin,$2y$10$d5JpUaox5ze0aEPb0oJhbOlmqc0n/mZivhnvsyQ.c0GPcd0FJoUry
 2,test,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6
 3,userWithoutToken,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6
+4,token,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6

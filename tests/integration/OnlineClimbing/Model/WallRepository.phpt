@@ -58,7 +58,7 @@ class WallRepositoryTestCase extends DatabaseTestCase
 	public function testCreateWall()
 	{
 		//Test state before
-		Assert::null($this->wallRepository->getById(3));
+		Assert::null($this->wallRepository->getById(0));
 
 		//Create wall with an exception
 		$company = $this->companyRepository->getById(1);
