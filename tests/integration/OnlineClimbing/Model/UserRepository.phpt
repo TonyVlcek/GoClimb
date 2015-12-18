@@ -7,10 +7,12 @@
 
 use Nette\Security\Passwords;
 use OnlineClimbing\Model\Entities\Article;
+use OnlineClimbing\Model\Entities\Company;
 use OnlineClimbing\Model\Entities\LoginToken;
 use OnlineClimbing\Model\Entities\RestToken;
 use OnlineClimbing\Model\Entities\Route;
 use OnlineClimbing\Model\Entities\User;
+use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\Repositories\UserRepository;
 use OnlineClimbing\Model\Repositories\WallRepository;
 use OnlineClimbing\Tests\Helpers;
@@ -40,6 +42,7 @@ class UserRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
+		Assert::null($this->userRepository->getById(0));
 		Assert::type(User::class, $adminUser = $this->userRepository->getById(1));
 		Assert::equal(1, $adminUser->getId());
 	}
@@ -47,6 +50,7 @@ class UserRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
+		Assert::null($this->userRepository->getByName('invalidUserTest'));
 		Assert::type(User::class, $testUser = $this->userRepository->getByName('test'));
 		Assert::equal(2, $testUser->getId());
 	}
@@ -114,6 +118,12 @@ class UserRepositoryTestCase extends DatabaseTestCase
 
 		Helpers::assertTypesRecursive(RestToken::class, $restTokens = $user->getRestTokens());
 		Assert::equal([1], Helpers::mapIds($restTokens));
+
+		Helpers::assertTypesRecursive(Wall::class, $favoriteWalls = $user->getFavoriteWalls());
+		Assert::equal([1, 2], Helpers::mapIds($favoriteWalls));
+
+		Helpers::assertTypesRecursive(Company::class, $companies = $user->getCompanies());
+		Assert::equal([1], Helpers::mapIds($companies));
 	}
 
 }
