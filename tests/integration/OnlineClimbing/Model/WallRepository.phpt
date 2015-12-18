@@ -7,6 +7,7 @@
 
 use OnlineClimbing\Model\Entities\Application;
 use OnlineClimbing\Model\Entities\Article;
+use OnlineClimbing\Model\Entities\File;
 use OnlineClimbing\Model\Entities\Page;
 use OnlineClimbing\Model\Entities\RestToken;
 use OnlineClimbing\Model\Entities\AclRole;
@@ -43,6 +44,7 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetById()
 	{
+		Assert::null($this->wallRepository->getById(0));
 		Assert::type(Wall::class, $wall = $this->wallRepository->getById(1));
 		Assert::equal(1, $wall->getId());
 	}
@@ -50,6 +52,7 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
+		Assert::null($this->wallRepository->getByName('InvalidWallTest'));
 		Assert::type(Wall::class, $wall = $this->wallRepository->getByName('Test Wall'));
 		Assert::equal(1, $wall->getId());
 	}
@@ -99,6 +102,12 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 		Helpers::assertTypesRecursive(RestToken::class, $restTokens = $wall->getRestTokens());
 		Assert::equal([1], Helpers::mapIds($restTokens));
+
+		Helpers::assertTypesRecursive(File::class, $files = $wall->getFiles());
+		Assert::equal([1], Helpers::mapIds($files));
+
+		Helpers::assertTypesRecursive(User::class, $files = $wall->getUsersFavorited());
+		Assert::equal([1, 2], Helpers::mapIds($files));
 	}
 
 }
