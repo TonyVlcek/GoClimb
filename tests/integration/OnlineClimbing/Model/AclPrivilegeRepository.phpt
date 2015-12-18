@@ -29,6 +29,7 @@ class AclPrivilegeRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
+		Assert::null($this->aclPrivilegeRepository->getByName("InvalidAclTest"));
 		Assert::type(AclPrivilege::class, $this->aclPrivilegeRepository->getByName("edit"));
 	}
 

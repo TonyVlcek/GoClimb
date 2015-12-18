@@ -29,6 +29,7 @@ class AclResourceRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
+		Assert::null($this->aclResourceRepository->getByName("InvalidAclTest"));
 		Assert::type(AclResource::class, $resource = $this->aclResourceRepository->getByName('Resource 1'));
 		Assert::equal('Resource 1', $resource->getName());
 	}
