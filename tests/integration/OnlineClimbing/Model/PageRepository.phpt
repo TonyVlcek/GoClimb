@@ -45,7 +45,7 @@ class PageRepositoryTestCase extends DatabaseTestCase
 		Assert::type(Wall::class, $wall = $page->getWall());
 		Assert::equal(1, $wall->getId());
 
-		Helpers::assertTypesRecursive(ContentPart::class, $cps = $page->getContentParts());
+		Helpers::assertTypeRecursive(ContentPart::class, $cps = $page->getContentParts());
 		Assert::equal([1], Helpers::mapIds($cps));
 	}
 

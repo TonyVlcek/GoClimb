@@ -64,7 +64,7 @@ class LineRepositoryTestCase extends DatabaseTestCase
 		Assert::type(Sector::class, $line->getSector());
 		Assert::equal(1, $line->getSector()->getId());
 
-		Helpers::assertTypesRecursive(Route::class, $line->getRoutes());
+		Helpers::assertTypeRecursive(Route::class, $line->getRoutes());
 		Assert::equal([1], Helpers::mapIds($line->getRoutes()));
 	}
 

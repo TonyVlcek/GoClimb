@@ -82,31 +82,31 @@ class WallRepositoryTestCase extends DatabaseTestCase
 	{
 		$wall = $this->wallRepository->getById(1);
 
-		Helpers::assertTypesRecursive(User::class, $users = $wall->getCompany()->getUsers());
+		Helpers::assertTypeRecursive(User::class, $users = $wall->getCompany()->getUsers());
 		Assert::equal([1, 2], Helpers::mapIds($users));
 
-		Helpers::assertTypesRecursive(AclRole::class, $roles = $wall->getRoles());
+		Helpers::assertTypeRecursive(AclRole::class, $roles = $wall->getRoles());
 		Assert::equal([1, 2], Helpers::mapIds($roles));
 
-		Helpers::assertTypesRecursive(Article::class, $articles = $wall->getArticles());
+		Helpers::assertTypeRecursive(Article::class, $articles = $wall->getArticles());
 		Assert::equal([1, 2], Helpers::mapIds($articles));
 
-		Helpers::assertTypesRecursive(Sector::class, $sectors = $wall->getSectors());
+		Helpers::assertTypeRecursive(Sector::class, $sectors = $wall->getSectors());
 		Assert::equal([1], Helpers::mapIds($sectors));
 
-		Helpers::assertTypesRecursive(Page::class, $pages = $wall->getPages());
+		Helpers::assertTypeRecursive(Page::class, $pages = $wall->getPages());
 		Assert::equal([1], Helpers::mapIds($pages));
 
 		Assert::type(Application::class, $app = $wall->getApplication());
 		Assert::equal(1, $app->getId());
 
-		Helpers::assertTypesRecursive(RestToken::class, $restTokens = $wall->getRestTokens());
+		Helpers::assertTypeRecursive(RestToken::class, $restTokens = $wall->getRestTokens());
 		Assert::equal([1], Helpers::mapIds($restTokens));
 
-		Helpers::assertTypesRecursive(File::class, $files = $wall->getFiles());
+		Helpers::assertTypeRecursive(File::class, $files = $wall->getFiles());
 		Assert::equal([1], Helpers::mapIds($files));
 
-		Helpers::assertTypesRecursive(User::class, $files = $wall->getUsersFavorited());
+		Helpers::assertTypeRecursive(User::class, $files = $wall->getUsersFavorited());
 		Assert::equal([1, 2], Helpers::mapIds($files));
 	}
 

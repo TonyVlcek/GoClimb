@@ -44,7 +44,7 @@ class SectorRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByWall()
 	{
-		Helpers::assertTypesRecursive(Sector::class, $sectors = $this->sectorRepository->getByWall($this->wallRepository->getById(1)));
+		Helpers::assertTypeRecursive(Sector::class, $sectors = $this->sectorRepository->getByWall($this->wallRepository->getById(1)));
 		Assert::equal([1], Helpers::mapIds($sectors));
 	}
 
@@ -54,7 +54,7 @@ class SectorRepositoryTestCase extends DatabaseTestCase
 		$sector = $this->sectorRepository->getByName('TestSector', $this->wallRepository->getById(1));
 		Assert::type(Wall::class, $wall = $sector->getWall());
 		Assert::equal(1, $wall->getId());
-		Helpers::assertTypesRecursive(Line::class, $lines = $sector->getLines());
+		Helpers::assertTypeRecursive(Line::class, $lines = $sector->getLines());
 		Assert::equal([1], Helpers::mapIds($lines));
 	}
 

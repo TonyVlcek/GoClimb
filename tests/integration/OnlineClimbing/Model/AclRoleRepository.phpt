@@ -59,8 +59,8 @@ class AclRoleRepositoryTestCase extends DatabaseTestCase
 		$parent = $roles[0];
 		$child = $roles[1];
 
-		Helpers::assertTypesRecursive(AclRole::class, $parent->getChildren());
-		Helpers::assertTypesRecursive(AclRole::class, $child->getChildren());
+		Helpers::assertTypeRecursive(AclRole::class, $parent->getChildren());
+		Helpers::assertTypeRecursive(AclRole::class, $child->getChildren());
 
 		Assert::equal($parent, $child->getParent());
 		Assert::null($parent->getParent());
