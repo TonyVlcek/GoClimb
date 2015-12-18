@@ -5,6 +5,7 @@
  * @author Martin Mikšík
  */
 
+use OnlineClimbing\Model\Entities\File;
 use OnlineClimbing\Model\Entities\Wall;
 use OnlineClimbing\Model\Repositories\FileRepository;
 use OnlineClimbing\Tests\Utils\DatabaseTestCase;
@@ -24,6 +25,14 @@ class FileRepositoryTestCase extends DatabaseTestCase
 	{
 		parent::__construct();
 		$this->fileRepository = $fileRepository;
+	}
+
+
+	public function testGetById()
+	{
+		Assert::null($this->fileRepository->getById(0));
+		Assert::type(File::class, $file = $this->fileRepository->getById(1));
+		Assert::equal(1, $file->getId());
 	}
 
 
