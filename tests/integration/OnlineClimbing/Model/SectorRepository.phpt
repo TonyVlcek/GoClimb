@@ -36,6 +36,7 @@ class SectorRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
+		Assert::null($this->sectorRepository->getByName('InvalidNameTest', $this->wallRepository->getById(1)));
 		Assert::truthy($sector = $this->sectorRepository->getByName('TestSector', $this->wallRepository->getById(1)));
 		Assert::equal(1, $sector->getId());
 	}
