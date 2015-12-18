@@ -19,6 +19,7 @@ require __DIR__ . "/../../../bootstrap.php";
 class LoginTokenRepositoryTestCase extends DatabaseTestCase
 {
 
+	const NOT_EXISTING_TOKEN = 'I_DO_NOT_EXIST';
 	const ACTIVE_TOKEN = 'ACTIVE_TokenString';
 	const EXPIRED_TOKEN = 'EXPIRED_TokenString';
 
@@ -31,6 +32,12 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 	/** @var  User */
 	private $user;
 
+	/** @var  User */
+	private $userWithoutToken;
+
+	/** @var  User */
+	private $userExpiredToken;
+
 
 	public function __construct(LoginTokenRepository $loginTokenRepository, UserRepository $userRepository)
 	{
@@ -39,11 +46,15 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 		$this->userRepository = $userRepository;
 
 		$this->user = $this->userRepository->getById(1);
+		$this->userWithoutToken = $this->userRepository->getById(3);
+		$this->userExpiredToken = $this->userRepository->getById(2);
 	}
 
 
 	public function testGetByUser()
 	{
+		Assert::null($this->loginTokenRepository->getByUser($this->userWithoutToken));
+		Assert::null($this->loginTokenRepository->getByUser($this->userExpiredToken));
 		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->getByUser($this->user));
 		Assert::equal(1, $loginToken->getId());
 	}
@@ -51,6 +62,7 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByToken()
 	{
+		Assert::null($this->loginTokenRepository->getByToken(self::NOT_EXISTING_TOKEN));
 		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->getByToken(self::ACTIVE_TOKEN));
 		Assert::equal(1, $loginToken->getId());
 
