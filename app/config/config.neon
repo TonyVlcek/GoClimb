@@ -80,6 +80,7 @@ services:
 
 	# grids
 
+	- OnlineClimbing\UI\Grids\Company\ICompanyGridFactory
 	- OnlineClimbing\UI\Grids\User\IUserGridFactory
 
 	# forms

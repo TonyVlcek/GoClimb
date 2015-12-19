@@ -16,6 +16,7 @@ backend:
 		topMenu:
 			dashboard: Dashboard
 			users: Users
+			company: Company
 	dashboard:
 		default:
 			title: Dashboard
