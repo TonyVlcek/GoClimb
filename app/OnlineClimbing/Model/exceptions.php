@@ -24,11 +24,17 @@ class UserException extends ModelException
 {
 
 	const DUPLICATE_NAME = 1;
+	const DUPLICATE_EMAIL = 2;
 
 
 	public static function duplicateName($name)
 	{
 		return new self(sprintf('User with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
+	}
+
+	public static function duplicateEmail($email)
+	{
+		return new self(sprintf('User with email \'%s\' already exists.', $email), self::DUPLICATE_EMAIL);
 	}
 
 }
