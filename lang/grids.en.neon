@@ -13,3 +13,11 @@ user:
 		name: Name
 		apply: Search
 		cancel: Cancel
+
+company:
+	fields:
+		name: Name
+	filter:
+		name: Name
+		apply: Search
+		cancel: Cancel
