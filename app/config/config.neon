@@ -74,19 +74,6 @@ services:
 	- OnlineClimbing\Annotations\RecursiveClassParser
 	- OnlineClimbing\Annotations\RecursiveMethodParser
 
-	- OnlineClimbing\Security\ApplicationPartsManager
-	security.user:
-		class: OnlineClimbing\Security\User
-
-	# grids
-
-	- OnlineClimbing\UI\Grids\Company\ICompanyGridFactory
-	- OnlineClimbing\UI\Grids\User\IUserGridFactory
-
-	# forms
-
-	- OnlineClimbing\UI\Forms\User\ISignInFormFactory
-
 	# facades
 
 	- OnlineClimbing\Model\Facades\AuthFacade
@@ -112,6 +99,30 @@ services:
 	- OnlineClimbing\Model\Repositories\SectorRepository
 	- OnlineClimbing\Model\Repositories\UserRepository
 	- OnlineClimbing\Model\Repositories\WallRepository
+
+	# filters
+	- OnlineClimbing\Modules\BackendModule\Routing\Filters\CompanyFilter
+
+	#security
+
+	- OnlineClimbing\Security\ApplicationPartsManager
+	security.user:
+		class: OnlineClimbing\Security\User
+
+	# controls
+
+	- OnlineClimbing\UI\Controls\ICompanyEditControlFactory
+
+	# forms
+
+	- OnlineClimbing\UI\Forms\Company\ICompanyFormFactory
+	- OnlineClimbing\UI\Forms\Company\ICompanyMemberFormFactory
+	- OnlineClimbing\UI\Forms\User\ISignInFormFactory
+
+	# grids
+
+	- OnlineClimbing\UI\Grids\Company\ICompanyGridFactory
+	- OnlineClimbing\UI\Grids\User\IUserGridFactory
 
 translation:
 	default: en

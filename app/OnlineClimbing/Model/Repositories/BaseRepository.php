@@ -8,6 +8,7 @@ namespace OnlineClimbing\Model\Repositories;
 use Kdyby\Doctrine\EntityManager;
 use Kdyby\Doctrine\EntityRepository;
 use Kdyby\Doctrine\QueryBuilder;
+use OnlineClimbing\Model\EntityException;
 use OnlineClimbing\Model\MappingException;
 use OnlineClimbing\Model\Query\IFilter;
 
@@ -45,6 +46,45 @@ abstract class BaseRepository
 			}
 		}
 		return $queryBuilder;
+	}
+
+
+	/**
+	 * @param object $entity
+	 * @param bool $flush
+	 * @return $this
+	 * @throws EntityException
+	 */
+	public function save($entity, $flush = TRUE)
+	{
+		if (!$this->isOwnEntity($entity)) {
+			throw EntityException::notOwnEntity(get_class($entity));
+		}
+
+		$em = $this->getEntityManager()
+			->persist($entity);
+		if ($flush) {
+			$em->flush();
+		}
+
+		return $this;
+	}
+
+
+	public function getResultByFilters(IFilter ...$filters)
+	{
+		return $this->getBuilderByFilters(...$filters)->getQuery()->execute();
+	}
+
+
+	/**
+	 * @param object $entity
+	 * @return bool
+	 */
+	protected function isOwnEntity($entity)
+	{
+		$entityClass = $this->getEntityClass();
+		return $entity instanceof $entityClass;
 	}
 
 

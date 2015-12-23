@@ -5,7 +5,6 @@
 
 namespace OnlineClimbing\Model\Facades;
 
-use Nette\Utils\AssertionException;
 use Nette\Utils\Validators;
 use OnlineClimbing\Model\Entities\User;
 use OnlineClimbing\Model\Repositories\UserRepository;
@@ -31,12 +30,21 @@ class UserFacade
 	/**
 	 * @param string $name
 	 * @return User|NULL
-	 * @throws AssertionException
 	 */
 	public function getByName($name)
 	{
 		Validators::assert($name, 'string');
 		return $this->userRepository->getByName($name);
+	}
+
+
+	/**
+	 * @param int $id
+	 * @return User|NULL
+	 */
+	public function getById($id)
+	{
+		return $this->userRepository->getById($id);
 	}
 
 
@@ -52,4 +60,5 @@ class UserFacade
 
 		return $user;
 	}
+
 }

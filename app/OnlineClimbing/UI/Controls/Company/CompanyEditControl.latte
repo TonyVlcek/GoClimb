@@ -1,0 +1,7 @@
+{control companyForm}
+
+{control companyMemberForm}
+
+{foreach $members as $member}
+	<span>{$member->getName()}</span> <a n:href="removeUser! $member->getId()">X</a><br/>
+{/foreach}
