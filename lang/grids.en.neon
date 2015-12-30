@@ -9,8 +9,14 @@ user:
 	fields:
 		id: ID
 		name: Name
+		firstName: First name
+		lastName: Last name
+		email: Email
 	filter:
 		name: Name
+		firstName: First name
+		lastName: Last name
+		email: Email
 		apply: Search
 		cancel: Cancel
 
