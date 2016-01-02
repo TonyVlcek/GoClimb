@@ -33,21 +33,30 @@ class UserRepository extends BaseRepository
 		return $this->getDoctrineRepository()->findOneBy(['name' => $name]);
 	}
 
+	/**
+	 * @param string $email
+	 * @return User|NULL
+	 */
+	public function getByEmail($email)
+	{
+		return $this->getDoctrineRepository()->findOneBy(['email' => $email]);
+	}
+
 
 	/**
-	 * @param string $name
+	 * @param string $email
 	 * @param string $password
 	 * @return User
 	 * @throws UserException
 	 */
-	public function createUser($name, $password)
+	public function createUser($email, $password)
 	{
-		if ($this->getByName($name)) {
-			throw UserException::duplicateName($name);
+		if ($this->getByEmail($email)) {
+			throw UserException::duplicateEmail($email);
 		}
 
 		$user = new User;
-		$user->setName($name)
+		$user->setEmail($email)
 			->setPassword(Passwords::hash($password));
 
 		$this->getEntityManager()

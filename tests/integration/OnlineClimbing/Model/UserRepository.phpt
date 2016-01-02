@@ -56,14 +56,22 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	}
 
 
+	public function testGetByEmail()
+	{
+		Assert::null($this->userRepository->getByEmail('0@test.com'));
+		Assert::type(User::class, $testUser = $this->userRepository->getByEmail('2@test.com'));
+		Assert::equal(2, $testUser->getId());
+	}
+
+
 	public function testCreateUser()
 	{
-		Assert::type(User::class, $testUser = $this->userRepository->createUser('a', 'b'));
-		Assert::equal('a', $testUser->getName());
+		Assert::type(User::class, $testUser = $this->userRepository->createUser('a@b.c', 'b'));
+		Assert::equal('a@b.c', $testUser->getEmail());
 		Assert::true(Passwords::verify('b', $testUser->getPassword()));
 
 		//Test state after
-		Assert::equal($testUser, $this->userRepository->getByName('a'));
+		Assert::equal($testUser, $this->userRepository->getByEmail('a@b.c'));
 	}
 
 

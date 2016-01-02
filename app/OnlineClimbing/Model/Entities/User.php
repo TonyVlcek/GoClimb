@@ -5,6 +5,7 @@
 
 namespace OnlineClimbing\Model\Entities;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use OnlineClimbing\Model\Entities\Attributes\Id;
@@ -33,16 +34,64 @@ class User
 	private $companies;
 
 	/**
+	 * @var string|NULL
+	 * @ORM\Column(type="string", nullable=TRUE, unique=TRUE, options={"default": NULL})
+	 */
+	private $name = NULL;
+
+	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE, unique=TRUE)
 	 */
-	private $name;
+	private $email;
 
 	/**
 	 * @var string
 	 * @ORM\Column(type="string", nullable=FALSE, length=60, options={"fixed": TRUE})
 	 */
 	private $password;
+
+	/**
+	 * @var string|NULL
+	 * @ORM\Column(type="string", nullable=TRUE, options={"default": NULL})
+	 */
+	private $firstName = NULL;
+
+	/**
+	 * @var string|NULL
+	 * @ORM\Column(type="string", nullable=TRUE, options={"default": NULL})
+	 */
+	private $lastName = NULL;
+
+	/**
+	 * @var int|NULL
+	 * @ORM\Column(type="integer", nullable=TRUE, options={"default": NULL})
+	 */
+	private $age = NULL;
+
+	/**
+	 * @var int|NULL
+	 * @ORM\Column(type="integer", nullable=TRUE, options={"default": NULL})
+	 */
+	private $height = NULL;
+
+	/**
+	 * @var int|NULL
+	 * @ORM\Column(type="integer", nullable=TRUE, options={"default": NULL})
+	 */
+	private $weight = NULL;
+
+	/**
+	 * @var string|NULL
+	 * @ORM\Column(type="string", nullable=TRUE, options={"default": NULL})
+	 */
+	private $phone = NULL;
+
+	/**
+	 * @var DateTime|NULL
+	 * @ORM\Column(type="datetime", nullable=TRUE, options={"default": NULL})
+	 */
+	private $climbingSince = NULL;
 
 	/**
 	 * @var Article[]|ArrayCollection
@@ -153,7 +202,7 @@ class User
 
 
 	/**
-	 * @return string
+	 * @return string|NULL
 	 */
 	public function getName()
 	{
@@ -162,7 +211,7 @@ class User
 
 
 	/**
-	 * @param string $name
+	 * @param string $name|NULL
 	 * @return $this
 	 */
 	public function setName($name)
@@ -313,5 +362,180 @@ class User
 		$this->restTokens->removeElement($restToken);
 		return $this;
 	}
+
+
+	/**
+	 * @return DateTime|NULL
+	 */
+	public function getClimbingSince()
+	{
+		return $this->climbingSince;
+	}
+
+
+	/**
+	 * @param DateTime|NULL $climbingSince
+	 * @return $this
+	 */
+	public function setClimbingSince(DateTime $climbingSince = NULL)
+	{
+		$this->climbingSince = $climbingSince;
+		return $this;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getEmail()
+	{
+		return $this->email;
+	}
+
+
+	/**
+	 * @param string $email
+	 * @return $this
+	 */
+	public function setEmail($email)
+	{
+		$this->email = $email;
+		return $this;
+	}
+
+
+	/**
+	 * @return string|NULL
+	 */
+	public function getFirstName()
+	{
+		return $this->firstName;
+	}
+
+
+	/**
+	 * @param string|NULL $firstName
+	 * @return $this
+	 */
+	public function setFirstName($firstName)
+	{
+		$this->firstName = $firstName;
+		return $this;
+	}
+
+
+	/**
+	 * @return string|NULL
+	 */
+	public function getLastName()
+	{
+		return $this->lastName;
+	}
+
+
+	/**
+	 * @param string|NULL $lastName
+	 * @return $this
+	 */
+	public function setLastName($lastName)
+	{
+		$this->lastName = $lastName;
+		return $this;
+	}
+
+
+	/**
+	 * @return string|NULL
+	 */
+	public function getFullName()
+	{
+		if ($this->getFirstName() === NULL || $this->getLastName() === NULL) {
+			return NULL;
+		}
+
+		return $this->getFirstName() . ' ' . $this->getLastName();
+	}
+
+
+	/**
+	 * @return int|NULL
+	 */
+	public function getAge()
+	{
+		return $this->age;
+	}
+
+
+	/**
+	 * @param int|NULL $age
+	 * @return $this
+	 */
+	public function setAge($age)
+	{
+		$this->age = $age;
+		return $this;
+	}
+
+
+	/**
+	 * @return int|NULL
+	 */
+	public function getHeight()
+	{
+		return $this->height;
+	}
+
+
+	/**
+	 * @param int|NULL $height
+	 * @return $this
+	 */
+	public function setHeight($height)
+	{
+		$this->height = $height;
+		return $this;
+	}
+
+
+	/**
+	 * @return int|NULL
+	 */
+	public function getWeight()
+	{
+		return $this->weight;
+	}
+
+
+	/**
+	 * @param int|NULL $weight
+	 * @return $this
+	 */
+	public function setWeight($weight)
+	{
+		$this->weight = $weight;
+		return $this;
+	}
+
+
+	/**
+	 * @return string|NULL
+	 */
+	public function getPhone()
+	{
+		return $this->phone;
+	}
+
+
+	/**
+	 * @param string|NULL $phone
+	 * @return $this
+	 */
+	public function setPhone($phone)
+	{
+		$this->phone = $phone;
+		return $this;
+	}
+
+
 
 }
