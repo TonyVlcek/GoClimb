@@ -6,6 +6,7 @@
 namespace OnlineClimbing\Model\Query\Specifications\User;
 
 use Kdyby\Doctrine\QueryBuilder;
+use OnlineClimbing\Model\Query\Helpers;
 use OnlineClimbing\Model\Query\IFilter;
 
 
@@ -27,7 +28,7 @@ class EmailLike implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('email', '%' . $this->search . '%');
+		$queryBuilder->setParameter('email', '%' . Helpers::escapeWildcard($this->search) . '%');
 		return $queryBuilder->expr()->like($entityAlias . '.email', ':email');
 	}
 }
