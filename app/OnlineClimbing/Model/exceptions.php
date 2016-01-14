@@ -16,9 +16,40 @@ class MappingException extends InvalidArgumentException
 	{
 		return new self(sprintf('Cannot determine repository name from class name %s.', $repositoryClass));
 	}
+
 }
 
+
 class ModelException extends Exception {}
+
+
+class CompanyException extends ModelException
+{
+
+	const DUPLICATE_NAME = 1;
+
+
+	public static function duplicateName($name)
+	{
+		return new self(sprintf('Company with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
+	}
+
+}
+
+
+class EntityException extends ModelException
+{
+
+	const NOT_OWN_ENTITY = 1;
+
+
+	public static function notOwnEntity($class)
+	{
+		return new self(sprintf('Entity \'%s\' does not belong to this repository.', $class), self::NOT_OWN_ENTITY);
+	}
+
+}
+
 
 class UserException extends ModelException
 {
@@ -31,6 +62,7 @@ class UserException extends ModelException
 	{
 		return new self(sprintf('User with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
 	}
+
 
 	public static function duplicateEmail($email)
 	{

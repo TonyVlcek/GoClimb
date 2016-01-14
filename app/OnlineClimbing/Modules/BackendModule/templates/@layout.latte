@@ -47,6 +47,11 @@
 	</nav>
 
 	<div class="container">
+		<!-- Temporary place for FlashMessages -->
+		{foreach $flashes as $flash}
+			<div class="alert alert-{$flash->type}">{$flash->message}</div>
+		{/foreach}
+
 		{include content}
 	</div>
 

@@ -11,3 +11,14 @@ user:
 			password:
 				required: Please enter password.
 				invalid: Invalid password.
+
+company:
+	companyForm:
+		fields:
+			name: Name
+			add: Create
+			edit: Save
+	memberForm:
+		fields:
+			member: Member
+			submit: Add member
