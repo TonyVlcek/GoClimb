@@ -16,6 +16,7 @@ use OnlineClimbing\Model\Facades\AuthFacade;
 use OnlineClimbing\Security\ApplicationPartsManager;
 use OnlineClimbing\Security\Identity;
 use OnlineClimbing\Security\User;
+use stdClass;
 
 
 /**
@@ -87,6 +88,28 @@ abstract class BasePresenter extends Presenter
 	}
 
 
+	/**
+	 * @param string $message
+	 * @param array $parameters
+	 * @return stdClass
+	 */
+	public function flashMessageSuccess($message, array $parameters = [])
+	{
+		return $this->flashMessage($message, 'success', $parameters);
+	}
+
+
+	/**
+	 * @param string $message
+	 * @param array $parameters
+	 * @return stdClass
+	 */
+	public function flashMessageError($message, array $parameters = [])
+	{
+		return $this->flashMessage($message, 'danger', $parameters);
+	}
+
+
 	protected function startup()
 	{
 		parent::startup();
@@ -140,6 +163,18 @@ abstract class BasePresenter extends Presenter
 				}
 			}
 		}
+	}
+
+
+	/**
+	 * @param string $message
+	 * @param string $type
+	 * @param array $parameters
+	 * @return stdClass
+	 */
+	public function flashMessage($message, $type = 'info', array $parameters = [])
+	{
+		return parent::flashMessage($this->translator->translate('messages.' . $message, $parameters), $type);
 	}
 
 }

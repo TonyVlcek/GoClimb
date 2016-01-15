@@ -47,10 +47,10 @@
 	</nav>
 
 	<div class="container">
-		<!-- Temporary place for FlashMessages -->
-		{foreach $flashes as $flash}
-			<div class="alert alert-{$flash->type}">{$flash->message}</div>
-		{/foreach}
+		<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible fade in" role="alert">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">{_templates.backend.layout.close}</span></button>
+			{$flash->message}
+		</div>
 
 		{include content}
 	</div>
