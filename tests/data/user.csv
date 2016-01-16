@@ -1,6 +1,6 @@
-id,name,password,email,first_name,last_name,age,height,weight,phone,climbing_since
-1,admin,$2y$10$d5JpUaox5ze0aEPb0oJhbOlmqc0n/mZivhnvsyQ.c0GPcd0FJoUry,1@test.com,John,Smith,35,193,85,123456789, 2010-10-03
-2,test,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,2@test.com,John,Smith,35,193,85,123456789, 2015-10-03
-3,userWithoutToken,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,3@test.com,John,Smith,35,193,85,123456789, 2015-10-03
-4,token,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,4@test.com,John,Smith,35,193,85,123456789, 2015-10-03
-5,user5,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,5@test.com,John,Smith,35,193,85,123456789, 2015-10-03
+id,name,password,email,first_name,last_name,birth_date,height,weight,phone,climbing_since
+1,admin,$2y$10$d5JpUaox5ze0aEPb0oJhbOlmqc0n/mZivhnvsyQ.c0GPcd0FJoUry,1@test.com,John,Smith,1996-12-09,193,85,123456789, 2010-10-03
+2,test,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,2@test.com,John,Smith,1996-12-09,193,85,123456789, 2015-10-03
+3,userWithoutToken,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,3@test.com,John,Smith,1996-12-09,193,85,123456789, 2015-10-03
+4,token,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,4@test.com,John,Smith,1996-12-09,193,85,123456789, 2015-10-03
+5,user5,$2y$10$xt5fh.15BhgpNR1THOMP5.ZCL31X7Mk7y1Ov9IClMg.5SI0vj1/S6,5@test.com,John,Smith,1996-12-09,193,85,123456789, 2015-10-03
