@@ -5,6 +5,7 @@
 
 namespace OnlineClimbing\Model\Entities;
 
+use DateInterval;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -64,10 +65,10 @@ class User
 	private $lastName = NULL;
 
 	/**
-	 * @var int|NULL
-	 * @ORM\Column(type="integer", nullable=TRUE, options={"default": NULL})
+	 * @var DateTime|NULL
+	 * @ORM\Column(type="datetime", nullable=TRUE, options={"default": NULL})
 	 */
-	private $age = NULL;
+	private $birthDate = NULL;
 
 	/**
 	 * @var int|NULL
@@ -211,7 +212,7 @@ class User
 
 
 	/**
-	 * @param string $name|NULL
+	 * @param string|NULL $name
 	 * @return $this
 	 */
 	public function setName($name)
@@ -332,6 +333,7 @@ class User
 		$this->loginTokens->removeElement($loginToken);
 		return $this;
 	}
+
 
 	/**
 	 * @return RestToken[]
@@ -458,22 +460,34 @@ class User
 
 
 	/**
-	 * @return int|NULL
+	 * @return DateTime|NULL
 	 */
-	public function getAge()
+	public function getBirthDate()
 	{
-		return $this->age;
+		return $this->birthDate;
 	}
 
 
 	/**
-	 * @param int|NULL $age
+	 * @param DateTime|NULL $birthDate
 	 * @return $this
 	 */
-	public function setAge($age)
+	public function setBirthDate(DateTime $birthDate = NULL)
 	{
-		$this->age = $age;
+		$this->birthDate = $birthDate;
 		return $this;
+	}
+
+
+	/**
+	 * @return DateInterval|NULL
+	 */
+	public function getAge()
+	{
+		if ($this->getBirthDate()) {
+			return (new DateTime)->diff($this->birthDate);
+		}
+		return NULL;
 	}
 
 
@@ -535,7 +549,5 @@ class User
 		$this->phone = $phone;
 		return $this;
 	}
-
-
 
 }
