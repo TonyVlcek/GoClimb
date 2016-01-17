@@ -1,7 +1,7 @@
 {
-	"name": "online-climbing",
+	"name": "go-climb",
 	"version": "0.1.0",
-	"homepage": "https://github.com/greeny/OnlineClimbing",
+	"homepage": "https://github.com/greeny/GoClimb",
 	"authors": [
 		"Tomáš Blatný <blatny.tomas@seznam.cz>"
 	],

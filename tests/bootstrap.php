@@ -3,9 +3,9 @@
  * @author Tomáš Blatný
  */
 
+use GoClimb\Tests\Helpers;
+use GoClimb\Tests\Utils\Locker;
 use Nette\DI\Container;
-use OnlineClimbing\Tests\Helpers;
-use OnlineClimbing\Tests\Utils\Locker;
 use Tester\Environment;
 use Tester\TestCase;
 

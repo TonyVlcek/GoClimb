@@ -1,11 +1,11 @@
 {
-	"name": "online-climbing",
+	"name": "go-climb",
 	"version": "1.0.0",
 	"description": "Powerful CMS for indoor climbing websites",
 	"author": "greeny",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/greeny/OnlineClimbing.git"
+		"url": "git+https://github.com/greeny/GoClimb.git"
 	},
 	"license": "UNLICENSED",
 	"devDependencies": {

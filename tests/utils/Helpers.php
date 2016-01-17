@@ -3,10 +3,10 @@
  * @author Tony Vlček
  */
 
-namespace OnlineClimbing\Tests;
+namespace GoClimb\Tests;
 
 use Nette\DI\Container;
-use OnlineClimbing\Tests\Utils\TestCase;
+use GoClimb\Tests\Utils\TestCase;
 use Tester\Assert;
 
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace OnlineClimbing\Migrations;
+namespace GoClimb\Migrations;
 
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
+
 
 /**
  * Auto-generated Migration: Please modify to your needs!

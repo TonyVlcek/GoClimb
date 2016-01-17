@@ -11,18 +11,18 @@ php:
 application:
 	errorPresenter: Error
 	mapping:
-		*: OnlineClimbing\Modules\*Module\*Presenter
+		*: GoClimb\Modules\*Module\*Presenter
 
 console:
 	commands:
-		- OnlineClimbing\Console\Commands\CleanCacheCommand
-		- OnlineClimbing\Console\Commands\CreateUserCommand
+		- GoClimb\Console\Commands\CleanCacheCommand
+		- GoClimb\Console\Commands\CreateUserCommand
 
 doctrine:
 	user: root
 	password:
 	metadata:
-		OnlineClimbing\Model\Entities: %appDir%/OnlineClimbing/Model/Entities
+		GoClimb\Model\Entities: %appDir%/GoClimb/Model/Entities
 
 extensions:
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
@@ -31,7 +31,7 @@ extensions:
 	eventDispatcher: Symnedi\EventDispatcher\DI\EventDispatcherExtension
 	events: Kdyby\Events\DI\EventsExtension
 	migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
-	onlineClimbing: OnlineClimbing\DI\OnlineClimbingExtension
+	onlineClimbing: GoClimb\DI\GoClimbExtension
 	restful: Drahak\Restful\DI\RestfulExtension
 	translation: Kdyby\Translation\DI\TranslationExtension
 
@@ -42,14 +42,14 @@ latte:
 migrations:
 	table: _doctrine_migrations
 	directory: %appDir%/../migrations
-	namespace: OnlineClimbing\Migrations
+	namespace: GoClimb\Migrations
 	codingStandard: tabs
 
 onlineClimbing:
 	routers:
-		Auth: OnlineClimbing\Modules\AuthModule\Routing\AuthRoutes
-		Backend: OnlineClimbing\Modules\BackendModule\Routing\BackendRouteProvider
-		Public: OnlineClimbing\Modules\PublicModule\Routing\PublicRouteProvider
+		Auth: GoClimb\Modules\AuthModule\Routing\AuthRoutes
+		Backend: GoClimb\Modules\BackendModule\Routing\BackendRouteProvider
+		Public: GoClimb\Modules\PublicModule\Routing\PublicRouteProvider
 
 restful:
 	convention: 'camelCase'
@@ -71,58 +71,58 @@ session:
 
 
 services:
-	- OnlineClimbing\Annotations\RecursiveClassParser
-	- OnlineClimbing\Annotations\RecursiveMethodParser
+	- GoClimb\Annotations\RecursiveClassParser
+	- GoClimb\Annotations\RecursiveMethodParser
 
 	# facades
 
-	- OnlineClimbing\Model\Facades\AuthFacade
-	- OnlineClimbing\Model\Facades\UserFacade
-	- OnlineClimbing\Model\Facades\RestFacade
+	- GoClimb\Model\Facades\AuthFacade
+	- GoClimb\Model\Facades\UserFacade
+	- GoClimb\Model\Facades\RestFacade
 
 	# repositories
 
-	- OnlineClimbing\Model\Repositories\AclPrivilegeRepository
-	- OnlineClimbing\Model\Repositories\AclResourceRepository
-	- OnlineClimbing\Model\Repositories\AclRoleRepository
-	- OnlineClimbing\Model\Repositories\ApplicationRepository
-	- OnlineClimbing\Model\Repositories\ArticleRepository
-	- OnlineClimbing\Model\Repositories\CompanyRepository
-	- OnlineClimbing\Model\Repositories\ContentPartRepository
-	- OnlineClimbing\Model\Repositories\FileRepository
-	- OnlineClimbing\Model\Repositories\ImageRepository
-	- OnlineClimbing\Model\Repositories\LineRepository
-	- OnlineClimbing\Model\Repositories\LoginTokenRepository
-	- OnlineClimbing\Model\Repositories\PageRepository
-	- OnlineClimbing\Model\Repositories\RestTokenRepository
-	- OnlineClimbing\Model\Repositories\RouteRepository
-	- OnlineClimbing\Model\Repositories\SectorRepository
-	- OnlineClimbing\Model\Repositories\UserRepository
-	- OnlineClimbing\Model\Repositories\WallRepository
+	- GoClimb\Model\Repositories\AclPrivilegeRepository
+	- GoClimb\Model\Repositories\AclResourceRepository
+	- GoClimb\Model\Repositories\AclRoleRepository
+	- GoClimb\Model\Repositories\ApplicationRepository
+	- GoClimb\Model\Repositories\ArticleRepository
+	- GoClimb\Model\Repositories\CompanyRepository
+	- GoClimb\Model\Repositories\ContentPartRepository
+	- GoClimb\Model\Repositories\FileRepository
+	- GoClimb\Model\Repositories\ImageRepository
+	- GoClimb\Model\Repositories\LineRepository
+	- GoClimb\Model\Repositories\LoginTokenRepository
+	- GoClimb\Model\Repositories\PageRepository
+	- GoClimb\Model\Repositories\RestTokenRepository
+	- GoClimb\Model\Repositories\RouteRepository
+	- GoClimb\Model\Repositories\SectorRepository
+	- GoClimb\Model\Repositories\UserRepository
+	- GoClimb\Model\Repositories\WallRepository
 
 	# filters
-	- OnlineClimbing\Modules\BackendModule\Routing\Filters\CompanyFilter
+	- GoClimb\Modules\BackendModule\Routing\Filters\CompanyFilter
 
 	#security
 
-	- OnlineClimbing\Security\ApplicationPartsManager
+	- GoClimb\Security\ApplicationPartsManager
 	security.user:
-		class: OnlineClimbing\Security\User
+		class: GoClimb\Security\User
 
 	# controls
 
-	- OnlineClimbing\UI\Controls\ICompanyEditControlFactory
+	- GoClimb\UI\Controls\ICompanyEditControlFactory
 
 	# forms
 
-	- OnlineClimbing\UI\Forms\Company\ICompanyFormFactory
-	- OnlineClimbing\UI\Forms\Company\ICompanyMemberFormFactory
-	- OnlineClimbing\UI\Forms\User\ISignInFormFactory
+	- GoClimb\UI\Forms\Company\ICompanyFormFactory
+	- GoClimb\UI\Forms\Company\ICompanyMemberFormFactory
+	- GoClimb\UI\Forms\User\ISignInFormFactory
 
 	# grids
 
-	- OnlineClimbing\UI\Grids\Company\ICompanyGridFactory
-	- OnlineClimbing\UI\Grids\User\IUserGridFactory
+	- GoClimb\UI\Grids\Company\ICompanyGridFactory
+	- GoClimb\UI\Grids\User\IUserGridFactory
 
 translation:
 	default: en

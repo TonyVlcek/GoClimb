@@ -3,7 +3,7 @@
  * @author Tomáš Blatný
  */
 
-namespace OnlineClimbing\Tests\Utils;
+namespace GoClimb\Tests\Utils;
 
 use Tester\Environment;
 

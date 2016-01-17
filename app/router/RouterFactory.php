@@ -1,6 +1,6 @@
 <?php
 
-namespace OnlineClimbing;
+namespace GoClimb;
 
 use Nette;
 use Nette\Application\Routers\Route;
