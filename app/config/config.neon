@@ -102,6 +102,7 @@ services:
 
 	# filters
 	- GoClimb\Modules\BackendModule\Routing\Filters\CompanyFilter
+	- GoClimb\Modules\BackendModule\Routing\Filters\UserFilter
 
 	#security
 
@@ -118,6 +119,7 @@ services:
 	- GoClimb\UI\Forms\Company\ICompanyFormFactory
 	- GoClimb\UI\Forms\Company\ICompanyMemberFormFactory
 	- GoClimb\UI\Forms\User\ISignInFormFactory
+	- GoClimb\UI\Forms\User\IUserFormFactory
 
 	# grids
 
