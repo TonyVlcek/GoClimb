@@ -1,13 +1,12 @@
 <?php
 /**
- * @author Tony Vlček
+ * @author Martin Mikšík
  */
-
-namespace GoClimb\Model\Query\Specifications\Company;
+namespace GoClimb\Model\Query\Specifications\User;
 
 use Doctrine\ORM\Query\Expr\Base;
 use Kdyby\Doctrine\QueryBuilder;
-use GoClimb\Model\Entities\Company;
+use GoClimb\Model\Entities\User;
 use GoClimb\Model\Query\IFilter;
 use GoClimb\Model\Query\Specifications\AndArgs;
 use GoClimb\Model\Query\Specifications\ByName;
@@ -17,16 +16,16 @@ use GoClimb\Model\Query\Specifications\NotById;
 class DuplicateName implements IFilter
 {
 
-	/** @var Company */
-	private $company;
+	/** @var User */
+	private $user;
 
 	/** @var string */
 	private $newName;
 
 
-	public function __construct(Company $company, $newName)
+	public function __construct(User $user, $newName)
 	{
-		$this->company = $company;
+		$this->user = $user;
 		$this->newName = $newName;
 	}
 
@@ -36,11 +35,11 @@ class DuplicateName implements IFilter
 	 * @param string $entityAlias
 	 * @return Base
 	 */
-	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
+	function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
 		$args = new AndArgs(new ByName($this->newName));
-		if ($this->company->getId()) {
-			$args->add(new NotById($this->company->getId()));
+		if ($this->user->getId()) {
+			$args->add(new NotById($this->user->getId()));
 		}
 
 		return $args->applyFilter($queryBuilder, $entityAlias);
