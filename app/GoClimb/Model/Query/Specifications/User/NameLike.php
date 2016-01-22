@@ -28,7 +28,7 @@ class NameLike implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('name', '%' . Helpers::escapeWildcard($this->search) . '%');
-		return $queryBuilder->expr()->like($entityAlias . '.name', ':name');
+		$queryBuilder->setParameter('userName', '%' . Helpers::escapeWildcard($this->search) . '%');
+		return $queryBuilder->expr()->like($entityAlias . '.name', ':userName');
 	}
 }

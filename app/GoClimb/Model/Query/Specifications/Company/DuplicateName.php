@@ -10,8 +10,6 @@ use Kdyby\Doctrine\QueryBuilder;
 use GoClimb\Model\Entities\Company;
 use GoClimb\Model\Query\IFilter;
 use GoClimb\Model\Query\Specifications\AndArgs;
-use GoClimb\Model\Query\Specifications\ByName;
-use GoClimb\Model\Query\Specifications\NotById;
 
 
 class DuplicateName implements IFilter

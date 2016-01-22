@@ -3,7 +3,7 @@
  * @author Martin Mikšík
  */
 
-namespace GoClimb\Model\Query\Specifications;
+namespace GoClimb\Model\Query\Specifications\User;
 
 use Kdyby\Doctrine\QueryBuilder;
 use GoClimb\Model\Query\IFilter;
@@ -27,8 +27,8 @@ class NotById implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('id', $this->id);
-		return $queryBuilder->expr()->neq($entityAlias . '.id', ':id');
+		$queryBuilder->setParameter('userNotId', $this->id);
+		return $queryBuilder->expr()->neq($entityAlias . '.id', ':userNotId');
 	}
 
 }
