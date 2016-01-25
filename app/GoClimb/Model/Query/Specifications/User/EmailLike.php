@@ -28,7 +28,7 @@ class EmailLike implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('email', '%' . Helpers::escapeWildcard($this->search) . '%');
-		return $queryBuilder->expr()->like($entityAlias . '.email', ':email');
+		$queryBuilder->setParameter('userEmail', '%' . Helpers::escapeWildcard($this->search) . '%');
+		return $queryBuilder->expr()->like($entityAlias . '.email', ':userEmail');
 	}
 }

@@ -1,15 +1,15 @@
 <?php
 /**
- * @author Tomáš Blatný
+ * @author Martin Mikšík
  */
 
-namespace GoClimb\Model\Query\Specifications;
+namespace GoClimb\Model\Query\Specifications\Company;
 
 use Kdyby\Doctrine\QueryBuilder;
 use GoClimb\Model\Query\IFilter;
 
 
-class ById implements IFilter
+class NotById implements IFilter
 {
 
 	/** @var int */
@@ -27,7 +27,8 @@ class ById implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('id', $this->id);
-		return $queryBuilder->expr()->eq($entityAlias . '.id', ':id');
+		$queryBuilder->setParameter('companyNotId', $this->id);
+		return $queryBuilder->expr()->neq($entityAlias . '.id', ':companyNotId');
 	}
+
 }

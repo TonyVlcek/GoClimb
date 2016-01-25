@@ -28,7 +28,7 @@ class FirstNameLike implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('firstName', '%' . Helpers::escapeWildcard($this->search) . '%');
-		return $queryBuilder->expr()->like($entityAlias . '.firstName', ':firstName');
+		$queryBuilder->setParameter('userFirstName', '%' . Helpers::escapeWildcard($this->search) . '%');
+		return $queryBuilder->expr()->like($entityAlias . '.firstName', ':userFirstName');
 	}
 }

@@ -3,7 +3,7 @@
  * @author Tony Vlček
  */
 
-namespace GoClimb\Model\Query\Specifications;
+namespace GoClimb\Model\Query\Specifications\User;
 
 use Kdyby\Doctrine\QueryBuilder;
 use GoClimb\Model\Query\IFilter;
@@ -27,8 +27,8 @@ class ByEmail implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('email', $this->email);
-		return $queryBuilder->expr()->eq($entityAlias . '.email', ':email');
+		$queryBuilder->setParameter('userEmail', $this->email);
+		return $queryBuilder->expr()->eq($entityAlias . '.email', ':userEmail');
 	}
 
 }

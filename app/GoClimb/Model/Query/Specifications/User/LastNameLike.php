@@ -28,7 +28,7 @@ class LastNameLike implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('lastName', '%' . Helpers::escapeWildcard($this->search) . '%');
-		return $queryBuilder->expr()->like($entityAlias . '.lastName', ':lastName');
+		$queryBuilder->setParameter('userLastName', '%' . Helpers::escapeWildcard($this->search) . '%');
+		return $queryBuilder->expr()->like($entityAlias . '.lastName', ':userLastName');
 	}
 }

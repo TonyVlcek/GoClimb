@@ -9,8 +9,6 @@ use Kdyby\Doctrine\QueryBuilder;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Query\IFilter;
 use GoClimb\Model\Query\Specifications\AndArgs;
-use GoClimb\Model\Query\Specifications\ByEmail;
-use GoClimb\Model\Query\Specifications\NotById;
 
 class DuplicateEmail implements IFilter
 {
