@@ -35,7 +35,6 @@ class AuthFacadeTestCase extends DatabaseTestCase
 
 	public function __construct(AuthFacade $authFacade, UserRepository $userRepository)
 	{
-		parent::__construct();
 		$this->authFacade = $authFacade;
 		$this->userRepository = $userRepository;
 	}

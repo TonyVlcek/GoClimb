@@ -24,7 +24,6 @@ class ImageRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(ImageRepository $imageRepository)
 	{
-		parent::__construct();
 		$this->imageRepository = $imageRepository;
 	}
 

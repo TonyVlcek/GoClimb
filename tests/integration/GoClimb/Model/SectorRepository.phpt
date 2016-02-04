@@ -29,7 +29,6 @@ class SectorRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(SectorRepository $sectorRepository, WallRepository $wallRepository)
 	{
-		parent::__construct();
 		$this->sectorRepository = $sectorRepository;
 		$this->wallRepository = $wallRepository;
 	}

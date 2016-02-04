@@ -23,7 +23,6 @@ class ContentPartRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(ContentPartRepository $contentPartRepository)
 	{
-		parent::__construct();
 		$this->contentPartRepository = $contentPartRepository;
 	}
 

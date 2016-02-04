@@ -24,7 +24,6 @@ class RouteRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(RouteRepository $routeRepository)
 	{
-		parent::__construct();
 		$this->routeRepository = $routeRepository;
 	}
 

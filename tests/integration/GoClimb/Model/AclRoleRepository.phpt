@@ -27,7 +27,6 @@ class AclRoleRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(AclRoleRepository $roleRepository, WallRepository $wallRepository)
 	{
-		parent::__construct();
 		$this->aclRoleRepository = $roleRepository;
 		$this->wallRepository = $wallRepository;
 	}

@@ -25,7 +25,6 @@ class CompanyRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(CompanyRepository $companyRepository)
 	{
-		parent::__construct();
 		$this->companyRepository = $companyRepository;
 	}
 

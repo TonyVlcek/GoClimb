@@ -36,7 +36,6 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(WallRepository $wallRepository, CompanyRepository $companyRepository)
 	{
-		parent::__construct();
 		$this->wallRepository = $wallRepository;
 		$this->companyRepository = $companyRepository;
 	}

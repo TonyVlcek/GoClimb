@@ -63,6 +63,9 @@ class DatabaseTestCase extends TestCase
 	{
 		$this->dbname = 'goclimb_tests_' . getmypid();
 		$this->connection->query('DROP DATABASE IF EXISTS ' . $this->dbname);
+		register_shutdown_function(function () {
+			$this->connection->query('DROP DATABASE IF EXISTS ' . $this->dbname);
+		});
 		$this->connection->query('CREATE DATABASE ' . $this->dbname);
 		$this->connection->close();
 		$this->connection->__construct(

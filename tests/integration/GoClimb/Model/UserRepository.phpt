@@ -34,7 +34,6 @@ class UserRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(UserRepository $userRepository, WallRepository $wallRepository)
 	{
-		parent::__construct();
 		$this->userRepository = $userRepository;
 		$this->wallRepository = $wallRepository;
 	}

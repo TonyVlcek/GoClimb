@@ -25,7 +25,6 @@ class PageRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(PageRepository $pageRepository)
 	{
-		parent::__construct();
 		$this->pageRepository = $pageRepository;
 	}
 

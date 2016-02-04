@@ -44,7 +44,6 @@ class RestFacadeTestCase extends DatabaseTestCase
 
 	public function __construct(RestFacade $restFacade, WallRepository $wallRepository, UserRepository $userRepository)
 	{
-		parent::__construct();
 		$this->restFacade = $restFacade;
 		$this->wallRepository = $wallRepository;
 		$this->userRepository = $userRepository;

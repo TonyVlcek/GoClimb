@@ -23,7 +23,6 @@ class FileRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(FileRepository $fileRepository)
 	{
-		parent::__construct();
 		$this->fileRepository = $fileRepository;
 	}
 

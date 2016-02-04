@@ -33,7 +33,6 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(ArticleRepository $articleRepository, WallRepository $wallRepository, UserRepository $userRepository)
 	{
-		parent::__construct();
 		$this->articleRepository = $articleRepository;
 		$this->wallRepository = $wallRepository;
 		$this->userRepository = $userRepository;

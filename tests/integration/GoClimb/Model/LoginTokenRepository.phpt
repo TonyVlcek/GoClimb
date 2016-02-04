@@ -41,7 +41,6 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(LoginTokenRepository $loginTokenRepository, UserRepository $userRepository)
 	{
-		parent::__construct();
 		$this->loginTokenRepository = $loginTokenRepository;
 		$this->userRepository = $userRepository;
 

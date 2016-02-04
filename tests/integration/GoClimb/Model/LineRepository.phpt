@@ -33,7 +33,6 @@ class LineRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(LineRepository $lineRepository, SectorRepository $sectorRepository, WallRepository $wallRepository)
 	{
-		parent::__construct();
 		$this->lineRepository = $lineRepository;
 		$this->sectorRepository = $sectorRepository;
 		$this->wallRepository = $wallRepository;

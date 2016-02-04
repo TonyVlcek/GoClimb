@@ -22,7 +22,6 @@ class AclResourceRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(AclResourceRepository $resourceRepository)
 	{
-		parent::__construct();
 		$this->aclResourceRepository = $resourceRepository;
 	}
 

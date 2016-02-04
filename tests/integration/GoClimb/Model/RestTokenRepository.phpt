@@ -46,8 +46,6 @@ class RestTokenRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(RestTokenRepository $restTokenRepository, WallRepository $wallRepository, UserRepository $userRepository)
 	{
-		parent::__construct();
-
 		$this->restTokenRepository = $restTokenRepository;
 		$this->wallRepository = $wallRepository;
 		$this->userRepository = $userRepository;

@@ -26,7 +26,6 @@ class ApplicationRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(ApplicationRepository $applicationRepository)
 	{
-		parent::__construct();
 		$this->applicationRepository = $applicationRepository;
 	}
 

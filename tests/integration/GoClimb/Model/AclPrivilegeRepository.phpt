@@ -22,7 +22,6 @@ class AclPrivilegeRepositoryTestCase extends DatabaseTestCase
 
 	public function __construct(AclPrivilegeRepository $privilegeRepository)
 	{
-		parent::__construct();
 		$this->aclPrivilegeRepository = $privilegeRepository;
 	}
 
