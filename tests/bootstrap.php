@@ -27,7 +27,7 @@ if (!is_dir($tempDir . '/locks')) {
 	mkdir($tempDir . '/locks', 0777, TRUE);
 };
 
-$localBootstrap = $appDir . '/bootstrap.local.php';
+$localBootstrap = __DIR__ . '/bootstrap.local.php';
 if (file_exists($localBootstrap)) {
 	require $localBootstrap;
 }
