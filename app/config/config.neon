@@ -50,6 +50,7 @@ onlineClimbing:
 		Auth: GoClimb\Modules\AuthModule\Routing\AuthRoutes
 		Backend: GoClimb\Modules\BackendModule\Routing\BackendRouteProvider
 		Public: GoClimb\Modules\PublicModule\Routing\PublicRouteProvider
+		Wall: GoClimb\Modules\WallModule\AdminModule\Routing\AdminRouteProvider
 
 restful:
 	convention: 'camelCase'
