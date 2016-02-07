@@ -22,7 +22,7 @@ doctrine:
 	user: root
 	password:
 	metadata:
-		GoClimb\Model\Entities: %appDir%/GoClimb/Model/Entities
+		GoClimb\Model\Entities: %appDir%/server/Model/Entities
 
 extensions:
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
