@@ -14,6 +14,7 @@
 	"private": true,
 	"ignore": [],
 	"dependencies": {
-		"bootstrap": "twitter/bootstrap#~3.3.5"
+		"bootstrap": "twitter/bootstrap#~3.3.5",
+		"foundation-apps": "~1.2.0"
 	}
 }

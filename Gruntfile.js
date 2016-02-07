@@ -37,13 +37,45 @@ module.exports = function (grunt) {
 				dest: 'www/assets/build/libs.js',
 				cssDest: 'www/assets/build/libs.css',
 				mainFiles: {
-					bootstrap: [
+					/*bootstrap: [
 						'dist/css/bootstrap.min.css',
 						'dist/css/bootstrap-theme.min.css',
 						'dist/css/bootstrap.min.js'
-					],
-					jquery: [
+					],*/
+					'jquery': [
 						'dist/jquery.min.js'
+					],
+					'angular': [
+						'angular.min.js'
+					],
+					'angular-animate': [
+						'angular-animate.min.js'
+					],
+					'angular-ui-route': [
+						'release/angular-ui-router.min.js'
+					],
+					'fastclick': [
+						'lib/fastclick.js'
+					],
+					/*,
+						'hammerjs': [
+						'hammer.min.js'
+					]*/
+					'tether': [
+						'tether.min.js',
+						'css/tether.css',
+						'css/tether-theme-basic.css',
+						'css/tether-theme-arrows.css',
+						'css/tether-theme-arrows-dark.css'
+					],
+					'viewport-units-buggyfill': [
+						'viewport-units-buggyfill.js',
+						'viewport-units-buggyfill.hacks.js'
+					],
+					'foundation-apps': [
+						'dist/css/foundation-apps.min.css',
+						'dist/js/foundation-apps.min.js',
+						'dist/js/foundation-apps-templates.min.js'
 					]
 				}
 			}
