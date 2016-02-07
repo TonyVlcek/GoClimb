@@ -18,7 +18,7 @@ class AdminRouteProvider implements IRouterProvider
 	public function getRoutes()
 	{
 		return [
-			new TranslatedRoute('admin', [
+			new TranslatedRoute('user-admin', [
 				'module' => 'Admin',
 				'presenter' => 'Dashboard',
 				'action' => 'default',
