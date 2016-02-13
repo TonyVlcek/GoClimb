@@ -1,18 +1,17 @@
 <!doctype html>
-<html data-ng-app>
+<html data-ng-app="GoClimb">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>
-		{ifset #title}{include title|striptags} &middot; {/ifset}
-		{_templates.backend.layout.title} &middot;
-		{_templates.core.websiteName}
-	</title>
+	<title>User Admin</title>
 
-	<link rel="stylesheet" href="{$basePath}/assets/app.css">
+	<link rel="stylesheet" href="{$basePath}/assets/admin.css">
 </head>
 <body>
-<script src="{$basePath}/assets/app.js"></script>
+
+<div data-top-panel></div>
+
+<script src="{$basePath}/assets/admin.js"></script>
 </body>
 </html>
