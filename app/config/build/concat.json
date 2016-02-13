@@ -1,0 +1,56 @@
+{
+	"options": {
+		"banner": "/*! <%= pkg.name %> v<%= pkg.version %> built <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n",
+		"stripBanners": true
+	},
+	"admin": {
+		"src": [
+			"www/assets/build/admin.css"
+		],
+		"dest": "www/assets/admin.css"
+	},
+	"admin-dev": {
+		"src": [
+			"www/assets/build/admin.css"
+		],
+		"dest": "www/assets/admin.css"
+	},
+	"auth": {
+		"src": [
+			"www/assets/build/auth.css"
+		],
+		"dest": "www/assets/auth.css"
+	},
+	"auth-dev": {
+		"src": [
+			"www/assets/build/auth.css"
+		],
+		"dest": "www/assets/auth.css"
+	},
+	"backend": {
+		"src": [
+			"www/assets/build/backend.css"
+		],
+		"dest": "www/assets/backend.css"
+	},
+	"backend-dev": {
+		"src": [
+			"www/assets/build/backend.css"
+		],
+		"dest": "www/assets/backend.css"
+	},
+	"frontend": {
+		"src": [
+			"www/assets/build/frontend-libs.css",
+			"www/assets/build/frontend.css"
+		],
+		"dest": "www/assets/frontend.css"
+	},
+	"frontend-dev": {
+		"src": [
+			"www/assets/build/frontend-libs.css",
+			"www/assets/build/frontend.css"
+		],
+		"dest": "www/assets/frontend.css"
+	}
+}

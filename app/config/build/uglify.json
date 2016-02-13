@@ -1,0 +1,93 @@
+{
+	"options": {
+		"banner": "/*! <%= pkg.name %> v<%= pkg.version %> built <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
+	},
+	"admin": {
+		"options": {
+			"compress": true,
+			"beautify": false
+		},
+		"src": [
+			"www/assets/build/admin-libs.js",
+			"www/assets/build/admin.js"
+		],
+		"dest": "www/assets/admin.js"
+	},
+	"admin-dev": {
+		"options": {
+			"compress": false,
+			"beautify": true
+		},
+		"src": [
+			"www/assets/build/admin-libs.js",
+			"www/assets/build/admin.js"
+		],
+		"dest": "www/assets/admin.js"
+	},
+	"auth": {
+		"options": {
+			"compress": true,
+			"beautify": false
+		},
+		"src": [
+			"www/assets/build/auth-libs.js",
+			"www/assets/build/auth.js"
+		],
+		"dest": "www/assets/auth.js"
+	},
+	"auth-dev": {
+		"options": {
+			"compress": false,
+			"beautify": true
+		},
+		"src": [
+			"www/assets/build/auth-libs.js",
+			"www/assets/build/auth.js"
+		],
+		"dest": "www/assets/auth.js"
+	},
+	"backend": {
+		"options": {
+			"compress": true,
+			"beautify": false
+		},
+		"src": [
+			"www/assets/build/backend-libs.js",
+			"www/assets/build/backend.js"
+		],
+		"dest": "www/assets/backend.js"
+	},
+	"backend-dev": {
+		"options": {
+			"compress": false,
+			"beautify": true
+		},
+		"src": [
+			"www/assets/build/backend-libs.js",
+			"www/assets/build/backend.js"
+		],
+		"dest": "www/assets/backend.js"
+	},
+	"frontend": {
+		"options": {
+			"compress": true,
+			"beautify": false
+		},
+		"src": [
+			"www/assets/build/frontend-libs.js",
+			"www/assets/build/frontend.js"
+		],
+		"dest": "www/assets/frontend.js"
+	},
+	"frontend-dev": {
+		"options": {
+			"compress": false,
+			"beautify": true
+		},
+		"src": [
+			"www/assets/build/frontend-libs.js",
+			"www/assets/build/frontend.js"
+		],
+		"dest": "www/assets/frontend.js"
+	}
+}

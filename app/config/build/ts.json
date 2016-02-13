@@ -1,0 +1,42 @@
+{
+	"admin": {
+		"options": {
+			"fast": "never",
+			"moduleResolution": "classic",
+			"sourceMap": false
+		},
+		"files": {
+			"www/assets/build/admin.js": "app/client/Admin/references.d.ts"
+		}
+	},
+	"auth": {
+		"options": {
+			"fast": "never",
+			"moduleResolution": "classic",
+			"sourceMap": false
+		},
+		"files": {
+			"www/assets/build/auth.js": "app/client/Auth/references.d.ts"
+		}
+	},
+	"backend": {
+		"options": {
+			"fast": "never",
+			"moduleResolution": "classic",
+			"sourceMap": false
+		},
+		"files": {
+			"www/assets/build/backend.js": "app/client/Backend/references.d.ts"
+		}
+	},
+	"frontend": {
+		"options": {
+			"fast": "never",
+			"moduleResolution": "classic",
+			"sourceMap": false
+		},
+		"files": {
+			"www/assets/build/frontend.js": "app/client/Frontend/references.d.ts"
+		}
+	}
+}
