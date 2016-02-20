@@ -1,6 +1,7 @@
 /vendor
 /bower_components
 /node_modules
+/typings
 
 app/config/config.local.neon
 app/bootstrap.local.php

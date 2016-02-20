@@ -11,6 +11,7 @@ install:
   - composer create-project nette/code-checker tmp/code-checker ~2.5 --no-interaction --prefer-source
   - npm install
   - npm install -g bower
+  - npm install -g typings
   - npm install -g grunt
   - gem install sass
   - bower install
