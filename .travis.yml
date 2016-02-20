@@ -15,7 +15,6 @@ install:
   - npm install -g grunt
   - gem install sass
   - bower install
-  - typings install
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing_tests;'

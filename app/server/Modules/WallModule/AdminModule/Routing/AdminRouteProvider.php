@@ -4,9 +4,9 @@
  */
 namespace GoClimb\Modules\WallModule\AdminModule\Routing;
 
-use GoClimb\Routing\TranslatedRoute;
 use Nette\Application\IRouter;
 use GoClimb\Routing\IRouterProvider;
+use GoClimb\Routing\TranslatedRoute;
 
 
 class AdminRouteProvider implements IRouterProvider
