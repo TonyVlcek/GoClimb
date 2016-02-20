@@ -1,0 +1,74 @@
+{
+	"admin": {
+		"options": {
+			"sourcemap": "none",
+			"style": "compressed"
+		},
+		"files": {
+			"www/assets/build/admin.css": "app/client/Admin/main.scss"
+		}
+	},
+	"admin-dev": {
+		"options": {
+			"sourcemap": "none",
+			"style": "expanded"
+		},
+		"files": {
+			"www/assets/build/admin.css": "app/client/Admin/main.scss"
+		}
+	},
+	"auth": {
+		"options": {
+			"sourcemap": "none",
+			"style": "compressed"
+		},
+		"files": {
+			"www/assets/build/auth.css": "app/client/Auth/main.scss"
+		}
+	},
+	"auth-dev": {
+		"options": {
+			"sourcemap": "none",
+			"style": "expanded"
+		},
+		"files": {
+			"www/assets/build/auth.css": "app/client/Auth/main.scss"
+		}
+	},
+	"backend": {
+		"options": {
+			"sourcemap": "none",
+			"style": "compressed"
+		},
+		"files": {
+			"www/assets/build/backend.css": "app/client/Backend/main.scss"
+		}
+	},
+	"backend-dev": {
+		"options": {
+			"sourcemap": "none",
+			"style": "expanded"
+		},
+		"files": {
+			"www/assets/build/backend.css": "app/client/Backend/main.scss"
+		}
+	},
+	"frontend": {
+		"options": {
+			"sourcemap": "none",
+			"style": "compressed"
+		},
+		"files": {
+			"www/assets/build/frontend.css": "app/client/Frontend/main.scss"
+		}
+	},
+	"frontend-dev": {
+		"options": {
+			"sourcemap": "none",
+			"style": "expanded"
+		},
+		"files": {
+			"www/assets/build/frontend.css": "app/client/Frontend/main.scss"
+		}
+	}
+}

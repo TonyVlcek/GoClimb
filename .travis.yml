@@ -23,7 +23,7 @@ script:
 #  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester ./tests -c ./tests/php-travis.ini --setup ./tests/setup.php -p php-cgi -s
   - php tmp/code-checker/src/code-checker.php --short-arrays
-  - grunt build
+  - grunt build:app
 
 #after_failure:
   # Print *.actual file contents
