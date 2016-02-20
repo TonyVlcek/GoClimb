@@ -16,8 +16,9 @@
 			}
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Admin/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Admin/**/*.html"
 		],
 		"dest": "www/assets/admin.js"
 	},
@@ -28,8 +29,9 @@
 			"module": "GoClimb"
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Admin/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Admin/**/*.html"
 		],
 		"dest": "www/assets/admin.js"
 	},
@@ -50,8 +52,8 @@
 			}
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Auth/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Auth/**/*.html"
 		],
 		"dest": "www/assets/auth.js"
 	},
@@ -62,8 +64,8 @@
 			"module": "GoClimb"
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Auth/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Auth/**/*.html"
 		],
 		"dest": "www/assets/auth.js"
 	},
@@ -84,9 +86,8 @@
 			}
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Core/**.html",
-			"app/client/Backend/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Backend/**/*.html"
 		],
 		"dest": "www/assets/backend.js"
 	},
@@ -97,9 +98,8 @@
 			"module": "GoClimb"
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Core/**.html",
-			"app/client/Backend/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Backend/**/*.html"
 		],
 		"dest": "www/assets/backend.js"
 	},
@@ -120,9 +120,9 @@
 			}
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Core/**.html",
-			"app/client/Frontend/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Frontend/**/*.html"
 		],
 		"dest": "www/assets/frontend.js"
 	},
@@ -133,9 +133,9 @@
 			"module": "GoClimb"
 		},
 		"src": [
-			"app/client/Common/**.html",
-			"app/client/Core/**.html",
-			"app/client/Frontend/**.html"
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Frontend/**/*.html"
 		],
 		"dest": "www/assets/frontend.js"
 	}
