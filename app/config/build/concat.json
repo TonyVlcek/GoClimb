@@ -41,14 +41,12 @@
 	},
 	"frontend": {
 		"src": [
-			"www/assets/build/frontend-libs.css",
 			"www/assets/build/frontend.css"
 		],
 		"dest": "www/assets/frontend.css"
 	},
 	"frontend-dev": {
 		"src": [
-			"www/assets/build/frontend-libs.css",
 			"www/assets/build/frontend.css"
 		],
 		"dest": "www/assets/frontend.css"
