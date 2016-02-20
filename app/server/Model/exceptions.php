@@ -76,11 +76,24 @@ class WallException extends ModelException
 {
 
 	const DUPLICATE_NAME = 1;
+	const DUPLICATE_BASE_URL = 2;
+	const INVALID_URL = 3;
 
 
 	public static function duplicateName($name)
 	{
 		return new self(sprintf('Wall with name \'%s\' already exists.', $name), self::DUPLICATE_NAME);
+	}
+
+	public static function duplicateBaseUrl($baseUrl)
+	{
+		return new self(sprintf('Wall with base url of \'%s\' already exists.', $baseUrl), self::DUPLICATE_BASE_URL);
+	}
+
+
+	public static function invalidUrl($url)
+	{
+		return new self(sprintf('\'%s\' in not a valid URL.', $url), self::INVALID_URL);
 	}
 
 }
