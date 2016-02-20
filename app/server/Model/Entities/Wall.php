@@ -10,6 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use GoClimb\Model\Entities\Attributes\Id;
 use GoClimb\Model\Entities\File;
+use GoClimb\Model\WallException;
+use Nette\Utils\Validators;
 
 
 /**
@@ -79,6 +81,12 @@ class Wall
 	 * @ORM\OneToMany(targetEntity="RestToken", mappedBy="wall")
 	 */
 	private $restTokens;
+
+	/**
+	 * @var string
+	 * @ORM\Column(type="string", nullable=TRUE, unique=TRUE, options={"default": NULL})
+	 */
+	private $baseUrl = NULL;
 
 
 	public function __construct()
@@ -378,4 +386,30 @@ class Wall
 		$this->restTokens->removeElement($restToken);
 		return $this;
 	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getBaseUrl()
+	{
+		return $this->baseUrl;
+	}
+
+
+	/**
+	 * @param string $baseUrl
+	 * @return $this
+	 * @throws WallException
+	 */
+	public function setBaseUrl($baseUrl)
+	{
+		if (!Validators::isUrl($baseUrl)) {
+			throw WallException::invalidUrl($baseUrl);
+		};
+
+		$this->baseUrl = $baseUrl;
+		return $this;
+	}
+
 }

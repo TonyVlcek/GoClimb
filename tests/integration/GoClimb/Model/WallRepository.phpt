@@ -58,6 +58,14 @@ class WallRepositoryTestCase extends DatabaseTestCase
 	}
 
 
+	public function testGetByBaseUrl()
+	{
+		Assert::null($this->wallRepository->getByBaseUrl('NotExistingUrl'));
+		Assert::type(Wall::class, $wall = $this->wallRepository->getByBaseUrl('http://test-wall.cz/'));
+		Assert::equal(1, $wall->getId());
+	}
+
+
 	public function testCreateWall()
 	{
 		//Test state before
@@ -65,9 +73,8 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 		//Create wall with an exception
 		$company = $this->companyRepository->getById(1);
-		$that = $this;
-		Assert::exception(function () use ($company, $that) {
-			$that->wallRepository->createWall($company, 'Test Wall');
+		Assert::exception(function () use ($company) {
+			$this->wallRepository->createWall($company, 'Test Wall');
 		}, WallException::class);
 
 		//Create wall without exception
