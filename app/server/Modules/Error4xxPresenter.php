@@ -1,6 +1,6 @@
 <?php
 
-namespace GoClimb\Presenters;
+namespace GoClimb\Modules;
 
 use Nette;
 
