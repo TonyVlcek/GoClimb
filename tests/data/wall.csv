@@ -1,5 +1,5 @@
-id,company_id,name,base_url
-1,1,"Test Wall","http://test-wall.cz/"
-2,1,"Another Wall","http://another-wall.cz/"
-3,2,"Token Wall","https://token-wall.cz/"
-4,3,"Wall4","https://wall4.cz/"
+id,company_id,name,base_url,primary_language_id
+1,1,"Test Wall",1
+2,1,"Another Wall",2
+3,2,"Token Wall",3
+4,3,"Wall4",4

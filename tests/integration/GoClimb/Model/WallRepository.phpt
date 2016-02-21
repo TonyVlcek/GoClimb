@@ -8,12 +8,14 @@
 use GoClimb\Model\Entities\Application;
 use GoClimb\Model\Entities\Article;
 use GoClimb\Model\Entities\File;
+use GoClimb\Model\Entities\Language;
 use GoClimb\Model\Entities\Page;
 use GoClimb\Model\Entities\RestToken;
 use GoClimb\Model\Entities\AclRole;
 use GoClimb\Model\Entities\Sector;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Entities\Wall;
+use GoClimb\Model\Entities\WallLanguage;
 use GoClimb\Model\Repositories\CompanyRepository;
 use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\Model\WallException;
@@ -54,14 +56,6 @@ class WallRepositoryTestCase extends DatabaseTestCase
 	{
 		Assert::null($this->wallRepository->getByName('InvalidWallTest'));
 		Assert::type(Wall::class, $wall = $this->wallRepository->getByName('Test Wall'));
-		Assert::equal(1, $wall->getId());
-	}
-
-
-	public function testGetByBaseUrl()
-	{
-		Assert::null($this->wallRepository->getByBaseUrl('NotExistingUrl'));
-		Assert::type(Wall::class, $wall = $this->wallRepository->getByBaseUrl('http://test-wall.cz/'));
 		Assert::equal(1, $wall->getId());
 	}
 
@@ -115,6 +109,19 @@ class WallRepositoryTestCase extends DatabaseTestCase
 
 		Helpers::assertTypeRecursive(User::class, $files = $wall->getUsersFavorited());
 		Assert::equal([1, 2], Helpers::mapIds($files));
+
+
+		Helpers::assertTypeRecursive(WallLanguage::class, $wallLanguages = $wall->getWallLanguages());
+		Assert::equal([1, 2], Helpers::mapIds($wallLanguages));
+
+		Assert::type(WallLanguage::class, $wallLanguage = $wall->getPrimaryLanguage());
+		Assert::equal(1, $wallLanguage->getId());
+
+		Assert::type(Language::class, $language = $wallLanguage->getLanguage());
+		Assert::equal(1, $language->getId());
+
+		Helpers::assertTypeRecursive(WallLanguage::class, $wallLanguages = $language->getWallLanguages());
+		Assert::equal([1, 3], Helpers::mapIds($wallLanguages));
 	}
 
 }

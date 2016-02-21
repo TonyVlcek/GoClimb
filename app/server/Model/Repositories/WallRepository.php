@@ -33,15 +33,6 @@ class WallRepository extends BaseRepository
 	}
 
 
-	/**
-	 * @param string $baseUrl
-	 * @return Wall|NULL
-	 */
-	public function getByBaseUrl($baseUrl)
-	{
-		return $this->getDoctrineRepository()->findOneBy(['baseUrl' => $baseUrl]);
-	}
-
 
 	/**
 	 * @param Company $company
