@@ -5,14 +5,17 @@
 
 namespace GoClimb\Routing;
 
+use Nette\Application\Routers\Route;
+
+
 abstract class AbstractFilter implements IFilter
 {
 
 	public function getFilterDefinition()
 	{
 		return [
-			TranslatedRoute::FILTER_IN => [$this, 'in'],
-			TranslatedRoute::FILTER_OUT => [$this, 'out'],
+			Route::FILTER_IN => [$this, 'in'],
+			Route::FILTER_OUT => [$this, 'out'],
 		];
 	}
 
