@@ -31,12 +31,14 @@
 	},
 	"backend": {
 		"src": [
+			"bower_components/bootstrap/dist/css/bootstrap.min.css",
 			"www/assets/build/backend.css"
 		],
 		"dest": "www/assets/backend.css"
 	},
 	"backend-dev": {
 		"src": [
+			"bower_components/bootstrap/dist/css/bootstrap.css",
 			"www/assets/build/backend.css"
 		],
 		"dest": "www/assets/backend.css"
