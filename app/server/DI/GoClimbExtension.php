@@ -5,12 +5,11 @@
 
 namespace GoClimb\DI;
 
-use GoClimb\Routing\ModularRouter;
+use GoClimb\Routing\RouterFactory;
 use GoClimb\UI\Controls\ITranslatableControlFactory;
 use GoClimb\UI\Forms\ITranslatableFormFactory;
 use GoClimb\UI\Grids\ITranslatableGridFactory;
 use Nette\DI\CompilerExtension;
-use Nette\Utils\Strings;
 use Nette\Utils\Validators;
 
 
@@ -18,7 +17,11 @@ class GoClimbExtension extends CompilerExtension
 {
 
 	private $defaults = [
-		'routers' => []
+		'routes' => [
+			'useVirtualHosts' => FALSE,
+			'useHttps' => FALSE,
+			'domains' => []
+		]
 	];
 
 
@@ -27,7 +30,11 @@ class GoClimbExtension extends CompilerExtension
 		$config = $this->getConfig($this->defaults);
 
 		Validators::assert($config, 'array');
-		Validators::assertField($config, 'routers', 'array');
+		Validators::assertField($config, 'routes', 'array');
+
+		Validators::assertField($config['routes'], 'useVirtualHosts', 'bool');
+		Validators::assertField($config['routes'], 'useHttps', 'bool');
+		Validators::assertField($config['routes'], 'domains', 'array');
 	}
 
 
@@ -36,15 +43,17 @@ class GoClimbExtension extends CompilerExtension
 		$config = $this->getConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
 
-		$modularRouter = $builder->getDefinition('routing.router')
-				->setClass(ModularRouter::class)
-				->setFactory(NULL);
+		$routerFactory = $builder->addDefinition($this->prefix('routerFactory'))
+			->setClass(RouterFactory::class)
+			->setArguments([
+				$config['routes']['useVirtualHosts'],
+				$config['routes']['useHttps'],
+				$config['routes']['domains'],
+			])
+			->addSetup('injectFilters');
 
-		foreach ($config['routers'] as $module => $router) {
-			$definition = $builder->addDefinition($this->prefix(str_replace('-', '.', Strings::webalize($module . '-' . $router))))
-					->setClass($router);
-			$modularRouter->addSetup('addRouterProvider', [$module, $definition]);
-		}
+		$builder->getDefinition('routing.router')
+			->setFactory([$routerFactory, 'create']);
 
 		foreach ($this->getContainerBuilder()->findByType(ITranslatableControlFactory::class) as $definition) {
 			$definition->addSetup('setTranslator');

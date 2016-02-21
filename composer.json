@@ -22,11 +22,10 @@
 		"tracy/tracy": "~2.3.0",
 		"kdyby/doctrine": "^3.0",
 		"kdyby/translation": "^2.2",
-		"drahak/restful": "@dev",
 		"zenify/doctrine-migrations": "^2.3",
 		"nextras/datagrid": "^2.1"
 	},
 	"require-dev": {
-		"nette/tester": "~1.4"
+		"nette/tester": "~1.7"
 	}
 }
