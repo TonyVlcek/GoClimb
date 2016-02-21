@@ -98,7 +98,7 @@ class RouterFactory
 			NULL => $this->companyFilter->getFilterDefinition(),
 		]);
 
-		$this->addRoute($router, 'admin', 'user/edit/<company>', [
+		$this->addRoute($router, 'admin', 'user/edit/<user>', [
 			'presenter' => 'User',
 			'action' => 'edit',
 			NULL => $this->userFilter->getFilterDefinition(),
