@@ -32,6 +32,7 @@
 	"backend": {
 		"src": [
 			"bower_components/bootstrap/dist/css/bootstrap.min.css",
+			"bower_components/bootstrap/dist/css/bootstrap-theme.min.css",
 			"www/assets/build/backend.css"
 		],
 		"dest": "www/assets/backend.css"
@@ -39,6 +40,7 @@
 	"backend-dev": {
 		"src": [
 			"bower_components/bootstrap/dist/css/bootstrap.css",
+			"bower_components/bootstrap/dist/css/bootstrap-theme.css",
 			"www/assets/build/backend.css"
 		],
 		"dest": "www/assets/backend.css"
