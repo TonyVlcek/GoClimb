@@ -8,9 +8,17 @@
 
 	<link rel="stylesheet" href="{$basePath}/assets/admin.css">
 </head>
-<body>
+<body data-zf-close-all>
 
-<div data-top-panel></div>
+<div class="vertical grid-frame">
+	<div data-top-panel></div>
+	<div class="grid-block">
+		<div data-admin-menu></div>
+		<div class="grid-block vertical">
+			<div data-admin-menu-button></div>
+		</div>
+	</div>
+</div>
 
 <script src="{$basePath}/assets/admin.js"></script>
 </body>

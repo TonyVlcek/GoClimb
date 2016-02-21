@@ -1,0 +1,38 @@
+.admin-menu-container {
+	&.dark {
+		background: $admin-menu-background
+	}
+}
+
+.admin-menu {
+	@media only screen and (min-width: 40em) {
+		max-width: $admin-menu-width !important;
+	}
+
+	&.dark {
+		background: $admin-menu-background;
+	}
+
+	.menu-bar {
+		background: $admin-menu-background;
+		text-align: center;
+
+		li a {
+			width: 100%;
+			display: block;
+			color: $admin-menu-text;
+
+			&:hover {
+				background: $admin-menu-hover-background;
+			}
+		}
+
+		i {
+			display: block;
+		}
+	}
+}
+
+.admin-menu-btn {
+	margin: 1rem auto;
+}

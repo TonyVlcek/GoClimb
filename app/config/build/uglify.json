@@ -14,6 +14,7 @@
 			"bower_components/fastclick/lib/fastclick.js",
 			"bower_components/tether/tether.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
 			"www/assets/build/admin.js"
 		],
 		"dest": "www/assets/admin.js"
@@ -30,6 +31,7 @@
 			"bower_components/fastclick/lib/fastclick.js",
 			"bower_components/tether/tether.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
 			"www/assets/build/admin.js"
 		],
 		"dest": "www/assets/admin.js"
@@ -88,6 +90,7 @@
 			"bower_components/fastclick/lib/fastclick.js",
 			"bower_components/tether/tether.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
 			"www/assets/build/frontend.js"
 		],
 		"dest": "www/assets/frontend.js"
@@ -104,6 +107,7 @@
 			"bower_components/fastclick/lib/fastclick.js",
 			"bower_components/tether/tether.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
 			"www/assets/build/frontend.js"
 		],
 		"dest": "www/assets/frontend.js"

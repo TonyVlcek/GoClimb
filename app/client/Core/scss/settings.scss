@@ -1,0 +1,7 @@
+$theme-color: #232323;
+
+//Admin Menu
+$admin-menu-width: 120px;
+$admin-menu-background: $theme-color;
+$admin-menu-text: #FFFFFF;
+$admin-menu-hover-background: transparentize(invert($theme-color), 0.86);
