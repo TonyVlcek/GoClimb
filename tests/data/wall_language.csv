@@ -1,0 +1,5 @@
+id,wall_id,language_id,url
+1,1,1,"https://test-wall.cz"
+2,1,2,"https://test-wall.com"
+3,2,1,"https://another-wall.cz"
+4,2,2,"https://another-wall.com"

@@ -10,8 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use GoClimb\Model\Entities\Attributes\Id;
 use GoClimb\Model\Entities\File;
-use GoClimb\Model\WallException;
-use Nette\Utils\Validators;
 
 
 /**
@@ -83,10 +81,17 @@ class Wall
 	private $restTokens;
 
 	/**
-	 * @var string
-	 * @ORM\Column(type="string", nullable=TRUE, unique=TRUE, options={"default": NULL})
+	 * @var WallLanguage|NULL
+	 * @ORM\ManyToOne(targetEntity="WallLanguage", inversedBy="wall")
+	 * @ORM\JoinColumn(nullable=TRUE)
 	 */
-	private $baseUrl = NULL;
+	private $primaryLanguage;
+
+	/**
+	 * @var WallLanguage[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="WallLanguage", mappedBy="wall")
+	 */
+	private $wallLanguages;
 
 
 	public function __construct()
@@ -98,6 +103,7 @@ class Wall
 		$this->sectors = new ArrayCollection;
 		$this->files = new ArrayCollection;
 		$this->restTokens = new ArrayCollection;
+		$this->wallLanguages = new ArrayCollection;
 	}
 
 
@@ -389,26 +395,52 @@ class Wall
 
 
 	/**
-	 * @return string
+	 * @return WallLanguage|NULL
 	 */
-	public function getBaseUrl()
+	public function getPrimaryLanguage()
 	{
-		return $this->baseUrl;
+		return $this->primaryLanguage;
 	}
 
 
 	/**
-	 * @param string $baseUrl
+	 * @param WallLanguage|NULL $primaryLanguage
 	 * @return $this
-	 * @throws WallException
 	 */
-	public function setBaseUrl($baseUrl)
+	public function setPrimaryLanguage(WallLanguage $primaryLanguage = NULL)
 	{
-		if (!Validators::isUrl($baseUrl)) {
-			throw WallException::invalidUrl($baseUrl);
-		};
+		$this->primaryLanguage = $primaryLanguage;
+		return $this;
+	}
 
-		$this->baseUrl = $baseUrl;
+
+	/**
+	 * @return WallLanguage[]
+	 */
+	public function getWallLanguages()
+	{
+		return $this->wallLanguages->toArray();
+	}
+
+
+	/**
+	 * @param WallLanguage $wallLanguage
+	 * @return $this
+	 */
+	public function addWallLanguage(WallLanguage $wallLanguage)
+	{
+		$this->wallLanguages->add($wallLanguage);
+		return $this;
+	}
+
+
+	/**
+	 * @param WallLanguage $wallLanguage
+	 * @return $this
+	 */
+	public function removeWallLanguage(WallLanguage $wallLanguage)
+	{
+		$this->wallLanguages->removeElement($wallLanguage);
 		return $this;
 	}
 
