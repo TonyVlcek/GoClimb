@@ -81,6 +81,7 @@ services:
 	# filters
 	- GoClimb\Modules\BackendModule\Routing\Filters\CompanyFilter
 	- GoClimb\Modules\BackendModule\Routing\Filters\UserFilter
+	- GoClimb\Routing\Filters\AuthFilter
 
 	#security
 

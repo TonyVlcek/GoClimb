@@ -35,12 +35,12 @@
 					<li n:class="$presenter->isLinkCurrent(':Backend:Company:*') ? active">
 						<a n:href=":Backend:Company:default">{_templates.backend.layout.topMenu.company}</a>
 					</li>
-					{*<li n:if="!$user->isLoggedIn()">
-						<a n:href=":Auth:Dashboard:login, token => app, back => $this->presenter->link('tokenLogin!', ['token' => '__TOKEN__'])">Login</a>
+					<li n:if="!$user->isLoggedIn()">
+						<a href="{$loginLink}">{_templates.backend.layout.topMenu.login}</a>
 					</li>
 					<li n:if="$user->isLoggedIn()">
-						<a n:href=":Auth:Dashboard:logout, back => $this->presenter->link('tokenLogin!', ['token' => '__TOKEN__'])">Logout</a>
-					</li>*}
+						<a href="{$logoutLink}">{_templates.backend.layout.topMenu.logout}</a>
+					</li>
 				</ul>
 			</div>
 		</div>

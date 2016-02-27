@@ -4,3 +4,8 @@ company:
 user:
 	added: User has been added
 	removed: User %name% has been removed
+	login:
+		success: Login successful
+		error: Login failed
+	logout:
+		success: Logout successful

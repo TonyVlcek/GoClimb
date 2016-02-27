@@ -18,6 +18,8 @@ backend:
 			dashboard: Dashboard
 			users: Users
 			company: Company
+			login: Login
+			logout: Logout
 	dashboard:
 		default:
 			title: Dashboard
