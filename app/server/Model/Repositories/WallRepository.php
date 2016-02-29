@@ -33,6 +33,14 @@ class WallRepository extends BaseRepository
 	}
 
 
+	/**
+	 * @return Wall[]
+	 */
+	public function getAll()
+	{
+		return $this->getDoctrineRepository()->findAll();
+	}
+
 
 	/**
 	 * @param Company $company

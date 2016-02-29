@@ -5,15 +5,23 @@
 
 namespace GoClimb\Modules\WallModule;
 
+use GoClimb\Model\Entities\Wall;
 use GoClimb\Modules\BasePresenter;
+use Nette\Application\Request;
 
 
 abstract class BaseWallPresenter extends BasePresenter
 {
 
-	protected function init()
+	/** @var Wall */
+	protected $wall;
+
+
+	protected function init(Request $request)
 	{
-		$this->applicationPartsManager->setAsWallSite($this->getParameter('wall'));
+		$wall = $request->getParameter('wall');
+		$this->applicationPartsManager->setAsWallSite($wall);
+		$this->wall = $wall;
 	}
 
 }
