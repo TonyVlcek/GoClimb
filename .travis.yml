@@ -37,5 +37,5 @@ script:
 #  s3_region: eu-central-1
 
 notifications:
-  slack: online-climbing:lfDdbU5bapiHaU0xyakS14WU
+  slack: white-line:ex957N9S9Ud59iBzMIn91uEw
   email: false
