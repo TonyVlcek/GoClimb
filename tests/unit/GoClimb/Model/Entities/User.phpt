@@ -11,5 +11,5 @@ $user->setFirstName('Martin')->setLastName('Mikšík');
 Assert::equal('Martin Mikšík', $user->getFullName());
 
 Assert::null($user->getAge());
-$user->setBirthDate((new DateTime)->modify('-10 years'));
+$user->setBirthDate((new DateTime)->modify('-10 years')->modify('-20 days'));
 Assert::equal(10, $user->getAge()->y);
