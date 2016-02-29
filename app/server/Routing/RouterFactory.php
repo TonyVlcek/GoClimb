@@ -120,7 +120,7 @@ class RouterFactory
 	{
 		$router = new RouteList('Auth');
 
-		$this->addRoute($router, 'auth', '<action login|logout>[/<token>]', [
+		$this->addRoute($router, 'auth', '<token>/<action login|logout>', [
 			'presenter' => 'Dashboard',
 		]);
 

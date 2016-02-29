@@ -8,7 +8,7 @@ namespace GoClimb\Modules\WallModule\RestModule;
 use GoClimb\Modules\WallModule\BaseWallPresenter;
 
 
-class BaseRestPresenter extends BaseWallPresenter
+abstract class BaseRestPresenter extends BaseWallPresenter
 {
 
 	public function beforeRender()

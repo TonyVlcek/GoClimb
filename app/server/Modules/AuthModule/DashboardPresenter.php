@@ -5,21 +5,20 @@
 
 namespace GoClimb\Modules\AuthModule;
 
-use GoClimb\Model\Entities\Application;
 use GoClimb\UI\Forms\User\ISignInFormFactory;
 
 
 final class DashboardPresenter extends BaseAuthPresenter
 {
 
+	/** @var string @persistent */
+	public $back;
+
+	/** @var string @persistent */
+	public $token;
+
 	/** @var ISignInFormFactory */
 	private $signInFormFactory;
-
-	/** @var Application */
-	private $application;
-
-	/** @var string */
-	private $back;
 
 
 	public function __construct(ISignInFormFactory $signInFormFactory)
@@ -29,12 +28,10 @@ final class DashboardPresenter extends BaseAuthPresenter
 	}
 
 
-	public function actionLogin($token, $back)
+	public function actionLogin($back)
 	{
 		$this->back = $back;
-		if (!$this->application = $this->authFacade->getApplicationByToken($token)) {
-			$this->redirectUrl($this->addTokenToUrl($back, NULL));
-		}
+
 		if ($this->user->isLoggedIn()) {
 			$this->redirectLoggedUser();
 		}
@@ -44,7 +41,7 @@ final class DashboardPresenter extends BaseAuthPresenter
 	public function actionLogout($back)
 	{
 		$this->user->logout(TRUE);
-		$this->redirectUrl($this->addTokenToUrl($back, NULL));
+		$this->redirectUrl($back);
 	}
 
 
@@ -63,9 +60,14 @@ final class DashboardPresenter extends BaseAuthPresenter
 	}
 
 
+	/**
+	 * @param string $url
+	 * @param string $token
+	 * @return string
+	 */
 	private function addTokenToUrl($url, $token)
 	{
-		return str_replace('__TOKEN__', $token, $url);
+		return str_replace($this::TOKEN_PLACEHOLDER, $token, $url);
 	}
 
 }

@@ -6,7 +6,6 @@
 namespace GoClimb\Modules;
 
 use Kdyby\Translation\Translator;
-use Nette\Application;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
 use Nette\Reflection\ClassType;
@@ -25,6 +24,8 @@ use stdClass;
  */
 abstract class BasePresenter extends Presenter
 {
+
+	const TOKEN_PLACEHOLDER = '__TOKEN__';
 
 	/** @var string @persistent */
 	public $locale;
@@ -126,14 +127,27 @@ abstract class BasePresenter extends Presenter
 	}
 
 
+	/**
+	 * @param string $token
+	 */
 	protected function resolveLogin($token)
 	{
 		if ($token === '') {
 			$this->user->logout(TRUE);
+			$this->flashMessageError('user.login.error');
 		} elseif ($user = $this->authFacade->getUserByToken($token)) {
 			$this->user->login(new Identity($user));
+			$this->flashMessageSuccess('user.login.success');
 		}
 		$this->redirect('this', ['token' => NULL]);
+	}
+
+
+	public function handleLogout()
+	{
+		$this->user->logout(TRUE);
+		$this->flashMessageSuccess('user.logout.success');
+		$this->redirect('this');
 	}
 
 
@@ -149,6 +163,9 @@ abstract class BasePresenter extends Presenter
 	}
 
 
+	/**
+	 * @param array $annotations
+	 */
 	private function resolveUserAnnotations(array $annotations)
 	{
 		if (isset($annotations['loggedIn'])) {
@@ -177,5 +194,33 @@ abstract class BasePresenter extends Presenter
 	{
 		return parent::flashMessage($this->translator->translate('messages.' . $message, $parameters), $type);
 	}
+
+
+	/**
+	 * @param string $applicationToken
+	 * @param string $backlink
+	 * @return string
+	 */
+	public function getLoginLink($applicationToken, $backlink)
+	{
+		return $this->link('//:Auth:Dashboard:login', ['token' => $applicationToken, 'back' => $backlink]);
+	}
+
+
+	/**
+	 * @param string $applicationToken
+	 * @param string $backlink
+	 * @return string
+	 */
+	public function getLogoutLink($applicationToken, $backlink)
+	{
+		return $this->link('//:Auth:Dashboard:logout', ['token' => $applicationToken, 'back' => $backlink]);
+	}
+
+
+	/**
+	 * @return string
+	 */
+	abstract protected function getApplicationToken();
 
 }
