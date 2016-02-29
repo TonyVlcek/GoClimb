@@ -3,6 +3,7 @@ user:
 		fields:
 			name: Name
 			password: Password
+			remember: Remember me
 			submit: Sign in
 		errors:
 			name:

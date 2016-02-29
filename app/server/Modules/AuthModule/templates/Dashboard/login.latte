@@ -1,6 +1,20 @@
 {block content}
-<div class="page-header">
-	<h1 n:inner-block="title">{_templates.auth.dashboard.default.title}</h1>
+
+<div class="header">
+	<a href="javascript: history.go(-1);" class="btn">{_templates.auth.dashboard.default.back}</a>
 </div>
 
-{control signInForm}
+
+<div class="content-block">
+	<h1>{_templates.auth.dashboard.default.oneAccount}</h1>
+	<h2 n:inner-block="title">{_templates.auth.dashboard.default.title}</h2>
+	<div class="form-box">
+		{*<div class="form-header">
+			<img src="">
+			<img src="">
+		</div>*}
+		<div class="form-body">
+			{control signInForm}
+		</div>
+	</div>
+</div>
