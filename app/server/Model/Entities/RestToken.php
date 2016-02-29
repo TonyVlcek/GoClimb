@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Tony Vlček
- */
 
 namespace GoClimb\Model\Entities;
 

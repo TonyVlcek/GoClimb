@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: RestTokenRepository test
- *
- * @author Tony Vlček
+ * Test: RestTokenRepository test
  */
 
 use GoClimb\Model\Entities\RestToken;

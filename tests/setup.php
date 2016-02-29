@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Tomáš Blatný
- */
 
 use Kdyby\Console\Application;
 use Kdyby\Doctrine\Connection;

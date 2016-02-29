@@ -1,8 +1,6 @@
 <?php
 /**
  * Test: RouteRepository test
- *
- * @author Tony Vlček
  */
 
 use GoClimb\Model\Entities\Line;

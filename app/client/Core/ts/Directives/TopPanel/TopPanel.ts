@@ -1,8 +1,3 @@
-/**
- * @author Martin Mikšík
- */
-
-
 namespace GoClimb.Core.Directives
 {
 

@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: SectorRepository test
- *
- * @author Tony Vlček
+ * Test: SectorRepository test
  */
 
 use GoClimb\Model\Entities\Line;

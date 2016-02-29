@@ -1,7 +1,3 @@
-/**
- * @author Martin Mikšík
- */
-
 namespace GoClimb
 {
 	var goClimb = angular.module('GoClimb', [

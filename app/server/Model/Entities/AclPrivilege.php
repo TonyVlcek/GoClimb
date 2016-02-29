@@ -1,8 +1,4 @@
 <?php
-/**
- * @author Ronald Luc
- *
- */
 
 namespace GoClimb\Model\Entities;
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Ronald Luc
- */
 
 namespace GoClimb\Model\Repositories;
 

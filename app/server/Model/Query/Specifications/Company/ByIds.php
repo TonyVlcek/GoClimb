@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Tomáš Blatný
- */
 
 namespace GoClimb\Model\Query\Specifications\Company;
 

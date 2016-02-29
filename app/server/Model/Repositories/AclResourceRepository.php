@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Filip Čáp
- */
 
 namespace GoClimb\Model\Repositories;
 

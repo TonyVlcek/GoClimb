@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author Tomáš Blatný
- */
-
 namespace GoClimb\Tests\Utils;
 
 use Kdyby\Doctrine\Connection;

@@ -1,8 +1,6 @@
 <?php
 /**
  * Test: CompanyRepository test
- *
- * @author Tomáš Blatný
  */
 
 use GoClimb\Model\Entities\Company;

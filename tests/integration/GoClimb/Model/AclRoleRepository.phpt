@@ -1,8 +1,6 @@
 <?php
 /**
  * Test: AclRoleRepository
- *
- * @author Tomáš Blatný
  */
 
 use GoClimb\Model\Entities\AclRole;

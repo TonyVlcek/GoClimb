@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Tomáš Blatný
- */
 
 use GoClimb\Tests\Helpers;
 use GoClimb\Tests\Utils\Locker;

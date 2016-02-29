@@ -1,8 +1,6 @@
 <?php
 /**
  * Test: ArticleRepository test
- *
- * @author Tony Vlček
  */
 
 use GoClimb\Model\Entities\Article;

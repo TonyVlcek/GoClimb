@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: ApplicationRepository test
- *
- * @author Tony Vlček
+ * Test: ApplicationRepository test
  */
 
 use GoClimb\Model\Entities\Application;

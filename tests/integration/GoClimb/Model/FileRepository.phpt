@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: FileRepository test
- *
- * @author Martin Mikšík
+ * Test: FileRepository test
  */
 
 use GoClimb\Model\Entities\File;

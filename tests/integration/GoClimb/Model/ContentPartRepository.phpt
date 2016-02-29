@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: ContentPartTest test
- *
- * @author Tony Vlček
+ * Test: ContentPartTest test
  */
 
 use GoClimb\Model\Entities\ContentPart;
