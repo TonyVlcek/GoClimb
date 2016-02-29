@@ -7,6 +7,7 @@ namespace GoClimb\Modules;
 
 use Kdyby\Translation\Translator;
 use Nette\Application;
+use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
 use Nette\Reflection\ClassType;
 use Nette\Reflection\Method;
@@ -44,14 +45,14 @@ abstract class BasePresenter extends Presenter
 	protected $authFacade;
 
 
-	public function run(Application\Request $request)
+	public function run(Request $request)
 	{
-		$this->init();
+		$this->init($request);
 		return parent::run($request);
 	}
 
 
-	abstract protected function init();
+	abstract protected function init(Request $request);
 
 
 	/**

@@ -70,7 +70,47 @@ class RouterFactory
 
 	private function createWallRoutes()
 	{
-		$router = new RouteList('Wall');
+		$router = new RouteList;
+
+		if (PHP_SAPI === 'cli') {
+			return $router; // to prevent failures from database queries before migrations
+		}
+
+		foreach ($this->wallRepository->getAll() as $wall) {
+			foreach ($wall->getWallLanguages() as $wallLanguage) {
+				$router[] = new Route(rtrim($wallLanguage->getUrl(), '/') . '/api/<presenter>/<action>[/<id>]', [
+					'module' => 'Wall:Rest',
+					'presenter' => 'Dashboard',
+					'action' => 'default',
+					'wall' => $wall,
+					'locale' => $wallLanguage->getLanguage()->getShortcut(),
+				]);
+				$router[] = new Route(rtrim($wallLanguage->getUrl(), '/') . '/admin[/<path .*>]', [
+					'module' => 'Wall:Admin',
+					'presenter' => 'Dashboard',
+					'action' => 'default',
+					'path' => [
+						Route::VALUE => '',
+						Route::FILTER_OUT => NULL,
+						Route::FILTER_IN => NULL,
+					],
+					'wall' => $wall,
+					'locale' => $wallLanguage->getLanguage()->getShortcut(),
+				]);
+				$router[] = new Route(rtrim($wallLanguage->getUrl(), '/') . '[/<path .*>]', [
+					'module' => 'Wall:Front',
+					'presenter' => 'Dashboard',
+					'action' => 'default',
+					'path' => [
+						Route::VALUE => '',
+						Route::FILTER_OUT => NULL,
+						Route::FILTER_IN => NULL,
+					],
+					'wall' => $wall,
+					'locale' => $wallLanguage->getLanguage()->getShortcut(),
+				]);
+			}
+		}
 
 		return $router;
 	}
