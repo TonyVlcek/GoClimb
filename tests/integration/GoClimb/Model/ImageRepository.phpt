@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: ImageRepository test
- *
- * @author Martin Mikšík
+ * Test: ImageRepository test
  */
 
 use GoClimb\Model\Entities\ContentPart;

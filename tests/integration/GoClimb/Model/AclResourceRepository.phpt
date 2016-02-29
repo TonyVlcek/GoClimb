@@ -1,8 +1,6 @@
 <?php
 /**
  * Test: AclResourceRepository test
- *
- * @author Tomáš Blatný
  */
 
 use GoClimb\Model\Entities\AclResource;

@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Martin Míkšík
- */
 
 namespace GoClimb\UI\Forms\User;
 

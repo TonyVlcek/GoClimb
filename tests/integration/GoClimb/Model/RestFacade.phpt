@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: RestFacade test
- *
- * @author Tony Vlček
+ * Test: RestFacade test
  */
 
 use GoClimb\Model\Entities\RestToken;

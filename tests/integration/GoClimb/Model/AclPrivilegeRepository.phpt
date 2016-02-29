@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: AclPrivilegeRepository test
- *
- * @author Martin Mikšik
+ * Test: AclPrivilegeRepository test
  */
 
 use GoClimb\Model\Entities\AclPrivilege;

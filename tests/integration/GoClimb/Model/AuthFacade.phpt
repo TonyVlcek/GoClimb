@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: AuthFacade test
- *
- * @author Tony Vlček
+ * Test: AuthFacade test
  */
 
 use GoClimb\Model\Entities\Application;

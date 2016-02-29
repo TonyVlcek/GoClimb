@@ -1,8 +1,4 @@
 <?php
-/**
- * @author Tomáš Blatný
- * @author Martin Mikšík
- */
 
 namespace GoClimb\Model\Entities;
 

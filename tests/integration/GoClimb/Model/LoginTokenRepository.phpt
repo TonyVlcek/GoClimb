@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: LoginTokenRepository test
- *
- * @author Tony Vlček
+ * Test: LoginTokenRepository test
  */
 
 use GoClimb\Model\Entities\LoginToken;

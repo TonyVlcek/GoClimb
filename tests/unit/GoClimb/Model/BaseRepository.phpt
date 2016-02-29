@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: BaseRepository mapping test.
- *
- * @author Tomáš Blatný
+ * Test: BaseRepository mapping test.
  */
 
 namespace Bar;

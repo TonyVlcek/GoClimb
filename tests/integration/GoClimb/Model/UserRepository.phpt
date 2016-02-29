@@ -1,8 +1,6 @@
 <?php
 /**
- * TEST: UserRepository test
- *
- * @author Tomáš Blatný
+ * Test: UserRepository test
  */
 
 use Nette\Security\Passwords;

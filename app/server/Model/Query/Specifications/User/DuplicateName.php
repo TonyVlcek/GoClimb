@@ -1,7 +1,5 @@
 <?php
-/**
- * @author Martin Mikšík
- */
+
 namespace GoClimb\Model\Query\Specifications\User;
 
 use Doctrine\ORM\Query\Expr\Base;
