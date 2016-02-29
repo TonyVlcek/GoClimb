@@ -55,6 +55,8 @@ class SignInForm extends BaseForm
 		$form->addPassword('password', 'fields.password')
 			->setRequired('errors.password.required');
 
+		$form->addCheckbox('remember', 'fields.remember');
+
 		$form->addSubmit('submit', 'fields.submit');
 	}
 

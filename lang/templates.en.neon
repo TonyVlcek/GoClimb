@@ -6,7 +6,9 @@ auth:
 		title: Auth
 	dashboard:
 		default:
-			title: Sign in
+			back: Back to website
+			oneAccount: All walls. One account.
+			title: Sign in using GoClimb.
 
 backend:
 	layout:
