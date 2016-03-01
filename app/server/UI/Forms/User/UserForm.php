@@ -3,15 +3,16 @@
 namespace GoClimb\UI\Forms\User;
 
 use DateTime;
-use Nette\Security\Passwords;
-use Nette\Utils\ArrayHash;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Query\Specifications\User\DuplicateName;
 use GoClimb\Model\Query\Specifications\User\DuplicateEmail;
 use GoClimb\Model\Repositories\UserRepository;
-use GoClimb\UI\Forms\BaseForm;
+use GoClimb\UI\Forms\BaseBootstrapForm;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\ITranslatableFormFactory;
+use Nette\Security\Passwords;
+use Nette\Utils\ArrayHash;
+
 
 
 interface IUserFormFactory extends ITranslatableFormFactory
@@ -26,7 +27,7 @@ interface IUserFormFactory extends ITranslatableFormFactory
  * @method onCreate(User $user)
  * @method onEdit(User $user)
  */
-class UserForm extends BaseForm
+class UserForm extends BaseBootstrapForm
 {
 
 	/** @var User */
