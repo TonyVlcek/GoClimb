@@ -10,6 +10,7 @@ www/assets/*.css
 www/assets/*.js
 www/assets/build/*
 !www/assets/build/.gitkeep
+www/fonts/*
 
 tests/temp
 tests/php-local.ini

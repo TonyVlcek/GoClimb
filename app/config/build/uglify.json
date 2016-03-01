@@ -62,6 +62,7 @@
 			"beautify": false
 		},
 		"src": [
+			"bower_components/jquery/dist/jquery.min.js",
 			"bower_components/bootstrap/dist/js/bootstrap.min.js",
 			"www/assets/build/backend.js"
 		],
@@ -73,6 +74,7 @@
 			"beautify": true
 		},
 		"src": [
+			"bower_components/jquery/dist/jquery.js",
 			"bower_components/bootstrap/dist/js/bootstrap.js",
 			"www/assets/build/backend.js"
 		],
