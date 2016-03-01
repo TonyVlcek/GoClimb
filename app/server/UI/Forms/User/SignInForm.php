@@ -2,8 +2,6 @@
 
 namespace GoClimb\UI\Forms\User;
 
-use Nette\Security\Passwords;
-use Nette\Utils\ArrayHash;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Facades\UserFacade;
 use GoClimb\Security\Identity;
@@ -11,6 +9,8 @@ use GoClimb\Security\User as SecurityUser;
 use GoClimb\UI\Forms\BaseForm;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\ITranslatableFormFactory;
+use Nette\Security\Passwords;
+use Nette\Utils\ArrayHash;
 
 
 interface ISignInFormFactory extends ITranslatableFormFactory

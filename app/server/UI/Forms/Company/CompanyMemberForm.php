@@ -6,7 +6,7 @@ use GoClimb\Model\Entities\Company;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Repositories\CompanyRepository;
 use GoClimb\Model\Repositories\UserRepository;
-use GoClimb\UI\Forms\BaseForm;
+use GoClimb\UI\Forms\BaseBootstrapForm;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\ITranslatableFormFactory;
 use Nette\Utils\ArrayHash;
@@ -21,7 +21,7 @@ interface ICompanyMemberFormFactory extends ITranslatableFormFactory
 }
 
 
-class CompanyMemberForm extends BaseForm
+class CompanyMemberForm extends BaseBootstrapForm
 {
 
 	/** @var CompanyRepository */

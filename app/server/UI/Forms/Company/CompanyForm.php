@@ -2,13 +2,13 @@
 
 namespace GoClimb\UI\Forms\Company;
 
-use Nette\Utils\ArrayHash;
 use GoClimb\Model\Entities\Company;
 use GoClimb\Model\Query\Specifications\Company\DuplicateName;
 use GoClimb\Model\Repositories\CompanyRepository;
-use GoClimb\UI\Forms\BaseForm;
+use GoClimb\UI\Forms\BaseBootstrapForm;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\ITranslatableFormFactory;
+use Nette\Utils\ArrayHash;
 
 
 interface ICompanyFormFactory extends ITranslatableFormFactory
@@ -19,7 +19,7 @@ interface ICompanyFormFactory extends ITranslatableFormFactory
 
 }
 
-class CompanyForm extends BaseForm
+class CompanyForm extends BaseBootstrapForm
 {
 
 	/** @var Company */
