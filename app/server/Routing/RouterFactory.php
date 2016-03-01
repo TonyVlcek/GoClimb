@@ -3,8 +3,7 @@
 namespace GoClimb\Routing;
 
 use GoClimb\Model\Repositories\WallRepository;
-use GoClimb\Modules\BackendModule\Routing\Filters\CompanyFilter;
-use GoClimb\Modules\BackendModule\Routing\Filters\UserFilter;
+use GoClimb\Routing\Filters\BackendFilter;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
@@ -24,11 +23,9 @@ class RouterFactory
 	/** @var WallRepository */
 	private $wallRepository;
 
-	/** @var CompanyFilter */
-	private $companyFilter;
+	/** @var BackendFilter */
+	private $backendFilter;
 
-	/** @var UserFilter */
-	private $userFilter;
 
 
 	public function __construct($useVirtualHosts, $useHttps, $domains, WallRepository $wallRepository)
@@ -40,10 +37,9 @@ class RouterFactory
 	}
 
 
-	public function injectFilters(CompanyFilter $companyFilter, UserFilter $userFilter)
+	public function injectFilters(BackendFilter $backendFilter)
 	{
-		$this->companyFilter = $companyFilter;
-		$this->userFilter = $userFilter;
+		$this->backendFilter = $backendFilter;
 	}
 
 
@@ -129,21 +125,10 @@ class RouterFactory
 	{
 		$router = new RouteList('Backend');
 
-		$this->addRoute($router, 'admin', 'company/edit/<company>', [
-			'presenter' => 'Company',
-			'action' => 'edit',
-			NULL => $this->companyFilter->getFilterDefinition(),
-		]);
-
-		$this->addRoute($router, 'admin', 'user/edit/<user>', [
-			'presenter' => 'User',
-			'action' => 'edit',
-			NULL => $this->userFilter->getFilterDefinition(),
-		]);
-
-		$this->addRoute($router, 'admin', '<presenter>/<action>', [
+		$this->addRoute($router, 'admin', '<presenter>/<action>[/<id>]', [
 			'presenter' => 'Dashboard',
 			'action' => 'default',
+			NULL => $this->backendFilter->getFilterDefinition(),
 		]);
 
 		return $router;
