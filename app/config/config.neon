@@ -79,9 +79,8 @@ services:
 	- GoClimb\Model\Repositories\WallRepository
 
 	# filters
-	- GoClimb\Modules\BackendModule\Routing\Filters\CompanyFilter
-	- GoClimb\Modules\BackendModule\Routing\Filters\UserFilter
 	- GoClimb\Routing\Filters\AuthFilter
+	- GoClimb\Routing\Filters\BackendFilter
 
 	#security
 
