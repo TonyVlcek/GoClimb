@@ -6,6 +6,7 @@
 	"admin": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.min.css",
+			"bower_components/font-awesome/css/font-awesome.min.css",
 			"www/assets/build/admin.css"
 		],
 		"dest": "www/assets/admin.css"
@@ -13,6 +14,7 @@
 	"admin-dev": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.css",
+			"bower_components/font-awesome/css/font-awesome.css",
 			"www/assets/build/admin.css"
 		],
 		"dest": "www/assets/admin.css"
@@ -48,6 +50,7 @@
 	"frontend": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.min.css",
+			"bower_components/font-awesome/css/font-awesome.min.css",
 			"www/assets/build/frontend.css"
 		],
 		"dest": "www/assets/frontend.css"
@@ -55,6 +58,7 @@
 	"frontend-dev": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.css",
+			"bower_components/font-awesome/css/font-awesome.css",
 			"www/assets/build/frontend.css"
 		],
 		"dest": "www/assets/frontend.css"
