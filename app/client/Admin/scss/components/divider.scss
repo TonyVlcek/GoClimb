@@ -1,0 +1,53 @@
+.divider {
+	@include border-top-bottom($divider-border-width, solid, $divider-border-color);
+	display: flex;
+	background: $divider-default-background;
+
+	&.border-less {
+		border-width: 0;
+	}
+
+	&.border-less-top {
+		border-top-width: 0;
+	}
+
+	&.border-less-bottom {
+		border-bottom-width: 0;
+	}
+
+	.title {
+		color: $divider-title-color;
+		font-size: 1rem;
+		padding: 0.8rem;
+		margin: 0;
+		flex: none;
+	}
+
+	.menu-bar {
+		.menu-item {
+			flex: none;
+		}
+
+		.link {
+			color: $divider-link-color;
+			&:hover {
+				color: $divider-hover-link-color;
+			}
+		}
+	}
+
+	.left {
+		display: flex;
+		justify-content: flex-start !important;
+	}
+
+	.right {
+		flex: auto !important;
+		display: flex;
+		justify-content: flex-end !important;
+
+		& ~ .right {
+			flex: none !important;
+		}
+	}
+}
