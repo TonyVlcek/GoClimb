@@ -80,6 +80,7 @@ class SignInForm extends BaseForm
 	public function formSuccess(Form $form, ArrayHash $values)
 	{
 		$this->securityUser->login(new Identity($this->user));
+		$this->securityUser->setExpiration('+48 hours', FALSE, TRUE);
 	}
 
 

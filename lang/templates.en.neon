@@ -9,6 +9,9 @@ auth:
 			back: Back to website
 			oneAccount: All walls. One account.
 			title: Sign in using GoClimb.
+			welcome: Welcome back!
+			loggedIn: You are courrently logged in as %name%.
+			notYou: Not You?
 
 backend:
 	layout:

@@ -1,0 +1,23 @@
+{block content}
+
+<div class="header">
+	<a href="javascript: history.go(-1);" class="btn">{_templates.auth.dashboard.default.back}</a>
+</div>
+
+
+<div class="content-block">
+	<h1>{_templates.auth.dashboard.default.welcome}</h1>
+	<div class="form-box js-continue">
+		{_templates.auth.dashboard.default.loggedIn, ['name' => $user->getUserEntity()->getName()]}
+		{*<img src="">*}
+		<div class="form-body">
+			{control continueForm}
+			<a href="#" class="js-not-you">{_templates.auth.dashboard.default.notYou}</a>
+		</div>
+	</div>
+	<div class="form-box hidden js-sign-in">
+		<div class="form-body">
+			{control signInForm}
+		</div>
+	</div>
+</div>

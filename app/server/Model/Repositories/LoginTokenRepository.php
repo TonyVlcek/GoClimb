@@ -33,15 +33,17 @@ class LoginTokenRepository extends BaseRepository
 
 	/**
 	 * @param User $user
+	 * @param bool $longTerm
 	 * @return LoginToken
 	 */
-	public function createLoginToken(User $user)
+	public function createLoginToken(User $user, $longTerm)
 	{
 		$token = new LoginToken;
 		$token->setUser($user);
 		$user->addLoginToken($token);
 		$token->setToken($this->generateRandomToken());
 		$token->setExpiration(DateTime::from('+1 minute'));
+		$token->setLongTerm($longTerm);
 		$this->getEntityManager()
 			->persist($token)
 			->flush();

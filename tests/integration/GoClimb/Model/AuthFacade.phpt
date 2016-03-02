@@ -53,14 +53,14 @@ class AuthFacadeTestCase extends DatabaseTestCase
 		$userWithoutToken = $this->userRepository->getById(2);
 
 		//returned
-		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getLoginTokenForUser($userWithToken));
+		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getLoginTokenForUser($userWithToken, TRUE));
 		Assert::equal(1, $loginToken->getUser()->getId());
 
 		//test expiration
 		Assert::true($loginToken->getExpiration() > new DateTime);
 
 		//created
-		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getLoginTokenForUser($userWithoutToken));
+		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getLoginTokenForUser($userWithoutToken, TRUE));
 		Assert::equal(2, $loginToken->getUser()->getId());
 	}
 

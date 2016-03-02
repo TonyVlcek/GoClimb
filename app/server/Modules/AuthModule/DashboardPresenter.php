@@ -2,6 +2,10 @@
 
 namespace GoClimb\Modules\AuthModule;
 
+use GoClimb\Model\Entities\LoginToken;
+use GoClimb\Model\Facades\AuthFacade;
+use GoClimb\UI\Forms\Form;
+use GoClimb\UI\Forms\User\IContinueFormFactory;
 use GoClimb\UI\Forms\User\ISignInFormFactory;
 
 
@@ -17,11 +21,19 @@ final class DashboardPresenter extends BaseAuthPresenter
 	/** @var ISignInFormFactory */
 	private $signInFormFactory;
 
+	/** @var IContinueFormFactory */
+	private $continueFormFactory;
 
-	public function __construct(ISignInFormFactory $signInFormFactory)
+	/** @var AuthFacade */
+	private $authFacade;
+
+
+	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, AuthFacade $authFacade)
 	{
 		parent::__construct();
 		$this->signInFormFactory = $signInFormFactory;
+		$this->continueFormFactory = $continueFormFactory;
+		$this->authFacade = $authFacade;
 	}
 
 
@@ -30,7 +42,7 @@ final class DashboardPresenter extends BaseAuthPresenter
 		$this->back = $back;
 
 		if ($this->user->isLoggedIn()) {
-			$this->redirectLoggedUser();
+			$this->setView('continue');
 		}
 	}
 
@@ -45,14 +57,40 @@ final class DashboardPresenter extends BaseAuthPresenter
 	protected function createComponentSignInForm()
 	{
 		$form = $this->signInFormFactory->create();
-		$form->onSuccess[] = [$this, 'redirectLoggedUser'];
+		$form->onSuccess[] = [$this, 'loginUser'];
 		return $form;
 	}
 
 
-	public function redirectLoggedUser()
+	protected function createComponentContinueForm()
 	{
-		$token = $this->authFacade->getLoginTokenForUser($this->getUser()->getUserEntity());
+		$form = $this->continueFormFactory->create();
+		$form->onSuccess[] = [$this, 'continueFormSuccess'];
+		return $form;
+	}
+
+
+	public function loginUser(Form $form)
+	{
+		$values = $form->getValues();
+		$token = $this->authFacade->getLoginTokenForUser($this->getUser()->getUserEntity(), $values->remember);
+		$this->redirectLoggedUser($token);
+	}
+
+
+	public function continueFormSuccess(Form $form)
+	{
+		$values = $form->getValues();
+		$token = $this->authFacade->getLoginTokenForUser($this->getUser()->getUserEntity(), $values->remember);
+		$this->redirectLoggedUser($token);
+	}
+
+
+	/**
+	 * @param LoginToken $token
+	 */
+	public function redirectLoggedUser(LoginToken $token)
+	{
 		$this->redirectUrl($this->addTokenToUrl($this->back, $token->getToken()));
 	}
 

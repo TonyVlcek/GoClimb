@@ -34,6 +34,12 @@ class LoginToken
 	 */
 	private $expiration;
 
+	/**
+	 * @var bool
+	 * @ORM\Column(type="boolean")
+	 */
+	private $longTerm;
+
 
 	/**
 	 * @return User
@@ -91,6 +97,26 @@ class LoginToken
 	public function setExpiration(DateTime $expiration)
 	{
 		$this->expiration = $expiration;
+		return $this;
+	}
+
+
+	/**
+	 * @return bool
+	 */
+	public function isLongTerm()
+	{
+		return $this->longTerm;
+	}
+
+
+	/**
+	 * @param bool $longTerm
+	 * @return $this
+	 */
+	public function setLongTerm($longTerm)
+	{
+		$this->longTerm = $longTerm;
 		return $this;
 	}
 
