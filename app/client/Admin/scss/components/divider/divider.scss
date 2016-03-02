@@ -1,0 +1,34 @@
+.divider {
+	@include border-top-bottom($divider-border-width, solid, $divider-border-color);
+	background: $divider-default-background;
+	padding: 0 1rem;
+
+	&.border-less {
+		border-width: 0;
+	}
+
+	&.border-less-top {
+		border-top-width: 0;
+	}
+
+	&.border-less-bottom {
+		border-bottom-width: 0;
+	}
+
+	.title {
+		color: $divider-title-color;
+		font-size: 1.125rem;
+		padding: 0.7rem 0;
+		margin: 0;
+	}
+
+	.right {
+		flex: auto !important;
+		display: flex;
+		justify-content: flex-end !important;
+
+		& ~ .right {
+			flex: none !important;
+		}
+	}
+}

@@ -1,7 +1,30 @@
-$theme-color: #232323;
+$theme-color: #000000;
+$theme-background: #FFFFFF;
+$grey: #232323;
+
+$primary-accent-color: #0073AA;
+
+//Opacity
+$text-opacaty: 0.10; //13
+$light-text-opacaty: 0.46; //46
+$disable-opacaty: 0.62;
+$dividers-opacaty: 0.88;
+
+$theme-font-color: transparentize($theme-color, $text-opacaty);
+$theme-light-font-color: transparentize($theme-color, $light-text-opacaty);
+$theme-disable: transparentize($theme-color, $disable-opacaty);
+$theme-divider: transparentize($theme-color, $dividers-opacaty);
+
+//Divider
+$divider-default-background: #F5F5F5;
+$divider-border-color: $theme-divider;
+$divider-border-width: 1px;
+$divider-link-color: $theme-light-font-color;
+$divider-hover-link-color: $theme-font-color;
+$divider-title-color: $theme-font-color;
 
 //Admin Menu
 $admin-menu-width: 120px;
-$admin-menu-background: $theme-color;
+$admin-menu-background: $grey;
 $admin-menu-text: #FFFFFF;
-$admin-menu-hover-background: transparentize(invert($theme-color), 0.86);
+$admin-menu-hover-background: transparentize(invert($grey), 0.86);

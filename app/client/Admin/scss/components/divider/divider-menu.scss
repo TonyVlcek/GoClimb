@@ -1,0 +1,15 @@
+.menu-bar {
+	background: inherit !important;
+	.menu-item {
+		flex: none;
+		align-items: center;
+	}
+
+	.link {
+		color: $divider-link-color;
+		&:hover {
+			color: $divider-hover-link-color;
+			background: $theme-divider;
+		}
+	}
+}
