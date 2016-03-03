@@ -38,14 +38,15 @@ class AuthFacade
 
 	/**
 	 * @param User $user
+	 * @param bool $longTerm
 	 * @return LoginToken
 	 */
-	public function getLoginTokenForUser(User $user)
+	public function getLoginTokenForUser(User $user, $longTerm)
 	{
 		if ($token = $this->loginTokenRepository->getByUser($user)) {
 			return $token;
 		}
-		return $this->loginTokenRepository->createLoginToken($user);
+		return $this->loginTokenRepository->createLoginToken($user, $longTerm);
 	}
 
 

@@ -2,6 +2,7 @@
 
 namespace GoClimb\Modules;
 
+use GoClimb\Model\Repositories\LoginTokenRepository;
 use Kdyby\Translation\Translator;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
@@ -9,7 +10,6 @@ use Nette\Reflection\ClassType;
 use Nette\Reflection\Method;
 use GoClimb\Annotations\RecursiveClassParser;
 use GoClimb\Annotations\RecursiveMethodParser;
-use GoClimb\Model\Facades\AuthFacade;
 use GoClimb\Security\ApplicationPartsManager;
 use GoClimb\Security\Identity;
 use GoClimb\Security\User;
@@ -39,8 +39,8 @@ abstract class BasePresenter extends Presenter
 	/** @var ApplicationPartsManager */
 	protected $applicationPartsManager;
 
-	/** @var AuthFacade */
-	protected $authFacade;
+	/** @var  LoginTokenRepository */
+	protected $loginTokenRepository;
 
 
 	public function run(Request $request)
@@ -62,11 +62,11 @@ abstract class BasePresenter extends Presenter
 	}
 
 
-	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, AuthFacade $authFacade)
+	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository)
 	{
 		$this->translator = $translator;
 		$this->applicationPartsManager = $applicationPartsManager;
-		$this->authFacade = $authFacade;
+		$this->loginTokenRepository = $loginTokenRepository;
 	}
 
 
@@ -132,8 +132,15 @@ abstract class BasePresenter extends Presenter
 		if ($token === '') {
 			$this->user->logout(TRUE);
 			$this->flashMessageError('user.login.error');
-		} elseif ($user = $this->authFacade->getUserByToken($token)) {
+		} elseif ($token = $this->loginTokenRepository->getByToken($token)) {
+			$user = $token->getUser();
 			$this->user->login(new Identity($user));
+			if ($token->isLongTerm()) {
+				$this->user->setExpiration('+10 days', FALSE, TRUE);
+			} else {
+				$this->user->setExpiration('+48 hours', TRUE, TRUE);
+			}
+
 			$this->flashMessageSuccess('user.login.success');
 		}
 		$this->redirect('this', ['token' => NULL]);

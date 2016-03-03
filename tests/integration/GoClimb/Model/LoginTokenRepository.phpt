@@ -72,7 +72,7 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 	{
 		$now = new DateTime;
 
-		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($this->user));
+		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($this->user, TRUE));
 		Assert::true($now < $loginToken->getExpiration());
 		Assert::type(User::class, $user = $loginToken->getUser());
 		Assert::equal(1, $user->getId());

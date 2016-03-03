@@ -12,6 +12,10 @@ user:
 			password:
 				required: Please enter password.
 				invalid: Invalid password.
+	continue:
+		fields:
+			remember: Remember me
+			continue: Continue
 
 company:
 	companyForm:
