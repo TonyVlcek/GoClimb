@@ -57,6 +57,7 @@ services:
 	- GoClimb\Model\Facades\AuthFacade
 	- GoClimb\Model\Facades\UserFacade
 	- GoClimb\Model\Facades\RestFacade
+	- GoClimb\Model\Facades\WallFacade
 
 	# repositories
 
