@@ -2,6 +2,8 @@
 
 namespace GoClimb\Modules\BackendModule;
 
+use GoClimb\Model\Enums\Privilege;
+use GoClimb\Model\Enums\Resource;
 use GoClimb\Modules\BasePresenter;
 use Nette\Application\Request;
 
@@ -9,14 +11,20 @@ use Nette\Application\Request;
 abstract class BaseBackendPresenter extends BasePresenter
 {
 
-
 	public function beforeRender()
 	{
 		$loginBacklink = $this->link('//this', ['do' => 'tokenLogin', 'token' => $this::TOKEN_PLACEHOLDER]);
 		$logoutBacklink = $this->link('//this', ['do' => 'logout']);
 
-		$this->template->loginLink = $this->getLoginLink($this->getApplicationToken(), $loginBacklink);
-		$this->template->logoutLink = $this->getLogoutLink($this->getApplicationToken(), $logoutBacklink);
+		$loginLink = $this->getLoginLink($this->getApplicationToken(), $loginBacklink);
+		$logoutLink = $this->getLogoutLink($this->getApplicationToken(), $logoutBacklink);
+
+		if (!$this->isAllowedToBackend()) {
+			$this->redirectUrl($loginLink);
+		}
+
+		$this->template->loginLink = $loginLink;
+		$this->template->logoutLink = $logoutLink;
 	}
 
 
@@ -33,4 +41,19 @@ abstract class BaseBackendPresenter extends BasePresenter
 	{
 		return 'admin';
 	}
+
+
+	/**
+	 * @return bool
+	 */
+	private function isAllowedToBackend()
+	{
+		foreach (Resource::getBackend() as $resource) {
+			if ($this->user->isAllowed($resource, Privilege::READ)) {
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
 }

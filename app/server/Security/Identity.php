@@ -12,10 +12,17 @@ class Identity implements IIdentity
 	/** @var int */
 	private $userId;
 
+	/** @var string[] */
+	private $roles;
+
 
 	public function __construct(UserEntity $user)
 	{
 		$this->userId = $user->getId();
+
+		$this->roles = array_map(function ($role) {
+			return $role->getName();
+		}, $user->getRoles());
 	}
 
 
@@ -29,11 +36,11 @@ class Identity implements IIdentity
 
 
 	/**
-	 * @return array
+	 * @return string[]
 	 */
 	public function getRoles()
 	{
-		return [];
+		return $this->roles;
 	}
 
 }

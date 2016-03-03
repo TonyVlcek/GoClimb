@@ -60,6 +60,7 @@ services:
 
 	# repositories
 
+	- GoClimb\Model\Repositories\AclPermissionRepository
 	- GoClimb\Model\Repositories\AclPrivilegeRepository
 	- GoClimb\Model\Repositories\AclResourceRepository
 	- GoClimb\Model\Repositories\AclRoleRepository
@@ -85,6 +86,7 @@ services:
 	#security
 
 	- GoClimb\Security\ApplicationPartsManager
+	- GoClimb\Security\Authorizator
 	security.user:
 		class: GoClimb\Security\User
 

@@ -115,6 +115,13 @@ class User
 	 */
 	private $restTokens;
 
+	/**
+	 * @var AclRole[]|ArrayCollection
+	 * @ORM\ManyToMany(targetEntity="AclRole", mappedBy="users")
+	 * @ORM\JoinTable(name="user_role")
+	 */
+	private $roles;
+
 
 	public function __construct()
 	{
@@ -124,6 +131,7 @@ class User
 		$this->companies = new ArrayCollection;
 		$this->loginTokens = new ArrayCollection;
 		$this->restTokens = new ArrayCollection;
+		$this->roles = new ArrayCollection;
 	}
 
 
@@ -544,6 +552,37 @@ class User
 	public function setPhone($phone)
 	{
 		$this->phone = $phone;
+		return $this;
+	}
+
+
+	/**
+	 * @return AclRole[]
+	 */
+	public function getRoles()
+	{
+		return $this->roles->toArray();
+	}
+
+
+	/**
+	 * @param AclRole $role
+	 * @return $this
+	 */
+	public function addRole(AclRole $role)
+	{
+		$this->roles->add($role);
+		return $this;
+	}
+
+
+	/**
+	 * @param AclRole $role
+	 * @return $this
+	 */
+	public function removeRole(AclRole $role)
+	{
+		$this->roles->removeElement($role);
 		return $this;
 	}
 

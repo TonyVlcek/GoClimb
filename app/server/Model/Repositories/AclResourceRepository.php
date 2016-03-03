@@ -17,4 +17,13 @@ class AclResourceRepository extends BaseRepository
 		return $this->getDoctrineRepository()->findOneBy(['name' => $name]);
 	}
 
+
+	/**
+	 * @return AclResource[]
+	 */
+	public function getAll()
+	{
+		return $this->getDoctrineRepository()->findAll();
+	}
+
 }
