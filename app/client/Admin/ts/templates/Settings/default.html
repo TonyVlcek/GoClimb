@@ -1,0 +1,26 @@
+<div data-ng-show="settingsCtrl.getDetails()">
+	<label>
+		{{'templates.settings.default.name'|translate}}
+		<input type="text" data-ng-model="settingsCtrl.getDetails().name">
+	</label>
+	<label>
+		{{'templates.settings.default.street'|translate}}
+		<input type="text" data-ng-model="settingsCtrl.getDetails().street">
+	</label>
+	<label>
+		{{'templates.settings.default.number'|translate}}
+		<input type="text" data-ng-model="settingsCtrl.getDetails().number">
+	</label>
+	<label>
+		{{'templates.settings.default.country'|translate}}
+		<input type="text" data-ng-model="settingsCtrl.getDetails().country">
+	</label>
+	<label>
+		{{'templates.settings.default.zip'|translate}}
+		<input type="text" data-ng-model="settingsCtrl.getDetails().zip">
+	</label>
+	<input type="submit" data-ng-click="settingsCtrl.updateDetails()">
+</div>
+<div data-ng-hide="settingsCtrl.getDetails()">
+	Loading...
+</div>

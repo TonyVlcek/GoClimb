@@ -30,6 +30,12 @@ class MappingException extends InvalidArgumentException
 		return new self(sprintf('Language with \'%s\' shortcut is not available for this wall.', $shortcut));
 	}
 
+
+	public static function invalidData()
+	{
+		return new self('No data or invalid data received.');
+	}
+
 }
 
 

@@ -5,6 +5,7 @@
 	"admin": {
 		"options": {
 			"compress": true,
+			"mangle": true,
 			"beautify": false
 		},
 		"src": [
@@ -15,6 +16,8 @@
 			"bower_components/tether/tether.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
+			"bower_components/angular-translate/angular-translate.min.js",
+			"www/assets/build/admin-lang.js",
 			"www/assets/build/admin.js"
 		],
 		"dest": "www/assets/admin.js"
@@ -22,6 +25,7 @@
 	"admin-dev": {
 		"options": {
 			"compress": false,
+			"mangle": false,
 			"beautify": true
 		},
 		"src": [
@@ -32,6 +36,8 @@
 			"bower_components/tether/tether.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
+			"bower_components/angular-translate/angular-translate.js",
+			"www/assets/build/admin-lang.js",
 			"www/assets/build/admin.js"
 		],
 		"dest": "www/assets/admin.js"
@@ -39,6 +45,7 @@
 	"auth": {
 		"options": {
 			"compress": true,
+			"mangle": true,
 			"beautify": false
 		},
 		"src": [
@@ -49,6 +56,7 @@
 	"auth-dev": {
 		"options": {
 			"compress": false,
+			"mangle": false,
 			"beautify": true
 		},
 		"src": [
@@ -59,6 +67,7 @@
 	"backend": {
 		"options": {
 			"compress": true,
+			"mangle": true,
 			"beautify": false
 		},
 		"src": [
@@ -71,6 +80,7 @@
 	"backend-dev": {
 		"options": {
 			"compress": false,
+			"mangle": false,
 			"beautify": true
 		},
 		"src": [
@@ -83,6 +93,7 @@
 	"frontend": {
 		"options": {
 			"compress": true,
+			"mangle": true,
 			"beautify": false
 		},
 		"src": [
@@ -93,6 +104,7 @@
 			"bower_components/tether/tether.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
+			"www/assets/build/frontend-lang.js",
 			"www/assets/build/frontend.js"
 		],
 		"dest": "www/assets/frontend.js"
@@ -100,6 +112,7 @@
 	"frontend-dev": {
 		"options": {
 			"compress": false,
+			"mangle": false,
 			"beautify": true
 		},
 		"src": [
@@ -110,6 +123,7 @@
 			"bower_components/tether/tether.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
+			"www/assets/build/frontend-lang.js",
 			"www/assets/build/frontend.js"
 		],
 		"dest": "www/assets/frontend.js"

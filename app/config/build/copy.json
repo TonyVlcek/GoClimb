@@ -1,13 +1,13 @@
 {
-	"admin": {
+	"all": {
 		"expand": true,
 		"flatten": true,
 		"filter": "isFile",
 
 		"src": [
-			"bower_components/font-awesome/fonts/FontAwesome-webfont.ttf",
-			"bower_components/font-awesome/fonts/FontAwesome-webfont.woff",
-			"bower_components/font-awesome/fonts/FontAwesome-webfont.woff2"
+			"bower_components/font-awesome/fonts/fontawesome-webfont.ttf",
+			"bower_components/font-awesome/fonts/fontawesome-webfont.woff",
+			"bower_components/font-awesome/fonts/fontawesome-webfont.woff2"
 		],
 		"dest": "www/fonts/"
 	}

@@ -1,0 +1,25 @@
+{
+	"dashboard": {
+		"title": "Dashboard"
+	},
+	"plugins": {
+		"table": {
+			"pluginName": "Plugin name",
+			"pluginDescription": "Description",
+			"status": "Status",
+			"actions": "Actions",
+			"search": "Search",
+			"enable": "Enable",
+			"disable": "Disable"
+		}
+	},
+	"settings": {
+		"default": {
+			"name": "Name",
+			"street": "Street",
+			"number": "House number",
+			"country": "Country",
+			"zip": "Postal code"
+		}
+	}
+}

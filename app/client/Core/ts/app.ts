@@ -1,8 +1,12 @@
 namespace GoClimb
 {
+
+	import ITranslateProvider = angular.translate.ITranslateProvider;
+
 	var goClimb = angular.module('GoClimb', [
 		'ui.router',
 		'ngAnimate',
+		'pascalprecht.translate',
 
 		//foundation
 		'foundation',
@@ -10,24 +14,31 @@ namespace GoClimb
 		'foundation.dynamicRouting.animations'
 	]);
 
-	goClimb.config(config);
-	goClimb.run(run);
-
-	config.$inject = ['$urlRouterProvider', '$locationProvider'];
-
-
-	function config($urlProvider, $locationProvider) {
-		$urlProvider.otherwise('/');
-
+	goClimb.config(['$locationProvider', '$translateProvider', function ($locationProvider, $translateProvider: ITranslateProvider) {
 		$locationProvider.html5Mode({
-			enabled: false,
-			requireBase: false
+			enabled: true,
+			requireBase: true
 		});
 
-		$locationProvider.hashPrefix('!');
-	}
+		var result = [];
+		for (var key in _translations) {
+			if (_translations.hasOwnProperty(key)) {
+				var parts = key.split('.');
+				var name = parts[0];
+				var lang = parts[1];
+				if (!(lang in result)) {
+					result[lang] = [];
+				}
+				result[lang][name] = _translations[key];
+			}
+		}
 
-	function run() {
-		FastClick.attach(document.body);
-	}
+		for (var lang in result) {
+			if (result.hasOwnProperty(lang)) {
+				$translateProvider.translations(lang, result[lang]);
+			}
+		}
+		$translateProvider.useSanitizeValueStrategy('escape');
+	}]);
+
 }

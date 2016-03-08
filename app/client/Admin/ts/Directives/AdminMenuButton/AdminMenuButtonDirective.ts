@@ -1,13 +1,15 @@
 namespace GoClimb.Admin.Directives
 {
 
-	var goClimb = angular.module('GoClimb');
+	import BaseDirective = GoClimb.Core.Directives.BaseDirective;
 
-	goClimb.directive('adminMenuButton', function () {
-		return {
-			restrict: 'A',
-			templateUrl: 'app/client/Admin/ts/Directives/AdminMenuButton/AdminMenuButtonDirective.html',
-			replace: true,
-		}
-	});
+	export class AdminMenuButtonDirective extends BaseDirective
+	{
+
+		public templateUrl: string = 'app/client/Admin/ts/Directives/AdminMenuButton/AdminMenuButtonDirective.html';
+
+	}
+
+	AdminMenuButtonDirective.register(angular, 'adminMenuButton');
+
 }

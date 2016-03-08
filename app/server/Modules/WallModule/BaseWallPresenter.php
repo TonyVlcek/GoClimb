@@ -11,15 +11,25 @@ use Nette\Application\Request;
 abstract class BaseWallPresenter extends BasePresenter
 {
 
-	/** @var Wall */
-	protected $wall;
+	/** @var Wall @persistent */
+	public $wall;
 
 
 	protected function init(Request $request)
 	{
-		$wall = $request->getParameter('wall');
-		$this->applicationPartsManager->setAsWallSite($wall);
-		$this->wall = $wall;
+		$this->applicationPartsManager->setAsWallSite($request->getParameter('wall'));
+	}
+
+
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		$languages = [];
+		foreach ($this->wall->getWallLanguages() as $wallLanguage) {
+			$shortcut = $wallLanguage->getLanguage()->getShortcut();
+			$languages[$shortcut] = $this->link('//this', ['path' => '__PATH__', 'locale' => $shortcut]);
+		}
+		$this->template->availableLanguages = $languages;
 	}
 
 
