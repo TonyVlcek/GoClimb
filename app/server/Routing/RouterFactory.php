@@ -71,14 +71,19 @@ class RouterFactory
 
 		foreach ($this->wallRepository->getAll() as $wall) {
 			foreach ($wall->getWallLanguages() as $wallLanguage) {
-				$router[] = new Route(rtrim($wallLanguage->getUrl(), '/') . '/api/<presenter>/<action>[/<id>]', [
+				$filter = [Route::FILTER_OUT => function (array $params) use ($wallLanguage) {
+					return (isset($params['wall']) && $wallLanguage->getWall() === $params['wall']) ? $params : NULL;
+				}];
+
+				$router[] = new Route('//' . rtrim($wallLanguage->getUrl(), '/') . '/api/<presenter>/<action>[/<id>]', [
 					'module' => 'Wall:Rest',
 					'presenter' => 'Dashboard',
 					'action' => 'default',
 					'wall' => $wall,
 					'locale' => $wallLanguage->getLanguage()->getShortcut(),
+					NULL => $filter,
 				]);
-				$router[] = new Route(rtrim($wallLanguage->getUrl(), '/') . '/admin[/<path .*>]', [
+				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '/admin[/<path .*>]', [
 					'module' => 'Wall:Admin',
 					'presenter' => 'Dashboard',
 					'action' => 'default',
@@ -89,8 +94,9 @@ class RouterFactory
 					],
 					'wall' => $wall,
 					'locale' => $wallLanguage->getLanguage()->getShortcut(),
+					NULL => $filter,
 				]);
-				$router[] = new Route(rtrim($wallLanguage->getUrl(), '/') . '[/<path .*>]', [
+				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '[/<path .*>]', [
 					'module' => 'Wall:Front',
 					'presenter' => 'Dashboard',
 					'action' => 'default',
@@ -101,6 +107,7 @@ class RouterFactory
 					],
 					'wall' => $wall,
 					'locale' => $wallLanguage->getLanguage()->getShortcut(),
+					NULL => $filter,
 				]);
 			}
 		}
