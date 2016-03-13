@@ -1,0 +1,27 @@
+.container-block {
+	perspective: 800px;
+}
+
+.flip-box {
+	margin: auto;
+	max-width: 80%;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}
+
+.flip-box .content-block {
+	display: block;
+	position: absolute;
+	width: 100%;
+	max-width: 500px;
+	margin-left: -16px;
+	backface-visibility: hidden;
+}
+
+.flip-box .back {
+	transform: rotateY(180deg);
+}
+
+.flip-box.flipped {
+	transform: rotateY(180deg);
+}

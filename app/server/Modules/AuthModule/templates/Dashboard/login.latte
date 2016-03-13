@@ -2,19 +2,18 @@
 
 <div class="header">
 	<a href="javascript: history.go(-1);" class="btn">{_templates.auth.dashboard.default.back}</a>
+	<a href="#" class="btn right">{_templates.auth.dashboard.default.register}</a>
 </div>
 
 
-<div class="content-block">
+<div class="container-block">
+	<img class="description-image" src="{$basePath}/assets/GoClimbIcon.png" height="100">
 	<h1>{_templates.auth.dashboard.default.oneAccount}</h1>
-	<h2 n:inner-block="title">{_templates.auth.dashboard.default.title}</h2>
-	<div class="form-box">
-		{*<div class="form-header">
-			<img src="">
-			<img src="">
-		</div>*}
+	{include includes/applicationDetail.latte}
+	<div class="content-block">
 		<div class="form-body">
 			{control signInForm}
 		</div>
 	</div>
+
 </div>

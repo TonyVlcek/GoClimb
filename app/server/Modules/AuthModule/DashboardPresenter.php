@@ -2,6 +2,7 @@
 
 namespace GoClimb\Modules\AuthModule;
 
+use GoClimb\Model\Entities\Application;
 use GoClimb\Model\Entities\LoginToken;
 use GoClimb\Model\Facades\AuthFacade;
 use GoClimb\UI\Forms\Form;
@@ -44,6 +45,18 @@ final class DashboardPresenter extends BaseAuthPresenter
 		if ($this->user->isLoggedIn()) {
 			$this->setView('continue');
 		}
+	}
+
+
+	public function renderLogin(Application $application)
+	{
+		$this->template->application = $application;
+	}
+
+
+	public function renderContinue(Application $application)
+	{
+		$this->template->application = $application;
 	}
 
 

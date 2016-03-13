@@ -1,10 +1,28 @@
 .content-block {
-	margin: 50px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
+	margin-top: 25px;
+	text-align: left;
+	border: 1px solid #CDCDCD;
+	background: white;
+	padding: 15px;
 
-	h2 {
-		color: #505050;
+	&.continue {
+		text-align: center;
+
+		.checkbox-container {
+			display: block;
+			padding-bottom: 10px;
+		}
+
+		.name {
+			margin: 10px;
+		}
+
+		.btn {
+			float: none;
+		}
+	}
+
+	.clearfix {
+		clear: both;
 	}
 }
