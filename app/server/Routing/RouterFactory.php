@@ -3,6 +3,7 @@
 namespace GoClimb\Routing;
 
 use GoClimb\Model\Repositories\WallRepository;
+use GoClimb\Routing\Filters\AuthFilter;
 use GoClimb\Routing\Filters\BackendFilter;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
@@ -26,6 +27,8 @@ class RouterFactory
 	/** @var BackendFilter */
 	private $backendFilter;
 
+	/** @var AuthFilter */
+	private $authFilter;
 
 
 	public function __construct($useVirtualHosts, $useHttps, $domains, WallRepository $wallRepository)
@@ -37,9 +40,10 @@ class RouterFactory
 	}
 
 
-	public function injectFilters(BackendFilter $backendFilter)
+	public function injectFilters(BackendFilter $backendFilter, AuthFilter $authFilter)
 	{
 		$this->backendFilter = $backendFilter;
+		$this->authFilter = $authFilter;
 	}
 
 
@@ -122,6 +126,7 @@ class RouterFactory
 
 		$this->addRoute($router, 'auth', '<token>/<action login|logout>', [
 			'presenter' => 'Dashboard',
+			NULL => $this->authFilter->getFilterDefinition(),
 		]);
 
 		return $router;

@@ -39,7 +39,6 @@ class AuthFilter extends AbstractFilter
 	 */
 	public function out(array $params)
 	{
-		var_dump($params);
 		if ((!$application = $this->authFacade->getApplicationByToken($params['token'])) || (!$params['back'])) {
 			return NULL;
 		}
