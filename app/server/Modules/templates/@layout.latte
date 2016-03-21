@@ -6,16 +6,30 @@
 
 	<title>{ifset title}{include title|striptags} | {/ifset}Nette Web</title>
 
-	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 </head>
 
+<style>
+	body {
+		background: #F5F5F5;
+		margin: 0;
+		padding: 0;
+		font-family: Helvetica sans-serif, "Helvetica Neue", Arial;
+	}
+
+	.content-block {
+		margin: 50px auto;
+		text-align: center;
+		width: 100%;
+		max-width: 500px;
+	}
+</style>
+
 <body>
+<div class="content-block">
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}
+</div>
 
-	{block scripts}
-		<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
-	{/block}
 </body>
 </html>

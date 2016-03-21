@@ -1,12 +1,8 @@
 {block content}
-<h1 n:block=title>Page Not Found</h1>
+<h1 n:block=title>{_templates.errors.404.title}</h1>
+
+<p>{_templates.errors.404.description}</p>
 
 <p>
-	The page you requested could not be found. It is possible that the address is
-	incorrect, or that the page no longer exists. Please use a search engine to find
-	what you are looking for.
-</p>
-
-<p>
-	<small>error 404</small>
+	<small>{_templates.errors.404.name}</small>
 </p>
