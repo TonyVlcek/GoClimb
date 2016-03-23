@@ -1,3 +1,16 @@
 {block content}
-	<h1 style="text-align: center; margin-top: 40px">WELCOME TO THE LANDING PAGE</h1>
+	<h1>{_templates.public.dashboard.default.wallsList}</h1>
+
+	<ul n:inner-foreach="$walls as $wall">
+		<li>
+			{$wall->getName()}
+			<ul n:inner-foreach="$wall->getWallLanguages() as $wallLanguage">
+				<li n:class="$wallLanguage === $wall->getPrimaryLanguage() ? primary">
+					{$wallLanguage->getLanguage()->getName()} -
+					<a n:href=":Wall:Front:Dashboard:default wall => $wall">{_templates.public.dashboard.default.webLink}</a> |
+					<a n:href=":Wall:Admin:Dashboard:default wall => $wall">{_templates.public.dashboard.default.adminLink}</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
 {/block}

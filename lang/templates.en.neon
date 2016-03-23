@@ -33,3 +33,8 @@ public:
 	layout:
 		title: Project Name
 		toggleNav: Toggle navigation
+	dashboard:
+		default:
+			wallsList: Walls
+			webLink: web
+			adminLink: administration
