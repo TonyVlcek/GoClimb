@@ -17,4 +17,13 @@ class AclPrivilegeRepository extends BaseRepository
 		return $this->getDoctrineRepository()->findOneBy(["name" => $name]);
 	}
 
+
+	/**
+	 * @return AclPrivilege[]
+	 */
+	public function getAll()
+	{
+		return $this->getDoctrineRepository()->findAll();
+	}
+
 }

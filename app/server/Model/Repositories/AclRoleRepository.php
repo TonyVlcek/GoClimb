@@ -29,6 +29,15 @@ class AclRoleRepository extends BaseRepository
 
 
 	/**
+	 * @return AclRole[]
+	 */
+	public function getAll()
+	{
+		return $this->getDoctrineRepository()->findAll();
+	}
+
+
+	/**
 	 * @param string $name
 	 * @param Wall $wall
 	 * @return AclRole|NULL
@@ -47,4 +56,5 @@ class AclRoleRepository extends BaseRepository
 	{
 		return $this->getDoctrineRepository()->findOneBy(["name" => $name, "wall" => NULL]);
 	}
+
 }

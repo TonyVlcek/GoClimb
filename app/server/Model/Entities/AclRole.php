@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use GoClimb\Model\Entities\Attributes\Id;
 
+
 /**
  * @ORM\Entity
  * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="unique_name_wall", columns={"name", "wall_id"})})
@@ -39,10 +40,25 @@ class AclRole
 	 */
 	private $wall;
 
+	/**
+	 * @var AclPermission[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="AclPermission", mappedBy="role")
+	 */
+	private $permissions;
+
+	/**
+	 * @var User[]|ArrayCollection
+	 * @ORM\ManyToMany(targetEntity="User", inversedBy="roles")
+	 * @ORM\JoinTable(name="user_role")
+	 */
+	private $users;
+
 
 	public function __construct()
 	{
 		$this->children = new ArrayCollection;
+		$this->permissions = new ArrayCollection;
+		$this->users = new ArrayCollection;
 	}
 
 
@@ -133,6 +149,68 @@ class AclRole
 	public function setWall(Wall $wall = NULL)
 	{
 		$this->wall = $wall;
+		return $this;
+	}
+
+
+	/**
+	 * @return AclPermission[]
+	 */
+	public function getPermissions()
+	{
+		return $this->permissions->toArray();
+	}
+
+
+	/**
+	 * @param AclPermission $permission
+	 * @return $this
+	 */
+	public function addPermission(AclPermission $permission)
+	{
+		$this->permissions->add($permission);
+		return $this;
+	}
+
+
+	/**
+	 * @param AclPermission $permission
+	 * @return $this
+	 */
+	public function removePermission(AclPermission $permission)
+	{
+		$this->permissions->removeElement($permission);
+		return $this;
+	}
+
+
+	/**
+	 * @return User[]
+	 */
+	public function getUsers()
+	{
+		return $this->users->toArray();
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return $this
+	 */
+	public function addUser(User $user)
+	{
+		$this->users->add($user);
+		return $this;
+	}
+
+
+	/**
+	 * @param User $user
+	 * @return $this
+	 */
+	public function removeUser(User $user)
+	{
+		$this->users->removeElement($user);
 		return $this;
 	}
 
