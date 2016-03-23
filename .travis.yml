@@ -5,6 +5,7 @@ php:
 
 before_install:
   - composer self-update --no-interaction
+  - git config --global github.accesstoken $GITHUB_OAUTH_TOKEN
 
 install:
   - composer install --no-interaction --prefer-source
