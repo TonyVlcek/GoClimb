@@ -4,6 +4,7 @@ php:
   - 5.6
 
 before_install:
+  - phpenv config-rm xdebug.ini
   - composer self-update --no-interaction
   - git config --global github.accesstoken $GITHUB_OAUTH_TOKEN
 
