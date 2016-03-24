@@ -3,7 +3,7 @@
 namespace GoClimb\Model\Enums;
 
 
-class Resource
+class AclResource
 {
 
 	const BACKEND_DASHBOARD = 'backend_dashboard';

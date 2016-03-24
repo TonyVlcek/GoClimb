@@ -2,7 +2,7 @@
 
 namespace GoClimb\Security;
 
-use GoClimb\Model\Enums\Privilege;
+use GoClimb\Model\Enums\AclPrivilege;
 use GoClimb\Model\Repositories\AclPermissionRepository;
 use GoClimb\Model\Repositories\AclPrivilegeRepository;
 use GoClimb\Model\Repositories\AclResourceRepository;
@@ -54,8 +54,8 @@ class Authorizator extends Permission
 			$this->initialized = TRUE;
 		}
 
-		if ($privilege === Privilege::READ) {
-			return parent::isAllowed($role, $resource, $privilege) || parent::isAllowed($role, $resource, Privilege::WRITE);
+		if ($privilege === AclPrivilege::READ) {
+			return parent::isAllowed($role, $resource, $privilege) || parent::isAllowed($role, $resource, AclPrivilege::WRITE);
 		}
 
 		return parent::isAllowed($role, $resource, $privilege);

@@ -3,7 +3,7 @@
 namespace GoClimb\Model\Enums;
 
 
-class Roles
+class AclRole
 {
 
 	const GUEST = 'guest';

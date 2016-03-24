@@ -2,8 +2,9 @@
 
 namespace GoClimb\Modules\BackendModule;
 
-use GoClimb\Model\Enums\Privilege;
-use GoClimb\Model\Enums\Resource;
+use GoClimb\Model\Entities\Application;
+use GoClimb\Model\Enums\AclPrivilege;
+use GoClimb\Model\Enums\AclResource;
 use GoClimb\Modules\BasePresenter;
 use Nette\Application\Request;
 
@@ -39,7 +40,7 @@ abstract class BaseBackendPresenter extends BasePresenter
 	 */
 	protected function getApplicationToken()
 	{
-		return 'admin';
+		return Application::BACKEND_TOKEN;
 	}
 
 
@@ -48,8 +49,8 @@ abstract class BaseBackendPresenter extends BasePresenter
 	 */
 	private function isAllowedToBackend()
 	{
-		foreach (Resource::getBackend() as $resource) {
-			if ($this->user->isAllowed($resource, Privilege::READ)) {
+		foreach (AclResource::getBackend() as $resource) {
+			if ($this->user->isAllowed($resource, AclPrivilege::READ)) {
 				return TRUE;
 			}
 		}
