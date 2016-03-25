@@ -8,9 +8,10 @@ auth:
 		default:
 			back: Back to website
 			oneAccount: All walls. One account.
-			title: Sign in using GoClimb.
+			title: 'Sign in to %appName% using GoClimb.'
 			welcome: Welcome back!
-			loggedIn: You are courrently logged in as %name%.
+			loggedIn: "You are currently logged in as:"
+			register: Create new account
 			notYou: Not You?
 
 backend:

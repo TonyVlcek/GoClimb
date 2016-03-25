@@ -1,14 +1,18 @@
-{form form}
-	{label name /}
-	{input name}
-
-	{label password /}
-	{input password}
-
-	<div class="checkbox">
-		{label remember /}
-		{input remember}
+{form form, class => form}
+	<div n:class="input-group, $form['name']->error ? error">
+		{label name, class => label /}
+		{input name, class => input}
+		<b n:ifcontent>{$form['name']->error}</b>
 	</div>
-
- 	{input submit class=>btn}
+	<div n:class="input-group, $form['password']->error ? error">
+		{label password, class => label /}
+		{input password, class => input}
+		<b n:ifcontent>{$form['password']->error}</b>
+	</div>
+	<div class="checkbox-container">
+		{label remember, class => label /}
+		{input remember, class => checkebox}
+	</div>
+{input submit, class => btn}
+	<div class="clearfix"></div>
 {/form}

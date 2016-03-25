@@ -47,7 +47,8 @@ class SignInForm extends BaseForm
 	public function init(Form $form)
 	{
 		$form->addText('name', 'fields.name')
-			->setRequired('errors.name.required');
+			->setRequired('errors.name.required')
+			->setAttribute('autofocus');
 
 		$form->addPassword('password', 'fields.password')
 			->setRequired('errors.password.required');

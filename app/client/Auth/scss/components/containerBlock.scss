@@ -1,0 +1,11 @@
+.container-block {
+	margin: 50px auto auto auto;
+	text-align: center;
+	width: 100%;
+	max-width: 600px;
+
+	.title {
+		text-align: center;
+		color: $auth-title;
+	}
+}

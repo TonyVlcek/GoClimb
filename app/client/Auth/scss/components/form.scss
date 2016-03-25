@@ -1,18 +1,34 @@
-label {
+.label {
 	display: block;
 	font-size: 0.9rem;
 	margin-bottom: 0.5rem;
 	color: #333333;
 }
 
-input[type='text'], input[type='password'] {
+.input-group {
+	margin: 0.5rem 0 1rem 0;
+
+	&.error {
+		color: #F04124;
+
+		.label {
+			color: #F04124;
+		}
+
+		.input {
+			border-color: #F04124;
+		}
+	}
+}
+
+.input {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	display: block;
 	width: 100%;
 	height: 2.4rem;
 	padding: 0.5rem;
-	margin: 0.5rem 0 1rem 0;
+	margin-bottom: 0.1rem;
 	border: 1px solid #CCCCCC;
 	border-radius: 0;
 	background: #FFFFFF;
@@ -23,15 +39,24 @@ input[type='text'], input[type='password'] {
 	box-sizing: border-box;
 }
 
-.checkbox {
+.checkbox-container {
 	display: inline-block;
 }
 
-input[type='checkbox'] {
+.checkbox {
 	margin-right: 10px;
 }
 
-form .btn {
+.form .btn {
 	float: right;
 	display: inline-block;
+}
+
+.btn-continue {
+	margin-right: 10px;
+	text-decoration: none;
+	color: $btn-default-background;
+	&:hover {
+		text-decoration: underline;
+	}
 }

@@ -1,3 +1,10 @@
+$auth-primary-color: #00558B;
+$auth-title: #505050;
+
+$tooltip-border: $auth-primary-color;
+$tooltip-background: white;
+$tooltip-color: transparentize(#FFFFFF, 0.04);
+
 body {
 	background: #F5F5F5;
 	margin: 0;
@@ -7,4 +14,8 @@ body {
 
 .hidden {
 	display: none;
+}
+
+.clearfix {
+	clear: both;
 }

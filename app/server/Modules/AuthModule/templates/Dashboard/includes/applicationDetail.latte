@@ -1,0 +1,10 @@
+<h2 n:inner-block="title" class="title">
+	{capture $appName}
+		<a href="#" title="{$application->getDescription()}" class="tooltip">
+		<span title="More">
+			{$application->getName()}
+			</span>
+		</a>
+	{/capture}
+	{_templates.auth.dashboard.default.title, [appName => $appName]|noescape}
+</h2>

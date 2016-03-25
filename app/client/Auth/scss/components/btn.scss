@@ -1,4 +1,4 @@
-$btn-default-background: #00558B;
+$btn-default-background: $auth-primary-color;
 $btn-default-color: #FFFFFF;
 
 .btn {
@@ -15,5 +15,9 @@ $btn-default-color: #FFFFFF;
 
 	&:hover {
 		background: lighten($btn-default-background, 6);
+	}
+
+	&.right {
+		float: right;
 	}
 }
