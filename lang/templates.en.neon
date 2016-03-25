@@ -29,6 +29,11 @@ backend:
 	dashboard:
 		default:
 			title: Dashboard
+	error:
+		forbidden:
+			title: Forbidden
+			heading: "Sorry, you can't access this"
+			logout: Logout
 
 public:
 	layout:

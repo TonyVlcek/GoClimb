@@ -23,6 +23,9 @@ abstract class BasePresenter extends Presenter
 {
 
 	const TOKEN_PLACEHOLDER = '__TOKEN__';
+	const LOGIN_PARAMETER = 'loginToken';
+	const LOGOUT_PARAMETER = 'logout';
+
 
 	/** @var string @persistent */
 	public $locale;
@@ -112,17 +115,16 @@ abstract class BasePresenter extends Presenter
 	protected function startup()
 	{
 		parent::startup();
+		if ($this->getParameter($this::LOGOUT_PARAMETER)) {
+			$this->resolveLogout();
+		} elseif ($token = $this->getParameter($this::LOGIN_PARAMETER)) {
+			$this->resolveLogin($token);
+		}
+
 		if ($this->translator->getLocale() !== $this->locale) {
 			$this->redirect('this', ['locale' => $this->translator->getLocale()]);
 		}
 	}
-
-
-	public function handleTokenLogin($token)
-	{
-		$this->resolveLogin($token);
-	}
-
 
 	/**
 	 * @param string $token
@@ -147,7 +149,7 @@ abstract class BasePresenter extends Presenter
 	}
 
 
-	public function handleLogout()
+	public function resolveLogout()
 	{
 		$this->user->logout(TRUE);
 		$this->flashMessageSuccess('user.logout.success');

@@ -12,20 +12,27 @@ use Nette\Application\Request;
 abstract class BaseBackendPresenter extends BasePresenter
 {
 
-	public function beforeRender()
+	public function startup()
 	{
-		$loginBacklink = $this->link('//this', ['do' => 'tokenLogin', 'token' => $this::TOKEN_PLACEHOLDER]);
-		$logoutBacklink = $this->link('//this', ['do' => 'logout']);
+		parent::startup();
+
+		$loginBacklink = $this->link('//this', [$this::LOGIN_PARAMETER => $this::TOKEN_PLACEHOLDER]);
+		$logoutBacklink = $this->link('//this', [$this::LOGOUT_PARAMETER => 1]);
 
 		$loginLink = $this->getLoginLink($this->getApplicationToken(), $loginBacklink);
 		$logoutLink = $this->getLogoutLink($this->getApplicationToken(), $logoutBacklink);
 
-		if (!$this->isAllowedToBackend()) {
+		$this->template->loginLink = $loginLink;
+		$this->template->logoutLink = $logoutLink;
+
+		if (!$this->user->isLoggedIn()) {
 			$this->redirectUrl($loginLink);
 		}
 
-		$this->template->loginLink = $loginLink;
-		$this->template->logoutLink = $logoutLink;
+		if (!$this->isAllowedToBackend()) {
+			$this->template->setFile(__DIR__ . "/templates/Error/forbidden.latte");
+			$this->sendTemplate();
+		}
 	}
 
 
