@@ -3,7 +3,7 @@
 namespace GoClimb\Model\Enums;
 
 
-class Privilege
+class AclPrivilege
 {
 
 	const READ = 'read';
