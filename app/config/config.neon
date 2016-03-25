@@ -80,11 +80,16 @@ services:
 	- GoClimb\Model\Repositories\UserRepository
 	- GoClimb\Model\Repositories\WallRepository
 
+	# updaters
+
+	- GoClimb\Model\Rest\Updaters\WallUpdater
+
 	# filters
+
 	- GoClimb\Routing\Filters\AuthFilter
 	- GoClimb\Routing\Filters\BackendFilter
 
-	#security
+	# security
 
 	- GoClimb\Security\ApplicationPartsManager
 	- GoClimb\Security\Authorizator

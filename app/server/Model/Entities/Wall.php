@@ -4,6 +4,7 @@ namespace GoClimb\Model\Entities;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use GoClimb\Model\Entities\Attributes\Address;
 use GoClimb\Model\Entities\Attributes\Id;
 use GoClimb\Model\Entities\File;
 
@@ -15,6 +16,8 @@ class Wall
 {
 
 	use Id;
+
+	use Address;
 
 	/**
 	 * @var Application|NULL
@@ -85,9 +88,15 @@ class Wall
 
 	/**
 	 * @var WallLanguage[]|ArrayCollection
-	 * @ORM\OneToMany(targetEntity="WallLanguage", mappedBy="wall")
+	 * @ORM\OneToMany(targetEntity="WallLanguage", mappedBy="wall", cascade={"persist"})
 	 */
 	private $wallLanguages;
+
+	/**
+	 * @var Image|NULL
+	 * @ORM\ManyToOne(targetEntity="Image", inversedBy="walls")
+	 */
+	private $logo;
 
 
 	public function __construct()
@@ -411,6 +420,21 @@ class Wall
 
 
 	/**
+	 * @param string $shortcut
+	 * @return WallLanguage|NULL
+	 */
+	public function getWallLanguage($shortcut)
+	{
+		foreach ($this->getWallLanguages() as $wallLanguage) {
+			if ($wallLanguage->getLanguage()->getShortcut() === $shortcut) {
+				return $wallLanguage;
+			}
+		}
+		return NULL;
+	}
+
+
+	/**
 	 * @return WallLanguage[]
 	 */
 	public function getWallLanguages()
@@ -437,6 +461,54 @@ class Wall
 	public function removeWallLanguage(WallLanguage $wallLanguage)
 	{
 		$this->wallLanguages->removeElement($wallLanguage);
+		return $this;
+	}
+
+
+	/**
+	 * @param string $shortcut
+	 * @return string|NULL
+	 */
+	public function getDescription($shortcut)
+	{
+		$descriptions = $this->getDescriptions();
+		if (array_key_exists($shortcut, $descriptions)) {
+			return $descriptions[$shortcut];
+		}
+		return NULL;
+	}
+
+
+	/**
+	 * @return string[]
+	 */
+	public function getDescriptions()
+	{
+		$descriptions = [];
+		foreach ($this->getWallLanguages() as $wallLanguage) {
+			$descriptions[$wallLanguage->getLanguage()->getShortcut()] = $wallLanguage->getWallTranslation() ? $wallLanguage->getWallTranslation()->getDescription() : NULL;
+		}
+
+		return $descriptions;
+	}
+
+
+	/**
+	 * @return Image|NULL
+	 */
+	public function getLogo()
+	{
+		return $this->logo;
+	}
+
+
+	/**
+	 * @param Image|NULL $logo
+	 * @return $this
+	 */
+	public function setLogo(Image $logo = NULL)
+	{
+		$this->logo = $logo;
 		return $this;
 	}
 
