@@ -2,6 +2,7 @@
 
 namespace GoClimb\Modules;
 
+use Kdyby\Translation\Translator;
 use Nette\Application\BadRequestException;
 use Nette\Application\IPresenter;
 use Nette\Application\Request;
@@ -17,10 +18,14 @@ final class ErrorPresenter implements IPresenter
 	/** @var ILogger */
 	private $logger;
 
+	/** @var Translator */
+	private $translator;
 
-	public function __construct(ILogger $logger)
+
+	public function __construct(ILogger $logger, Translator $translator)
 	{
 		$this->logger = $logger;
+		$this->translator = $translator;
 	}
 
 
