@@ -1,8 +1,8 @@
 $theme-color: #000000;
 $theme-background: #FFFFFF;
-$grey: #232323;
+$grey: #080808;
 
-$primary-accent-color: #0073AA;
+$primary-accent-color: #006DD1;
 
 //Opacity
 $text-opacaty: 0.10; //13
@@ -18,13 +18,48 @@ $theme-divider: transparentize($theme-color, $dividers-opacaty);
 //Divider
 $divider-default-background: #F5F5F5;
 $divider-border-color: $theme-divider;
-$divider-border-width: 1px;
+$divider-border-width: 0px;
 $divider-link-color: $theme-light-font-color;
 $divider-hover-link-color: $theme-font-color;
 $divider-title-color: $theme-font-color;
 
+//Top panel
+$top-panel-background: $grey;
+
 //Admin Menu
 $admin-menu-width: 120px;
-$admin-menu-background: $grey;
-$admin-menu-text: #FFFFFF;
+$admin-menu-background: lighten($grey, 7);
+$admin-menu-text: invert($grey);
 $admin-menu-hover-background: transparentize(invert($grey), 0.86);
+
+//TODO
+$input-border-focus: #676767;
+
+.show-for-medium {
+	//transition: all 1s ease-in-out;
+	//transition: flexGrow 500ms ease-out;
+}
+
+@media only screen and (min-width: 40em) {
+	.show-for-medium[class*=grid-block]:not(.ng-hide) {
+		display: none !important;
+	}
+}
+
+@media only screen and (min-width: 60em) {
+	.show-for-medium[class*=grid-block]:not(.ng-hide) {
+		//display: flex !important;
+		display: flex !important;
+		flex-grow: 1;
+		transition: flex-grow 1s linear;
+	}
+}
+
+@-webkit-keyframes flexGrow {
+	0% {
+		flex-grow: 0.00001;
+	}
+	100% {
+		flex-grow: 1;
+	}
+}

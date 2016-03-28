@@ -1,7 +1,5 @@
 .admin-menu-container {
-	&.dark {
 		background: $admin-menu-background
-	}
 }
 
 .admin-menu {
@@ -18,7 +16,7 @@
 		text-align: center;
 
 		li a {
-			width: 100%;
+			width: 120px;
 			display: block;
 			color: $admin-menu-text;
 
