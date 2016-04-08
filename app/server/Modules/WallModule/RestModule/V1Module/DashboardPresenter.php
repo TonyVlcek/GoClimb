@@ -1,8 +1,8 @@
 <?php
 
-namespace GoClimb\Modules\WallModule\RestModule;
+namespace GoClimb\Modules\WallModule\RestModule\V1Module;
 
-class DashboardPresenter extends BaseRestPresenter
+class DashboardPresenter extends BaseV1Presenter
 {
 
 	public function actionDefault()

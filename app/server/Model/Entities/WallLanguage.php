@@ -25,7 +25,7 @@ class WallLanguage
 
 	/**
 	 * @var Language
-	 * @ORM\ManyToOne(targetEntity="Language", inversedBy="wallLanguages")
+	 * @ORM\ManyToOne(targetEntity="Language", inversedBy="wallLanguages", cascade={"persist"})
 	 * @ORM\JoinColumn(nullable=FALSE)
 	 */
 	private $language;
@@ -35,6 +35,12 @@ class WallLanguage
 	 * @ORM\Column(type="string")
 	 */
 	private $url;
+
+	/**
+	 * @var WallTranslation|NULL
+	 * @ORM\ManyToOne(targetEntity="WallTranslation", cascade={"persist"})
+	 */
+	private $wallTranslation;
 
 
 	/**
@@ -94,10 +100,36 @@ class WallLanguage
 	public function setUrl($url)
 	{
 		if (!Validators::isUrl($url)) {
-			throw WallLanguageException::duplicateUrl($url);
+			throw WallLanguageException::invalidUrl($url);
 		}
 
 		$this->url = $url;
+		return $this;
+	}
+
+
+	/**
+	 * @return WallTranslation|NULL
+	 */
+	public function getWallTranslation()
+	{
+		return $this->wallTranslation;
+	}
+
+
+	/**
+	 * @param WallTranslation|NULL $wallTranslation
+	 * @return $this
+	 * @throws WallLanguageException
+	 */
+	public function setWallTranslation(WallTranslation $wallTranslation = NULL)
+	{
+		if ($this->wallTranslation === NULL) {
+			$this->wallTranslation = $wallTranslation;
+		} else {
+			throw WallLanguageException::oneTimeSetter('wallTranslation');
+		}
+
 		return $this;
 	}
 
