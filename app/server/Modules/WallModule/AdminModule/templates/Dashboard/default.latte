@@ -14,22 +14,23 @@
 	<div data-top-panel></div>
 	<div class="grid-block">
 		<div data-admin-menu></div>
-		<div class="grid-block vertical">
+		<div class="grid-block vertical" style="display: block">
 			<div data-admin-menu-button></div>
 
-			<div class="divider primary border-less">
-				<div class="grid-container">
+			{*<div data-zf-panel id="sidebar" position="right" class="medium-grid-block medium-3 vertical is-active">*}
+			<div class="divider primary grid-block">
+				<div class="grid-container grid-block">
 					<h1 class="title">Obecné</h1>
-
 					<ul class="menu-bar right icon-top">
 						<li class="menu-item"><a class="link" href="#"><span class="fa fa-user"></span> example</a></li>
-						<li class="menu-item"><a class="link" zf-toggle="sidebar"><span class="fa fa-user"></span> Toggle</a></li>
+						<li class="menu-item"><a class="link" zf-toggle="sidebar"><span class="fa fa-user"></span>
+								Toggle</a></li>
 					</ul>
 				</div>
 			</div>
 			<form>
 
-				<div class="divider">
+				<div class="divider grid-block">
 					<div class="grid-container grid-block">
 						<h2 class="title">Obecné</h2>
 					</div>
@@ -37,43 +38,9 @@
 				<div class="content">
 					<div class="grid-container grid-block wrap">
 						<label class="small-12">
-							Input Label
+							Název
 							<input type="text" placeholder="Text field">
 						</label>
-						<label class="small-12">
-							Input text
-							<textarea></textarea>
-						</label>
-					</div>
-				</div>
-
-				<div class="divider">
-					<div class="grid-container grid-block">
-						<h2 class="title">Adresa</h2>
-					</div>
-				</div>
-				<div class="content">
-					<div class="grid-container">
-						<div class=" grid-block remove-padding wrap">
-							<label class="small-6 medium-4 grid-content">
-								Input Label
-								<input type="text" placeholder="Text field">
-							</label>
-							<label class="small-6 medium-4 grid-content">
-								Input Label
-								<input type="text" placeholder="Text field">
-							</label>
-							<label class="small-12 medium-4 grid-content">
-								Input Label
-								<input type="text" placeholder="Text field">
-							</label>
-						</div>
-						<div class="grid-block remove-padding">
-							<label class="small-12 medium-4 grid-content">
-								Input Label
-								<input type="text" placeholder="Text field">
-							</label>
-						</div>
 					</div>
 				</div>
 
@@ -115,22 +82,22 @@
 		</div>
 		{*<div class="grid-block medium-3 show-for-medium vertical">*}
 		<div data-zf-panel id="sidebar" position="right" class="medium-grid-block medium-3 vertical is-active">
-			<div class="divider primary border-less">
-				<div class="grid-container">
-					<h1 class="title">Detail</h1>
-					<div class="grid-block">
-					<ul class="menu-bar icon-top">
-						<li class="menu-item"><a class="link" href="#"><span class="fa fa-expand fa-rotate-90 "></span> roztáhnout</a></li>
-					</ul>
-					<ul class="menu-bar right icon-top">
-						<li class="menu-item"><a class="link" href="#"><span class="fa fa-qrcode"></span> Generovat kod</a></li>
-					</ul>
-					</div>
+			<div class="divider primary grid-block">
+				<div class="grid-container grid-block">
+					<h1 class="title">Obecné</h1>
+
 				</div>
+			</div>
+			<div class="divider menu grid-block">
+				<ul class="menu-bar right">
+					<li class="menu-item"><a class="link" href="#"><span class="fa fa-user"></span> example</a></li>
+					<li class="menu-item"><a class="link" zf-toggle="sidebar"><span class="fa fa-user"></span>
+							Toggle</a></li>
+				</ul>
 			</div>
 			<form>
 
-				<div class="divider">
+				<div class="divider grid-block">
 					<div class="grid-container grid-block">
 						<h2 class="title">Obecné</h2>
 					</div>

@@ -1,0 +1,14 @@
+.menu-group{
+	background: $divider-default-background;
+	//padding: 1.1rem;
+
+	.link{
+		color: $divider-link-color;
+		padding: 1rem;
+
+		&:hover{
+			color: $divider-hover-link-color;
+			background: $theme-divider;
+		}
+	}
+}

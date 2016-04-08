@@ -1,18 +1,23 @@
 .divider {
-	@include border-top-bottom($divider-border-width, solid, $divider-border-color);
+	@if($divider-border == false) {
+		@include border-top-bottom($divider-border-width, solid, $divider-border-color);
+	}
+
 	background: $divider-default-background;
 	padding: 0 1rem;
 
-	&.border-less {
-		border-width: 0;
-	}
+	@if($divider-border == false) {
+		&.border-less {
+			border-width: 0;
+		}
 
-	&.border-less-top {
-		border-top-width: 0;
-	}
+		&.border-less-top {
+			border-top-width: 0;
+		}
 
-	&.border-less-bottom {
-		border-bottom-width: 0;
+		&.border-less-bottom {
+			border-bottom-width: 0;
+		}
 	}
 
 	.title {
@@ -30,5 +35,13 @@
 		& ~ .right {
 			flex: none !important;
 		}
+	}
+
+	&.menu{
+		.link{
+			padding: 0.9rem 1rem;
+		}
+
+		border-bottom-width: 1px;
 	}
 }

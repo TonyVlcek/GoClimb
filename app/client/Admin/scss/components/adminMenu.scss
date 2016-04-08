@@ -7,26 +7,24 @@
 		max-width: $admin-menu-width !important;
 	}
 
-	&.dark {
-		background: $admin-menu-background;
-	}
+	background: $admin-menu-background;
 
 	.menu-bar {
 		background: $admin-menu-background;
 		text-align: center;
 
 		li a {
-			width: 120px;
-			display: block;
+			//width: $admin-menu-width;
+			//display: block;
 			color: $admin-menu-text;
 
 			&:hover {
 				background: $admin-menu-hover-background;
 			}
-		}
 
-		i {
-			display: block;
+			span{
+				margin-left: 20px;
+			}
 		}
 	}
 }

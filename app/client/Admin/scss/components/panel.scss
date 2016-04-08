@@ -1,0 +1,12 @@
+.panel{
+	&.panel-right{
+		border-left: $panel-border-width solid $panel-border-color;
+	}
+}
+
+@media only screen and (min-width: 40em) {
+	//Fix is active class
+	.panel{
+		display: block;
+	}
+}

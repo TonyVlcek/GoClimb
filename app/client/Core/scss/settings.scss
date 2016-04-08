@@ -17,9 +17,10 @@ $theme-divider: transparentize($theme-color, $dividers-opacaty);
 
 //Divider
 $divider-default-background: #F5F5F5;
+$divider-border: false;
 $divider-border-color: $theme-divider;
 $divider-border-width: 0px;
-$divider-link-color: $theme-light-font-color;
+$divider-link-color: $primary-accent-color;
 $divider-hover-link-color: $theme-font-color;
 $divider-title-color: $theme-font-color;
 
@@ -27,13 +28,18 @@ $divider-title-color: $theme-font-color;
 $top-panel-background: $grey;
 
 //Admin Menu
-$admin-menu-width: 120px;
+$admin-menu-width: 200px;
 $admin-menu-background: lighten($grey, 7);
 $admin-menu-text: invert($grey);
 $admin-menu-hover-background: transparentize(invert($grey), 0.86);
 
 //TODO
 $input-border-focus: #676767;
+
+//Panel
+$panel-border-width: 1px;
+$panel-border-color: $theme-divider;
+
 
 .show-for-medium {
 	//transition: all 1s ease-in-out;
