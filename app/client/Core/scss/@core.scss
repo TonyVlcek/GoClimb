@@ -1,2 +1,7 @@
+//TODO: Fix
+$foundation-version: 1.2.0;
+@import "../../../../bower_components/foundation-apps/scss/helpers/functions";
+@import "../../../../bower_components/foundation-apps/scss/helpers/breakpoints";
+
 @import "settings";
 @import "components/topPanel";

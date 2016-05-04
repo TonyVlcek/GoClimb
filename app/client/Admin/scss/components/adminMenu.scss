@@ -3,10 +3,11 @@
 }
 
 .admin-menu {
-	@media only screen and (min-width: 40em) {
+	@include breakpoint(large) {
 		max-width: $admin-menu-width !important;
 	}
 
+	z-index: $admin-menu-z-index;
 	background: $admin-menu-background;
 
 	.menu-bar {
@@ -14,7 +15,9 @@
 		text-align: center;
 
 		li a {
-			//width: $admin-menu-width;
+			@include breakpoint(large) {
+				width: $admin-menu-width !important;
+			}
 			//display: block;
 			color: $admin-menu-text;
 

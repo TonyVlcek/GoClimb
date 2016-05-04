@@ -16,13 +16,16 @@ $theme-disable: transparentize($theme-color, $disable-opacaty);
 $theme-divider: transparentize($theme-color, $dividers-opacaty);
 
 //Divider
-$divider-default-background: #F5F5F5;
-$divider-border: false;
+//$divider-default-background: #F5F5F5;
+//$divider-border: false;
 $divider-border-color: $theme-divider;
-$divider-border-width: 0px;
+$divider-border-width: 1px;
 $divider-link-color: $primary-accent-color;
 $divider-hover-link-color: $theme-font-color;
 $divider-title-color: $theme-font-color;
+
+$divider-primary-background: $primary-accent-color;
+$divider-primary-color: white;
 
 //Top panel
 $top-panel-background: $grey;
@@ -32,13 +35,23 @@ $admin-menu-width: 200px;
 $admin-menu-background: lighten($grey, 7);
 $admin-menu-text: invert($grey);
 $admin-menu-hover-background: transparentize(invert($grey), 0.86);
-
-//TODO
-$input-border-focus: #676767;
+$admin-menu-z-index: 101;
 
 //Panel
 $panel-border-width: 1px;
 $panel-border-color: $theme-divider;
+
+//Buttons
+$btn-font-size: 14px !important;
+$btn-color: $theme-font-color;
+$btn-hover-background: $theme-divider !important;
+$btn-hover-color: $primary-accent-color !important;
+$btn-primary-color: $primary-accent-color;
+
+//TODO
+$input-border-focus: #676767;
+
+
 
 
 .show-for-medium {

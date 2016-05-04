@@ -1,11 +1,13 @@
+//TODO: Fix
+$foundation-version: 1.2.0;
 @import "../../../../bower_components/foundation-apps/scss/helpers/functions";
+@import "../../../../bower_components/foundation-apps/scss/helpers/breakpoints";
 
 @import "mixins";
+@import "components/btn";
 @import "components/content";
 @import "components/divider/divider";
 @import "components/divider/divider-menu";
 @import "components/divider/divider-primary";
-//@import "components/title-bar";
-//@import "components/menu";
 @import "components/adminMenu";
 @import "components/panel";

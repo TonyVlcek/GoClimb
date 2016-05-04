@@ -1,3 +1,10 @@
 .top-panel{
 	background: $top-panel-background;
+
+	.menu-group-right, .menu-group-left{
+		flex: none;
+		@include breakpoint(medium) {
+			flex: 0 0 auto;
+		}
+	}
 }

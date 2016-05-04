@@ -15,15 +15,15 @@
 	<div class="grid-block">
 		<div data-admin-menu></div>
 		<div class="grid-block vertical" style="display: block">
-			<div data-admin-menu-button></div>
+		{*	<div data-admin-menu-button></div>*}
 
 			{*<div data-zf-panel id="sidebar" position="right" class="medium-grid-block medium-3 vertical is-active">*}
 			<div class="divider primary grid-block">
 				<div class="grid-container grid-block">
 					<h1 class="title">Obecné</h1>
 					<ul class="menu-bar right icon-top">
-						<li class="menu-item"><a class="link" href="#"><span class="fa fa-user"></span> example</a></li>
-						<li class="menu-item"><a class="link" zf-toggle="sidebar"><span class="fa fa-user"></span>
+						<li class="menu-item"><a class="btn" href="#"><span class="fa fa-user"></span> example</a></li>
+						<li class="menu-item"><a class="btn" zf-toggle="sidebar"><span class="fa fa-user"></span>
 								Toggle</a></li>
 					</ul>
 				</div>
@@ -61,10 +61,6 @@
 				<div class="divider">
 					<div class="grid-container grid-block">
 						<h2 class="title">Danger zone</h2>
-						<ul class="menu-bar right">
-							<li class="menu-item"><a class="link" href="#"><span
-											class="fa fa-phone"> asistence</span></a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="content">
@@ -81,7 +77,8 @@
 			</form>
 		</div>
 		{*<div class="grid-block medium-3 show-for-medium vertical">*}
-		<div data-zf-panel id="sidebar" position="right" class="medium-grid-block medium-3 vertical is-active">
+		<div data-zf-panel id="sidebar" position="right" class="medium-grid-block medium-4 large-3 vertical is-active">
+			<a href="#" data-zf-close="" class="show-for-small-only close-button ng-scope">×</a>
 			<div class="divider primary grid-block">
 				<div class="grid-container grid-block">
 					<h1 class="title">Obecné</h1>
@@ -90,8 +87,8 @@
 			</div>
 			<div class="divider menu grid-block">
 				<ul class="menu-bar right">
-					<li class="menu-item"><a class="link" href="#"><span class="fa fa-user"></span> example</a></li>
-					<li class="menu-item"><a class="link" zf-toggle="sidebar"><span class="fa fa-user"></span>
+					<li class="menu-item"><a class="btn" href="#"><span class="fa fa-user"></span> example</a></li>
+					<li class="menu-item"><a class="btn" zf-toggle="sidebar"><span class="fa fa-user"></span>
 							Toggle</a></li>
 				</ul>
 			</div>
@@ -109,6 +106,12 @@
 							<input type="text" placeholder="Text field">
 						</label>
 					</div>
+					<ul class="button-group expand">
+						<li><a href="#">Button I</a></li>
+						<li><a href="#">Button II</a></li>
+						<li><a href="#">Button III</a></li>
+					</ul>
+					<input type="range">
 				</div>
 
 				<div class="divider">
@@ -118,20 +121,13 @@
 				</div>
 				<div class="content">
 					<div class="grid-container grid-block wrap">
-						<label class="small-12">
-							Input Label
-							<input type="file" placeholder="Text field">
-						</label>
+						<label class="small-12">Input Label<input type="file" placeholder="Text field"></label>
 					</div>
 				</div>
 
 				<div class="divider">
 					<div class="grid-container grid-block">
 						<h2 class="title">Danger zone</h2>
-						<ul class="menu-bar right">
-							<li class="menu-item"><a class="link" href="#"><span
-											class="fa fa-phone"> asistence</span></a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="content">

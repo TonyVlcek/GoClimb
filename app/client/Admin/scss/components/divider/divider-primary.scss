@@ -1,23 +1,18 @@
 //TODO: Only header padding bottom
 .divider.primary {
-	background: $primary-accent-color;
+	background: $divider-primary-background;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 	//TODO: Z indexes
 	z-index: 99;
 
-	.link, .title {
-		color: white !important;
+	.btn, .title {
+		color: $divider-primary-color !important;
 	}
 
 	.title {
-		color: $divider-title-color;
 		font-size: 2.05rem;
 		padding: 1rem 0;
 		margin: 0;
-		font-weight: Bold;
-	}
-
-	.link {
 		font-weight: Bold;
 	}
 }

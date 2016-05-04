@@ -1,0 +1,15 @@
+.btn{
+	font-size: $btn-font-size;
+	text-transform: uppercase;
+	font-weight: 500;
+	background: inherit;
+	color: $btn-color;
+	&:hover{
+		color: $btn-hover-color;
+		background: $btn-hover-background;
+	}
+
+	&.primary{
+		color: $btn-primary-color;
+	}
+}

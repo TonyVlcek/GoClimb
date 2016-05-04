@@ -1,16 +1,17 @@
 .menu-bar {
+	@include breakpoint(large down) {
+			flex-flow: column nowrap;
+	}
+
 	background: inherit !important;
+
 	.menu-item {
 		flex: none;
 		align-items: center;
 	}
 
-	.link {
+	.btn{
 		color: $divider-link-color;
 		display: inline-block;
-		&:hover {
-			color: $divider-hover-link-color;
-			background: $theme-divider;
-		}
 	}
 }
