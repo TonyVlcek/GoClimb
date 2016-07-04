@@ -15,12 +15,13 @@ $admin-menu-hover-background: transparentize(invert(#1A1A1A), 0.86);
 
 //Title bar
 $title-bar-padding: 1.5rem;
-$title-bar-padding-side: 2.5rem;
+$title-bar-padding-side: 1rem;
 $title-bar-title-size: 34px;
 $title-bar-title-weight: Bold;
 $title-bar-background: $theme-color;
 $title-bar-title-color: #FFFFFF;
 $title-bar-shadow: 0 2px 5px rgba(0,0,0,0.26);
+$title-bar-z-index: 99;
 
 
 //Section
@@ -36,6 +37,9 @@ $section-title-bottom-space: 1rem;
 //Tabs
 $tab-line: #D1D1D1;
 $tab-active: $theme-color;
+
+//Side panel
+$side-panel-border-color: #D1D1D1;
 
 .helper-bottom-space{
 	padding-bottom: 1rem;
