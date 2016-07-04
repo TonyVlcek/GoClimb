@@ -1,7 +1,13 @@
-$theme-color: #232323;
+//$theme-color: #232323;
+
+//Top bar
+$top-panel-backgound: #000000;
+$top-panel-hover-backgound: transparentize(invert(#000000), 0.86);
 
 //Admin Menu
-$admin-menu-width: 120px;
-$admin-menu-background: $theme-color;
+$admin-menu-width: 175px;
+$admin-menu-background: #1A1A1A;
 $admin-menu-text: #FFFFFF;
-$admin-menu-hover-background: transparentize(invert($theme-color), 0.86);
+$admin-menu-text-size: 20px;
+$admin-menu-hover-background: transparentize(invert(#1A1A1A), 0.86);
+

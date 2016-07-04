@@ -1,3 +1,15 @@
-.top-panel{
-	background: #222222;
+.top-panel {
+	background: $top-panel-backgound;
+
+	.menu-bar {
+		background: $top-panel-backgound;
+
+		li a {
+			color: invert($top-panel-backgound);
+
+			&:hover {
+				background: $top-panel-hover-backgound;
+			}
+		}
+	}
 }
