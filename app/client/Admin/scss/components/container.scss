@@ -1,5 +1,9 @@
 .grid-container {
 	&.contain-left {
-		margin: 0 2.5rem;
+		//Rem?
+		margin: 0 5px;
+		@include breakpoint(medium) {
+			margin: 0 2.5rem;
+		}
 	}
 }

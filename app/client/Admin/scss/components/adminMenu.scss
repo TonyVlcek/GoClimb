@@ -28,6 +28,16 @@
 			span:not(.fa) {
 				margin-left: 20px;
 			}
+
+			.fa{
+				margin: 0;
+				@include breakpoint(medium) {
+					margin: auto;
+				}
+				@include breakpoint(large) {
+					margin: 0;
+				}
+			}
 		}
 	}
 }

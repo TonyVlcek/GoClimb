@@ -1,0 +1,19 @@
+.tabs {
+	border-bottom: 1px solid $tab-line;
+	//font-weight: 300;
+	.tab-item {
+		color: $tab-active;
+		padding: 0.7rem 1.5rem;
+		cursor: pointer;
+
+		&.is-active {
+			border-bottom: 2px solid $tab-active;
+			color: $tab-active;
+			background: transparent;
+		}
+	}
+}
+
+.tab-contents{
+	padding: 1rem 0;
+}
