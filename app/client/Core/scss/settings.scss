@@ -1,4 +1,6 @@
-//$theme-color: #232323;
+$theme-color: #2E79F4;
+
+
 
 //Top bar
 $top-panel-backgound: #000000;
@@ -8,6 +10,29 @@ $top-panel-hover-backgound: transparentize(invert(#000000), 0.86);
 $admin-menu-width: 175px;
 $admin-menu-background: #1A1A1A;
 $admin-menu-text: #FFFFFF;
-$admin-menu-text-size: 20px;
+$admin-menu-text-size: 18px;
 $admin-menu-hover-background: transparentize(invert(#1A1A1A), 0.86);
 
+//Title bar
+$title-bar-padding: 1.5rem;
+$title-bar-padding-side: 2.5rem;
+$title-bar-title-size: 34px;
+$title-bar-title-weight: Bold;
+$title-bar-background: $theme-color;
+$title-bar-title-color: #FFFFFF;
+$title-bar-shadow: 0 2px 5px rgba(0,0,0,0.26);
+
+
+//Section
+$section-space: 1rem;
+$section-dark: #F7F7F7;
+
+//Section title
+$section-title-size: 24px;
+$section-title-color: #000000;
+$section-title-bottom-space: 1rem;
+
+
+.helper-bottom-space{
+	padding-bottom: 1rem;
+}
