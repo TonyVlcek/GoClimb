@@ -3,6 +3,7 @@ namespace GoClimb
 	var goClimb = angular.module('GoClimb', [
 		'ui.router',
 		'ngAnimate',
+		'dndLists',
 
 		//foundation
 		'foundation',

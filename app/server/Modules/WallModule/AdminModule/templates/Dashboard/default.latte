@@ -7,6 +7,8 @@
 	<title>User Admin</title>
 
 	<link rel="stylesheet" href="{$basePath}/assets/admin.css">
+	{*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">*}
 </head>
 <body data-zf-close-all>
 
@@ -17,110 +19,44 @@
 		<div class="grid-block vertical">
 			<div data-admin-menu-button></div>
 			{*Content*}
-			<div class="grid-block">
+			<div class="grid-block"  data-ng-controller="TestController">
 				<div class="grid-block vertical">
 					<div class="title-bar main">
-						<span class="title left">Left</span>
+						<span class="title left">Settings</span>
 					</div>
-
-					<div class="section dark">
+					<div class="section">
 						<div class="grid-container contain-left">
+							<h2 class="section-title grid-content">Selection</h2>
 
+							<div class="small-12 grid-content ">
+								<div ng-repeat="(listName, list) in models.lists" class="drag-n-drop">
+									<div>
+										<h3 class="section-title">List {{ listName}}</h3>
 
-							<div zf-tabs="">
-								<div zf-tab="" title="Tab 1">
-									Tab content 1
-								</div>
-								<div zf-tab="" title="Tab 2">
-									Tab content 2
-								</div>
-								<div zf-tab="" title="Tab 3">
+										<ul dnd-list="list" class="inline-list">
+											<li ng-repeat="item in list"
+											    dnd-draggable="item"
+											    dnd-moved="list.splice($index, 1)"
+											    dnd-effect-allowed="move"
+											    dnd-selected="models.selected = item"
+											    ng-class="{'selected': models.selected === item}"
+											    class="button"
+											>
+												{{ item.label}}
+											</li>
+										</ul>
 
-
-									<h2 class="section-title grid-content">Obecné</h2>
-									<form>
-										<div class="grid-block wrap">
-											<label class="small-12 grid-content">
-												Input Label
-												<input type="text" placeholder="Text field">
-											</label>
-
-											<div class="small-12 medium-6 grid-content">
-												<label>
-													Input Label
-													<input type="text" placeholder="Text field">
-												</label>
-											</div>
-											<div class="small-12 medium-6 grid-content">
-												<label>Select Label</label>
-												<select name="" id="">
-													<option value="">Breakfast</option>
-													<option value="">Bacon Pancakes</option>
-													<option value="">Mountain Dew</option>
-													<option value="">Scrambled eggs with grilled zucchini, spinach,
-														leeks,
-														roasted tomatoes and mozzarella
-													</option>
-												</select>
-											</div>
-											<div class="small-12 medium-6 grid-content helper-bottom-space">
-												<label>Choose Your Favorite</label>
-												<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label
-														for="pokemonRed">Red</label>
-												<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label
-														for="pokemonBlue">Blue</label>
-											</div>
-											<div class="small-12  grid-content helper-bottom-space">
-												<label>Check these out</label>
-												<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox
-													1</label>
-												<input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox
-													2</label>
-												<input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox
-													2</label>
-												<input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox
-													2</label>
-												<input id="checkbox322" type="checkbox"><label for="checkbox322">Checkbox
-													2</label>
-											</div>
-
-											<div class="small-12 grid-content helper-bottom-space">
-												<label>Check these out</label>
-												<ul class="button-group expand">
-													<li><a href="#">Button I</a></li>
-													<li><a href="#">Button II</a></li>
-													<li><a href="#">Button III</a></li>
-												</ul>
-
-												<input type="range">
-											</div>
-										</div>
-									</form>
-									<div class="grid-content ">
-										<label>Check these out</label>
-										<a class="button">Test</a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<div class="section">
-						<div class="grid-container contain-left">
-							<h2 class="section-title grid-content">Obecné</h2>
-							<div class="grid-block medium-12"></div>
-							<h2 class="section-title grid-content">Obecné</h2>
-						</div>
-					</div>
-
 				</div>
+				{*End of Content*}
 			</div>
 		</div>
-		{*End of Content*}
 	</div>
-</div>
-</div>
 
-<script src="{$basePath}/assets/admin.js"></script>
+	<script src="{$basePath}/assets/admin.js"></script>
 </body>
 </html>

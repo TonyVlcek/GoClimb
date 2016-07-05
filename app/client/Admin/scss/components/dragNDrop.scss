@@ -1,0 +1,80 @@
+.drag-n-drop {
+	/**
+    * For the correct positioning of the placeholder element, the dnd-list and
+    * it's children must have position: relative
+    */
+	ul{
+		position: relative;
+		list-style-type: none;
+		text-align: left;
+		padding: 10px;
+		border: 1px dotted black;
+	}
+
+	/***************************** Dropzone Styling *****************************/
+
+	/**
+	 * The dnd-lists's child elements currently MUST have
+	 * position: relative. Otherwise we can not determine
+	 * whether the mouse pointer is in the upper or lower
+	 * half of the element we are dragging over. In other
+	 * browsers we can use event.offsetY for this.
+	 */
+	//li {
+	//	display: block;
+	//}
+
+	/**
+	 * Reduce opacity of elements during the drag operation. This allows the user
+	 * to see where he is dropping his element, even if the element is huge. The
+	 * .dndDragging class is automatically set during the drag operation.
+	 */
+	.dndDragging {
+		opacity: 0.7;
+	}
+
+	/**
+	 * The dndDraggingSource class will be applied to the source element of a drag
+	 * operation. It makes sense to hide it to give the user the feeling that he's
+	 * actually moving it. Note that the source element has also .dndDragging class.
+	 */
+	.dndDraggingSource {
+		display: none;
+	}
+
+	/**
+	 * An element with .dndPlaceholder class will be added as child of the dnd-list
+	 * while the user is dragging over it.
+	 */
+	.dndPlaceholder {
+		background-color: #DDDDDD !important;
+		height: 38px;
+		width: 100px !important;
+		position: relative;
+		display: inline-block;
+		border: 0;
+		cursor: pointer;
+		vertical-align: baseline;
+		margin-bottom: -15px !important;
+		border-radius: 0;
+	}
+
+	/***************************** Element type specific styles *****************************/
+
+	.itemlist {
+		min-height: 120px !important;
+	}
+
+	li {
+		position: relative !important;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		display: inline-block;
+		vertical-align: baseline;
+	}
+
+	.container-element {
+		margin: 10px;
+	}
+
+}
