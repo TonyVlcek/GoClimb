@@ -7,8 +7,6 @@
 	<title>User Admin</title>
 
 	<link rel="stylesheet" href="{$basePath}/assets/admin.css">
-	{*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">*}
 </head>
 <body data-zf-close-all>
 
@@ -19,36 +17,39 @@
 		<div class="grid-block vertical">
 			<div data-admin-menu-button></div>
 			{*Content*}
-			<div class="grid-block"  data-ng-controller="TestController">
+			<div class="grid-block" data-ng-controller="TestController">
 				<div class="grid-block vertical">
 					<div class="title-bar main">
 						<span class="title left">Settings</span>
 					</div>
 					<div class="section">
 						<div class="grid-container contain-left">
-							<h2 class="section-title grid-content">Selection</h2>
+							{*<h2 class="section-title grid-content">Selection</h2>*}
+							<p class="subheader ">Customise your menu by draging 'n' droping items from page box to menu
+								box</p>
 
-							<div class="small-12 grid-content ">
-								<div ng-repeat="(listName, list) in models.lists" class="drag-n-drop">
-									<div>
-										<h3 class="section-title">List {{ listName}}</h3>
 
-										<ul dnd-list="list" class="inline-list">
-											<li ng-repeat="item in list"
-											    dnd-draggable="item"
-											    dnd-moved="list.splice($index, 1)"
-											    dnd-effect-allowed="move"
-											    dnd-selected="models.selected = item"
-											    ng-class="{'selected': models.selected === item}"
-											    class="button"
-											>
-												{{ item.label}}
-											</li>
-										</ul>
+							<div ng-repeat="(listName, list) in models.lists" class="drag-n-drop">
+								<div>
+									<h6 class="">{{ listName}}</h6>
 
-									</div>
+									<ul dnd-list="list"
+									    dnd-horizontal-list="true">
+										<li ng-repeat="item in list"
+										    dnd-draggable="item"
+										    dnd-moved="list.splice($index, 1)"
+										    dnd-effect-allowed="move"
+										    dnd-selected="models.selected = item"
+										    ng-class="{'selected': models.selected === item}"
+										    class="button">
+											{{ item.label}}
+										</li>
+									</ul>
+
 								</div>
 							</div>
+
+							<a class="button"><span class="fa fa-save"></span> Save</a>
 						</div>
 					</div>
 				</div>

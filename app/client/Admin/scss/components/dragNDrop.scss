@@ -3,12 +3,14 @@
     * For the correct positioning of the placeholder element, the dnd-list and
     * it's children must have position: relative
     */
-	ul{
+	ul {
 		position: relative;
 		list-style-type: none;
 		text-align: left;
 		padding: 10px;
 		border: 1px dotted black;
+		margin-left: 0;
+		min-height: 58px;
 	}
 
 	/***************************** Dropzone Styling *****************************/
@@ -49,12 +51,13 @@
 	.dndPlaceholder {
 		background-color: #DDDDDD !important;
 		height: 38px;
-		width: 100px !important;
+		width: 15px !important;
 		position: relative;
 		display: inline-block;
 		border: 0;
 		cursor: pointer;
 		vertical-align: baseline;
+		margin-right: 1rem;
 		margin-bottom: -15px !important;
 		border-radius: 0;
 	}
@@ -66,15 +69,24 @@
 	}
 
 	li {
+		background: #F8AC4D;
 		position: relative !important;
 		margin-top: 10px;
 		margin-bottom: 10px;
 		display: inline-block;
 		vertical-align: baseline;
+
+		&:hover{
+			background: darken(#F8AC4D, 10);
+		}
 	}
 
 	.container-element {
 		margin: 10px;
 	}
 
+}
+
+ul[dnd-list], ul[dnd-list] > li {
+	position: relative;
 }

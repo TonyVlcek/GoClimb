@@ -6,12 +6,12 @@ namespace GoClimb.Admin.Controllers
 
 		$scope.models = {
 			selected: null,
-			lists: {"Pages": [], "Menu": []}
+			lists: {"Items": [], "Menu": []}
 		};
 
 		// Generate initial model
 		for (var i = 1; i <= 6; ++i) {
-			$scope.models.lists.Pages.push({label: "Page " + i});
+			$scope.models.lists.Items.push({label: "Page " + i});
 		}
 
 		$scope.models.lists.Menu.push({label: "Home" });
