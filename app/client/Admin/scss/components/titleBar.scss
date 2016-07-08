@@ -1,11 +1,17 @@
 .title-bar.main{
+
+	@include breakpoint(medium) {
+		padding: $title-bar-padding $title-bar-padding-side-medium;
+	}
+
 	padding: $title-bar-padding $title-bar-padding-side;
 	border: 0;
 	background: $title-bar-background;
 	box-shadow: $title-bar-shadow;
+	z-index: 99;
 
 	.title{
-		font-size: $title-bar-title-size;
+		//font-size: $title-bar-title-size;
 		font-weight: $title-bar-title-weight;
 		color: $title-bar-title-color;
 	}

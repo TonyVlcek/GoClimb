@@ -1,6 +1,6 @@
+//Global
 $theme-color: #2E79F4;
-
-
+$global-font-color: #222; // Same as in foundation
 
 //Top bar
 $top-panel-backgound: #000000;
@@ -14,29 +14,38 @@ $admin-menu-text-size: 18px;
 $admin-menu-hover-background: transparentize(invert(#1A1A1A), 0.86);
 
 //Title bar
-$title-bar-padding: 1.5rem;
-$title-bar-padding-side: 2.5rem;
-$title-bar-title-size: 34px;
+$title-bar-padding: 1rem;//1.5rem;
+$title-bar-padding-side: 1.3rem;
+$title-bar-padding-side-medium: 3.5rem;
 $title-bar-title-weight: Bold;
 $title-bar-background: $theme-color;
 $title-bar-title-color: #FFFFFF;
-$title-bar-shadow: 0 2px 5px rgba(0,0,0,0.26);
-
+$title-bar-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 
 //Section
-$section-space: 1rem;
-$section-dark: #F7F7F7;
+$grid-content-dark: #FAFAFA;
 
 //Section title
-$section-title-size: 24px;
-$section-title-color: #000000;
-$section-title-bottom-space: 1rem;
-
+$content-title-bottom-space: 1rem;
 
 //Tabs
-$tab-line: #D1D1D1;
+$tab-border-color: #D1D1D1;
 $tab-active: $theme-color;
 
-.helper-bottom-space{
+//Tables
+$table-border-color: 1px solid #D4D4D4;
+$table-button-size: 30px;
+$table-button-background: #D4D4D4;
+$table-icon-color: $global-font-color;
+
+.helper-bottom-space {
 	padding-bottom: 1rem;
+}
+
+.grid-container{
+	max-width: 96rem !important;
+}
+
+.hollow{
+	border: 0 !important;
 }

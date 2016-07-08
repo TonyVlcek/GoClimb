@@ -1,10 +1,12 @@
 .tabs {
-	border-bottom: 1px solid $tab-line;
+	border-bottom: 1px solid $tab-border-color;
+	//margin-top: -1rem;
 	//font-weight: 300;
 	.tab-item {
 		color: $tab-active;
 		padding: 0.7rem 1.5rem;
 		cursor: pointer;
+		background-color: transparent;
 
 		&.is-active {
 			border-bottom: 2px solid $tab-active;

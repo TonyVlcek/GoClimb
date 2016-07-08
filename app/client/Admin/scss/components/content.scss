@@ -1,0 +1,12 @@
+.content-title {
+	margin-bottom: $content-title-bottom-space;
+}
+
+.grid-container{
+	margin:0 !important;
+	padding: 0 2.5rem;
+
+	&.dark {
+		background: $grid-content-dark;
+	}
+}

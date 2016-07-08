@@ -1,0 +1,55 @@
+.table{
+	width: 100%;
+	margin-bottom: 1rem;
+
+	td{
+		padding: 1.1rem 0;
+	}
+
+	th{
+		padding: 0 0 1.5rem 0;
+		position: relative;
+
+		&:after{
+			content: "\f077";
+			color: transparent;
+			font-family: 'FontAwesome';
+		}
+
+		&.st-sort-ascent:after{
+			content: "\f077";
+			color: $table-icon-color ;
+			font-family: 'FontAwesome';
+		}
+
+		&.st-sort-descent:after{
+			content: "\f078";
+			color: $table-icon-color;
+			font-family: 'FontAwesome';
+		}
+	}
+
+	th, td{
+		text-align: left;
+	}
+
+	tr{
+		border-bottom: $table-border-color;
+	}
+
+	.button{
+		border-radius: $table-button-size;
+		height: $table-button-size;
+		width: $table-button-size;
+		font-size: 1.1rem;
+		margin: 0;
+		padding: 0;
+		&:hover{
+			background: $table-button-background !important;
+		}
+	}
+
+	.click-able{
+		cursor: pointer;
+	}
+}

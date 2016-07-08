@@ -15,110 +15,152 @@
 	<div class="grid-block">
 		<div data-admin-menu></div>
 		<div class="grid-block vertical">
-			<div data-admin-menu-button></div>
 			{*Content*}
-			<div class="grid-block">
-				<div class="grid-block vertical">
-					<div class="title-bar main">
-						<span class="title left">Left</span>
-					</div>
 
-					<div class="section dark">
-						<div class="grid-container contain-left">
+			<div class="grid-block vertical">
 
+				{* Admin menu btn*}
+				<div data-admin-menu-button></div>
+				{* End of Admin menu btn*}
 
-							<div zf-tabs="">
-								<div zf-tab="" title="Tab 1">
-									Tab content 1
-								</div>
-								<div zf-tab="" title="Tab 2">
-									Tab content 2
-								</div>
-								<div zf-tab="" title="Tab 3">
-
-
-									<h2 class="section-title grid-content">Obecné</h2>
-									<form>
-										<div class="grid-block wrap">
-											<label class="small-12 grid-content">
-												Input Label
-												<input type="text" placeholder="Text field">
-											</label>
-
-											<div class="small-12 medium-6 grid-content">
-												<label>
-													Input Label
-													<input type="text" placeholder="Text field">
-												</label>
-											</div>
-											<div class="small-12 medium-6 grid-content">
-												<label>Select Label</label>
-												<select name="" id="">
-													<option value="">Breakfast</option>
-													<option value="">Bacon Pancakes</option>
-													<option value="">Mountain Dew</option>
-													<option value="">Scrambled eggs with grilled zucchini, spinach,
-														leeks,
-														roasted tomatoes and mozzarella
-													</option>
-												</select>
-											</div>
-											<div class="small-12 medium-6 grid-content helper-bottom-space">
-												<label>Choose Your Favorite</label>
-												<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label
-														for="pokemonRed">Red</label>
-												<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label
-														for="pokemonBlue">Blue</label>
-											</div>
-											<div class="small-12  grid-content helper-bottom-space">
-												<label>Check these out</label>
-												<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox
-													1</label>
-												<input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox
-													2</label>
-												<input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox
-													2</label>
-												<input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox
-													2</label>
-												<input id="checkbox322" type="checkbox"><label for="checkbox322">Checkbox
-													2</label>
-											</div>
-
-											<div class="small-12 grid-content helper-bottom-space">
-												<label>Check these out</label>
-												<ul class="button-group expand">
-													<li><a href="#">Button I</a></li>
-													<li><a href="#">Button II</a></li>
-													<li><a href="#">Button III</a></li>
-												</ul>
-
-												<input type="range">
-											</div>
-										</div>
-									</form>
-									<div class="grid-content ">
-										<label>Check these out</label>
-										<a class="button">Test</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="section">
-						<div class="grid-container contain-left">
-							<h2 class="section-title grid-content">Obecné</h2>
-							<div class="grid-block medium-12"></div>
-							<h2 class="section-title grid-content">Obecné</h2>
-						</div>
-					</div>
-
+				{* Title bar*}
+				<div class="title-bar main">
+					<h1 class="title left">Left</h1>
 				</div>
+				{* End of Title bar*}
+
+				{* Section with content *}
+				<div class="grid-container contain-left dark">
+					<div zf-tabs="">
+						<div zf-tab="" title="Tab">
+							<h2 class="content-title grid-content">Filter</h2>
+							<form class="grid-block wrap">
+								<label class="small-12 grid-content">
+									Input Label
+									<input type="text" placeholder="Text field">
+								</label>
+
+								<div class="small-12 medium-6 grid-content">
+									<label>
+										Input Label
+										<input type="text" placeholder="Text field">
+									</label>
+								</div>
+								<div class="small-12 medium-6 grid-content">
+									<label>Select Label</label>
+									<select name="" id="">
+										<option value="">Breakfast</option>
+										<option value="">Bacon Pancakes</option>
+										<option value="">Mountain Dew</option>
+										<option value="">Scrambled eggs with grilled zucchini, spinach,
+											leeks,
+											roasted tomatoes and mozzarella
+										</option>
+									</select>
+								</div>
+								<div class="small-12 medium-6 grid-content helper-bottom-space">
+									<label>Choose Your Favorite</label>
+									<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label
+											for="pokemonRed">Red</label>
+									<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label
+											for="pokemonBlue">Blue</label>
+								</div>
+								<div class="small-12 grid-content helper-bottom-space">
+									<label>Check these out</label>
+									<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox
+										1</label>
+									<input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox
+										2</label>
+									<input id="checkbox3" type="checkbox"><label for="checkbox3">Checkbox
+										2</label>
+									<input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox
+										2</label>
+									<input id="checkbox322" type="checkbox"><label for="checkbox322">Checkbox
+										2</label>
+								</div>
+
+								<div class="small-12 grid-content helper-bottom-space">
+									<label>Check these out</label>
+									<ul class="button-group expand">
+										<li><a href="#">Button I</a></li>
+										<li><a href="#">Button II</a></li>
+										<li><a href="#">Button III</a></li>
+									</ul>
+
+									<input type="range">
+								</div>
+
+								<div class="small-12 grid-content">
+									<label>Check these out</label>
+									<a class="button">Test</a>
+								</div>
+
+							</form>
+						</div>
+						<div zf-tab="" title="Tab 1">
+
+						</div>
+						<div zf-tab="" title="Tab 2">
+							Tab 2
+						</div>
+					</div>
+				</div>
+
+				<div class="grid-container contain-left">
+					<h2 class="content-title grid-content">Data</h2>
+					<div data-ng-controller="sampleDatagrid" class="grid-content">
+						{*<button type="button" ng-click="addRandomItem(row)">
+							<i class="fa fa-plus"></i> Add random item
+						</button>*}
+
+						<table data-st-table="displayedCollection" data-st-safe-src="rowCollection"
+						       class="table">
+							<thead>
+							<tr>
+								<th data-st-sort="firstName" class="click-able">First name </th>
+								<th data-st-sort="lastName" class="click-able">Last name </th>
+								<th data-st-sort="birthDate" class="click-able">Birth date </th>
+								<th data-st-sort="balance" class="click-able">Balance </th>
+								<th></th>
+							</tr>
+							{*<tr>
+								<th colspan="5"><input st-search="" placeholder="global search ..." type="text"/></th>
+							</tr>*}
+							</thead>
+							<tbody>
+							<tr data-ng-repeat="row in displayedCollection">
+								<td>{{ row.firstName }}</td>
+								<td>{{ row.lastName }}</td>
+								<td>{{ row.birthDate }}</td>
+								<td>{{ row.balance }}</td>
+								<td>
+									<button class="button hollow alert" type="button"
+									        data-ng-click="removeItem(row)">
+										<span class="fa fa-trash-o"></span>
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="small-6 grid-content helper-bottom-space">
+						<ul class="button-group expand">
+							<li><a href="#">Button I</a></li>
+							<li><a href="#">Button II</a></li>
+							<li><a href="#">Button III</a></li>
+						</ul>
+					</div>
+				</div>
+				{* End of section with content *}
 			</div>
+
+			{*Panels*}
+			{*End of panels*}
+			{*End of Content*}
 		</div>
-		{*End of Content*}
 	</div>
-</div>
+
 </div>
 
 <script src="{$basePath}/assets/admin.js"></script>
