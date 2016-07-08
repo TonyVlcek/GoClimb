@@ -2,3 +2,5 @@
 
 /// <reference path='ts/Directives/AdminMenu/AdminMenuDirective.ts' />
 /// <reference path='ts/Directives/AdminMenuButton/AdminMenuButtonDirective.ts' />
+
+/// <reference path='ts/Controllers/Datagrid/SampleDatagridController.ts' />
