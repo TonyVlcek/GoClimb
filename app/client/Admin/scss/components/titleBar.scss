@@ -1,0 +1,17 @@
+.title-bar.main{
+	padding: $title-bar-padding $title-bar-padding-side;
+	border: 0;
+	background: $title-bar-background;
+	box-shadow: $title-bar-shadow;
+	z-index: $title-bar-z-index;
+
+	.title{
+		font-size: $title-bar-title-size;
+		font-weight: $title-bar-title-weight;
+		color: $title-bar-title-color;
+	}
+
+	a{
+		color: $title-bar-title-color;
+	}
+}

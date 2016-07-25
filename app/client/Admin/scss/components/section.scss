@@ -1,0 +1,13 @@
+.section{
+	padding: $section-space 0;
+	&.dark{
+		background: $section-dark;
+	}
+}
+
+.section-title{
+	font-size: $section-title-size;
+	color: $section-title-color;
+	padding: 0;
+	margin-bottom: $section-title-bottom-space;
+}

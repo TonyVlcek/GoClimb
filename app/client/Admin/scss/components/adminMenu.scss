@@ -1,34 +1,43 @@
 .admin-menu-container {
-	&.dark {
-		background: $admin-menu-background
-	}
+	background: $admin-menu-background
 }
 
 .admin-menu {
-	@media only screen and (min-width: 40em) {
+	@include breakpoint(medium) {
 		max-width: $admin-menu-width !important;
 	}
 
-	&.dark {
-		background: $admin-menu-background;
-	}
+	background: $admin-menu-background;
 
-	.menu-bar {
+	.admin-menu {
 		background: $admin-menu-background;
 		text-align: center;
 
 		li a {
-			width: 100%;
-			display: block;
+			@include breakpoint(large) {
+				width: $admin-menu-width !important;
+			}
+
+			font-size: $admin-menu-text-size;
 			color: $admin-menu-text;
 
 			&:hover {
 				background: $admin-menu-hover-background;
 			}
-		}
 
-		i {
-			display: block;
+			span:not(.fa) {
+				margin-left: 20px;
+			}
+
+			.fa{
+				margin: 0;
+				@include breakpoint(medium) {
+					margin: auto;
+				}
+				@include breakpoint(large) {
+					margin: 0;
+				}
+			}
 		}
 	}
 }

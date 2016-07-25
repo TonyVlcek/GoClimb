@@ -1,0 +1,30 @@
+.side-panel {
+	border-left: 1px solid $side-panel-border-color;
+	background: #FFFFFF !important;
+	transition: all 0.5s ease;
+	padding: 0;
+	z-index: 999 !important;
+
+	.close-button {
+		color: #CFCFCF;
+		&:hover{
+			color: #FFFFFF;
+		}
+	}
+
+	flex-flow: column nowrap;
+	/*flex: 0 0 21%;
+	position: relative;
+	//display: flex;*/
+
+	&.fullscreen{
+		flex: 0 0 90%;
+		width: 95%;
+		display: flex;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		max-width: 90rem;//56rem;
+	}
+}
