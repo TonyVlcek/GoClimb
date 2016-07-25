@@ -3,8 +3,7 @@ namespace GoClimb
 	var goClimb = angular.module('GoClimb', [
 		'ui.router',
 		'ngAnimate',
-
-		//foundation
+		'smart-table',
 		'foundation',
 		'foundation.dynamicRouting',
 		'foundation.dynamicRouting.animations'

@@ -17,6 +17,7 @@
 		"angular-ui-router": "https://github.com/angular-ui/ui-router.git#0.2.18",
 		"bootstrap": "twitter/bootstrap#~3.3.5",
 		"font-awesome": "font-awesome#~4.5.0",
-		"foundation-apps": "~1.2.0"
+		"foundation-apps": "~1.2.0",
+		"angular-smart-table": "^2.1.8"
 	}
 }
