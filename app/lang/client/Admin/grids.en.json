@@ -1,0 +1,9 @@
+{
+	"articles": {
+		"title": "Title",
+		"edit": "Edit",
+		"publishDate": "Publish date",
+		"unpublished": "Unpublished",
+		"author": "Author"
+	}
+}

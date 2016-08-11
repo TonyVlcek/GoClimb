@@ -38,6 +38,12 @@ namespace GoClimb.Admin.Model.Http
 		}
 
 
+		public delete(request: string, params: {}, successCallback: Function, errorCallback: Function = null)
+		{
+			this.request(request, 'DELETE', params, successCallback, errorCallback);
+		}
+
+
 		private request(request: string, method: string, params: {}, successCallback: Function, errorCallback = null)
 		{
 			var that = this;
@@ -65,7 +71,7 @@ namespace GoClimb.Admin.Model.Http
 
 		private resolveError(result)
 		{
-			var code = result.data.status.code;
+			var code = (result.data && result.data.status) ? result.data.status.code : result.status;
 			switch (code) {
 				case 500:
 				case 600:

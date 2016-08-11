@@ -1,4 +1,13 @@
 {
+	"articles": {
+		"title": "Articles",
+		"edit": "Edit",
+		"create": "Create",
+		"add": "Add article",
+		"close": "Close",
+		"compress": "Compress",
+		"expand": "Expand"
+	},
 	"dashboard": {
 		"title": "Dashboard"
 	},
@@ -14,12 +23,20 @@
 		}
 	},
 	"settings": {
+		"title": "Settings",
+		"general": "General settings",
 		"default": {
 			"name": "Name",
 			"street": "Street",
 			"number": "House number",
 			"country": "Country",
-			"zip": "Postal code"
+			"zip": "Postal code",
+			"submit": "Submit"
 		}
+	},
+	"404":{
+		"notFound": "Page not found",
+		"dashboard": "Dashboard",
+		"back": "Back"
 	}
 }

@@ -48,6 +48,13 @@ public:
 			webLink: web
 			adminLink: administration
 
+admin:
+	loading:
+		loading: Loading
+		madeWithLove: "Made with love."
+		madeBy: "Made by GoClimb."
+
+
 errors:
 	4xx:
 		title: Oops...

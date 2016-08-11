@@ -9,5 +9,23 @@
 		"updated": {
 			"success": "Wall settings updated."
 		}
+	},
+	"articles":{
+		"delete": "Delete this article?",
+
+		"savedAsDraft": "Article was saved as draft.",
+		"saved": "Article was saved.",
+		"savedAndPublished": "Article was saved and published.",
+
+		"deleted":{
+			"success" : "Article was deleted.",
+			"error" : "Article was not deleted."
+		},
+		"error": {
+			"invalidForm": "Invalid form."
+		}
+	},
+	"panel":{
+		"close": "Close panel?"
 	}
 }

@@ -1,0 +1,39 @@
+.loading {
+	color: $theme-accent-color;
+	font-size: 1.75rem;
+	font-weight: normal;
+	line-height: 1.4;
+	margin: 0;
+
+	.dot-box {
+		position: relative;
+	}
+
+	.dot-1 {
+		position: absolute;
+		animation: upAnimation 1.5s infinite;
+	}
+
+	.dot-2 {
+		position: absolute;
+		left: 0.6rem;
+		animation: upAnimation 1.5s infinite 0.2s;
+	}
+
+	.dot-3 {
+		position: absolute;
+		left: 1.2rem;
+		animation: upAnimation 1.5s infinite 0.4s;
+	}
+
+	@keyframes upAnimation {
+		0%, 100% {
+			transform: translateY(0);
+		}
+
+		50% {
+			transform: translateY(-1rem);
+		}
+
+	}
+}
