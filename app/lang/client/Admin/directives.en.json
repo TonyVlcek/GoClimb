@@ -1,0 +1,15 @@
+{
+	"adminMenu": {
+		"items": {
+			"dashboard": "Dashboard",
+			"settings": "Settings",
+			"plugins": "Plugins"
+		}
+	},
+	"dashboard": {
+		"settings": {
+			"title": "Settings",
+			"default": "Update settings"
+		}
+	}
+}

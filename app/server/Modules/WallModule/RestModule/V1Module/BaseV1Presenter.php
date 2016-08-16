@@ -32,6 +32,30 @@ abstract class BaseV1Presenter extends BaseRestPresenter
 
 
 	/**
+	 * @param string $key
+	 * @param mixed $value
+	 * @return $this
+	 */
+	protected function addData($key, $value)
+	{
+		$this->payload->data->$key = $value;
+		return $this;
+	}
+
+
+	/**
+	 * @param string $key
+	 * @param mixed $default
+	 * @return mixed
+	 */
+	protected function getData($key, $default = NULL)
+	{
+		$body = $this->getRequestBody();
+		return isset($body->$key) ? $body->$key : $default;
+	}
+
+
+	/**
 	 * @param int $code
 	 * @param string $message
 	 */

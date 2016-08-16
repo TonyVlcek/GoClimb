@@ -28,8 +28,12 @@ class WallUpdater
 	 * @throws MappingException
 	 * @return Wall
 	 */
-	public function updateDetails(Wall $wall, stdClass $data)
+	public function updateDetails(Wall $wall, stdClass $data = NULL)
 	{
+		if (!$data) {
+			throw MappingException::invalidData();
+		}
+
 		$properties = [
 			'name' => TRUE,
 			'street' => FALSE,

@@ -1,0 +1,12 @@
+{
+	"error": {
+		"http": {
+			"error500": "Sorry, server encountered an internal error. Please refresh your browser and try again. Error was reported to us and we are trying to fix it."
+		}
+	},
+	"success": {
+		"settings": {
+			"updated": "Wall settings updated."
+		}
+	}
+}

@@ -120,4 +120,4 @@ translation:
 		- en
 		- cz
 	dirs:
-		- %appDir%/../lang
+		- %appDir%/lang/server

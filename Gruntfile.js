@@ -26,7 +26,8 @@ module.exports = function (grunt) {
 			dist: {
 				src: 'www/assets/build/*.css'
 			}
-		}
+		},
+		json: grunt.file.readJSON('app/config/build/json.json')
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -38,9 +39,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-typings');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-postcss');
-
-	/** Copy */
-	grunt.registerTask('copy:app', ['copy:admin']);
+	grunt.loadNpmTasks('grunt-json');
 
 	/** SASS */
 	grunt.registerTask('sass:app', ['sass:admin', 'sass:auth', 'sass:backend', 'sass:frontend', "postcss"]);
@@ -67,20 +66,22 @@ module.exports = function (grunt) {
 	grunt.registerTask('uglify:app-dev', ['uglify:admin-dev', 'uglify:auth-dev', 'uglify:backend-dev', 'uglify:frontend-dev']);
 
 	/** SHORTCUTS  */
-	grunt.registerTask('build:admin', ['typings', 'sass:admin', 'ts:admin', 'postcss', 'concat:admin', 'uglify:admin', 'ngtemplates:admin', 'copy:admin', 'clean']);
-	grunt.registerTask('build:admin-dev', ['typings', 'sass:admin-dev', 'ts:admin-dev', 'postcss','concat:admin-dev', 'uglify:admin-dev', 'ngtemplates:admin-dev', 'copy:admin', 'clean']);
+	grunt.registerTask('json:app', ['json:admin', 'json:frontend']);
 
-	grunt.registerTask('build:auth', ['typings', 'sass:auth', 'ts:auth', 'postcss', 'concat:auth', 'uglify:auth', 'ngtemplates:auth', 'clean']);
-	grunt.registerTask('build:auth-dev', ['typings', 'sass:auth-dev', 'postcss', 'ts:auth-dev', 'concat:auth-dev', 'uglify:auth-dev', 'ngtemplates:auth-dev', 'clean']);
+	grunt.registerTask('build:admin', ['typings', 'sass:admin', 'ts:admin', 'postcss', 'concat:admin', 'json:admin', 'ngtemplates:admin', 'uglify:admin', 'clean']);
+	grunt.registerTask('build:admin-dev', ['typings', 'sass:admin-dev', 'ts:admin-dev', 'postcss','concat:admin-dev', 'json:admin', 'ngtemplates:admin-dev', 'uglify:admin-dev', 'clean']);
 
-	grunt.registerTask('build:backend', ['typings', 'sass:backend', 'ts:backend', 'postcss', 'concat:backend', 'uglify:backend', 'ngtemplates:backend', 'clean']);
-	grunt.registerTask('build:backend-dev', ['typings', 'sass:backend-dev', 'ts:backend-dev', 'postcss', 'concat:backend-dev', 'uglify:backend-dev', 'ngtemplates:backend-dev', 'clean']);
+	grunt.registerTask('build:auth', ['typings', 'sass:auth', 'ts:auth', 'postcss', 'concat:auth', 'ngtemplates:auth', 'uglify:auth', 'clean']);
+	grunt.registerTask('build:auth-dev', ['typings', 'sass:auth-dev', 'postcss', 'ts:auth-dev', 'concat:auth-dev', 'ngtemplates:auth-dev', 'uglify:auth-dev', 'clean']);
 
-	grunt.registerTask('build:frontend', ['typings', 'sass:frontend', 'ts:frontend', 'postcss', 'concat:frontend', 'uglify:frontend', 'ngtemplates:frontend','copy:admin', 'clean']);
-	grunt.registerTask('build:frontend-dev', ['typings', 'sass:frontend-dev', 'ts:frontend-dev', 'postcss', 'concat:frontend-dev', 'uglify:frontend-dev', 'ngtemplates:frontend-dev', 'clean']);
+	grunt.registerTask('build:backend', ['typings', 'sass:backend', 'ts:backend', 'postcss', 'concat:backend', 'ngtemplates:backend', 'uglify:backend', 'clean']);
+	grunt.registerTask('build:backend-dev', ['typings', 'sass:backend-dev', 'ts:backend-dev', 'postcss', 'concat:backend-dev', 'ngtemplates:backend-dev', 'uglify:backend-dev', 'clean']);
 
-	grunt.registerTask('build:app', ['typings', 'sass:app', 'ts:app', 'concat:app', 'uglify:app', 'ngtemplates:app', 'copy:app', 'clean']);
-	grunt.registerTask('build:app-dev', ['typings', 'sass:app-dev', 'ts:app-dev', 'concat:app-dev', 'uglify:app-dev', 'ngtemplates:app-dev', 'copy:app', 'clean']);
+	grunt.registerTask('build:frontend', ['typings', 'sass:frontend', 'ts:frontend', 'postcss', 'concat:frontend', 'json:frontend', 'ngtemplates:frontend', 'uglify:frontend', 'clean']);
+	grunt.registerTask('build:frontend-dev', ['typings', 'sass:frontend-dev', 'ts:frontend-dev', 'postcss', 'concat:frontend-dev', 'json:frontend', 'ngtemplates:frontend-dev', 'uglify:frontend-dev', 'clean']);
+
+	grunt.registerTask('build:app', ['typings', 'sass:app', 'ts:app', 'concat:app', 'json:app', 'ngtemplates:app', 'uglify:app', 'copy:all', 'clean']);
+	grunt.registerTask('build:app-dev', ['typings', 'sass:app-dev', 'ts:app-dev', 'concat:app-dev', 'json:app', 'ngtemplates:app-dev', 'uglify:app-dev', 'copy:all', 'clean']);
 
 	grunt.registerTask('default', ['build:app-dev']);
 

@@ -7,10 +7,10 @@ class DashboardPresenter extends BaseV1Presenter
 
 	public function actionDefault()
 	{
-		$this->payload->wall = [
+		$this->addData('wall', [
 			'id' => $this->wall->getId(),
 			'name' => $this->wall->getName(),
-		];
+		]);
 	}
 
 }

@@ -20,7 +20,7 @@
 			"app/client/Core/**/*.html",
 			"app/client/Admin/**/*.html"
 		],
-		"dest": "www/assets/admin.js"
+		"dest": "www/assets/build/admin.js"
 	},
 	"admin-dev": {
 		"options": {
@@ -33,7 +33,7 @@
 			"app/client/Core/**/*.html",
 			"app/client/Admin/**/*.html"
 		],
-		"dest": "www/assets/admin.js"
+		"dest": "www/assets/build/admin.js"
 	},
 	"auth": {
 		"options": {
@@ -55,7 +55,7 @@
 			"app/client/Common/**/*.html",
 			"app/client/Auth/**/*.html"
 		],
-		"dest": "www/assets/auth.js"
+		"dest": "www/assets/build/auth.js"
 	},
 	"auth-dev": {
 		"options": {
@@ -67,7 +67,7 @@
 			"app/client/Common/**/*.html",
 			"app/client/Auth/**/*.html"
 		],
-		"dest": "www/assets/auth.js"
+		"dest": "www/assets/build/auth.js"
 	},
 	"backend": {
 		"options": {
@@ -89,7 +89,7 @@
 			"app/client/Common/**/*.html",
 			"app/client/Backend/**/*.html"
 		],
-		"dest": "www/assets/backend.js"
+		"dest": "www/assets/build/backend.js"
 	},
 	"backend-dev": {
 		"options": {
@@ -101,7 +101,7 @@
 			"app/client/Common/**/*.html",
 			"app/client/Backend/**/*.html"
 		],
-		"dest": "www/assets/backend.js"
+		"dest": "www/assets/build/backend.js"
 	},
 	"frontend": {
 		"options": {
@@ -124,7 +124,7 @@
 			"app/client/Core/**/*.html",
 			"app/client/Frontend/**/*.html"
 		],
-		"dest": "www/assets/frontend.js"
+		"dest": "www/assets/build/frontend.js"
 	},
 	"frontend-dev": {
 		"options": {
@@ -137,6 +137,6 @@
 			"app/client/Core/**/*.html",
 			"app/client/Frontend/**/*.html"
 		],
-		"dest": "www/assets/frontend.js"
+		"dest": "www/assets/build/frontend.js"
 	}
 }

@@ -1,0 +1,6 @@
+{
+	"openingHours": {
+		"name": "Opening hours",
+		"description": "Adds support for opening hours, its displaying and manipulating."
+	}
+}

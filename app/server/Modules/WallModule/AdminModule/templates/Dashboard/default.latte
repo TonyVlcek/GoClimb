@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="{link this, 'path' => NULL}">
 
 	<title>User Admin</title>
 
@@ -10,16 +11,12 @@
 </head>
 <body data-zf-close-all>
 
-<div class="vertical grid-frame">
-	<div data-top-panel></div>
-	<div class="grid-block">
-		<div data-admin-menu></div>
-		<div class="grid-block vertical">
-			<div data-admin-menu-button></div>
-		</div>
+	<div data-app>
+		Loading...
 	</div>
-</div>
 
-<script src="{$basePath}/assets/admin.js"></script>
+	<script src="{$basePath}/assets/admin.js"></script>
+	<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
+	<script n:syntax="double">(function(a,m,s,t){a.module(m).constant(s,{{$availableLanguages}}).constant(t,{{plink //:Wall:Rest:V1:Dashboard:default}})})(angular,'GoClimb','availableLanguages','apiUrl')</script>
 </body>
 </html>

@@ -45,14 +45,14 @@ class DetailsPresenter extends BaseV1Presenter
 
 	public function getDetails()
 	{
-		$this->payload->data->detalis = WallMapper::mapDetails($this->wall);
+		$this->addData('details', WallMapper::mapDetails($this->wall));
 	}
 
 
 	public function postDetails()
 	{
 		try {
-			$this->wallUpdater->updateDetails($this->wall, $this->getRequestBody()->details);
+			$this->wallUpdater->updateDetails($this->wall, $this->getData('details'));
 		} catch (MappingException $e) {
 			$this->sendUnprocessableEntity($e->getMessage());
 		}

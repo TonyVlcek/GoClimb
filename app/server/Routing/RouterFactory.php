@@ -89,7 +89,7 @@ class RouterFactory
 					'wall' => $filter,
 					'locale' => $wallLanguage->getLanguage()->getShortcut(),
 				]);
-				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '/admin[/<path .*>]', [
+				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '/admin/[<path .*>]', [
 					'module' => 'Wall:Admin',
 					'presenter' => 'Dashboard',
 					'action' => 'default',
@@ -101,7 +101,7 @@ class RouterFactory
 					'wall' => $filter,
 					'locale' => $wallLanguage->getLanguage()->getShortcut(),
 				]);
-				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '[/<path .*>]', [
+				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '/[<path .*>]', [
 					'module' => 'Wall:Front',
 					'presenter' => 'Dashboard',
 					'action' => 'default',
