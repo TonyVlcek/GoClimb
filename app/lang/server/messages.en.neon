@@ -9,3 +9,5 @@ user:
 		error: Login failed
 	logout:
 		success: Logout successful
+	register:
+		success: Register successful.

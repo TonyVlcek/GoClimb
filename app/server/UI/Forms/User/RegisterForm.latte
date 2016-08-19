@@ -1,0 +1,29 @@
+{form form, class => form}
+	<div n:class="input-group, $form['email']->error ? error">
+		{label email, class =>"label required" /}
+		{input email, class => input}
+		<b n:ifcontent>{$form['email']->error}</b>
+	</div>
+
+	<div>
+		<div n:class="input-group, medium-6, $form['password']->error ? error">
+			{label password, class =>"label required" /}
+			{input password, class => input}
+			<b n:ifcontent>{$form['password']->error}</b>
+		</div>
+
+		<div n:class="input-group, medium-6, $form['passwordCheck']->error ? error">
+			{label passwordCheck, class =>"label required" /}
+			{input passwordCheck, class => input}
+			<b n:ifcontent>{$form['passwordCheck']->error}</b>
+		</div>
+	</div>
+	<div n:class="input-group, $form['nick']->error ? error">
+		{label nick, class => label /}
+		{input nick, class => input}
+		<b n:ifcontent>{$form['nick']->error}</b>
+	</div>
+	<div class="clearfix"></div>
+	{input register, class => btn}
+	<div class="clearfix"></div>
+{/form}

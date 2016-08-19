@@ -1,11 +1,14 @@
 {block content}
 
 <div class="header">
-	<a href="javascript: history.go(-1);" class="btn">{_templates.auth.dashboard.default.back}</a>
-	<a href="" class="btn right">{_templates.auth.dashboard.default.register}</a>
+	<a href="{$back}" class="btn">{_templates.auth.dashboard.default.back}</a>
+	<a n:href="Dashboard:register" class="btn right">{_templates.auth.dashboard.default.register}</a>
 </div>
 
 <div class="container-block">
+	<div n:foreach="$flashes as $flash" class="content-block" role="alert">
+		{$flash->message}
+	</div>
 	<h1>{_templates.auth.dashboard.default.welcome}</h1>
 	{include includes/applicationDetail.latte}
 	<div class="flip-box js-flip-box">

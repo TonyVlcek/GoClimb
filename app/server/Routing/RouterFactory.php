@@ -124,7 +124,7 @@ class RouterFactory
 	{
 		$router = new RouteList('Auth');
 
-		$this->addRoute($router, 'auth', '<token>/<action login|logout>', [
+		$this->addRoute($router, 'auth', '<token>/<action login|logout|register>', [
 			'presenter' => 'Dashboard',
 			NULL => $this->authFilter->getFilterDefinition(),
 		]);

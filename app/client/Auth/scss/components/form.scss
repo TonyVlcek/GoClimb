@@ -8,6 +8,10 @@
 .input-group {
 	margin: 0.5rem 0 1rem 0;
 
+	.label.required {
+		font-weight: bold;
+	}
+
 	&.error {
 		color: #F04124;
 
@@ -59,4 +63,14 @@
 	&:hover {
 		text-decoration: underline;
 	}
+}
+
+.medium-6 {
+	float: left;
+	width: 45%;
+}
+
+// Cannot use .medium-6 because of :last-of-type
+[class~='medium-6']:last-of-type {
+	margin-left: 10%;
 }

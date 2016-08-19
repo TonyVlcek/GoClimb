@@ -5,8 +5,10 @@ namespace GoClimb\Modules\AuthModule;
 use GoClimb\Model\Entities\Application;
 use GoClimb\Model\Entities\LoginToken;
 use GoClimb\Model\Facades\AuthFacade;
+use GoClimb\Model\Facades\UserFacade;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\User\IContinueFormFactory;
+use GoClimb\UI\Forms\User\IRegisterFormFactory;
 use GoClimb\UI\Forms\User\ISignInFormFactory;
 
 
@@ -25,21 +27,32 @@ final class DashboardPresenter extends BaseAuthPresenter
 	/** @var IContinueFormFactory */
 	private $continueFormFactory;
 
+	/** @var IRegisterFormFactory */
+	private $registerFormFactory;
+
 	/** @var AuthFacade */
 	private $authFacade;
 
 
-	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, AuthFacade $authFacade)
+	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, IRegisterFormFactory $registerFormFactory, AuthFacade $authFacade)
 	{
 		parent::__construct();
 		$this->signInFormFactory = $signInFormFactory;
 		$this->continueFormFactory = $continueFormFactory;
+		$this->registerFormFactory = $registerFormFactory;
 		$this->authFacade = $authFacade;
+	}
+
+
+	public function actionRegister($back)
+	{
+		$this->template->back = $this->addTokenToUrl($back, NULL);
 	}
 
 
 	public function actionLogin($back)
 	{
+		$this->template->back = $this->addTokenToUrl($back, NULL);
 		$this->back = $back;
 
 		if ($this->user->isLoggedIn()) {
@@ -55,6 +68,12 @@ final class DashboardPresenter extends BaseAuthPresenter
 
 
 	public function renderContinue(Application $application)
+	{
+		$this->template->application = $application;
+	}
+
+
+	public function renderRegister(Application $application)
 	{
 		$this->template->application = $application;
 	}
@@ -79,6 +98,17 @@ final class DashboardPresenter extends BaseAuthPresenter
 	{
 		$form = $this->continueFormFactory->create();
 		$form->onSuccess[] = [$this, 'continueFormSuccess'];
+		return $form;
+	}
+
+
+	protected function createComponentRegisterForm()
+	{
+		$form = $this->registerFormFactory->create();
+		$form->onSuccess[] = function () {
+			$this->flashMessageSuccess('user.register.success');
+			$this->redirect('login');
+		};
 		return $form;
 	}
 
