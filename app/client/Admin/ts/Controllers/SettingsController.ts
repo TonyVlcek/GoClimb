@@ -27,7 +27,6 @@ namespace GoClimb.Admin.Controllers
 			if (that.details === null) {
 				that.details = {};
 				this.wallDetailsFacade.getDetails(function (data) {
-					console.log(data);
 					that.details = data.details;
 				});
 			}
@@ -38,7 +37,8 @@ namespace GoClimb.Admin.Controllers
 		public updateDetails()
 		{
 			var that = this;
-			that.wallDetailsFacade.updateDetails(this.details, function () {
+			that.wallDetailsFacade.updateDetails(this.details, function (data) {
+				that.details = data.details;
 				that.flashMessageSender.sendSuccess('flashes.success.settings.updated');
 			});
 		}
