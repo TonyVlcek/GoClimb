@@ -13,6 +13,9 @@ auth:
 			loggedIn: "You are currently logged in as:"
 			register: Create new account
 			notYou: Not You?
+			login: Login
+		register:
+			register: Registration into GoClimb.
 
 backend:
 	layout:

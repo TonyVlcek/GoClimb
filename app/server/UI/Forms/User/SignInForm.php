@@ -3,7 +3,7 @@
 namespace GoClimb\UI\Forms\User;
 
 use GoClimb\Model\Entities\User;
-use GoClimb\Model\Facades\UserFacade;
+use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Security\Identity;
 use GoClimb\Security\User as SecurityUser;
 use GoClimb\UI\Forms\BaseForm;
@@ -15,6 +15,7 @@ use Nette\Utils\ArrayHash;
 
 interface ISignInFormFactory extends ITranslatableFormFactory
 {
+
 	/** @return SignInForm */
 	function create();
 }
@@ -23,8 +24,8 @@ interface ISignInFormFactory extends ITranslatableFormFactory
 class SignInForm extends BaseForm
 {
 
-	/** @var UserFacade */
-	private $userFacade;
+	/** @var UserRepository */
+	private $userRepository;
 
 	/** @var SecurityUser */
 	private $securityUser;
@@ -33,10 +34,10 @@ class SignInForm extends BaseForm
 	private $user;
 
 
-	public function __construct(UserFacade $userFacade, SecurityUser $securityUser)
+	public function __construct(UserRepository $userRepository, SecurityUser $securityUser)
 	{
 		parent::__construct();
-		$this->userFacade = $userFacade;
+		$this->userRepository = $userRepository;
 		$this->securityUser = $securityUser;
 	}
 
@@ -46,8 +47,8 @@ class SignInForm extends BaseForm
 	 */
 	public function init(Form $form)
 	{
-		$form->addText('name', 'fields.name')
-			->setRequired('errors.name.required')
+		$form->addText('login', 'fields.login')
+			->setRequired('errors.login.required')
 			->setAttribute('autofocus');
 
 		$form->addPassword('password', 'fields.password')
@@ -65,12 +66,20 @@ class SignInForm extends BaseForm
 	 */
 	public function validateForm(Form $form, ArrayHash $values)
 	{
-		$this->user = $this->userFacade->getByName($values->name);
-		if (!$this->user) {
-			$form['name']->addError($this->translator->translate('errors.name.notFound'));
-		} elseif (!Passwords::verify($values->password, $this->user->getPassword())) {
-			$form['password']->addError($this->translator->translate('errors.password.invalid'));
+		$user = $this->userRepository->getByName($values->login);
+
+		if (!$user) {
+			$user = $this->userRepository->getByEmail($values->login);
 		}
+
+		if (!$user) {
+			$form['login']->addError($this->translator->translate('errors.login.notFound'));
+		} elseif (!Passwords::verify($values->password, $user->getPassword())) {
+			$form['password']->addError($this->translator->translate('errors.password.invalid'));
+		} else {
+			$this->user = $user;
+		}
+
 	}
 
 

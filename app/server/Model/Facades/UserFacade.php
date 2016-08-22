@@ -25,17 +25,6 @@ class UserFacade
 
 
 	/**
-	 * @param string $name
-	 * @return User|NULL
-	 */
-	public function getByName($name)
-	{
-		Validators::assert($name, 'string');
-		return $this->userRepository->getByName($name);
-	}
-
-
-	/**
 	 * @param int $id
 	 * @return User|NULL
 	 */
@@ -46,14 +35,14 @@ class UserFacade
 
 
 	/**
-	 * @param string $name
+	 * @param string $email
 	 * @param string $password
 	 * @return User
 	 * @throws UserException
 	 */
-	public function registerUser($name, $password)
+	public function registerUser($email, $password)
 	{
-		$user = $this->userRepository->createUser($name, $password);
+		$user = $this->userRepository->createUser($email, $password);
 
 		return $user;
 	}

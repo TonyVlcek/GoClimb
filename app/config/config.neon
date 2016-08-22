@@ -105,6 +105,7 @@ services:
 	- GoClimb\UI\Forms\Company\ICompanyFormFactory
 	- GoClimb\UI\Forms\Company\ICompanyMemberFormFactory
 	- GoClimb\UI\Forms\User\IContinueFormFactory
+	- GoClimb\UI\Forms\User\IRegisterFormFactory
 	- GoClimb\UI\Forms\User\ISignInFormFactory
 	- GoClimb\UI\Forms\User\IUserFormFactory
 
