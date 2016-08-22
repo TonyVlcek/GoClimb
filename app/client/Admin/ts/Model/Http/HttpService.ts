@@ -38,10 +38,11 @@ namespace GoClimb.Admin.Model.Http
 
 		private request(request: string, method: string, params: {}, successCallback: Function, errorCallback = null)
 		{
+			var that = this;
 			var originalErrorCallback = function (result) {
-				this.resolveError(result);
+				that.resolveError(result);
 			};
-			errorCallback = errorCallback ? function (result) {
+			var newErrorCallback = errorCallback ? function (result) {
 				errorCallback(result, function () {
 					originalErrorCallback(result);
 				});
@@ -52,13 +53,8 @@ namespace GoClimb.Admin.Model.Http
 				url: this.apiUrl + request,
 				data: params
 			}).then(function (result: any) {
-				var data = result.data;
-				if (data.status.code < 200 || data.status.code >= 300) {
-					errorCallback(result);
-				} else {
-					successCallback(data.data);
-				}
-			}, errorCallback);
+				successCallback(result.data.data);
+			}, newErrorCallback);
 		}
 
 
