@@ -12,13 +12,15 @@ namespace GoClimb.Admin.Model.Http
 	{
 
 		private apiUrl: string;
+		private restToken: string;
 		private $http: IHttpService;
 		private flashMessageSender: FlashMessageSender;
 
-		public constructor(apiUrl: string, $http: IHttpService, flashMessageSender: FlashMessageSender)
+		public constructor(apiUrl: string, restToken: string, $http: IHttpService, flashMessageSender: FlashMessageSender)
 		{
 			super();
 			this.apiUrl = apiUrl;
+			this.restToken = restToken;
 			this.$http = $http;
 			this.flashMessageSender = flashMessageSender;
 		}
@@ -48,9 +50,12 @@ namespace GoClimb.Admin.Model.Http
 				});
 			} : originalErrorCallback;
 
-			this.$http({
+			var divider = request.indexOf('?') === -1 ? '?' : '&';
+			var token = that.restToken ? divider + 'token=' + that.restToken : '';
+
+			that.$http({
 				method: method,
-				url: this.apiUrl + request,
+				url: this.apiUrl + request + token,
 				data: params
 			}).then(function (result: any) {
 				successCallback(result.data.data);
@@ -60,13 +65,19 @@ namespace GoClimb.Admin.Model.Http
 
 		private resolveError(result)
 		{
-			if (result.status >= 500) {
-				this.flashMessageSender.sendError('flashes.error.http.error500');
+			var code = result.data.status.code;
+			switch (code) {
+				case 500:
+				case 600:
+				case 601:
+				case 602:
+					this.flashMessageSender.sendError('flashes.http.error' + code.toString());
+					break;
 			}
 		}
 
 	}
 
-	HttpService.register(angular, 'httpService', ['apiUrl', '$http', 'flashMessageSender']);
+	HttpService.register(angular, 'httpService', ['apiUrl', 'restToken', '$http', 'flashMessageSender']);
 
 }

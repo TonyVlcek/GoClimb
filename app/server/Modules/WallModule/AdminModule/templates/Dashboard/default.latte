@@ -17,6 +17,6 @@
 
 	<script src="{$basePath}/assets/admin.js"></script>
 	<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
-	<script n:syntax="double">(function(a,m,s,t){a.module(m).constant(s,{{$availableLanguages}}).constant(t,{{plink //:Wall:Rest:V1:Dashboard:default}})})(angular,'GoClimb','availableLanguages','apiUrl')</script>
+	<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{availableLanguages:{{$availableLanguages}},apiUrl:{{plink //:Wall:Rest:V1:Dashboard:default}},restToken:{{$restToken}}})</script>
 </body>
 </html>

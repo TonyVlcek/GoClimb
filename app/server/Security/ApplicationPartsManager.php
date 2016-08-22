@@ -11,6 +11,7 @@ class ApplicationPartsManager
 
 	const BACKEND_NAMESPACE = 'GoClimb.backend';
 	const AUTH_NAMESPACE = 'GoClimb.auth';
+	const REST_NAMESPACE = 'GoClimb.rest';
 	const WALL_NAMESPACE = 'GoClimb.wall';
 
 
@@ -33,6 +34,12 @@ class ApplicationPartsManager
 	public function setAsAuth()
 	{
 		$this->userStorage->setNamespace(self::AUTH_NAMESPACE);
+	}
+
+
+	public function setAsRest()
+	{
+		$this->userStorage->setNamespace(self::REST_NAMESPACE);
 	}
 
 

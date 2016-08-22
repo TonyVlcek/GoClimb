@@ -39,7 +39,7 @@ namespace GoClimb.Admin.Controllers
 			var that = this;
 			that.wallDetailsFacade.updateDetails(this.details, function (data) {
 				that.details = data.details;
-				that.flashMessageSender.sendSuccess('flashes.success.settings.updated');
+				that.flashMessageSender.sendSuccess('flashes.settings.updated.success');
 			});
 		}
 
