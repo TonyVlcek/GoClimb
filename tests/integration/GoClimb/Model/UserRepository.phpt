@@ -46,10 +46,10 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	}
 
 
-	public function testGetByName()
+	public function testGetByNick()
 	{
-		Assert::null($this->userRepository->getByName('invalidUserTest'));
-		Assert::type(User::class, $testUser = $this->userRepository->getByName('test'));
+		Assert::null($this->userRepository->getByNick('invalidUserTest'));
+		Assert::type(User::class, $testUser = $this->userRepository->getByNick('test'));
 		Assert::equal(2, $testUser->getId());
 	}
 

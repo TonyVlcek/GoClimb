@@ -66,7 +66,7 @@ class SignInForm extends BaseForm
 	 */
 	public function validateForm(Form $form, ArrayHash $values)
 	{
-		$user = $this->userRepository->getByName($values->login);
+		$user = $this->userRepository->getByNick($values->login);
 
 		if (!$user) {
 			$user = $this->userRepository->getByEmail($values->login);

@@ -3,5 +3,5 @@
 {control companyMemberForm}
 
 {foreach $members as $member}
-	<span>{$member->getName()}</span> <a n:href="removeUser! $member->getId()">X</a><br/>
+	<span>{$member->getEmail()}</span> <a n:href="removeUser! $member->getId()">X</a><br/>
 {/foreach}

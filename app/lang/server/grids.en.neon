@@ -8,12 +8,12 @@ base:
 user:
 	fields:
 		id: ID
-		name: Name
+		nick: Nick
 		firstName: First name
 		lastName: Last name
 		email: Email
 	filter:
-		name: Name
+		nick: Nick
 		firstName: First name
 		lastName: Last name
 		email: Email

@@ -6,16 +6,16 @@ use GoClimb\Model\Query\IFilter;
 use Kdyby\Doctrine\QueryBuilder;
 
 
-class ByName implements IFilter
+class ByNick implements IFilter
 {
 
 	/** @var string */
-	private $name;
+	private $nick;
 
 
-	public function __construct($name)
+	public function __construct($nick)
 	{
-		$this->name = $name;
+		$this->nick = $nick;
 	}
 
 
@@ -24,8 +24,8 @@ class ByName implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('userName', $this->name);
-		return $queryBuilder->expr()->eq($entityAlias . '.name', ':userName');
+		$queryBuilder->setParameter('userNick', $this->nick);
+		return $queryBuilder->expr()->eq($entityAlias . '.nick', ':userNick');
 	}
 
 }

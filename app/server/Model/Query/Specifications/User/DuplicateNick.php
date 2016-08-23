@@ -9,7 +9,7 @@ use GoClimb\Model\Query\IFilter;
 use GoClimb\Model\Query\Specifications\AndArgs;
 
 
-class DuplicateName implements IFilter
+class DuplicateNick implements IFilter
 {
 
 	/** @var User */
@@ -33,7 +33,7 @@ class DuplicateName implements IFilter
 	 */
 	function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$args = new AndArgs(new ByName($this->newName));
+		$args = new AndArgs(new ByNick($this->newName));
 		if ($this->user->getId()) {
 			$args->add(new NotById($this->user->getId()));
 		}

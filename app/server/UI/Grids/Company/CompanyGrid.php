@@ -5,7 +5,7 @@ namespace GoClimb\UI\Grids\Company;
 use Nette\Forms\Container;
 use GoClimb\Model\Query\Specifications\AndArgs;
 use GoClimb\Model\Query\Specifications\OrderBy;
-use GoClimb\Model\Query\Specifications\User\NameLike;
+use GoClimb\Model\Query\Specifications\User\NickLike;
 use GoClimb\Model\Repositories\CompanyRepository;
 use GoClimb\UI\Grids\BaseGrid;
 use GoClimb\UI\Grids\ITranslatableGridFactory;
@@ -50,7 +50,7 @@ final class CompanyGrid extends BaseGrid
 	{
 		$args = new AndArgs;
 		if (isset($filters['name'])) {
-			$args->add(new NameLike($filters['name']));
+			$args->add(new NickLike($filters['name']));
 		}
 
 		return $this->companyRepository->getBuilderByFilters($args, new OrderBy($order));

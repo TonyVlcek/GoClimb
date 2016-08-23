@@ -3,7 +3,7 @@ company:
 	renamed: Comapny name has been changed
 user:
 	added: User has been added
-	removed: User %name% has been removed
+	removed: User %email% has been removed
 	login:
 		success: Login successful
 		error: Login failed

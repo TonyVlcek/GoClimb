@@ -66,7 +66,7 @@ class BackendFilter extends AbstractFilter
 				/** @var User $user */
 				$user = $params['user'];
 				unset($params['user']);
-				$params['id'] = $user->getId() . "-" . Strings::webalize($user->getName());
+				$params['id'] = $user->getId() . "-" . Strings::webalize($user->getNick());
 				return $params;
 			}
 			return NULL;
