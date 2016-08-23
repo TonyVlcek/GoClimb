@@ -92,12 +92,13 @@ class CompanyEditControl extends BaseControl
 
 	public function getCompanyForm()
 	{
-		return $this->getComponent("companyForm");
+		return $this->getComponent('companyForm');
 	}
+
 
 	public function getCompanyMemberForm()
 	{
-		return $this->getComponent("companyMemberForm");
+		return $this->getComponent('companyMemberForm');
 	}
 
 }

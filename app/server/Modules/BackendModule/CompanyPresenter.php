@@ -94,7 +94,7 @@ class CompanyPresenter extends BaseBackendPresenter
 
 	public function userRemoved(User $user)
 	{
-		$this->flashMessageSuccess('messages.user.removed', ['name' => $user->getName()]);
+		$this->flashMessageSuccess('messages.user.removed', ['email' => $user->getEmail()]);
 		$this->redirect('this');
 	}
 

@@ -35,7 +35,7 @@ class User
 	 * @var string|NULL
 	 * @ORM\Column(type="string", nullable=TRUE, unique=TRUE, options={"default": NULL})
 	 */
-	private $name = NULL;
+	private $nick = NULL;
 
 	/**
 	 * @var string
@@ -210,19 +210,19 @@ class User
 	/**
 	 * @return string|NULL
 	 */
-	public function getName()
+	public function getNick()
 	{
-		return $this->name;
+		return $this->nick;
 	}
 
 
 	/**
-	 * @param string|NULL $name
+	 * @param string|NULL $nick
 	 * @return $this
 	 */
-	public function setName($name)
+	public function setNick($nick)
 	{
-		$this->name = $name;
+		$this->nick = $nick;
 		return $this;
 	}
 

@@ -22,12 +22,12 @@ class UserRepository extends BaseRepository
 
 
 	/**
-	 * @param string $name
+	 * @param string $nick
 	 * @return User|NULL
 	 */
-	public function getByName($name)
+	public function getByNick($nick)
 	{
-		return $this->getDoctrineRepository()->findOneBy(['name' => $name]);
+		return $this->getDoctrineRepository()->findOneBy(['nick' => $nick]);
 	}
 
 	/**

@@ -63,7 +63,7 @@ class RegisterForm extends BaseForm
 			->setRequired(FALSE)
 			->setAttribute('placeholder', 'fields.nick')
 			->addCondition(Form::FILLED)
-			->addRule(Form::PATTERN, 'errors.nick.invalid', '[a-zA-Z0-9_\-]{3,255}');
+				->addRule(Form::PATTERN, 'errors.nick.invalid', '[a-zA-Z0-9_\-]{3,255}');
 
 		$form->addSubmit('register', 'fields.register');
 	}
@@ -75,7 +75,7 @@ class RegisterForm extends BaseForm
 	 */
 	public function validateForm(Form $form, ArrayHash $values)
 	{
-		if ($values->nick && $this->userRepository->getByName($values->nick)) {
+		if ($values->nick && $this->userRepository->getByNick($values->nick)) {
 			$form['nick']->addError($this->translator->translate('errors.nick.registered'));
 		}
 
@@ -94,7 +94,7 @@ class RegisterForm extends BaseForm
 		$user = $this->userFacade->registerUser($values->email, $values->password);
 
 		if ($values->nick) {
-			$user->setName($values->nick);
+			$user->setNick($values->nick);
 		}
 		$this->userRepository->save($user);
 	}

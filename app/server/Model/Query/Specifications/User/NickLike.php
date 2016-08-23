@@ -7,7 +7,7 @@ use GoClimb\Model\Query\Helpers;
 use GoClimb\Model\Query\IFilter;
 
 
-class NameLike implements IFilter
+class NickLike implements IFilter
 {
 
 	/** @var string */
@@ -25,7 +25,7 @@ class NameLike implements IFilter
 	 */
 	public function applyFilter(QueryBuilder $queryBuilder, $entityAlias)
 	{
-		$queryBuilder->setParameter('userName', '%' . Helpers::escapeWildcard($this->search) . '%');
-		return $queryBuilder->expr()->like($entityAlias . '.name', ':userName');
+		$queryBuilder->setParameter('userNick', '%' . Helpers::escapeWildcard($this->search) . '%');
+		return $queryBuilder->expr()->like($entityAlias . '.nick', ':userNick');
 	}
 }

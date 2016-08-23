@@ -56,7 +56,7 @@ class CompanyMemberForm extends BaseBootstrapForm
 
 		$selectMembers = [];
 		foreach ($members as $member) {
-			$selectMembers[$member->getId()] = $member->getName();
+			$selectMembers[$member->getId()] = $member->getEmail();
 		}
 
 		$form->addSelect('member', $this->translator->translate('fields.member'), $selectMembers)->setTranslator(NULL); //TODO: Special input type (own)

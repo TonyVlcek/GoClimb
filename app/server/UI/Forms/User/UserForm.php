@@ -4,7 +4,7 @@ namespace GoClimb\UI\Forms\User;
 
 use DateTime;
 use GoClimb\Model\Entities\User;
-use GoClimb\Model\Query\Specifications\User\DuplicateName;
+use GoClimb\Model\Query\Specifications\User\DuplicateNick;
 use GoClimb\Model\Query\Specifications\User\DuplicateEmail;
 use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\UI\Forms\BaseBootstrapForm;
@@ -56,7 +56,7 @@ class UserForm extends BaseBootstrapForm
 	 */
 	public function init(Form $form)
 	{
-		$form->addText('name', 'fields.nick')
+		$form->addText('nick', 'fields.nick')
 			->setAttribute('placeholder', 'fields.nick');
 
 		$form->addText('firstName', 'fields.firstName')
@@ -94,7 +94,7 @@ class UserForm extends BaseBootstrapForm
 
 		$user = $this->user;
 		$form->setDefaults([
-			'name' => $user->getName(),
+			'nick' => $user->getNick(),
 			'firstName' => $user->getFirstName(),
 			'lastName' => $user->getLastName(),
 			'email' => $user->getEmail(),
@@ -118,8 +118,8 @@ class UserForm extends BaseBootstrapForm
 	 */
 	public function validateForm(Form $form, ArrayHash $values)
 	{
-		if ($this->userRepository->getResultByFilters(new DuplicateName($this->user, $values->name))) {
-			$form['name']->addError('errors.name.duplicate');
+		if ($this->userRepository->getResultByFilters(new DuplicateNick($this->user, $values->nick))) {
+			$form['nick']->addError('errors.nick.duplicate');
 		}
 
 		if ($this->userRepository->getResultByFilters(new DuplicateEmail($this->user, $values->email))) {
@@ -134,7 +134,7 @@ class UserForm extends BaseBootstrapForm
 	public function formSuccess(Form $form, ArrayHash $values)
 	{
 		$user = $this->user;
-		$user->setName($values->name);
+		$user->setNick($values->nick);
 		$user->setFirstName($values->firstName);
 		$user->setLastName($values->lastName);
 		$user->setEmail($values->email);

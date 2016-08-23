@@ -8,7 +8,7 @@ use GoClimb\Model\Query\Specifications\OrderBy;
 use GoClimb\Model\Query\Specifications\User\EmailLike;
 use GoClimb\Model\Query\Specifications\User\FirstNameLike;
 use GoClimb\Model\Query\Specifications\User\LastNameLike;
-use GoClimb\Model\Query\Specifications\User\NameLike;
+use GoClimb\Model\Query\Specifications\User\NickLike;
 use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\UI\Grids\BaseGrid;
 use GoClimb\UI\Grids\ITranslatableGridFactory;
@@ -41,7 +41,7 @@ class UserGrid extends BaseGrid
 	public function init()
 	{
 		$this->addColumn('id', 'fields.id');
-		$this->addColumn('name', 'fields.name')->enableSort();
+		$this->addColumn('nick', 'fields.nick')->enableSort();
 		$this->addColumn('firstName', 'fields.firstName')->enableSort();
 		$this->addColumn('lastName', 'fields.lastName')->enableSort();
 		$this->addColumn('email', 'fields.email')->enableSort();
@@ -54,8 +54,8 @@ class UserGrid extends BaseGrid
 	public function getQueryBuilder($filters, $order)
 	{
 		$args = new AndArgs;
-		if (isset($filters['name'])) {
-			$args->add(new NameLike($filters['name']));
+		if (isset($filters['nick'])) {
+			$args->add(new NickLike($filters['nick']));
 		}
 
 		if (isset($filters['firstName'])) {
@@ -92,8 +92,8 @@ class UserGrid extends BaseGrid
 	public function getFilterForm()
 	{
 		$form = new Container;
-		$form->addText('name')
-			->setAttribute('placeholder', 'filter.name');
+		$form->addText('nick')
+			->setAttribute('placeholder', 'filter.nick');
 
 		$form->addText('firstName')
 			->setAttribute('placeholder', 'filter.firstName');
