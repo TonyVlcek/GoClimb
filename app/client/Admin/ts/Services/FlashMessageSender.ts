@@ -5,16 +5,19 @@ namespace GoClimb.Admin.Services
 	import ITimeoutService = angular.ITimeoutService;
 	import IPromise = angular.IPromise;
 	import IApi = Foundation.IApi;
+	import ITranslateService = angular.translate.ITranslateService;
 
 	export class FlashMessageSender extends BaseService
 	{
 
 		private api: IApi;
+		private $translate: ITranslateService;
 
-		public constructor(api: IApi)
+		public constructor(api: IApi, $translate: ITranslateService)
 		{
 			super();
 			this.api = api;
+			this.$translate = $translate;
 		}
 
 
@@ -38,6 +41,9 @@ namespace GoClimb.Admin.Services
 
 		public sendFlash(message: string, type: FlashMessageType, title: string = '', duration: number = 5)
 		{
+			message = this.$translate.instant(message);
+			title = this.$translate.instant(title);
+
 			var flash = {
 				title: title,
 				content: message,
@@ -62,6 +68,6 @@ namespace GoClimb.Admin.Services
 
 	}
 
-	FlashMessageSender.register(angular, 'flashMessageSender', ['FoundationApi']);
+	FlashMessageSender.register(angular, 'flashMessageSender', ['FoundationApi', '$translate']);
 
 }
