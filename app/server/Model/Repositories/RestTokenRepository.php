@@ -18,7 +18,7 @@ class RestTokenRepository extends BaseRepository
 	 * @param string $ip
 	 * @return RestToken|NULL
 	 */
-	public function getRestToken(Wall $wall, User $user, $ip)
+	public function getRestTokenByUser(Wall $wall, User $user, $ip)
 	{
 		return $this->getDoctrineRepository()->findOneBy([
 			'wall' => $wall,
@@ -35,7 +35,7 @@ class RestTokenRepository extends BaseRepository
 	 */
 	public function getByToken($token)
 	{
-		return $this->getDoctrineRepository()->findOneBy(['token' => $token, 'expiration >=' => new DateTime()]);
+		return $this->getDoctrineRepository()->findOneBy(['token' => $token]);
 	}
 
 
@@ -48,18 +48,26 @@ class RestTokenRepository extends BaseRepository
 	public function createRestToken(Wall $wall, User $user, $ip)
 	{
 		$restToken = new RestToken;
+
 		$restToken->setUser($user);
 		$user->addRestToken($restToken);
+
 		$restToken->setWall($wall);
 		$wall->addRestToken($restToken);
+
 		$restToken->setRemoteIp($ip);
 		$restToken->setToken($this->generateRandomToken());
-		$restToken->setExpiration(DateTime::from('+30 minutes'));
 
+		return $this->refreshToken($restToken);
+	}
+
+
+	public function refreshToken(RestToken $restToken)
+	{
+		$restToken->setExpiration(DateTime::from('+4 hours'));
 		$this->getEntityManager()
 			->persist($restToken)
 			->flush();
-
 		return $restToken;
 	}
 

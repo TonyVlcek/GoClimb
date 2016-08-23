@@ -62,20 +62,20 @@ class RestTokenRepositoryTestCase extends DatabaseTestCase
 	}
 
 
-	public function testGetRestToken()
+	public function testGetRestTokenByUser()
 	{
-		Assert::null($this->restTokenRepository->getRestToken($this->wall, $this->invalidUser, self::TEST_TOKEN_IP));
-		Assert::null($this->restTokenRepository->getRestToken($this->invalidWall, $this->user, self::TEST_TOKEN_IP));
-		Assert::null($this->restTokenRepository->getRestToken($this->invalidWall, $this->invalidUser, self::TEST_TOKEN_IP));
+		Assert::null($this->restTokenRepository->getRestTokenByUser($this->wall, $this->invalidUser, self::TEST_TOKEN_IP));
+		Assert::null($this->restTokenRepository->getRestTokenByUser($this->invalidWall, $this->user, self::TEST_TOKEN_IP));
+		Assert::null($this->restTokenRepository->getRestTokenByUser($this->invalidWall, $this->invalidUser, self::TEST_TOKEN_IP));
 
-		Assert::type(RestToken::class, $restToken = $this->restTokenRepository->getRestToken($this->wall, $this->user, self::TEST_TOKEN_IP));
+		Assert::type(RestToken::class, $restToken = $this->restTokenRepository->getRestTokenByUser($this->wall, $this->user, self::TEST_TOKEN_IP));
 		Assert::equal(1, $restToken->getId());
 	}
 
 
 	public function testMapping()
 	{
-		$restToken = $this->restTokenRepository->getRestToken($this->wall, $this->user, self::TEST_TOKEN_IP);
+		$restToken = $this->restTokenRepository->getRestTokenByUser($this->wall, $this->user, self::TEST_TOKEN_IP);
 
 		Assert::type(User::class, $user = $restToken->getUser());
 		Assert::equal(1, $user->getId());

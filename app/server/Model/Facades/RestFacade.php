@@ -23,18 +23,16 @@ class RestFacade
 
 	/**
 	 * @param string $token
-	 * @param Wall $wall
-	 * @param User $user
-	 * @param string $ip
-	 * @return bool
+	 * @param bool $refresh
+	 * @return RestToken|NULL
 	 */
-	public function validateToken($token, Wall $wall, User $user, $ip)
+	public function getRestToken($token, $refresh = TRUE)
 	{
-		$restToken = $this->restTokenRepository->getRestToken($wall, $user, $ip);
+		$restToken = $this->restTokenRepository->getByToken($token);
 		if ($restToken) {
-			return $token === $restToken->getToken();
+			return $refresh ? $this->restTokenRepository->refreshToken($restToken) : $restToken;
 		} else {
-			return FALSE;
+			return NULL;
 		}
 	}
 
@@ -45,19 +43,13 @@ class RestFacade
 	 * @param string $ip
 	 * @return RestToken
 	 */
-	public function getRestToken(Wall $wall, User $user, $ip)
+	public function getOrGenerateRestToken(Wall $wall, User $user, $ip)
 	{
-		if ($restToken = $this->restTokenRepository->getRestToken($wall, $user, $ip)) {
-			return $restToken;
+		if ($restToken = $this->restTokenRepository->getRestTokenByUser($wall, $user, $ip)) {
+			return $this->restTokenRepository->refreshToken($restToken);
 		} else {
-			return $this->createRestToken($wall, $user, $ip);
+			return $this->restTokenRepository->createRestToken($wall, $user, $ip);
 		}
-	}
-
-
-	public function createRestToken(Wall $wall, User $user, $ip)
-	{
-		return $this->restTokenRepository->createRestToken($wall, $user, $ip);
 	}
 
 }

@@ -4,7 +4,6 @@ namespace GoClimb\Modules\WallModule;
 
 use GoClimb\Model\Entities\Wall;
 use GoClimb\Modules\BasePresenter;
-use GoClimb\NotImplementedException;
 use Nette\Application\Request;
 
 
@@ -38,7 +37,7 @@ abstract class BaseWallPresenter extends BasePresenter
 	 */
 	protected function getApplicationToken()
 	{
-		throw new NotImplementedException;
+		return $this->wall->getApplication()->getToken();
 	}
 
 }
