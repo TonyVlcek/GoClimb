@@ -120,6 +120,7 @@ class RouterFactory
 		$router = new RouteList('Auth');
 
 		$this->addRoute($router, 'auth', '<token>/<action login|logout|register>', [
+			'locale' => NULL,
 			'presenter' => 'Dashboard',
 			NULL => $this->authFilter->getFilterDefinition(),
 		]);
@@ -133,6 +134,7 @@ class RouterFactory
 		$router = new RouteList('Backend');
 
 		$this->addRoute($router, 'admin', '<presenter>/<action>[/<id>]', [
+			'locale' => NULL,
 			'presenter' => 'Dashboard',
 			'action' => 'default',
 			NULL => $this->backendFilter->getFilterDefinition(),
