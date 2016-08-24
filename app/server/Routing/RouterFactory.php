@@ -2,6 +2,8 @@
 
 namespace GoClimb\Routing;
 
+use GoClimb\Model\Entities\Wall;
+use GoClimb\Model\Entities\WallLanguage;
 use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\Routing\Filters\AuthFilter;
 use GoClimb\Routing\Filters\BackendFilter;
@@ -14,9 +16,6 @@ class RouterFactory
 
 	/** @var bool */
 	private $useVirtualHosts;
-
-	/** @var bool */
-	private $useHttps;
 
 	/** @var array */
 	private $domains;
@@ -70,48 +69,64 @@ class RouterFactory
 
 		foreach ($this->wallRepository->getAll() as $wall) {
 			foreach ($wall->getWallLanguages() as $wallLanguage) {
-				$filter = [
-					Route::VALUE => $wall,
-					Route::FILTER_OUT => function ($wall) use ($wallLanguage) {
-						return (isset($wall) && $wallLanguage->getWall() === $wall) ? $wall : NULL;
-					}
-				];
-
-				$router[] = new Route('//' . rtrim($wallLanguage->getUrl(), '/') . '/api/v1/<presenter>/<action>[/<id>]', [
-					'module' => 'Wall:Rest:V1',
-					'presenter' => 'Dashboard',
-					'action' => 'default',
-					'wall' => $filter,
-					'locale' => $wallLanguage->getLanguage()->getShortcut(),
-				]);
-				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '/admin/[<path .*>]', [
-					'module' => 'Wall:Admin',
-					'presenter' => 'Dashboard',
-					'action' => 'default',
-					'path' => [
-						Route::VALUE => '',
-						Route::FILTER_OUT => NULL,
-						Route::FILTER_IN => NULL,
-					],
-					'wall' => $filter,
-					'locale' => $wallLanguage->getLanguage()->getShortcut(),
-				]);
-				$router[] = new Route('//' .rtrim($wallLanguage->getUrl(), '/') . '/[<path .*>]', [
-					'module' => 'Wall:Front',
-					'presenter' => 'Dashboard',
-					'action' => 'default',
-					'path' => [
-						Route::VALUE => '',
-						Route::FILTER_OUT => NULL,
-						Route::FILTER_IN => NULL,
-					],
-					'wall' => $filter,
-					'locale' => $wallLanguage->getLanguage()->getShortcut(),
-				]);
+				$this->addLanguageRoutes($router, $wall, $wallLanguage);
 			}
 		}
 
 		return $router;
+	}
+
+
+	private function addLanguageRoutes(&$router, Wall $wall, WallLanguage $wallLanguage)
+	{
+		$filter = [
+			Route::VALUE => $wall,
+			Route::FILTER_OUT => function ($wall) use ($wallLanguage) {
+				return (isset($wall) && $wallLanguage->getWall() === $wall) ? $wall : NULL;
+			}
+		];
+
+		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl(), 'api') . '/v1/<presenter>/<action>[/<id>]', [
+			'module' => 'Wall:Rest:V1',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+			'wall' => $filter,
+			'locale' => $wallLanguage->getLanguage()->getShortcut(),
+		]);
+		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl(), 'admin') . '/admin/[<path .*>]', [
+			'module' => 'Wall:Admin',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+			'path' => [
+				Route::VALUE => '',
+				Route::FILTER_OUT => NULL,
+				Route::FILTER_IN => NULL,
+			],
+			'wall' => $filter,
+			'locale' => $wallLanguage->getLanguage()->getShortcut(),
+		]);
+		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl()) . '/[<path .*>]', [
+			'module' => 'Wall:Front',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+			'path' => [
+				Route::VALUE => '',
+				Route::FILTER_OUT => NULL,
+				Route::FILTER_IN => NULL,
+			],
+			'wall' => $filter,
+			'locale' => $wallLanguage->getLanguage()->getShortcut(),
+		]);
+	}
+
+
+	private function createRouteUrl($url, $module = NULL)
+	{
+		$url = rtrim($url, '/');
+		if ($this->useVirtualHosts) {
+			return $module ? $module . '.' . $url : $url;
+		}
+		return $module ? $url . '/' . $module : $url;
 	}
 
 
