@@ -1,0 +1,11 @@
+.form {
+	.ng-dirty.ng-invalid {
+		border-color: $form-invalid;
+	}
+
+	button[disabled] {
+		cursor: not-allowed;
+		color: $form-disable-color !important;
+		background: $form-disable !important;
+	}
+}

@@ -7,11 +7,8 @@ namespace GoClimb
 		'ui.router',
 		'ngAnimate',
 		'pascalprecht.translate',
-
-		//foundation
+		'smart-table',
 		'foundation',
-		'foundation.dynamicRouting',
-		'foundation.dynamicRouting.animations'
 	]);
 
 	goClimb.config(['$locationProvider', '$translateProvider', function ($locationProvider, $translateProvider: ITranslateProvider) {

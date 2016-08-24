@@ -39,6 +39,12 @@ class Article
 	 */
 	private $published = NULL;
 
+	/**
+	 * @var string
+	 * @ORM\Column(type="text", nullable=FALSE)
+	 */
+	private $content;
+
 
 	/**
 	 * @return Wall|NULL
@@ -134,8 +140,26 @@ class Article
 	 */
 	public function publish()
 	{
-		$this->published = new DateTime;
+		$this->setPublishedDate(new DateTime);
 		return $this;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getContent()
+	{
+		return $this->content;
+	}
+
+
+	/**
+	 * @param string $content
+	 */
+	public function setContent($content)
+	{
+		$this->content = $content;
 	}
 
 }

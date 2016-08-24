@@ -55,4 +55,14 @@ class ArticleRepository extends BaseRepository
 		}
 	}
 
+
+	/**
+	 * @param Article $article
+	 */
+	public function remove(Article $article)
+	{
+		$this->getEntityManager()->remove($article);
+		$this->getEntityManager()->flush();
+	}
+
 }

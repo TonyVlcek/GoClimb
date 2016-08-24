@@ -1,0 +1,164 @@
+.side-panel {
+	/*@include breakpoint(large){
+		&.large-grid-block{
+			width: $side-panel-compress-size;
+		}
+	}*/
+
+	border-left: 1px solid $side-panel-border-color;
+	background: #FFFFFF !important;
+	flex-flow: column nowrap;
+	padding: 0;
+	z-index: $side-panel-z-index !important;
+
+	.close-button {
+		color: #CFCFCF;
+		&:hover {
+			color: #FFFFFF;
+		}
+	}
+
+	.title-bar {
+		padding-left: $side-panel-title-padding;
+		padding-right: $side-panel-title-padding;
+	}
+
+	.grid-container {
+		padding-left: $side-panel-content-padding;
+		padding-right: $side-panel-content-padding;
+	}
+
+	img {
+		text-align: center;
+	}
+
+	&.large {
+		width: 56rem;
+		max-width: 90%;
+	}
+}
+
+.side-panel textarea {
+	width: 100% !important;
+	max-width: 100%;
+}
+
+.side-panel-in {
+	@include breakpoint(large down) {
+		@include slide(
+			$dir: in,
+			$from: right,
+			$fade: false,
+			$duration: 0.3s,
+			$timing: easeInOut,
+			$delay: 0
+		);
+	}
+
+	@include breakpoint(large) {
+		&.compress {
+			display: flex !important;
+			position: relative !important;
+			animation: slide-in-compress $side-panel-animation-duration;
+		}
+		&.expand {
+			@include slide(
+				$dir: in,
+				$from: right,
+				$fade: false,
+				$duration: $side-panel-animation-duration,
+				$timing: easeInOut,
+				$delay: 0
+			);
+		}
+	}
+}
+
+.side-panel-out {
+	@include breakpoint(large down) {
+		@include slide(
+			$dir: out,
+			$from: right,
+			$fade: false,
+			$duration: $side-panel-animation-duration,
+			$timing: easeInOut,
+			$delay: 0
+		);
+	}
+
+	@include breakpoint(large) {
+		&.compress {
+			display: flex !important;
+			position: relative !important;
+			animation: slide-out-compress $side-panel-animation-duration;
+		}
+		&.expand {
+			@include slide(
+				$dir: out,
+				$from: right,
+				$fade: false,
+				$duration: $side-panel-animation-duration,
+				$timing: easeInOut,
+				$delay: 0
+			);
+		}
+	}
+}
+
+.side-panel-expand {
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	height: 100% !important;
+	display: block !important;
+	animation: side-panel-expand $side-panel-animation-duration;
+}
+
+.side-panel-compress {
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	height: 100% !important;
+	display: block !important;
+	animation: side-panel-compress $side-panel-animation-duration;
+}
+
+@keyframes slide-in-compress {
+	from {
+		margin-right: -$side-panel-animation-margin;
+	}
+
+	to {
+		margin-right: 0;
+	}
+
+}
+
+@keyframes slide-out-compress {
+	from {
+		margin-right: 0;
+	}
+
+	to {
+		margin-right: -$side-panel-animation-margin !important;
+	}
+}
+
+@keyframes side-panel-expand {
+	from {
+
+		width: $side-panel-animation-margin;
+	}
+	to {
+		width: $side-panel-expanded-width;
+	}
+}
+
+@keyframes side-panel-compress {
+	from {
+		width: $side-panel-expanded-width;
+	}
+	to {
+		width: $side-panel-animation-margin;
+	}
+}

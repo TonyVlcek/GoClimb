@@ -2,6 +2,7 @@ declare module Foundation
 {
 
 	import IPromise = angular.IPromise;
+	import IAugmentedJQuery = angular.IAugmentedJQuery;
 
 	export interface IApi
 	{
@@ -16,10 +17,10 @@ declare module Foundation
 
 		generateUuid(): string;
 
-		toggleAnimate(element: HTMLElement, futureState: boolean): void;
+		toggleAnimate(element: IAugmentedJQuery, futureState: boolean): void;
 		closeActiveElements(options: Object): void;
-		animate(element: HTMLElement, futureState: boolean, animateIn: string, animateOut: string): IPromise<void>;
-		animateAndAdvise(element: HTMLElement, futureState: boolean, animateIn: string, animateOut: string): IPromise<void>;
+		animate(element: IAugmentedJQuery, futureState: boolean, animateIn: string, animateOut: string): IPromise<void>;
+		animateAndAdvise(element: IAugmentedJQuery, futureState: boolean, animateIn: string, animateOut: string): IPromise<void>;
 
 
 	}

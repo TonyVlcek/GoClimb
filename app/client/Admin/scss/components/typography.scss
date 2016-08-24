@@ -1,0 +1,24 @@
+body, h1, h2, h3, h4, h5, h6, p {
+	color: $theme-font-color;
+}
+
+.notification p {
+	color: #FFFFFF !important;
+}
+
+.title-1 {
+	font-size: $typography-title-1;
+}
+
+.title-2 {
+	font-size: $typography-title-2;
+}
+
+.title-3 {
+	font-size: $typography-title-3;
+}
+
+.notitle {
+	height: 16px;
+	width: 100%;
+}

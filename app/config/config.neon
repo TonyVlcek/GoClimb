@@ -82,6 +82,7 @@ services:
 
 	# updaters
 
+	- GoClimb\Model\Rest\Updaters\ArticleUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters

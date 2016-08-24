@@ -1,35 +1,52 @@
 .admin-menu-container {
-	&.dark {
-		background: $admin-menu-background
-	}
+	background: $admin-menu-background;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	z-index: $admin-menu-z-index;
 }
 
-.admin-menu {
-	@media only screen and (min-width: 40em) {
-		max-width: $admin-menu-width !important;
+.admin-menu-panel {
+	@extend .admin-menu-width;
+	background: $admin-menu-background;
+
+	.logo {
+		text-align: center;
+		padding: 25px 20px 6px;
+		height: 130px;
 	}
 
-	&.dark {
-		background: $admin-menu-background;
-	}
+	.admin-menu {
+		@extend .admin-menu-width;
+		@include breakpoint(large) {
+			padding-top: 17px;
+		}
 
-	.menu-bar {
 		background: $admin-menu-background;
 		text-align: center;
 
 		li a {
-			width: 100%;
-			display: block;
+			font-size: $admin-menu-text-size;
+			font-weight: bold;
 			color: $admin-menu-text;
 
 			&:hover {
 				background: $admin-menu-hover-background;
 			}
-		}
 
-		.fa {
-			display: block;
+			span:not(.fa) {
+				margin-left: 20px;
+			}
+
+			.fa {
+				width: 30px;
+				margin: 0;
+			}
 		}
+	}
+}
+
+.admin-menu-width {
+	@include breakpoint(large) {
+		width: $admin-menu-width !important;
 	}
 }
 

@@ -3,6 +3,12 @@
 
 /// <reference path='ts/app.ts' />
 
+// Utils
+
+/// <reference path="ts/Utils/IndexedArray.ts" />
+/// <reference path="ts/Utils/ScreenSize.ts" />
+
+
 // PROVIDERS & SERVICES & FACTORIES
 
 /// <reference path="ts/Providers/BaseProvider.ts" />

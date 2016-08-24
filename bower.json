@@ -18,6 +18,7 @@
 		"bootstrap": "~3.3.7",
 		"font-awesome": "~4.6.3",
 		"foundation-apps": "~1.2.0",
-		"angular-translate": "~2.11.1"
+		"angular-translate": "~2.11.1",
+		"angular-smart-table": "^2.1.8"
 	}
 }

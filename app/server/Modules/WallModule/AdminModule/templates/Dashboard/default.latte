@@ -9,11 +9,78 @@
 
 	<link rel="stylesheet" href="{$basePath}/assets/admin.css">
 </head>
-<body data-zf-close-all>
+<body data-zf-close-all data-zf-esc-close>
+<div data-app>
+	<style>
 
-	<div data-app>
-		Loading...
-	</div>
+		html, body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background: #f9f9f9;
+			font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		h1, .loading {
+			color: #004876;
+			font-size: 2.75rem;
+			font-weight: normal;
+			line-height: 1.4;
+			margin: 0;
+		}
+
+		b {
+			padding-top: 0.3rem;
+			padding-left: 2px;
+			color: #6f6f6f;
+			line-height: 1;
+			font-weight: normal;
+			display: inline-block;
+		}
+
+		.dot-box{
+			position: relative;
+		}
+
+		.dot-1 {
+			position: absolute;
+			animation: upAnimation 1.5s infinite;
+		}
+
+		.dot-2 {
+			position: absolute;
+			left: 15px;
+			animation: upAnimation 1.5s infinite 0.2s;
+		}
+
+		.dot-3 {
+			position: absolute;
+			left: 30px;
+			animation: upAnimation 1.5s infinite 0.4s;
+		}
+
+		@keyframes upAnimation {
+			0%, 100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-20px);
+			}
+
+		}
+	</style>
+	<h1>{_templates.admin.loading.loading}<span class="dot-box"><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></span></h1>
+	<b>{_templates.admin.loading.madeWithLove}</b><br>
+	<b>{_templates.admin.loading.madeBy}</b>
+</div>
 
 	<script src="{$basePath}/assets/admin.js"></script>
 	<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
