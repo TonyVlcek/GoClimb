@@ -3,6 +3,8 @@
  * Test: UserRepository test
  */
 
+use GoClimb\Model\Entities\Line;
+use GoClimb\Model\Entities\Sector;
 use Nette\Security\Passwords;
 use GoClimb\Model\Entities\Article;
 use GoClimb\Model\Entities\Company;
@@ -15,6 +17,7 @@ use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\Tests\Helpers;
 use GoClimb\Tests\Utils\DatabaseTestCase;
+use Nette\Utils\DateTime;
 use Tester\Assert;
 
 
@@ -49,16 +52,16 @@ class UserRepositoryTestCase extends DatabaseTestCase
 	public function testGetByNick()
 	{
 		Assert::null($this->userRepository->getByNick('invalidUserTest'));
-		Assert::type(User::class, $testUser = $this->userRepository->getByNick('test'));
-		Assert::equal(2, $testUser->getId());
+		Assert::type(User::class, $testUser = $this->userRepository->getByNick('User One'));
+		Assert::equal(1, $testUser->getId());
 	}
 
 
 	public function testGetByEmail()
 	{
 		Assert::null($this->userRepository->getByEmail('0@test.com'));
-		Assert::type(User::class, $testUser = $this->userRepository->getByEmail('2@test.com'));
-		Assert::equal(2, $testUser->getId());
+		Assert::type(User::class, $testUser = $this->userRepository->getByEmail('aa@aa.aa'));
+		Assert::equal(1, $testUser->getId());
 	}
 
 
@@ -114,13 +117,13 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		$user = $this->userRepository->getById(1);
 
 		Helpers::assertTypeRecursive(Article::class, $articles = $user->getArticles());
-		Assert::equal([1, 2], Helpers::mapIds($articles));
+		Assert::equal([1], Helpers::mapIds($articles));
 
 		Helpers::assertTypeRecursive(Route::class, $routes = $user->getBuiltRoutes());
 		Assert::equal([1], Helpers::mapIds($routes));
 
 		Helpers::assertTypeRecursive(LoginToken::class, $loginTokens = $user->getLoginTokens());
-		Assert::equal([1, 2], Helpers::mapIds($loginTokens));
+		Assert::equal([1], Helpers::mapIds($loginTokens));
 
 		Helpers::assertTypeRecursive(RestToken::class, $restTokens = $user->getRestTokens());
 		Assert::equal([1], Helpers::mapIds($restTokens));
@@ -132,6 +135,30 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([1], Helpers::mapIds($companies));
 	}
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		$fixtures = [];
+		$fixtures[] = $wallOne = (new Wall)->setName('Wall One');
+		$fixtures[] = $wallTwo = (new Wall)->setName('Wall Two');
+		$fixtures[] = $userOne = (new User)->setNick('User One')->setEmail('aa@aa.aa')->setPassword('aaa')->addFavoriteWall($wallOne)->addFavoriteWall($wallTwo);
+		$fixtures[] = $userTwo = (new User)->setEmail('bb@bb.bb')->setPassword('bbb')->addFavoriteWall($wallOne)->addFavoriteWall($wallTwo);
+		$fixtures[] = $article = (new Article)->setName('Article')->setWall($wallOne)->setPublishedDate(new DateTime('-7 days'))->setAuthor($userOne)->setContent('Content');
+		$fixtures[] = $sector = (new Sector)->setName('Sector')->setWall($wallOne);
+		$fixtures[] = $line = (new Line)->setName('Line One')->setSector($sector);
+		$fixtures[] = $route = (new Route)->setName('Test Route')->setBuilder($userOne)->setLine($line);
+		$fixtures[] = $loginToken = (new LoginToken)->setToken('Login Token')->setUser($userOne)->setExpiration(new DateTime('+1 day'))->setLongTerm(0);
+		$fixtures[] = $restToken = (new RestToken)->setUser($userOne)->setWall($wallOne)->setToken('Rest Token')->setRemoteIp('192.168.0.1')->setExpiration(new DateTime('+1 day'));
+		$fixtures[] = $company = (new Company)->setName('Company')->addUser($userOne)->addWall($wallOne);
+		$wallOne->addUserFavorite($userOne)->addUserFavorite($userTwo);
+		$wallTwo->addUserFavorite($userOne)->addUserFavorite($userTwo);
+		$userOne->addArticle($article)->addBuiltRoute($route)->addLoginToken($loginToken)->addRestToken($restToken)->addCompany($company);
+
+		return $fixtures;
+	}
 }
 
 testCase(UserRepositoryTestCase::class);

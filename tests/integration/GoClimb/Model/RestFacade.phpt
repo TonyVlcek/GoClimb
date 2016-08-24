@@ -10,10 +10,11 @@ use GoClimb\Model\Facades\RestFacade;
 use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\Tests\Utils\DatabaseTestCase;
+use Nette\Utils\DateTime;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class RestFacadeTestCase extends DatabaseTestCase
 {
@@ -33,12 +34,6 @@ class RestFacadeTestCase extends DatabaseTestCase
 	/** @var UserRepository */
 	private $userRepository;
 
-	/** @var  Wall */
-	private $wall;
-
-	/** @var  User */
-	private $user;
-
 
 	public function __construct(RestFacade $restFacade, WallRepository $wallRepository, UserRepository $userRepository)
 	{
@@ -49,24 +44,58 @@ class RestFacadeTestCase extends DatabaseTestCase
 	}
 
 
-	public function setUp()
+	public function testValidateToken()
 	{
-		$this->wall = $this->wallRepository->getById(1);
-		$this->user = $this->userRepository->getById(1);
+		list($wall, $wall2, $user, $user2) = $this->getEntities();
+		Assert::true($this->validateToken(self::TEST_TOKEN, $wall, $user, self::TEST_TOKEN_IP));
+		Assert::false($this->validateToken(self::TEST_TOKEN, $wall2, $user, self::TEST_TOKEN_IP));
+		Assert::false($this->validateToken(self::TEST_TOKEN, $wall, $user2, self::TEST_TOKEN_IP));
+		Assert::false($this->validateToken(self::TEST_TOKEN, $wall, $user, self::TEST_NEW_TOKEN_IP));
+
+		Assert::null($this->restFacade->getRestToken(self::NOT_EXISTING_TOKEN, FALSE));
 	}
 
 
-	public function testValidateToken()
+	public function testGetOrGenerateRestToken()
 	{
-		$wall2 = $this->wallRepository->getById(2);
-		$user2 = $this->userRepository->getById(2);
+		list($wall, $expiredWall, $user, $expiredUser) = $this->getEntities();
 
-		Assert::true($this->validateToken(self::TEST_TOKEN, $this->wall, $this->user, self::TEST_TOKEN_IP));
-		Assert::false($this->validateToken(self::TEST_TOKEN, $wall2, $this->user, self::TEST_TOKEN_IP));
-		Assert::false($this->validateToken(self::TEST_TOKEN, $this->wall, $user2, self::TEST_TOKEN_IP));
-		Assert::false($this->validateToken(self::TEST_TOKEN, $this->wall, $this->user, self::TEST_NEW_TOKEN_IP));
+		//Get existing RestToken
+		Assert::type(RestToken::class, $restToken = $this->restFacade->getOrGenerateRestToken($wall, $user, self::TEST_TOKEN_IP));
+		Assert::true($restToken->getExpiration() > new DateTime);
+		Assert::equal(self::TEST_TOKEN, $restToken->getToken());
 
-		Assert::null($this->restFacade->getRestToken(self::NOT_EXISTING_TOKEN, FALSE));
+		//Get newly generated RestToken
+		Assert::type(RestToken::class, $restToken = $this->restFacade->getOrGenerateRestToken($wall, $user, self::TEST_NEW_TOKEN_IP));
+		Assert::true($restToken->getExpiration() > new DateTime);
+		Assert::equal(self::TEST_NEW_TOKEN_IP, $restToken->getRemoteIp());
+
+		//Create new token over expired one
+		Assert::type(RestToken::class, $restToken = $this->restFacade->getOrGenerateRestToken($expiredWall, $expiredUser, self::EXPIRED_TOKEN_IP));
+		Assert::equal(self::EXPIRED_TOKEN_IP, $restToken->getRemoteIp());
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		$fixtures = [
+			$wallOne = (new Wall)->setName('Wall One'),
+			$wallTwo = (new Wall)->setName('Wall Two'),
+			$userOne = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
+			$userTwo = (new User)->setEmail('bb@bb.bb')->setPassword('bbb'),
+			$restTokenOne = (new RestToken)->setUser($userOne)->setWall($wallOne)->setToken(self::TEST_TOKEN)->setRemoteIp(self::TEST_TOKEN_IP)->setExpiration(new DateTime('+1 day')),
+			$restTokenTwo = (new RestToken)->setUser($userTwo)->setWall($wallTwo)->setToken('ExpiredToken')->setRemoteIp(self::EXPIRED_TOKEN_IP)->setExpiration(new DateTime('-1 day')),
+		];
+
+		$wallOne->addRestToken($restTokenOne);
+		$wallTwo->addRestToken($restTokenTwo);
+		$userOne->addRestToken($restTokenOne);
+		$userTwo->addRestToken($restTokenTwo);
+
+		return $fixtures;
 	}
 
 
@@ -77,26 +106,15 @@ class RestFacadeTestCase extends DatabaseTestCase
 	}
 
 
-	public function testGetOrGenerateRestToken()
+	private function getEntities()
 	{
-		$expiredWall = $this->wallRepository->getById(1);
-		$expiredUser = $this->userRepository->getById(1);
-
-		//Get existing RestToken
-		Assert::type(RestToken::class, $restToken = $this->restFacade->getOrGenerateRestToken($this->wall, $this->user, self::TEST_TOKEN_IP));
-		Assert::true($restToken->getExpiration() > new DateTime);
-		Assert::equal(1, $restToken->getId());
-
-		//Get newly generated RestToken
-		Assert::type(RestToken::class, $restToken = $this->restFacade->getOrGenerateRestToken($this->wall, $this->user, self::TEST_NEW_TOKEN_IP));
-		Assert::true($restToken->getExpiration() > new DateTime);
-		Assert::equal(self::TEST_NEW_TOKEN_IP, $restToken->getRemoteIp());
-
-		//Create new over token over expired one
-		Assert::type(RestToken::class, $restToken = $this->restFacade->getOrGenerateRestToken($expiredWall, $expiredUser, self::EXPIRED_TOKEN_IP));
-		Assert::equal(self::EXPIRED_TOKEN_IP, $restToken->getRemoteIp());
+		return [
+			$this->wallRepository->getByName('Wall One'),
+			$this->wallRepository->getByName('Wall Two'),
+			$this->userRepository->getByEmail('aa@aa.aa'),
+			$this->userRepository->getByEmail('bb@bb.bb'),
+		];
 	}
-
 }
 
 testCase(RestFacadeTestCase::class);

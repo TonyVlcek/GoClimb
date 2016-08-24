@@ -12,7 +12,7 @@ use GoClimb\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class CompanyRepositoryTestCase extends DatabaseTestCase
 {
@@ -47,6 +47,20 @@ class CompanyRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([1,2], Helpers::mapIds($company->getWalls()));
 	}
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$userOne = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
+			$userTwo = (new User)->setEmail('bb@bb.bb')->setPassword('bbb'),
+			$wallOne = (new Wall)->setName('Wall One'),
+			$wallTwo = (new Wall)->setName('Wall Two'),
+			(new Company)->setName('Company')->addUser($userOne)->addUser($userTwo)->addWall($wallOne)->addWall($wallTwo),
+		];
+	}
 }
 
 testCase(CompanyRepositoryTestCase::class);

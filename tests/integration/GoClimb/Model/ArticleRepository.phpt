@@ -11,10 +11,11 @@ use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\Tests\Helpers;
 use GoClimb\Tests\Utils\DatabaseTestCase;
+use Nette\Utils\DateTime;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class ArticleRepositoryTestCase extends DatabaseTestCase
 {
@@ -48,8 +49,8 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByWall()
 	{
-		Assert::equal([1, 2], Helpers::mapIds($this->articleRepository->getByWall($this->wallRepository->getById(1), TRUE)));
-		Assert::equal([3, 4], Helpers::mapIds($this->articleRepository->getByWall($this->wallRepository->getById(2), NULL)));
+		Assert::equal([1], Helpers::mapIds($this->articleRepository->getByWall($this->wallRepository->getById(1), TRUE)));
+		Assert::equal([2, 4], Helpers::mapIds($this->articleRepository->getByWall($this->wallRepository->getById(2), NULL)));
 		Assert::equal([4], Helpers::mapIds($this->articleRepository->getByWall($this->wallRepository->getById(2), FALSE)));
 	}
 
@@ -71,6 +72,25 @@ class ArticleRepositoryTestCase extends DatabaseTestCase
 
 		Assert::type(Wall::class, $article->getWall());
 		Assert::equal(1, $article->getWall()->getId());
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$wallOne = (new Wall)->setName('one'),
+			$wallTwo = (new Wall)->setName('two'),
+			$author = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
+			(new Article)->setName('article one')->setWall($wallOne)->setPublishedDate(new DateTime('-7 days'))->setAuthor($author)->setContent('Content'),
+			(new Article)->setName('article two')->setWall($wallTwo)->setPublishedDate(new DateTime('-7 days'))->setContent('Content'),
+			(new Article)->setName('article three')->setWall($wallOne)->setContent('Content'),
+			(new Article)->setName('article four')->setWall($wallTwo)->setContent('Content'),
+			(new Article)->setName('article five')->setPublishedDate(new DateTime('-7 days'))->setContent('Content'),
+			(new Article)->setName('article six')->setContent('Content'),
+		];
 	}
 }
 

@@ -38,7 +38,7 @@ class ContentPart
 
 	/**
 	 * @var int
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="integer", name="`order`")
 	 */
 	private $order;
 

@@ -9,7 +9,7 @@ use GoClimb\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class AclResourceRepositoryTestCase extends DatabaseTestCase
 {
@@ -27,11 +27,20 @@ class AclResourceRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
-		Assert::null($this->aclResourceRepository->getByName("InvalidAclTest"));
-		Assert::type(AclResource::class, $resource = $this->aclResourceRepository->getByName('Resource 1'));
-		Assert::equal('Resource 1', $resource->getName());
+		Assert::null($this->aclResourceRepository->getByName(AclResourceRepository::class . 'InvalidAclTest'));
+		Assert::type(AclResource::class, $resource = $this->aclResourceRepository->getByName(AclResourceRepository::class));
+		Assert::equal(AclResourceRepository::class, $resource->getName());
 	}
 
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			(new AclResource)->setName(AclResourceRepository::class),
+		];
+	}
 }
 
 testCase(AclResourceRepositoryTestCase::class);
