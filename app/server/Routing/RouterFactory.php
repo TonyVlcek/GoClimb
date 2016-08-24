@@ -86,7 +86,7 @@ class RouterFactory
 			}
 		];
 
-		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl(), 'api') . '/v1/<presenter>/<action>[/<id>]', [
+		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl()) . '/api/v1/<presenter>/<action>[/<id>]', [
 			'module' => 'Wall:Rest:V1',
 			'presenter' => 'Dashboard',
 			'action' => 'default',
