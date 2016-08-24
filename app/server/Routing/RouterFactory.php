@@ -93,7 +93,7 @@ class RouterFactory
 			'wall' => $filter,
 			'locale' => $wallLanguage->getLanguage()->getShortcut(),
 		]);
-		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl(), 'admin') . '/admin/[<path .*>]', [
+		$router[] = new Route('//' . $this->createRouteUrl($wallLanguage->getUrl(), 'admin') . '/[<path .*>]', [
 			'module' => 'Wall:Admin',
 			'presenter' => 'Dashboard',
 			'action' => 'default',
