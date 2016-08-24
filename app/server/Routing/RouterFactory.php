@@ -31,10 +31,9 @@ class RouterFactory
 	private $authFilter;
 
 
-	public function __construct($useVirtualHosts, $useHttps, $domains, WallRepository $wallRepository)
+	public function __construct($useVirtualHosts, $domains, WallRepository $wallRepository)
 	{
 		$this->useVirtualHosts = $useVirtualHosts;
-		$this->useHttps = $useHttps;
 		$this->domains = $this->buildDomains($domains);
 		$this->wallRepository = $wallRepository;
 	}
@@ -52,10 +51,6 @@ class RouterFactory
 	 */
 	public function create()
 	{
-		if ($this->useHttps) {
-			Route::$defaultFlags = Route::SECURED;
-		}
-
 		$router = new RouteList;
 		$router[] = $this->createWallRoutes();
 		$router[] = $this->createAuthRoutes();

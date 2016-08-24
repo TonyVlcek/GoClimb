@@ -16,7 +16,6 @@ class GoClimbExtension extends CompilerExtension
 	private $defaults = [
 		'routes' => [
 			'useVirtualHosts' => FALSE,
-			'useHttps' => FALSE,
 			'domains' => []
 		]
 	];
@@ -30,7 +29,6 @@ class GoClimbExtension extends CompilerExtension
 		Validators::assertField($config, 'routes', 'array');
 
 		Validators::assertField($config['routes'], 'useVirtualHosts', 'bool');
-		Validators::assertField($config['routes'], 'useHttps', 'bool');
 		Validators::assertField($config['routes'], 'domains', 'array');
 	}
 
@@ -44,7 +42,6 @@ class GoClimbExtension extends CompilerExtension
 			->setClass(RouterFactory::class)
 			->setArguments([
 				$config['routes']['useVirtualHosts'],
-				$config['routes']['useHttps'],
 				$config['routes']['domains'],
 			])
 			->addSetup('injectFilters');
