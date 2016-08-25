@@ -1,0 +1,8 @@
+.switch.success {
+	input:checked + label {
+		background: #43AC6A;
+		&:after {
+			border-color: #43AC6A;
+		}
+	}
+}

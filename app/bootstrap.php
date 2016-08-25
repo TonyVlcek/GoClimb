@@ -1,7 +1,6 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/Framework.php'; // FIXME FIXME FIXME
 
 $localBootstrap = __DIR__ . '/bootstrap.local.php';
 if (file_exists($localBootstrap)) {

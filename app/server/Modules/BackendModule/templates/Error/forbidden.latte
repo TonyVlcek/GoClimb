@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{_templates.backend.error.forbidden.title}</title>
+    <style>
+        .container {
+            text-align: center;
+            font-family: Helvetica sans-serif, "Helvetica Neue", Arial;
+            padding-top: 15%;
+        }
+
+        a {
+            padding: 5px 10px;
+            background-color: #00558B;
+            color: white;
+            font-size: 0.8em;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #0066A7;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>{_templates.backend.error.forbidden.heading}</h1>
+
+    <a href="{$logoutLink}">{_templates.backend.error.forbidden.logout}</a>
+</div>
+</body>
+</html>

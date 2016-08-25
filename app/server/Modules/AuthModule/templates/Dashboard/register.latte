@@ -1,0 +1,19 @@
+{block content}
+
+<div class="header">
+	<a href="{$back}" class="btn">{_templates.auth.dashboard.default.back}</a>
+	<a n:href="Dashboard:login" class="btn right">{_templates.auth.dashboard.default.login}</a>
+</div>
+
+
+<div class="container-block">
+	<img class="description-image" src="{$basePath}/assets/GoClimbLogo.png" height="100">
+	<h1>{_templates.auth.dashboard.default.oneAccount}</h1>
+	<h2>{_templates.auth.dashboard.register.register}</h2>
+	<div class="content-block">
+		<div class="form-body">
+			{control registerForm}
+		</div>
+	</div>
+
+</div>

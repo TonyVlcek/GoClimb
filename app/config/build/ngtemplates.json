@@ -1,0 +1,142 @@
+{
+	"admin": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb",
+			"htmlmin": {
+				"collapseBooleanAttributes": true,
+				"collapseWhitespace": true,
+				"removeAttributeQuotes": true,
+				"removeComments": true,
+				"removeEmptyAttributes": true,
+				"removeRedundantAttributes": true,
+				"removeScriptTypeAttributes": true,
+				"removeStyleLinkTypeAttributes": true
+			}
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Admin/**/*.html"
+		],
+		"dest": "www/assets/build/admin.js"
+	},
+	"admin-dev": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb"
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Admin/**/*.html"
+		],
+		"dest": "www/assets/build/admin.js"
+	},
+	"auth": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb",
+			"htmlmin": {
+				"collapseBooleanAttributes": true,
+				"collapseWhitespace": true,
+				"removeAttributeQuotes": true,
+				"removeComments": true,
+				"removeEmptyAttributes": true,
+				"removeRedundantAttributes": true,
+				"removeScriptTypeAttributes": true,
+				"removeStyleLinkTypeAttributes": true
+			}
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Auth/**/*.html"
+		],
+		"dest": "www/assets/build/auth.js"
+	},
+	"auth-dev": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb"
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Auth/**/*.html"
+		],
+		"dest": "www/assets/build/auth.js"
+	},
+	"backend": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb",
+			"htmlmin": {
+				"collapseBooleanAttributes": true,
+				"collapseWhitespace": true,
+				"removeAttributeQuotes": true,
+				"removeComments": true,
+				"removeEmptyAttributes": true,
+				"removeRedundantAttributes": true,
+				"removeScriptTypeAttributes": true,
+				"removeStyleLinkTypeAttributes": true
+			}
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Backend/**/*.html"
+		],
+		"dest": "www/assets/build/backend.js"
+	},
+	"backend-dev": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb"
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Backend/**/*.html"
+		],
+		"dest": "www/assets/build/backend.js"
+	},
+	"frontend": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb",
+			"htmlmin": {
+				"collapseBooleanAttributes": true,
+				"collapseWhitespace": true,
+				"removeAttributeQuotes": true,
+				"removeComments": true,
+				"removeEmptyAttributes": true,
+				"removeRedundantAttributes": true,
+				"removeScriptTypeAttributes": true,
+				"removeStyleLinkTypeAttributes": true
+			}
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Frontend/**/*.html"
+		],
+		"dest": "www/assets/build/frontend.js"
+	},
+	"frontend-dev": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb"
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/Frontend/**/*.html"
+		],
+		"dest": "www/assets/build/frontend.js"
+	}
+}

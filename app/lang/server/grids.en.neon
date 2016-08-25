@@ -1,0 +1,29 @@
+base:
+	paginator:
+		first: First
+		previous: Previous
+		next: Next
+		last: Last
+
+user:
+	fields:
+		id: ID
+		nick: Nick
+		firstName: First name
+		lastName: Last name
+		email: Email
+	filter:
+		nick: Nick
+		firstName: First name
+		lastName: Last name
+		email: Email
+		apply: Search
+		cancel: Cancel
+
+company:
+	fields:
+		name: Name
+	filter:
+		name: Name
+		apply: Search
+		cancel: Cancel

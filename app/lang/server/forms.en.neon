@@ -1,0 +1,49 @@
+user:
+	signIn:
+		fields:
+			login: Nick or email
+			password: Password
+			remember: Remember me
+			submit: Sign in
+		errors:
+			login:
+				required: Please enter nick or email.
+				notFound: User with this nick or email not found.
+			password:
+				required: Please enter password.
+				invalid: Invalid password.
+	continue:
+		fields:
+			remember: Remember me
+			continue: Continue
+
+	register:
+		fields:
+			nick: Nick
+			email: Email
+			password: Password
+			passwordCheck: Password again
+			register: Register
+		errors:
+			password:
+				required: Please enter password.
+				doesNotMatch: Passwords are not same.
+			nick:
+				registered: Nick is taken.
+				invalid: Nick is invalid.
+			email:
+				required: Please enter email.
+				registered: Email is taken.
+				invalid: Invalid email.
+
+
+company:
+	companyForm:
+		fields:
+			name: Name
+			add: Create
+			edit: Save
+	memberForm:
+		fields:
+			member: Member
+			submit: Add member

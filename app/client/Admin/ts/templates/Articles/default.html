@@ -1,0 +1,128 @@
+<!--Title bar-->
+<div class="grid-block vertical">
+	<div data-admin-menu-button></div>
+	<div class="title-bar main">
+		<h1 class="title">{{'templates.articles.title'|translate}}</h1>
+		<span class="menu">
+			<button type="button" class="remove-button-styles" data-ng-click="articlesCtrl.openCreatePanel()">
+				<span class="fa fa-pencil-square-o"></span> {{'templates.articles.add'|translate}}
+			</button>
+		</span>
+	</div>
+	<!--End of Title bar-->
+
+	<!--Section with content-->
+	<div class="grid-container contain-left">
+		<h2 class="content-title grid-content">Data</h2>
+		<div class="grid-content" data-ng-hide="articlesCtrl.getArticles()">
+			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
+		</div>
+		<div class="grid-content"  data-ng-show="articlesCtrl.getArticles()">
+			<table data-st-table="articles" data-st-safe-src="articlesCtrl.getArticles().getAsArray()" class="table">
+				<thead>
+					<tr>
+						<th data-st-sort="name" data-st-skip-natural="true" class="clickable">
+							{{'grids.articles.title'|translate}}
+						</th>
+						<th data-st-sort="author" data-st-skip-natural="true" class="clickable">
+							{{'grids.articles.author'|translate}}
+						</th>
+						<th data-st-sort="publishedDate" data-st-sort-default="reverse" data-st-skip-natural="true" class="clickable">
+							{{'grids.articles.publishDate'|translate}}
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="article in articles">
+						<td>{{article.name|limitTo:40}}{{article.name.length > 40 ? '...' : ''}}</td>
+						<td>{{article.author.name}}</td>
+						<td data-ng-show="article.published">{{article.publishedDate|date: 'yyyy. MM. dd.'}}</td>
+						<!-- High number is hack to sort unpublished articles as first. This won't work after year 99999 -->
+						<td data-ng-hide="article.published"><span class="hide-for-small">99999</span>
+							{{'grids.articles.unpublished'|translate}}
+						</td>
+						<td>
+							<button class="button hollow warning" type="button" data-ng-click="articlesCtrl.openEditPanel(article)">
+								<span class="fa fa-pencil"></span> {{'grids.articles.edit'|translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!--End of content-->
+<!--Panels-->
+<!--TODO: Expand should be added by its directive-->
+<div data-zf-panel id="sidebar" data-position="right" class="vertical side-panel large large-4 expand">
+	<button type="button" data-ng-click="articlesCtrl.closePanel()" class="remove-button-styles close-button ng-scope">×</button>
+	<div class="title-bar main">
+		<h2 class="title left">{{articlesCtrl.newArticle ? 'templates.articles.create' : 'templates.articles.edit'|translate}}</h2>
+		<span class="menu">
+			<button type="button" class="remove-button-styles show-for-large" data-ng-click="articlesCtrl.panel.expand()">
+				<span class="fa fa-{{articlesCtrl.panel.getPanelSize() === articlesCtrl.panel.panelSizeEnum.EXPAND ? 'compress' : 'expand'}}"></span>
+				{{articlesCtrl.panel.getPanelSize() === articlesCtrl.panel.panelSizeEnum.EXPAND ? 'templates.articles.compress' : 'templates.articles.expand'| translate}}
+			</button>
+		</span>
+	</div>
+	<div class="grid-container contain-left wrap">
+		<form name="articlesCtrl.articleForm" class="form" novalidate>
+			<div class="grid-block wrap">
+				<div class="notitle"></div>
+				<div class="grid-content small-12 noscroll">
+					<label>
+						{{'forms.articles.title'|translate}}:
+						<input name="title" type="text" ng-model="articlesCtrl.article.name" required>
+					</label>
+					<label>
+						{{'forms.articles.content'|translate}}:
+						<textarea name="content" rows="10" ng-model="articlesCtrl.article.content" required></textarea>
+					</label>
+
+					<p class="small-12" data-ng-hide="articlesCtrl.newArticle">
+						{{'forms.articles.author'|translate}} : {{articlesCtrl.article.author.nick}}
+					</p>
+					<div class="notitle" data-ng-show="articlesCtrl.newArticle"></div>
+				</div>
+
+				<div class="grid-content small-12">
+					<button type="submit" class="button default"
+					        data-ng-hide="articlesCtrl.article.published"
+					        data-ng-class="{spinner : articlesCtrl.processingSave}"
+					        data-ng-disabled="(articlesCtrl.articleForm.$invalid || articlesCtrl.isProcessing())"
+					        data-ng-click="articlesCtrl.saveArticle(true)">
+						{{'forms.articles.saveAndPublish'|translate}}
+					</button>
+
+					<button type="submit" class="button secondary"
+					        data-ng-hide="articlesCtrl.article.published"
+					        data-ng-class="{spinner : articlesCtrl.processingSaveAsDraft}"
+					        data-ng-disabled="(articlesCtrl.articleForm.$invalid || articlesCtrl.isProcessing())"
+					        data-ng-click="articlesCtrl.saveArticle()">
+						{{'forms.articles.saveAsDraft'|translate}}
+					</button>
+
+					<button type="submit" class="button primary"
+					        data-ng-show="articlesCtrl.article.published"
+					        data-ng-class="{spinner : articlesCtrl.processingSave}"
+					        data-ng-disabled="(articlesCtrl.articleForm.$invalid || articlesCtrl.isProcessing())"
+					        data-ng-click="articlesCtrl.saveArticle(true)">
+						{{'forms.articles.save'|translate}}
+					</button>
+
+					<button type="button" class="button alert"
+					        data-ng-hide="articlesCtrl.newArticle"
+					        data-ng-class="{spinner : articlesCtrl.processingDelete}"
+					        data-ng-disabled="articlesCtrl.isProcessing()"
+					        data-ng-click="articlesCtrl.deleteArticle()">
+						{{'forms.articles.delete'|translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>
+<!--End of panels-->

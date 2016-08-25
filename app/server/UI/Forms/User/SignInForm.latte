@@ -1,0 +1,18 @@
+{form form, class => form}
+	<div n:class="input-group, $form['login']->error ? error">
+		{label login, class => label /}
+		{input login, class => input}
+		<b n:ifcontent>{$form['login']->error}</b>
+	</div>
+	<div n:class="input-group, $form['password']->error ? error">
+		{label password, class => label /}
+		{input password, class => input}
+		<b n:ifcontent>{$form['password']->error}</b>
+	</div>
+	<div class="checkbox-container">
+		{label remember, class => label /}
+		{input remember, class => checkebox}
+	</div>
+{input submit, class => btn}
+	<div class="clearfix"></div>
+{/form}

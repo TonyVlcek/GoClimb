@@ -1,0 +1,78 @@
+core:
+	websiteName: GoClimb
+
+auth:
+	layout:
+		title: Auth
+	dashboard:
+		default:
+			back: Back to website
+			oneAccount: All walls. One account.
+			title: 'Sign in to %appName% using GoClimb.'
+			welcome: Welcome back!
+			loggedIn: "You are currently logged in as:"
+			register: Create new account
+			notYou: Not You?
+			login: Login
+		register:
+			register: Registration into GoClimb.
+
+backend:
+	layout:
+		title: Administration
+		toggleNav: Toggle navigation
+		brand: Administration
+		close: Close
+		topMenu:
+			dashboard: Dashboard
+			users: Users
+			company: Company
+			login: Login
+			logout: Logout
+	dashboard:
+		default:
+			title: Dashboard
+	error:
+		forbidden:
+			title: Forbidden
+			heading: "Sorry, you can't access this"
+			logout: Logout
+
+public:
+	layout:
+		title: Project Name
+		toggleNav: Toggle navigation
+	dashboard:
+		default:
+			wallsList: Walls
+			webLink: web
+			adminLink: administration
+
+admin:
+	loading:
+		loading: Loading
+		madeWithLove: "Made with love."
+		madeBy: "Made by GoClimb."
+
+
+errors:
+	4xx:
+		title: Oops...
+		description: Your browser sent a request that this server could not understand or process.
+	403:
+		name: error 403
+		title: Access Denied
+		description: You do not have permission to view this page. Please try contact the web site administrator if you believe you should be able to view this page.
+	404:
+		name: error 404
+		title: Page not found
+		description: The page you requested could not be found. It is possible that the address is incorrect or that the page no longer exists. Please use a search engine to find what you are looking for.
+	405:
+		name: error 405
+		title: Method Not Allowed
+		description: The requested method is not allowed for the URL.
+
+	410:
+		name: error 410
+		title: Page Not Found
+		description: The page you requested has been taken off the site. We apologize for the inconvenience.

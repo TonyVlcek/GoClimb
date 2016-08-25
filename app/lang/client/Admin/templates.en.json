@@ -1,0 +1,42 @@
+{
+	"articles": {
+		"title": "Articles",
+		"edit": "Edit",
+		"create": "Create",
+		"add": "Add article",
+		"close": "Close",
+		"compress": "Compress",
+		"expand": "Expand"
+	},
+	"dashboard": {
+		"title": "Dashboard"
+	},
+	"plugins": {
+		"table": {
+			"pluginName": "Plugin name",
+			"pluginDescription": "Description",
+			"status": "Status",
+			"actions": "Actions",
+			"search": "Search",
+			"enable": "Enable",
+			"disable": "Disable"
+		}
+	},
+	"settings": {
+		"title": "Settings",
+		"general": "General settings",
+		"default": {
+			"name": "Name",
+			"street": "Street",
+			"number": "House number",
+			"country": "Country",
+			"zip": "Postal code",
+			"submit": "Submit"
+		}
+	},
+	"404":{
+		"notFound": "Page not found",
+		"dashboard": "Dashboard",
+		"back": "Back"
+	}
+}

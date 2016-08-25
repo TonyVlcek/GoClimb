@@ -1,0 +1,132 @@
+{
+	"options": {
+		"banner": "/*! <%= pkg.name %> v<%= pkg.version %> built <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
+	},
+	"admin": {
+		"options": {
+			"compress": true,
+			"mangle": true,
+			"beautify": false
+		},
+		"src": [
+			"bower_components/angular/angular.min.js",
+			"bower_components/angular-animate/angular-animate.min.js",
+			"bower_components/angular-ui-router/release/angular-ui-router.min.js",
+			"bower_components/fastclick/lib/fastclick.js",
+			"bower_components/tether/tether.min.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
+			"bower_components/angular-translate/angular-translate.min.js",
+			"www/assets/build/admin-lang.js",
+			"www/assets/build/admin.js"
+		],
+		"dest": "www/assets/admin.js"
+	},
+	"admin-dev": {
+		"options": {
+			"compress": false,
+			"mangle": false,
+			"beautify": true
+		},
+		"src": [
+			"bower_components/angular/angular.js",
+			"bower_components/angular-animate/angular-animate.js",
+			"bower_components/angular-ui-router/release/angular-ui-router.js",
+			"bower_components/fastclick/lib/fastclick.js",
+			"bower_components/tether/tether.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
+			"bower_components/angular-translate/angular-translate.js",
+			"bower_components/angular-smart-table/dist/smart-table.min.js",
+			"www/assets/build/admin-lang.js",
+			"www/assets/build/admin.js"
+		],
+		"dest": "www/assets/admin.js"
+	},
+	"auth": {
+		"options": {
+			"compress": true,
+			"mangle": true,
+			"beautify": false
+		},
+		"src": [
+			"www/assets/build/auth.js"
+		],
+		"dest": "www/assets/auth.js"
+	},
+	"auth-dev": {
+		"options": {
+			"compress": false,
+			"mangle": false,
+			"beautify": true
+		},
+		"src": [
+			"www/assets/build/auth.js"
+		],
+		"dest": "www/assets/auth.js"
+	},
+	"backend": {
+		"options": {
+			"compress": true,
+			"mangle": true,
+			"beautify": false
+		},
+		"src": [
+			"bower_components/jquery/dist/jquery.min.js",
+			"bower_components/bootstrap/dist/js/bootstrap.min.js",
+			"www/assets/build/backend.js"
+		],
+		"dest": "www/assets/backend.js"
+	},
+	"backend-dev": {
+		"options": {
+			"compress": false,
+			"mangle": false,
+			"beautify": true
+		},
+		"src": [
+			"bower_components/jquery/dist/jquery.js",
+			"bower_components/bootstrap/dist/js/bootstrap.js",
+			"www/assets/build/backend.js"
+		],
+		"dest": "www/assets/backend.js"
+	},
+	"frontend": {
+		"options": {
+			"compress": true,
+			"mangle": true,
+			"beautify": false
+		},
+		"src": [
+			"bower_components/angular/angular.min.js",
+			"bower_components/angular-animate/angular-animate.min.js",
+			"bower_components/angular-ui-router/release/angular-ui-router.min.js",
+			"bower_components/fastclick/lib/fastclick.js",
+			"bower_components/tether/tether.min.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
+			"www/assets/build/frontend-lang.js",
+			"www/assets/build/frontend.js"
+		],
+		"dest": "www/assets/frontend.js"
+	},
+	"frontend-dev": {
+		"options": {
+			"compress": false,
+			"mangle": false,
+			"beautify": true
+		},
+		"src": [
+			"bower_components/angular/angular.js",
+			"bower_components/angular-animate/angular-animate.js",
+			"bower_components/angular-ui-router/release/angular-ui-router.js",
+			"bower_components/fastclick/lib/fastclick.js",
+			"bower_components/tether/tether.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps.js",
+			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
+			"www/assets/build/frontend-lang.js",
+			"www/assets/build/frontend.js"
+		],
+		"dest": "www/assets/frontend.js"
+	}
+}

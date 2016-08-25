@@ -1,0 +1,22 @@
+{
+	"admin": {
+		"options": {
+			"namespace": "_translations"
+		},
+		"src": [
+			"app/lang/client/Core/*.json",
+			"app/lang/client/Admin/*.json"
+		],
+		"dest": "www/assets/build/admin-lang.js"
+	},
+	"frontend": {
+		"options": {
+			"namespace": "_translations"
+		},
+		"src": [
+			"app/lang/client/Core/*.json",
+			"app/lang/client/Frontend/*.json"
+		],
+		"dest": "www/assets/build/frontend-lang.js"
+	}
+}

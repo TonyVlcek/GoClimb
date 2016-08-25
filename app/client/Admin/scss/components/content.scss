@@ -1,0 +1,25 @@
+.content-title {
+	margin-top: $content-title-space;
+	margin-bottom: $content-title-space;
+}
+
+.grid-container {
+	@include breakpoint(large) {
+		padding: 0 $grid-container-padding-sides-large;
+	}
+
+	max-width: 96rem !important;
+	margin: 0 !important;
+
+	&.dark {
+		background: $grid-content-dark;
+	}
+
+	&.contain-left {
+		//Rem?
+		//margin: 0 5px;
+		//@include breakpoint(medium) {
+		//margin: 0 1rem;//2.5rem;
+		//}
+	}
+}

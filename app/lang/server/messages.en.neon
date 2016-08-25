@@ -1,0 +1,13 @@
+company:
+	created: Company has been created
+	renamed: Comapny name has been changed
+user:
+	added: User has been added
+	removed: User %email% has been removed
+	login:
+		success: Login successful
+		error: Login failed
+	logout:
+		success: Logout successful
+	register:
+		success: Register successful.

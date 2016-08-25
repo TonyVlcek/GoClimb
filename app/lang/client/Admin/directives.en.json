@@ -1,0 +1,19 @@
+{
+	"adminMenu": {
+		"items": {
+			"articles": "Articles",
+			"dashboard": "Dashboard",
+			"settings": "Settings",
+			"plugins": "Plugins"
+		}
+	},
+	"dashboard": {
+		"shortcuts": {
+			"title": "Shortcuts",
+			"settings": "Settings"
+		}
+	},
+	"loading": {
+		"title": "Loading"
+	}
+}

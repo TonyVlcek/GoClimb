@@ -1,13 +1,22 @@
 /vendor
+/bower_components
 /node_modules
+/typings
 
 app/config/config.local.neon
 app/bootstrap.local.php
 
-www/assets/app.css
-www/assets/app.js
+www/assets/*.css
+www/assets/*.js
 www/assets/build/*
 !www/assets/build/.gitkeep
+www/fonts/*
+
+tests/temp
+tests/php-local.ini
+
+.tscache
+.sass-cache
 
 .idea
 nbproject

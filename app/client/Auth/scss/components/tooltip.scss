@@ -1,0 +1,34 @@
+.tooltip {
+	display: inline;
+	position: relative;
+	cursor: help;
+	color: $auth-primary-color;
+	text-decoration: none;
+	border-bottom: 3px dotted $auth-primary-color;
+}
+
+.tooltip:hover:after {
+	background: $tooltip-border;
+	top: 2.4rem;
+	color: $tooltip-color;
+	content: attr(title);
+	left: -120px;
+	padding: 15px 15px;
+	position: absolute;
+	z-index: 98;
+	width: 320px;
+	font-size: 0.9rem;
+	font-weight: normal;
+	text-align: justify;
+}
+
+.tooltip:hover:before {
+	border: solid;
+	border-color: $tooltip-border transparent;
+	border-width: 0 0.5rem 0.5rem 0.5rem;
+	top: 2.1rem;
+	content: "";
+	left: 50%;
+	position: absolute;
+	z-index: 99;
+}

@@ -1,0 +1,24 @@
+{
+	"name": "go-climb",
+	"version": "0.1.0",
+	"homepage": "https://github.com/greeny/GoClimb",
+	"authors": [
+		"Tomáš Blatný <blatny.tomas@seznam.cz>"
+	],
+	"description": "Powerful CMS for indoor climbing websites",
+	"main": "",
+	"moduleType": [
+		"globals"
+	],
+	"license": "Proprietary",
+	"private": true,
+	"ignore": [],
+	"dependencies": {
+		"angular-ui-router": "~0.2.18",
+		"bootstrap": "~3.3.7",
+		"font-awesome": "~4.6.3",
+		"foundation-apps": "~1.2.0",
+		"angular-translate": "~2.11.1",
+		"angular-smart-table": "^2.1.8"
+	}
+}

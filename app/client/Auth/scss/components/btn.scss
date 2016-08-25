@@ -1,0 +1,23 @@
+$btn-default-background: $auth-primary-color;
+$btn-default-color: #FFFFFF;
+
+.btn {
+	display: inline-block;
+	background: $btn-default-background;
+	color: $btn-default-color;
+	text-decoration: none;
+	font-size: 0.9rem;
+	border: none;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+
+	transition: background 0.25s ease-out;
+
+	&:hover {
+		background: lighten($btn-default-background, 6);
+	}
+
+	&.right {
+		float: right;
+	}
+}

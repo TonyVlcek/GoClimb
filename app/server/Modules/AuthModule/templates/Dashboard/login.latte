@@ -1,0 +1,22 @@
+{block content}
+
+<div class="header">
+	<a href="{$back}" class="btn">{_templates.auth.dashboard.default.back}</a>
+	<a n:href="Dashboard:register" class="btn right">{_templates.auth.dashboard.default.register}</a>
+</div>
+
+
+<div class="container-block">
+	<div n:foreach="$flashes as $flash" class="content-block" role="alert">
+		{$flash->message}
+	</div>
+	<img class="description-image" src="{$basePath}/assets/GoClimbLogo.png" height="100">
+	<h1>{_templates.auth.dashboard.default.oneAccount}</h1>
+	{include includes/applicationDetail.latte}
+	<div class="content-block">
+		<div class="form-body">
+			{control signInForm}
+		</div>
+	</div>
+
+</div>

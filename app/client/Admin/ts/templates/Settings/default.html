@@ -1,0 +1,44 @@
+<div class="grid-block vertical">
+	<div data-admin-menu-button></div>
+	<div class="title-bar main">
+		<h1 class="title">{{'templates.settings.title'|translate}}</h1>
+	</div>
+	<!--End of Title bar-->
+
+	<!--Section with content-->
+	<div class="grid-container contain-left">
+		<h2 class="content-title grid-content">{{'templates.settings.general'|translate}}</h2>
+
+		<div data-ng-hide="settingsCtrl.getDetails()" class="grid-content" ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
+
+		<div class="grid-content">
+			<div data-ng-show="settingsCtrl.getDetails()">
+				<label class="small-12 large-6">
+					{{'templates.settings.default.name'|translate}}
+					<input type="text" data-ng-model="settingsCtrl.getDetails().name">
+				</label>
+				<label class="small-12 large-6">
+					{{'templates.settings.default.street'|translate}}
+					<input type="text" data-ng-model="settingsCtrl.getDetails().street">
+				</label>
+				<label class="small-12 large-6">
+					{{'templates.settings.default.number'|translate}}
+					<input type="text" data-ng-model="settingsCtrl.getDetails().number">
+				</label>
+				<label class="small-12 large-6">
+					{{'templates.settings.default.country'|translate}}
+					<input type="text" data-ng-model="settingsCtrl.getDetails().country">
+				</label>
+				<label class="small-12 large-6">
+					{{'templates.settings.default.zip'|translate}}
+					<input type="text" data-ng-model="settingsCtrl.getDetails().zip">
+				</label>
+				<button type="submit" class="button primary" data-ng-click="settingsCtrl.updateDetails()">
+					{{'templates.settings.default.submit'|translate}}
+				</button>
+			</div>
+		</div>
+
+
+	</div>
+</div>
