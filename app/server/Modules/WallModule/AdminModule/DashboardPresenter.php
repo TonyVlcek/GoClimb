@@ -30,6 +30,7 @@ class DashboardPresenter extends BaseAdminPresenter
 
 	public function renderDefault()
 	{
+		$this->template->cdnUrl = $this->cdnLinkGenerator->getCdnUrl();
 		$this->template->restToken = $this->user->isLoggedIn() ? $this->restFacade->getOrGenerateRestToken($this->wall, $this->user->getUserEntity(), $this->getHttpRequest()->getRemoteAddress())->getToken() : NULL;
 		$this->template->locale = $this->locale;
 	}

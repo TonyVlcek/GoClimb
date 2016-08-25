@@ -9,6 +9,6 @@
 			"bower_components/font-awesome/fonts/fontawesome-webfont.woff",
 			"bower_components/font-awesome/fonts/fontawesome-webfont.woff2"
 		],
-		"dest": "www/fonts/"
+		"dest": "cdn/fonts/"
 	}
 }

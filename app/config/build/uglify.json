@@ -17,10 +17,10 @@
 			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
 			"bower_components/angular-translate/angular-translate.min.js",
-			"www/assets/build/admin-lang.js",
-			"www/assets/build/admin.js"
+			"temp/build/admin-lang.js",
+			"temp/build/admin.js"
 		],
-		"dest": "www/assets/admin.js"
+		"dest": "cdn/assets/admin.js"
 	},
 	"admin-dev": {
 		"options": {
@@ -38,10 +38,10 @@
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
 			"bower_components/angular-translate/angular-translate.js",
 			"bower_components/angular-smart-table/dist/smart-table.min.js",
-			"www/assets/build/admin-lang.js",
-			"www/assets/build/admin.js"
+			"temp/build/admin-lang.js",
+			"temp/build/admin.js"
 		],
-		"dest": "www/assets/admin.js"
+		"dest": "cdn/assets/admin.js"
 	},
 	"auth": {
 		"options": {
@@ -50,9 +50,9 @@
 			"beautify": false
 		},
 		"src": [
-			"www/assets/build/auth.js"
+			"temp/build/auth.js"
 		],
-		"dest": "www/assets/auth.js"
+		"dest": "cdn/assets/auth.js"
 	},
 	"auth-dev": {
 		"options": {
@@ -61,9 +61,9 @@
 			"beautify": true
 		},
 		"src": [
-			"www/assets/build/auth.js"
+			"temp/build/auth.js"
 		],
-		"dest": "www/assets/auth.js"
+		"dest": "cdn/assets/auth.js"
 	},
 	"backend": {
 		"options": {
@@ -74,9 +74,9 @@
 		"src": [
 			"bower_components/jquery/dist/jquery.min.js",
 			"bower_components/bootstrap/dist/js/bootstrap.min.js",
-			"www/assets/build/backend.js"
+			"temp/build/backend.js"
 		],
-		"dest": "www/assets/backend.js"
+		"dest": "cdn/assets/backend.js"
 	},
 	"backend-dev": {
 		"options": {
@@ -87,9 +87,9 @@
 		"src": [
 			"bower_components/jquery/dist/jquery.js",
 			"bower_components/bootstrap/dist/js/bootstrap.js",
-			"www/assets/build/backend.js"
+			"temp/build/backend.js"
 		],
-		"dest": "www/assets/backend.js"
+		"dest": "cdn/assets/backend.js"
 	},
 	"frontend": {
 		"options": {
@@ -105,10 +105,10 @@
 			"bower_components/tether/tether.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.min.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.min.js",
-			"www/assets/build/frontend-lang.js",
-			"www/assets/build/frontend.js"
+			"temp/build/frontend-lang.js",
+			"temp/build/frontend.js"
 		],
-		"dest": "www/assets/frontend.js"
+		"dest": "cdn/assets/frontend.js"
 	},
 	"frontend-dev": {
 		"options": {
@@ -124,9 +124,9 @@
 			"bower_components/tether/tether.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps.js",
 			"bower_components/foundation-apps/dist/js/foundation-apps-templates.js",
-			"www/assets/build/frontend-lang.js",
-			"www/assets/build/frontend.js"
+			"temp/build/frontend-lang.js",
+			"temp/build/frontend.js"
 		],
-		"dest": "www/assets/frontend.js"
+		"dest": "cdn/assets/frontend.js"
 	}
 }

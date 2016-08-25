@@ -8,8 +8,8 @@ module.exports = function (grunt) {
 		ngtemplates: grunt.file.readJSON('app/config/build/ngtemplates.json'),
 		copy: grunt.file.readJSON('app/config/build/copy.json'),
 		clean: [
-			'!www/assets/build/.gitkeep',
-			'www/assets/build/*'
+			'!temp/build/.gitkeep',
+			'temp/build/*'
 		],
 		typings: {
 			default: {
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 				]
 			},
 			dist: {
-				src: 'www/assets/build/*.css'
+				src: 'temp/build/*.css'
 			}
 		},
 		json: grunt.file.readJSON('app/config/build/json.json')
