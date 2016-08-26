@@ -10,7 +10,7 @@
 	<div n:foreach="$flashes as $flash" class="content-block" role="alert">
 		{$flash->message}
 	</div>
-	<img class="description-image" src="{$imageSrc('static/GoClimbLogo.png')}" height="100">
+	<img class="description-image" src="{$cdn('static/GoClimbLogo.png')}" height="100">
 	<h1>{_templates.auth.dashboard.default.oneAccount}</h1>
 	{include includes/applicationDetail.latte}
 	<div class="content-block">
