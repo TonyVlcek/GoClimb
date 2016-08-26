@@ -1,22 +1,19 @@
 .side-panel {
-	/*@include breakpoint(large){
-		&.large-grid-block{
-			width: $side-panel-compress-size;
-		}
-	}*/
+	//Expand is default width
+	width: $side-panel-width-expand;
+	max-width: 90%;
+	transition: width .3s;
 
-	border-left: 1px solid $side-panel-border-color;
+	top: 0;
+	right: 0;
+	height: 100%;
+	display: block;
+	overflow-y: auto;
+	position: absolute;
+	z-index: $side-panel-z-index;
 	background: #FFFFFF !important;
-	flex-flow: column nowrap;
-	padding: 0;
-	z-index: $side-panel-z-index !important;
-
-	.close-button {
-		color: #CFCFCF;
-		&:hover {
-			color: #FFFFFF;
-		}
-	}
+	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25);
+	animation-fill-mode: forwards;
 
 	.title-bar {
 		padding-left: $side-panel-title-padding;
@@ -27,138 +24,60 @@
 		padding-left: $side-panel-content-padding;
 		padding-right: $side-panel-content-padding;
 	}
-
-	img {
-		text-align: center;
-	}
-
-	&.large {
-		width: 56rem;
-		max-width: 90%;
-	}
 }
 
-.side-panel textarea {
-	width: 100% !important;
-	max-width: 100%;
+.main-view, .main-view .title-bar, .main-view .grid-container {
+	transition: margin 0.3s, padding 0.3s;
 }
 
-.side-panel-in {
-	@include breakpoint(large down) {
-		@include slide(
-			$dir: in,
-			$from: right,
-			$fade: false,
-			$duration: 0.3s,
-			$timing: easeInOut,
-			$delay: 0
-		);
-	}
-
+.panel-is-compressed.panel-is-active {
 	@include breakpoint(large) {
-		&.compress {
-			display: flex !important;
-			position: relative !important;
-			animation: slide-in-compress $side-panel-animation-duration;
-		}
-		&.expand {
-			@include slide(
-				$dir: in,
-				$from: right,
-				$fade: false,
-				$duration: $side-panel-animation-duration,
-				$timing: easeInOut,
-				$delay: 0
-			);
-		}
-	}
-}
 
-.side-panel-out {
-	@include breakpoint(large down) {
-		@include slide(
-			$dir: out,
-			$from: right,
-			$fade: false,
-			$duration: $side-panel-animation-duration,
-			$timing: easeInOut,
-			$delay: 0
-		);
-	}
-
-	@include breakpoint(large) {
-		&.compress {
-			display: flex !important;
-			position: relative !important;
-			animation: slide-out-compress $side-panel-animation-duration;
+		.main-view{
+			padding-right: $side-panel-width-compress;
 		}
-		&.expand {
-			@include slide(
-				$dir: out,
-				$from: right,
-				$fade: false,
-				$duration: $side-panel-animation-duration,
-				$timing: easeInOut,
-				$delay: 0
-			);
+
+		//In progress
+		//.main-view .title-bar {
+		//	padding-right: $side-panel-width-compress;
+		//}
+		//
+		//.main-view .grid-container {
+		//	margin-right: $side-panel-width-compress !important;
+		//}
+
+		.side-panel {
+			width: $side-panel-width-compress;
 		}
 	}
 }
 
-.side-panel-expand {
-	position: absolute !important;
-	top: 0 !important;
-	right: 0 !important;
-	height: 100% !important;
-	display: block !important;
-	animation: side-panel-expand $side-panel-animation-duration;
-}
+.panel-view {
+	z-index: 102;
 
-.side-panel-compress {
-	position: absolute !important;
-	top: 0 !important;
-	right: 0 !important;
-	height: 100% !important;
-	display: block !important;
-	animation: side-panel-compress $side-panel-animation-duration;
-}
-
-@keyframes slide-in-compress {
-	from {
-		margin-right: -$side-panel-animation-margin;
+	&.ng-enter, &.ng-leave {
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		display: block;
+		transition: all 0.5s ease-in-out;
 	}
 
-	to {
-		margin-right: 0;
+	&.ng-enter {
+		transform: translateX(100%);
 	}
 
-}
-
-@keyframes slide-out-compress {
-	from {
-		margin-right: 0;
+	&.ng-enter-active {
+		transform: translateX(0);
 	}
 
-	to {
-		margin-right: -$side-panel-animation-margin !important;
+	&.ng-leave {
+		transform: translateX(0);
 	}
-}
 
-@keyframes side-panel-expand {
-	from {
-
-		width: $side-panel-animation-margin;
-	}
-	to {
-		width: $side-panel-expanded-width;
-	}
-}
-
-@keyframes side-panel-compress {
-	from {
-		width: $side-panel-expanded-width;
-	}
-	to {
-		width: $side-panel-animation-margin;
+	&.ng-leave-active {
+		transform: translateX(100%);
 	}
 }

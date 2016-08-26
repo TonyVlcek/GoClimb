@@ -1,46 +1,54 @@
 namespace GoClimb.Core.Utils
 {
-	export class IndexedArray
+	export class IndexedArray<T>
 	{
-		private data: {} = {};
-		private arrayData: any[] = [];
+		private data: {[key: string]: T} = {};
+		private arrayData: T[] = [];
 
 
-		constructor(data: {})
+		constructor(data: {[key: string]: T})
 		{
 			this.setData(data);
 		}
 
-		public setData(value: {})
+		public setData(value: {[key: string]: T})
 		{
-			this.data = value;
+			this.data = {};
+			for (var k in value) {
+				this.data[k.toString()] = value[k];
+			}
 
 			this.removeIndexes();
 			return this;
 		}
 
-		public getAsObject(): {}
+		public getAsObject(): {[key: string]: T}
 		{
 			return this.data;
 		}
 
-		public getAsArray(): any[]
+		public getAsArray(): T[]
 		{
 			return this.arrayData;
 		}
 
-		public removeIndex(index: number): IndexedArray
+		public removeIndex(index: string): IndexedArray<T>
 		{
 			delete this.data[index.toString()];
 			this.removeIndexes();
 			return this;
 		}
 
-		public setIndex(index: number, item: any): IndexedArray
+		public setIndex(index: string, item: T): IndexedArray<T>
 		{
 			this.data[index.toString()] = item;
 			this.removeIndexes();
 			return this;
+		}
+
+		public getIndex(index: string): T
+		{
+			return (index.toString() in this.data) ? this.data[index.toString()] : null;
 		}
 
 		public isEmpty(): boolean
@@ -50,11 +58,10 @@ namespace GoClimb.Core.Utils
 
 		private removeIndexes()
 		{
-			var updateData: any[] = [];
+			this.arrayData = [];
 			for (var index in this.data) {
-				updateData.push(this.data[index]);
+				this.arrayData.push(this.data[index]);
 			}
-			this.arrayData = updateData;
 		}
 	}
 

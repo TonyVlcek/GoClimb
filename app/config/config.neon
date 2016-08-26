@@ -70,6 +70,7 @@ services:
 	- GoClimb\Model\Repositories\ArticleRepository
 	- GoClimb\Model\Repositories\CompanyRepository
 	- GoClimb\Model\Repositories\ContentPartRepository
+	- GoClimb\Model\Repositories\EventRepository
 	- GoClimb\Model\Repositories\FileRepository
 	- GoClimb\Model\Repositories\ImageRepository
 	- GoClimb\Model\Repositories\LanguageRepository
@@ -85,6 +86,7 @@ services:
 	# updaters
 
 	- GoClimb\Model\Rest\Updaters\ArticleUpdater
+	- GoClimb\Model\Rest\Updaters\EventUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters

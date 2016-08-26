@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="{$cdn('assets/admin.css')}">
 </head>
-<body data-zf-close-all data-zf-esc-close>
+<body data-close>
 <div data-app>
 	<style>
 		html, body {
@@ -80,7 +80,6 @@
 	<b>{_templates.admin.loading.madeWithLove}</b><br>
 	<b>{_templates.admin.loading.madeBy}</b>
 </div>
-
 	<script src="{$cdn('assets/admin.js')}"></script>
 	<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
 	<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{{$data}})</script>

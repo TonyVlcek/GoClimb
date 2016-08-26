@@ -28,5 +28,5 @@ namespace GoClimb.Admin.Services
 		}
 	}
 
-	DialogService.register(angular, 'DialogService', ['$window', '$translate'])
+	DialogService.register(angular, 'dialogService', ['$window', '$translate'])
 }

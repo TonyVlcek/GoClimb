@@ -14,11 +14,16 @@
 	"private": true,
 	"ignore": [],
 	"dependencies": {
-		"angular-ui-router": "~0.2.18",
+		"angular": "1.5.8",
+		"angular-ui-router": "1.0.0-beta.1",
 		"bootstrap": "~3.3.7",
 		"font-awesome": "~4.6.3",
 		"foundation-apps": "~1.2.0",
 		"angular-translate": "~2.11.1",
 		"angular-smart-table": "^2.1.8"
+	},
+	"resolutions": {
+		"angular-ui-router": "1.0.0-beta.1",
+		"angular": "1.5.8"
 	}
 }

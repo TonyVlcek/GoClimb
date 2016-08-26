@@ -12,22 +12,30 @@
 			"success": "Wall settings updated."
 		}
 	},
-	"articles":{
+	"articles": {
 		"delete": "Delete this article?",
-
 		"savedAsDraft": "Article was saved as draft.",
 		"saved": "Article was saved.",
 		"savedAndPublished": "Article was saved and published.",
-
-		"deleted":{
-			"success" : "Article was deleted.",
-			"error" : "Article was not deleted."
+		"deleted": {
+			"success": "Article was deleted.",
+			"error": "Article was not deleted."
 		},
 		"error": {
 			"invalidForm": "Invalid form."
 		}
 	},
-	"panel":{
-		"close": "Close panel?"
+	"events": {
+		"delete": "Delete this event?",
+		"savedAsDraft": "Event was saved as draft.",
+		"saved": "Event was saved.",
+		"savedAndPublished": "Event was saved and published.",
+		"deleted": {
+			"success": "Event was deleted.",
+			"error": "Event was not deleted."
+		},
+		"error": {
+			"invalidForm": "Invalid form."
+		}
 	}
 }
