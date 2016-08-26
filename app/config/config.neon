@@ -36,6 +36,7 @@ extensions:
 
 latte:
 	macros:
+		- GoClimb\UI\Macros\CdnMacro::install
 		- Nextras\Latte\Macros\RedefineMacro::install
 
 migrations:

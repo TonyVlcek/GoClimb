@@ -7,8 +7,8 @@
 			<ul n:inner-foreach="$wall->getWallLanguages() as $wallLanguage">
 				<li n:class="$wallLanguage === $wall->getPrimaryLanguage() ? primary">
 					{$wallLanguage->getLanguage()->getName()} -
-					<a n:href=":Wall:Front:Dashboard:default wall => $wall">{_templates.public.dashboard.default.webLink}</a> |
-					<a n:href=":Wall:Admin:Dashboard:default wall => $wall">{_templates.public.dashboard.default.adminLink}</a>
+					<a n:href=":Wall:Front:Dashboard:default wall => $wall, locale => $wallLanguage->getLanguage()->getShortcut()">{_templates.public.dashboard.default.webLink}</a> |
+					<a n:href=":Wall:Admin:Dashboard:default wall => $wall, locale => $wallLanguage->getLanguage()->getShortcut()">{_templates.public.dashboard.default.adminLink}</a>
 				</li>
 			</ul>
 		</li>
