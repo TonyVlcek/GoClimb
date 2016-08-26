@@ -3,5 +3,8 @@ parameters:
 doctrine:
 	dbname: online_climbing_tests
 
+goClimb:
+	cdnUrl: http://localhost/cdn
+
 console:
 	url: http://localhost

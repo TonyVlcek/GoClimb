@@ -21,6 +21,7 @@
 /// <reference path='ts/Directives/AdminMenu/AdminMenuDirective.ts' />
 /// <reference path='ts/Directives/AdminMenuButton/AdminMenuButtonDirective.ts' />
 /// <reference path='ts/Directives/Dashboard/DashboardDirective.ts' />
+/// <reference path='ts/Directives/CdnImage/CdnImageDirective.ts' />
 
 /// <reference path="ts/Controllers/BaseAdminController.ts" />
 /// <reference path="ts/Controllers/ArticlesController.ts" />

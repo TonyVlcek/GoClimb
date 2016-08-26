@@ -5,5 +5,8 @@ doctrine:
 	password:
 	dbname: online_climbing
 
+goClimb:
+	cdnUrl: http://localhost/GoClimb/cdn/
+
 console:
 	url: http://example.com

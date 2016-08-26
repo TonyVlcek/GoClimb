@@ -7,7 +7,7 @@
 
 	<title>User Admin</title>
 
-	<link rel="stylesheet" href="{$basePath}/assets/admin.css">
+	<link rel="stylesheet" href="{$cdn('assets/admin.css')}">
 </head>
 <body data-zf-close-all data-zf-esc-close>
 <div data-app>
@@ -82,8 +82,8 @@
 	<b>{_templates.admin.loading.madeBy}</b>
 </div>
 
-	<script src="{$basePath}/assets/admin.js"></script>
+	<script src="{$cdn('assets/admin.js')}"></script>
 	<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
-	<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{availableLanguages:{{$availableLanguages}},apiUrl:{{plink //:Wall:Rest:V1:Dashboard:default}},restToken:{{$restToken}}})</script>
+	<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{availableLanguages:{{$availableLanguages}},apiUrl:{{plink //:Wall:Rest:V1:Dashboard:default}},restToken:{{$restToken}},cdnUrl:{{$cdnUrl}}})</script>
 </body>
 </html>

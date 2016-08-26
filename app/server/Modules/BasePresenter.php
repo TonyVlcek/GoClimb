@@ -3,6 +3,7 @@
 namespace GoClimb\Modules;
 
 use GoClimb\Model\Repositories\LoginTokenRepository;
+use GoClimb\UI\CdnLinkGenerator;
 use Kdyby\Translation\Translator;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
@@ -45,6 +46,9 @@ abstract class BasePresenter extends Presenter
 	/** @var  LoginTokenRepository */
 	protected $loginTokenRepository;
 
+	/** @var CdnLinkGenerator */
+	protected $cdnLinkGenerator;
+
 
 	public function run(Request $request)
 	{
@@ -65,11 +69,12 @@ abstract class BasePresenter extends Presenter
 	}
 
 
-	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository)
+	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository, CdnLinkGenerator $imageLinkGenerator)
 	{
 		$this->translator = $translator;
 		$this->applicationPartsManager = $applicationPartsManager;
 		$this->loginTokenRepository = $loginTokenRepository;
+		$this->cdnLinkGenerator = $imageLinkGenerator;
 	}
 
 
@@ -125,6 +130,16 @@ abstract class BasePresenter extends Presenter
 			$this->redirect('this', ['locale' => $this->translator->getLocale()]);
 		}
 	}
+
+
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		$this->template->cdn = function ($name) {
+			return $this->cdnLinkGenerator->generateLink($name);
+		};
+	}
+
 
 	/**
 	 * @param string $token
