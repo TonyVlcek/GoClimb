@@ -2,6 +2,7 @@
 	"adminMenu": {
 		"items": {
 			"articles": "Articles",
+		  	"news": "News",
 			"dashboard": "Dashboard",
 			"settings": "Settings",
 			"plugins": "Plugins"

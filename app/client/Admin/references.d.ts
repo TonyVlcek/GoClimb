@@ -11,6 +11,7 @@
 
 
 /// <reference path="ts/States/ArticlesState.ts" />
+/// <reference path="ts/States/NewsState.ts" />
 /// <reference path="ts/States/DashboardState.ts" />
 /// <reference path="ts/States/ErrorState.ts" />
 /// <reference path="ts/States/PluginsState.ts" />
@@ -25,6 +26,7 @@
 
 /// <reference path="ts/Controllers/BaseAdminController.ts" />
 /// <reference path="ts/Controllers/ArticlesController.ts" />
+/// <reference path="ts/Controllers/NewsController.ts" />
 /// <reference path="ts/Controllers/DashboardController.ts" />
 /// <reference path="ts/Controllers/SettingsController.ts" />
 
@@ -36,3 +38,4 @@
 /// <reference path="ts/Model/Facades/WallDetailsFacade.ts" />
 /// <reference path="ts/Model/Facades/UserFacade.ts" />
 /// <reference path="ts/Model/Facades/ArticlesFacade.ts" />
+/// <reference path="ts/Model/Facades/NewsFacade.ts" />
