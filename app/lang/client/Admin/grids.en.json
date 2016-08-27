@@ -1,9 +1,16 @@
 {
 	"articles": {
-		"title": "Title",
-		"edit": "Edit",
-		"publishDate": "Publish date",
-		"unpublished": "Unpublished",
-		"author": "Author"
+	  "title": "Title",
+	  "edit": "Edit",
+	  "publishDate": "Publish date",
+	  "unpublished": "Unpublished",
+	  "author": "Author"
+	},
+	"news": {
+	  "title": "Title",
+	  "edit": "Edit",
+	  "publishDate": "Publish date",
+	  "unpublished": "Unpublished",
+	  "author": "Author"
 	}
 }

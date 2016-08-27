@@ -11,19 +11,34 @@
 		}
 	},
 	"articles":{
-		"delete": "Delete this article?",
+	  "delete": "Delete this article?",
 
-		"savedAsDraft": "Article was saved as draft.",
-		"saved": "Article was saved.",
-		"savedAndPublished": "Article was saved and published.",
+	  "savedAsDraft": "Article was saved as draft.",
+	  "saved": "Article was saved.",
+	  "savedAndPublished": "Article was saved and published.",
 
-		"deleted":{
-			"success" : "Article was deleted.",
-			"error" : "Article was not deleted."
-		},
-		"error": {
-			"invalidForm": "Invalid form."
-		}
+	  "deleted":{
+		"success" : "Article was deleted.",
+		"error" : "Article was not deleted."
+	  },
+	  "error": {
+		"invalidForm": "Invalid form."
+	  }
+	},
+	"news":{
+	  "delete": "Delete this news?",
+
+	  "savedAsDraft": "News was saved as draft.",
+	  "saved": "News was saved.",
+	  "savedAndPublished": "News was saved and published.",
+
+	  "deleted":{
+		"success" : "News was deleted.",
+		"error" : "News was not deleted."
+	  },
+	  "error": {
+		"invalidForm": "Invalid form."
+	  }
 	},
 	"panel":{
 		"close": "Close panel?"

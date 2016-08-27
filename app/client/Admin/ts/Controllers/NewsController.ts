@@ -160,6 +160,7 @@ namespace GoClimb.Admin.Controllers
                 this.newCurrentNews = false;
             }
             this.stopProcessing();
+            this.currentNewsForm.$setPristine();
             this.flashMessageSender.sendSuccess(message);
         }
 

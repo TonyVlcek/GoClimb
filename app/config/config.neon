@@ -68,6 +68,7 @@ services:
 	- GoClimb\Model\Repositories\AclRoleRepository
 	- GoClimb\Model\Repositories\ApplicationRepository
 	- GoClimb\Model\Repositories\ArticleRepository
+	- GoClimb\Model\Repositories\CurrentNewsRepository
 	- GoClimb\Model\Repositories\CompanyRepository
 	- GoClimb\Model\Repositories\ContentPartRepository
 	- GoClimb\Model\Repositories\FileRepository
@@ -84,6 +85,7 @@ services:
 	# updaters
 
 	- GoClimb\Model\Rest\Updaters\ArticleUpdater
+	- GoClimb\Model\Rest\Updaters\CurrentNewsUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters

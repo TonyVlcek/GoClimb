@@ -1,12 +1,22 @@
 {
 	"articles": {
-		"title": "Title",
-		"content": "Content",
-		"published": "Published",
-		"author": "Author",
-		"save": "Save",
-		"saveAsDraft": "Save as draft",
-		"saveAndPublish": "Save and publish",
-		"delete": "Delete"
+	  "title": "Title",
+	  "content": "Content",
+	  "published": "Published",
+	  "author": "Author",
+	  "save": "Save",
+	  "saveAsDraft": "Save as draft",
+	  "saveAndPublish": "Save and publish",
+	  "delete": "Delete"
+	},
+	"news": {
+	  "title": "Title",
+	  "content": "Content",
+	  "published": "Published",
+	  "author": "Author",
+	  "save": "Save",
+	  "saveAsDraft": "Save as draft",
+	  "saveAndPublish": "Save and publish",
+	  "delete": "Delete"
 	}
 }
