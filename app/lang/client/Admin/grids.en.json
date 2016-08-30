@@ -7,7 +7,7 @@
 	  "author": "Author"
 	},
 	"news": {
-	  "title": "Title",
+	  "content": "Content",
 	  "edit": "Edit",
 	  "publishDate": "Publish date",
 	  "unpublished": "Unpublished",

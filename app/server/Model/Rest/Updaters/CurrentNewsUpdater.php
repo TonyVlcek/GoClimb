@@ -38,7 +38,6 @@ class CurrentNewsUpdater
 		}
 
 		$properties = [
-			'name' => TRUE,
 			'content' => TRUE,
 		];
 

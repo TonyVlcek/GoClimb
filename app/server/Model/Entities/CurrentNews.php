@@ -22,12 +22,6 @@ class CurrentNews
 	private $wall;
 
 	/**
-	 * @var string
-	 * @ORM\Column(type="string", nullable=FALSE)
-	 */
-	private $name;
-
-	/**
 	 * @var User
 	 * @ORM\ManyToOne(targetEntity="User", inversedBy="news")
 	 */
@@ -62,26 +56,6 @@ class CurrentNews
 	public function setWall(Wall $wall = NULL)
 	{
 		$this->wall = $wall;
-		return $this;
-	}
-
-
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-
-	/**
-	 * @param string $name
-	 * @return $this
-	 */
-	public function setName($name)
-	{
-		$this->name = $name;
 		return $this;
 	}
 

@@ -32,7 +32,6 @@ class CurrentNewsMapper
 	{
 		return [
 			'id' => $currentNews->getId(),
-			'name' => $currentNews->getName(),
 			'content' => $currentNews->getContent(),
 			'author' => [
 				'id' => $currentNews->getAuthor()->getId(),

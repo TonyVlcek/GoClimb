@@ -176,7 +176,6 @@ namespace GoClimb.Admin.Controllers
         private reset()
         {
             this.currentNews = {
-                'name': null,
                 'content': null
             };
         }
