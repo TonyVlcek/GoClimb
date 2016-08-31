@@ -27,10 +27,20 @@ class AclPrivilegeRepositoryTestCase extends DatabaseTestCase
 
 	public function testGetByName()
 	{
-		Assert::null($this->aclPrivilegeRepository->getByName("InvalidAclTest"));
-		Assert::type(AclPrivilege::class, $this->aclPrivilegeRepository->getByName("edit"));
+		Assert::null($this->aclPrivilegeRepository->getByName(AclPrivilege::class . 'InvalidAclTest'));
+		Assert::type(AclPrivilege::class, $this->aclPrivilegeRepository->getByName(AclPrivilege::class));
 	}
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			(new AclPrivilege)->setName(AclPrivilege::class),
+		];
+	}
 }
 
 testCase(AclPrivilegeRepositoryTestCase::class);

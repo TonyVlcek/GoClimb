@@ -47,6 +47,21 @@ class PageRepositoryTestCase extends DatabaseTestCase
 		Assert::equal([1], Helpers::mapIds($cps));
 	}
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		$fixtures = [
+			$wall = (new Wall)->setName('Wall'),
+			$page = (new Page)->setName('Page')->setWall($wall),
+			$contentPart = (new ContentPart)->setPage($page)->setContent('Content')->setOrder(1)->setType(1),
+		];
+		$page->addContentPart($contentPart);
+
+		return $fixtures;
+	}
 }
 
 testCase(PageRepositoryTestCase::class);

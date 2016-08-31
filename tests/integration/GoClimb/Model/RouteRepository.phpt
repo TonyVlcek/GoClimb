@@ -5,13 +5,15 @@
 
 use GoClimb\Model\Entities\Line;
 use GoClimb\Model\Entities\Route;
+use GoClimb\Model\Entities\Sector;
 use GoClimb\Model\Entities\User;
+use GoClimb\Model\Entities\Wall;
 use GoClimb\Model\Repositories\RouteRepository;
 use GoClimb\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class RouteRepositoryTestCase extends DatabaseTestCase
 {
@@ -43,6 +45,21 @@ class RouteRepositoryTestCase extends DatabaseTestCase
 
 		Assert::type(User::class, $builder = $route->getBuilder());
 		Assert::equal(1, $builder->getId());
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$builder = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
+			$wall = (new Wall)->setName('Wall'),
+			$sector = (new Sector)->setName('Sector')->setWall($wall),
+			$line = (new Line)->setName('Line One')->setSector($sector),
+			(new Route)->setName('Test Route')->setBuilder($builder)->setLine($line),
+		];
 	}
 }
 
