@@ -1,0 +1,124 @@
+<!--Title bar-->
+<div class="grid-block vertical">
+	<div data-admin-menu-button></div>
+	<div class="title-bar main">
+		<h1 class="title">{{'templates.news.title'|translate}}</h1>
+		<span class="menu">
+			<button type="button" class="remove-button-styles" data-ng-click="newsCtrl.openCreatePanel()">
+				<span class="fa fa-pencil-square-o"></span> {{'templates.news.add'|translate}}
+			</button>
+		</span>
+	</div>
+	<!--End of Title bar-->
+
+	<!--Section with content-->
+	<div class="grid-container contain-left">
+		<h2 class="content-title grid-content">Data</h2>
+		<div class="grid-content" data-ng-hide="newsCtrl.getNews()">
+			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
+		</div>
+		<div class="grid-content"  data-ng-show="newsCtrl.getNews()">
+			<table data-st-table="news" data-st-safe-src="newsCtrl.getNews().getAsArray()" class="table">
+				<thead>
+				<tr>
+					<th data-st-sort="content" data-st-skip-natural="true" class="clickable">
+						{{'grids.news.content'|translate}}
+					</th>
+					<th data-st-sort="author" data-st-skip-natural="true" class="clickable">
+						{{'grids.news.author'|translate}}
+					</th>
+					<th data-st-sort="publishedDate" data-st-sort-default="reverse" data-st-skip-natural="true" class="clickable">
+						{{'grids.news.publishDate'|translate}}
+					</th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr data-ng-repeat="currentNews in news">
+					<td>{{currentNews.content|limitTo:40}}{{currentNews.content.length > 40 ? '...' : ''}}</td>
+					<td>{{currentNews.author.name}}</td>
+					<td data-ng-show="currentNews.published">{{currentNews.publishedDate|date: 'yyyy. MM. dd.'}}</td>
+					<!-- High number is hack to sort unpublished news as first. This won't work after year 99999 -->
+					<td data-ng-hide="currentNews.published"><span class="hide-for-small">99999</span>
+						{{'grids.news.unpublished'|translate}}
+					</td>
+					<td>
+						<button class="button hollow warning" type="button" data-ng-click="newsCtrl.openEditPanel(currentNews)">
+							<span class="fa fa-pencil"></span> {{'grids.news.edit'|translate}}
+						</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!--End of content-->
+<!--Panels-->
+<!--TODO: Expand should be added by its directive-->
+<div data-zf-panel id="sidebar" data-position="right" class="vertical side-panel large large-4 expand">
+	<button type="button" data-ng-click="newsCtrl.closePanel()" class="remove-button-styles close-button ng-scope">×</button>
+	<div class="title-bar main">
+		<h2 class="title left">{{newsCtrl.newCurrentNews ? 'templates.news.create' : 'templates.news.edit'|translate}}</h2>
+		<span class="menu">
+			<button type="button" class="remove-button-styles show-for-large" data-ng-click="newsCtrl.panel.expand()">
+				<span class="fa fa-{{newsCtrl.panel.getPanelSize() === newsCtrl.panel.panelSizeEnum.EXPAND ? 'compress' : 'expand'}}"></span>
+				{{newsCtrl.panel.getPanelSize() === newsCtrl.panel.panelSizeEnum.EXPAND ? 'templates.news.compress' : 'templates.news.expand'| translate}}
+			</button>
+		</span>
+	</div>
+	<div class="grid-container contain-left wrap">
+		<form name="newsCtrl.currentNewsForm" class="form" novalidate>
+			<div class="grid-block wrap">
+				<div class="notitle"></div>
+				<div class="grid-content small-12 noscroll">
+					<label>
+						{{'forms.news.content'|translate}}:
+						<input type="text" name="content" ng-model="newsCtrl.currentNews.content" required>
+					</label>
+
+					<p class="small-12" data-ng-hide="newsCtrl.newCurrentNews">
+						{{'forms.news.author'|translate}} : {{newsCtrl.currentNews.author.name}}
+					</p>
+					<div class="notitle" data-ng-show="newsCtrl.newCurrentNews"></div>
+				</div>
+
+				<div class="grid-content small-12">
+					<button type="submit" class="button default"
+									data-ng-hide="newsCtrl.currentNews.published"
+									data-ng-class="{spinner : newsCtrl.processingSave}"
+									data-ng-disabled="(newsCtrl.currentNewsForm.$invalid || newsCtrl.isProcessing())"
+									data-ng-click="newsCtrl.saveCurrentNews(true)">
+						{{'forms.news.saveAndPublish'|translate}}
+					</button>
+
+					<button type="submit" class="button secondary"
+									data-ng-hide="newsCtrl.currentNews.published"
+									data-ng-class="{spinner : newsCtrl.processingSaveAsDraft}"
+									data-ng-disabled="(newsCtrl.currentNewsForm.$invalid || newsCtrl.isProcessing())"
+									data-ng-click="newsCtrl.saveCurrentNews()">
+						{{'forms.news.saveAsDraft'|translate}}
+					</button>
+
+					<button type="submit" class="button primary"
+									data-ng-show="newsCtrl.currentNews.published"
+									data-ng-class="{spinner : newsCtrl.processingSave}"
+									data-ng-disabled="(newsCtrl.currentNewsForm.$invalid || newsCtrl.isProcessing())"
+									data-ng-click="newsCtrl.saveCurrentNews(true)">
+						{{'forms.news.save'|translate}}
+					</button>
+
+					<button type="button" class="button alert"
+									data-ng-hide="newsCtrl.newCurrentNews"
+									data-ng-class="{spinner : newsCtrl.processingDelete}"
+									data-ng-disabled="newsCtrl.isProcessing()"
+									data-ng-click="newsCtrl.deleteCurrentNews()">
+						{{'forms.news.delete'|translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>
+<!--End of panels-->

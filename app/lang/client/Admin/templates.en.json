@@ -1,13 +1,22 @@
 {
 	"articles": {
-		"title": "Articles",
-		"edit": "Edit",
-		"create": "Create",
-		"add": "Add article",
-		"close": "Close",
-		"compress": "Compress",
-		"expand": "Expand"
+	  "title": "Articles",
+	  "edit": "Edit",
+	  "create": "Create",
+	  "add": "Add article",
+	  "close": "Close",
+	  "compress": "Compress",
+	  "expand": "Expand"
 	},
+  	"news": {
+	  "title": "News",
+	  "edit": "Edit",
+	  "create": "Create",
+	  "add": "Add news",
+	  "close": "Close",
+	  "compress": "Compress",
+	  "expand": "Expand"
+  	},
 	"dashboard": {
 		"title": "Dashboard"
 	},
