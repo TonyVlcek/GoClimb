@@ -5,6 +5,11 @@ doctrine:
 	password:
 	dbname: online_climbing
 
+#settings for slack handler
+monolog:
+	handlers:
+		- Monolog\Handler\SlackHandler('token', 'channel', 'botName', TRUE, NULL, 'DEBUG')
+
 goClimb:
 	cdnUrl: http://localhost/GoClimb/cdn/
 

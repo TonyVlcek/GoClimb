@@ -24,7 +24,8 @@
 		"zenify/doctrine-migrations": "^2.3",
 		"nextras/datagrid": "dev-master#fc86da6f2e1904239e70a518ec412a8334741658",
 		"nextras/latte-macros": "dev-master#d3ba6dd1710948e2d19a2e108d04295eac67a02b as 1.1.2",
-		"symnedi/event-dispatcher": "0.4.0 as 0.3.2"
+		"symnedi/event-dispatcher": "0.4.0 as 0.3.2",
+		"kdyby/monolog": "^1.2"
 	},
 	"require-dev": {
 		"nette/tester": "^1.7"

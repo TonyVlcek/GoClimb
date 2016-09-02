@@ -31,6 +31,7 @@ extensions:
 	eventDispatcher: Symnedi\EventDispatcher\DI\EventDispatcherExtension
 	events: Kdyby\Events\DI\EventsExtension
 	migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
+	monolog: Kdyby\Monolog\DI\MonologExtension
 	goClimb: GoClimb\DI\GoClimbExtension
 	translation: Kdyby\Translation\DI\TranslationExtension
 
@@ -44,6 +45,10 @@ migrations:
 	directory: %appDir%/../migrations
 	namespace: GoClimb\Migrations
 	codingStandard: tabs
+
+monolog:
+	name: go-climb
+	registerFallback: %debugMode%
 
 session:
 	expiration: 14 days
