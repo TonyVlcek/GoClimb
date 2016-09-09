@@ -3,6 +3,7 @@
 /// <reference path="ts/app.ts" />
 
 
+/// <reference path="ts/Services/Authorizator.ts" />
 /// <reference path="ts/Services/FlashMessageType.ts" />
 /// <reference path="ts/Services/FlashMessageSender.ts" />
 /// <reference path="ts/Services/Panel.ts" />
@@ -22,6 +23,8 @@
 /// <reference path='ts/Directives/AdminMenuButton/AdminMenuButtonDirective.ts' />
 /// <reference path='ts/Directives/Dashboard/DashboardDirective.ts' />
 /// <reference path='ts/Directives/CdnImage/CdnImageDirective.ts' />
+/// <reference path="ts/Directives/IfAllowed/IfAllowedDirective.ts" />
+
 
 /// <reference path="ts/Controllers/BaseAdminController.ts" />
 /// <reference path="ts/Controllers/ArticlesController.ts" />

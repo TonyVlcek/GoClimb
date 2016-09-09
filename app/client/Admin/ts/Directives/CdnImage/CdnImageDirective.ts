@@ -17,7 +17,8 @@ namespace GoClimb.Admin.Directives
 		}
 
 
-		public link = (scope, element, attrs) => {
+		public link = (scope, element, attrs) =>
+		{
 			element.attr('src', this.cdnUrl + attrs.cdnImage);
 		}
 

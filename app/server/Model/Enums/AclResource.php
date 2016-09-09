@@ -8,6 +8,12 @@ class AclResource
 
 	const BACKEND_DASHBOARD = 'backend_dashboard';
 
+	const ADMIN_DASHBOARD = 'admin.dashboard';
+	const ADMIN_SETTINGS_ADVANCED = 'admin.settings.advanced';
+	const ADMIN_ARTICLES = 'admin.articles';
+	const ADMIN_EVENTS = 'admin.events';
+	const ADMIN_NEWS = 'admin.news';
+
 
 	public static function isValid($resource)
 	{
@@ -17,7 +23,7 @@ class AclResource
 
 	public static function getAll()
 	{
-		return self::getBackend();
+		return array_merge(self::getBackend(), self::getAdmin());
 	}
 
 
@@ -25,6 +31,18 @@ class AclResource
 	{
 		return [
 			self::BACKEND_DASHBOARD,
+		];
+	}
+
+
+	public static function getAdmin()
+	{
+		return [
+			self::ADMIN_DASHBOARD,
+			self::ADMIN_SETTINGS_ADVANCED,
+			self::ADMIN_ARTICLES,
+			self::ADMIN_EVENTS,
+			self::ADMIN_NEWS,
 		];
 	}
 

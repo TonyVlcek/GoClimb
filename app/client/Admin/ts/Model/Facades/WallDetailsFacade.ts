@@ -6,12 +6,12 @@ namespace GoClimb.Admin.Model.Facades
 
 		public getDetails(callback: Function, errorCallback: Function = null)
 		{
-			this.httpService.get('details/', callback, errorCallback);
+			this.httpService.requestGet('details/', callback, errorCallback);
 		}
 
 		public updateDetails(details, callback: Function, errorCallback: Function = null)
 		{
-			this.httpService.post('details/', {details: details}, callback, errorCallback);
+			this.httpService.requestPost('details/', {details: details}, callback, errorCallback);
 		}
 
 	}

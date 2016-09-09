@@ -2,9 +2,7 @@
 
 namespace GoClimb\Security;
 
-use GoClimb\Model\Enums\AclPrivilege;
 use GoClimb\Model\Repositories\AclPermissionRepository;
-use GoClimb\Model\Repositories\AclPrivilegeRepository;
 use GoClimb\Model\Repositories\AclResourceRepository;
 use GoClimb\Model\Repositories\AclRoleRepository;
 use Nette\Caching\Cache;
@@ -27,35 +25,27 @@ class Authorizator extends Permission
 	/** @var AclResourceRepository */
 	private $resourceRepository;
 
-	/** @var AclPrivilegeRepository */
-	private $privilegeRepository;
-
 	/** @var bool */
 	private $initialized = FALSE;
 
 
-	public function __construct(IStorage $storage, AclPermissionRepository $permissionRepository, AclRoleRepository $roleRepository, AclResourceRepository $resourceRepository, AclPrivilegeRepository $privilegeRepository)
+	public function __construct(IStorage $storage, AclPermissionRepository $permissionRepository, AclRoleRepository $roleRepository, AclResourceRepository $resourceRepository)
 	{
 		$this->cache = new Cache($storage, Authorizator::class);
 		$this->permissionRepository = $permissionRepository;
 		$this->roleRepository = $roleRepository;
 		$this->resourceRepository = $resourceRepository;
-		$this->privilegeRepository = $privilegeRepository;
 	}
 
 
 	/**
 	 * @inheritdoc
 	 */
-	public function isAllowed($role, $resource, $privilege)
+	public function isAllowed($role, $resource, $privilege = NULL)
 	{
 		if (!$this->initialized) {
 			$this->initialize();
 			$this->initialized = TRUE;
-		}
-
-		if ($privilege === AclPrivilege::READ) {
-			return parent::isAllowed($role, $resource, $privilege) || parent::isAllowed($role, $resource, AclPrivilege::WRITE);
 		}
 
 		return parent::isAllowed($role, $resource, $privilege);
@@ -81,8 +71,6 @@ class Authorizator extends Permission
 				'permissions' => [],
 			];
 
-			$this->privilegeRepository->getAll();
-
 			foreach ($this->roleRepository->getAll() as $role) {
 				$data['roles'][$role->getName()] = $role->getParent() ? $role->getParent()->getName() : NULL;
 			}
@@ -96,7 +84,6 @@ class Authorizator extends Permission
 					'allowed' => $permission->isAllowed(),
 					'role' => $permission->getRole()->getName(),
 					'resource' => $permission->getResource()->getName(),
-					'privilege' => $permission->getPrivilege()->getName(),
 				];
 			}
 
@@ -167,7 +154,7 @@ class Authorizator extends Permission
 	private function initPermission(array $permission)
 	{
 		$method = $permission['allowed'] ? 'allow' : 'deny';
-		$this->$method($permission['role'], $permission['resource'], $permission['privilege']);
+		$this->$method($permission['role'], $permission['resource']);
 	}
 
 }

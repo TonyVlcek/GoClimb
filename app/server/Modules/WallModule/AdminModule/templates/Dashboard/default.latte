@@ -12,7 +12,6 @@
 <body data-zf-close-all data-zf-esc-close>
 <div data-app>
 	<style>
-
 		html, body {
 			height: 100%;
 			padding: 0;
@@ -45,7 +44,7 @@
 			display: inline-block;
 		}
 
-		.dot-box{
+		.dot-box {
 			position: relative;
 		}
 
@@ -84,6 +83,6 @@
 
 	<script src="{$cdn('assets/admin.js')}"></script>
 	<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
-	<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{availableLanguages:{{$availableLanguages}},apiUrl:{{plink //:Wall:Rest:V1:Dashboard:default}},restToken:{{$restToken}},cdnUrl:{{$cdnUrl}}})</script>
+	<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{{$data}})</script>
 </body>
 </html>

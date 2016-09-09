@@ -47,3 +47,26 @@ company:
 		fields:
 			member: Member
 			submit: Add member
+
+wall:
+	wallForm:
+		fields:
+			name: Name
+			language: Language
+			description: Description
+			token: Token
+			url: URL
+			submit: Add wall
+		prompts:
+			language: Choose
+		errors:
+			name:
+				required: Please enter name.
+			language:
+				required: Please enter language.
+			description:
+				required: Please enter description.
+			token:
+				required: Please enter token.
+			url:
+				required: Please enter URL.

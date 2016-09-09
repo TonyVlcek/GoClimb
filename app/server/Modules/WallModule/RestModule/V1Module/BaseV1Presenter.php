@@ -71,6 +71,42 @@ abstract class BaseV1Presenter extends BaseRestPresenter
 	}
 
 
+	public function actionDefault()
+	{
+		$this->sendMethodNotAllowed();
+	}
+
+
+	public function actionGet()
+	{
+		$this->sendMethodNotAllowed();
+	}
+
+
+	public function actionPost()
+	{
+		$this->sendMethodNotAllowed();
+	}
+
+
+	public function actionPut()
+	{
+		$this->sendMethodNotAllowed();
+	}
+
+
+	public function actionDelete()
+	{
+		$this->sendMethodNotAllowed();
+	}
+
+
+	public function actionPatch()
+	{
+		$this->sendMethodNotAllowed();
+	}
+
+
 	/**
 	 * @param string $key
 	 * @param mixed $value

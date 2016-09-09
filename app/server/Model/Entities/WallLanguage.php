@@ -5,7 +5,6 @@ namespace GoClimb\Model\Entities;
 use GoClimb\Model\Entities\Attributes\Id;
 use Doctrine\ORM\Mapping as ORM;
 use GoClimb\Model\WallLanguageException;
-use Nette\Utils\Validators;
 
 
 /**
@@ -95,14 +94,9 @@ class WallLanguage
 	/**
 	 * @param string $url
 	 * @return $this
-	 * @throws WallLanguageException
 	 */
 	public function setUrl($url)
 	{
-		if (!Validators::isUrl($url)) {
-			throw WallLanguageException::invalidUrl($url);
-		}
-
 		$this->url = $url;
 		return $this;
 	}

@@ -32,10 +32,12 @@ class WallTranslation
 
 	/**
 	 * @param string|NULL $description
+	 * @return $this
 	 */
 	public function setDescription($description)
 	{
 		$this->description = $description;
+		return $this;
 	}
 
 }

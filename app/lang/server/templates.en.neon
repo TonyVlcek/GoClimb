@@ -27,11 +27,15 @@ backend:
 			dashboard: Dashboard
 			users: Users
 			company: Company
+			walls: Walls
 			login: Login
 			logout: Logout
 	dashboard:
 		default:
 			title: Dashboard
+	wall:
+		default:
+			create: Create new wall
 	error:
 		forbidden:
 			title: Forbidden
@@ -53,6 +57,11 @@ admin:
 		loading: Loading
 		madeWithLove: "Made with love."
 		madeBy: "Made by GoClimb."
+	error:
+		forbidden:
+			title: Forbidden
+			heading: "Sorry, you can't access this"
+			logout: Logout
 
 
 errors:

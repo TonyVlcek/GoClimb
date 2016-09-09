@@ -2,6 +2,7 @@
 
 namespace GoClimb\Console\Commands;
 
+use GoClimb\Model\Facades\AclFacade;
 use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Model\UserException;
 use Symfony\Component\Console\Command\Command;
@@ -18,28 +19,32 @@ class CreateUserCommand extends Command
 	/** @var UserRepository */
 	private $userRepository;
 
+	/** @var AclFacade */
+	private $aclFacade;
 
-	public function __construct(UserRepository $userRepository)
+
+	public function __construct(UserRepository $userRepository, AclFacade $aclFacade)
 	{
 		$this->userRepository = $userRepository;
+		$this->aclFacade = $aclFacade;
 		parent::__construct('app:user:create');
 	}
 
 
 	protected function configure()
 	{
-		$this->setDescription('Creates new user')
-			->addArgument('name', InputArgument::REQUIRED, 'The user\'s login');
+		$this->setDescription('Creates new user with global owner role.')
+			->addArgument('email', InputArgument::REQUIRED, 'The user\'s email');
 	}
 
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$name = $input->getArgument('name');
+		$email = $input->getArgument('email');
 
 		/** @var QuestionHelper $helper */
 		$helper = $this->getHelper('question');
-		$question = new Question(sprintf('Password for user %s (default: <info>admin</info>):', $name), 'admin');
+		$question = new Question(sprintf('Password for user %s (default: <info>admin</info>):', $email), 'admin');
 		$question->setHidden(TRUE);
 		$question->setValidator(function ($password) {
 			if (trim($password) === '') {
@@ -51,7 +56,8 @@ class CreateUserCommand extends Command
 		$password = $helper->ask($input, $output, $question);
 
 		try {
-			$this->userRepository->createUser($name, $password);
+			$user = $this->userRepository->createUser($email, $password);
+			$this->aclFacade->setGlobalOwner($user);
 		} catch (UserException $e) {
 			if ($e->getCode() === UserException::DUPLICATE_NAME) {
 				$output->writeln(sprintf('<error>%s</error>', $e->getMessage()));

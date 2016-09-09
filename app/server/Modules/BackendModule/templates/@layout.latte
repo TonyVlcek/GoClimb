@@ -35,6 +35,9 @@
 					<li n:class="$presenter->isLinkCurrent(':Backend:Company:*') ? active">
 						<a n:href=":Backend:Company:default">{_templates.backend.layout.topMenu.company}</a>
 					</li>
+					<li n:class="$presenter->isLinkCurrent(':Backend:Wall:*') ? active">
+						<a n:href=":Backend:Wall:default">{_templates.backend.layout.topMenu.walls}</a>
+					</li>
 					<li n:if="!$user->isLoggedIn()">
 						<a href="{$loginLink}">{_templates.backend.layout.topMenu.login}</a>
 					</li>
