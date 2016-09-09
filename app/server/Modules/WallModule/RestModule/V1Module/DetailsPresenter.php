@@ -2,6 +2,7 @@
 
 namespace GoClimb\Modules\WallModule\RestModule\V1Module;
 
+use GoClimb\Model\Enums\AclResource;
 use GoClimb\Model\Facades\WallFacade;
 use GoClimb\Model\MappingException;
 use GoClimb\Model\Repositories\WallRepository;
@@ -31,25 +32,16 @@ class DetailsPresenter extends BaseV1Presenter
 	}
 
 
-	public function actionDefault()
+	public function actionGet()
 	{
-		if ($this->getHttpRequest()->isMethod('GET')) {
-			$this->getDetails();
-		} elseif ($this->getHttpRequest()->isMethod('POST')) {
-			$this->postDetails();
-		} else {
-			$this->sendMethodNotAllowed();
+		if (!$this->user->isAllowed(AclResource::ADMIN_SETTINGS_ADVANCED)) {
+			$this->sendForbidden();
 		}
+		$this->addDetailsData();
 	}
 
 
-	public function getDetails()
-	{
-		$this->addData('details', WallMapper::mapDetails($this->wall));
-	}
-
-
-	public function postDetails()
+	public function actionPost()
 	{
 		try {
 			$this->wallUpdater->updateDetails($this->wall, $this->getData('details'));
@@ -57,7 +49,13 @@ class DetailsPresenter extends BaseV1Presenter
 			$this->sendUnprocessableEntity($e->getMessage());
 		}
 
-		$this->getDetails();
+		$this->addDetailsData();
+	}
+
+
+	public function addDetailsData()
+	{
+		$this->addData('details', WallMapper::mapDetails($this->wall));
 	}
 
 }

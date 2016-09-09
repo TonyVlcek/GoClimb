@@ -114,10 +114,4 @@ class WallLanguageException extends ModelException
 		return new self(sprintf('Property \'%s\' can be set just once.', $property));
 	}
 
-
-	public static function invalidUrl($url)
-	{
-		return new self(sprintf('\'%s\' in not a valid URL.', $url));
-	}
-
 }

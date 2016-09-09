@@ -55,6 +55,7 @@ services:
 
 	# facades
 
+	- GoClimb\Model\Facades\AclFacade
 	- GoClimb\Model\Facades\AuthFacade
 	- GoClimb\Model\Facades\UserFacade
 	- GoClimb\Model\Facades\RestFacade
@@ -63,7 +64,6 @@ services:
 	# repositories
 
 	- GoClimb\Model\Repositories\AclPermissionRepository
-	- GoClimb\Model\Repositories\AclPrivilegeRepository
 	- GoClimb\Model\Repositories\AclResourceRepository
 	- GoClimb\Model\Repositories\AclRoleRepository
 	- GoClimb\Model\Repositories\ApplicationRepository
@@ -72,6 +72,7 @@ services:
 	- GoClimb\Model\Repositories\ContentPartRepository
 	- GoClimb\Model\Repositories\FileRepository
 	- GoClimb\Model\Repositories\ImageRepository
+	- GoClimb\Model\Repositories\LanguageRepository
 	- GoClimb\Model\Repositories\LineRepository
 	- GoClimb\Model\Repositories\LoginTokenRepository
 	- GoClimb\Model\Repositories\PageRepository
@@ -110,6 +111,7 @@ services:
 	- GoClimb\UI\Forms\User\IRegisterFormFactory
 	- GoClimb\UI\Forms\User\ISignInFormFactory
 	- GoClimb\UI\Forms\User\IUserFormFactory
+	- GoClimb\UI\Forms\Wall\IWallFormFactory
 
 	# grids
 

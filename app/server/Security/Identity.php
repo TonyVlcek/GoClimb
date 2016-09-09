@@ -3,6 +3,7 @@
 namespace GoClimb\Security;
 
 use GoClimb\Model\Entities\User as UserEntity;
+use GoClimb\Model\Enums\AclRole;
 use Nette\Security\IIdentity;
 
 
@@ -20,9 +21,9 @@ class Identity implements IIdentity
 	{
 		$this->userId = $user->getId();
 
-		$this->roles = array_map(function ($role) {
+		$this->roles = array_unique(array_merge([AclRole::GUEST], array_map(function ($role) {
 			return $role->getName();
-		}, $user->getRoles());
+		}, $user->getRoles())));
 	}
 
 

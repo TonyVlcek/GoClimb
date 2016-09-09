@@ -11,3 +11,5 @@ user:
 		success: Logout successful
 	register:
 		success: Register successful.
+wall:
+	created: Wall has been created
