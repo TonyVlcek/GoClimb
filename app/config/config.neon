@@ -117,6 +117,7 @@ services:
 
 	- GoClimb\UI\Grids\Company\ICompanyGridFactory
 	- GoClimb\UI\Grids\User\IUserGridFactory
+	- GoClimb\UI\Grids\Wall\IWallGridFactory
 
 translation:
 	default: en

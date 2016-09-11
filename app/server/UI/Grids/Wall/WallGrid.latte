@@ -1,0 +1,9 @@
+{define cell-lang}
+	<span n:inner-foreach="$row->getWallLanguages() as $wallLanguage">
+		<div n:class="$wallLanguage === $row->getPrimaryLanguage() ? primary">
+			{$wallLanguage->getLanguage()->getName()} -
+			<a href="{plink :Wall:Front:Dashboard:default wall => $row, locale => $wallLanguage->getLanguage()->getShortcut()}">{_webLink}</a> |
+			<a href="{plink :Wall:Admin:Dashboard:default wall => $row, locale => $wallLanguage->getLanguage()->getShortcut()}">{_adminLink}</a>
+		</div>
+	</span>
+{/define}
