@@ -1,0 +1,56 @@
+<div id="articlePanel" class="side-panel vertical">
+	<button type="button" data-ui-sref="articles" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
+	<div class="title-bar main">
+		<h2 class="title left">{{'templates.articles.create'|translate}}</h2>
+		<span class="menu">
+			<span data-expand-button></span>
+		</span>
+	</div>
+	<div class="grid-container contain-left wrap">
+		<form name="articleForm" class="form" novalidate>
+			<div class="grid-block wrap">
+				<div class="notitle"></div>
+				<div class="grid-content small-12 noscroll">
+					<label>
+						{{'forms.articles.title'|translate}}:
+						<input name="title" type="text" ng-model="article.name" required>
+					</label>
+					<label>
+						{{'forms.articles.content'|translate}}:
+						<textarea name="content" rows="10" ng-model="article.content" required></textarea>
+					</label>
+					<div class="notitle"></div>
+				</div>
+
+				<div class="grid-content small-12">
+					<button type="submit" class="button default"
+						data-ng-hide="article.published"
+						data-ng-class="{spinner : processingSave}"
+						data-ng-disabled="(articleForm.$invalid || isProcessing())"
+						data-ng-click="save(true)">
+						{{'forms.articles.saveAndPublish'|translate}}
+					</button>
+
+					<button type="submit" class="button secondary"
+						data-ng-hide="article.published"
+						data-ng-class="{spinner : processingSaveAsDraft}"
+						data-ng-disabled="(articleForm.$invalid || isProcessing())"
+						data-ng-click="save()">
+						{{'forms.articles.saveAsDraft'|translate}}
+					</button>
+
+					<button type="submit" class="button primary"
+						data-ng-show="article.published"
+						data-ng-class="{spinner : processingSave}"
+						data-ng-disabled="(articleForm.$invalid || isProcessing())"
+						data-ng-click="save(true)">
+						{{'forms.articles.save'|translate}}
+					</button>
+
+					<button type="button" data-ui-sref="articles" class="button secondary">{{'templates.articles.close'|translate}}</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>

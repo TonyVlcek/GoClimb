@@ -2,16 +2,16 @@
 
 namespace GoClimb\Model\Repositories;
 
-use GoClimb\Model\Entities\Article;
+use GoClimb\Model\Entities\Event;
 use GoClimb\Model\Entities\Wall;
 
 
-class ArticleRepository extends BaseRepository
+class EventRepository extends BaseRepository
 {
 
 	/**
 	 * @param int $id
-	 * @return Article|NULL
+	 * @return Event|NULL
 	 */
 	public function getById($id)
 	{
@@ -22,7 +22,7 @@ class ArticleRepository extends BaseRepository
 	/**
 	 * @param Wall $wall
 	 * @param bool|NULL $published
-	 * @return Article[]
+	 * @return Event[]
 	 */
 	public function getByWall(Wall $wall, $published = NULL)
 	{
@@ -31,7 +31,7 @@ class ArticleRepository extends BaseRepository
 
 	/**
 	 * @param bool|NULL $published
-	 * @return Article[]
+	 * @return Event[]
 	 */
 	public function getGlobal($published = NULL)
 	{
@@ -42,7 +42,7 @@ class ArticleRepository extends BaseRepository
 	/**
 	 * @param Wall|NULL $wall
 	 * @param bool|NULL $published
-	 * @return Article[]
+	 * @return Event[]
 	 */
 	private function getByWallOrNull(Wall $wall = NULL, $published = NULL)
 	{
@@ -57,11 +57,11 @@ class ArticleRepository extends BaseRepository
 
 
 	/**
-	 * @param Article $article
+	 * @param Event $event
 	 */
-	public function remove(Article $article)
+	public function remove(Event $event)
 	{
-		$this->getEntityManager()->remove($article);
+		$this->getEntityManager()->remove($event);
 		$this->getEntityManager()->flush();
 	}
 

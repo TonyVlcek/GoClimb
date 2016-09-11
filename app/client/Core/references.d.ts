@@ -6,7 +6,7 @@
 // Utils
 
 /// <reference path="ts/Utils/IndexedArray.ts" />
-/// <reference path="ts/Utils/ScreenSize.ts" />
+/// <reference path="ts/Utils/Utils.ts" />
 
 
 // PROVIDERS & SERVICES & FACTORIES
@@ -22,6 +22,7 @@
 // STATES
 
 /// <reference path="ts/States/BaseState.ts" />
+/// <reference path="ts/States/BasePanelState.ts" />
 
 
 // PLUGINS
