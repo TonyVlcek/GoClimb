@@ -11,6 +11,13 @@
 		"saveAndPublish": "Save and publish",
 		"delete": "Delete"
 	},
+	"news": {
+		"title": "Content",
+		"author": "Author",
+		"save": "Save",
+		"saveAndPublish": "Save and publish",
+		"delete": "Delete"
+	},
 	"events": {
 		"title": "Title",
 		"content": "Content",

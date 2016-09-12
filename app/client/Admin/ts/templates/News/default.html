@@ -1,0 +1,62 @@
+<!--Title bar-->
+<div class="grid-block vertical main-view">
+	<div data-admin-menu-button></div>
+	<div class="title-bar main">
+		<h1 class="title">{{'templates.news.title'|translate}}</h1>
+		<span class="menu">
+			<button type="button" class="remove-button-styles" data-ui-sref="news.create">
+				<span class="fa fa-pencil-square-o"></span> {{'templates.news.add'|translate}}
+			</button>
+		</span>
+	</div>
+	<!--End of Title bar-->
+
+	<!--Section with content-->
+	<div class="grid-container contain-left">
+		<h2 class="notitle grid-content"></h2>
+		<div class="grid-content" data-ng-hide="newsCtrl.getNews()">
+			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
+		</div>
+		<div class="grid-content"  data-ng-show="newsCtrl.getNews()">
+			<table data-st-table="allNews" data-st-safe-src="newsCtrl.getNews().getAsArray()" class="table">
+				<thead>
+					<tr>
+						<th data-st-sort="name" data-st-skip-natural="true" class="clickable">
+							{{'grids.news.title'|translate}}
+						</th>
+						<th data-st-sort="author" data-st-skip-natural="true" class="clickable">
+							{{'grids.news.author'|translate}}
+						</th>
+						<th data-st-sort="publishedDate" data-st-sort-default="reverse" data-st-skip-natural="true" class="clickable">
+							{{'grids.news.publishedDate'|translate}}
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="news in allNews">
+						<td>{{news.name|limitTo:40}}{{news.name.length > 40 ? '...' : ''}}</td>
+						<td>{{news.author.name}}</td>
+						<td data-ng-show="news.published">{{news.publishedDate|date: 'yyyy. MM. dd.'}}</td>
+						<!-- High number is hack to sort unpublished news as first. This won't work after year 99999 -->
+						<td data-ng-hide="news.published"><span class="hide-for-small">99999</span>
+							{{'grids.news.unpublished'|translate}}
+						</td>
+						<td>
+							<button class="button hollow warning" type="button" data-ui-sref="news.edit({id: news.id})">
+								<span class="fa fa-pencil"></span> {{'grids.news.edit'|translate}}
+							</button>
+							<button class="button hollow alert" data-ng-class="{spinner : newsCtrl.processingDelete === news.id}" type="button" data-ng-click="newsCtrl.deleteNews(news)">
+								<span class="fa fa-remove"></span> {{'grids.news.delete'|translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!--End of content-->
+<!--Panels-->
+<div data-ui-view class="panel-view"></div>
+<!--End of panels-->
