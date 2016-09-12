@@ -8,11 +8,12 @@ sudo: required
 before_install:
   - phpenv config-rm xdebug.ini
   - composer self-update --no-interaction
+  - composer global require "hirak/prestissimo:^0.3"
   - git config --global github.accesstoken $GITHUB_OAUTH_TOKEN
 
 install:
-  - composer install --no-interaction --prefer-source
-  - composer create-project nette/code-checker tmp/code-checker ~2.5 --no-interaction --prefer-source
+  - composer install --no-interaction --prefer-dist
+  - composer create-project nette/code-checker tmp/code-checker ~2.5 --no-interaction --prefer-dist
   - npm install -g npm@'>=2.13.0'
   - npm install
   - npm install -g bower
@@ -24,23 +25,19 @@ install:
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE online_climbing_tests;'
-  #- mysql -u root online_climbing < tests/data/testData.sql
 
 script:
-#  - php www/index.php migrations:migrate --no-interaction
   - ./vendor/bin/tester ./tests -c ./tests/php-travis.ini --setup ./tests/setup.php -p php-cgi -s
   - php tmp/code-checker/src/code-checker.php -d app --short-arrays
   - grunt build:app
 
-#after_failure:
-  # Print *.actual file contents
-  #- for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
-
-#addons:
-#  artifacts:
-#    paths:
-#      - ./log
-#  s3_region: eu-central-1
+cache:
+  directories:
+  - $HOME/.cache/bower
+  - $HOME/.composer
+  - $HOME/.npm
+  - ./.sass-cache
+  - ./.tscache
 
 notifications:
   slack: white-line:ex957N9S9Ud59iBzMIn91uEw
