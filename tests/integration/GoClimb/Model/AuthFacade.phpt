@@ -9,10 +9,11 @@ use GoClimb\Model\Entities\User;
 use GoClimb\Model\Facades\AuthFacade;
 use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Tests\Utils\DatabaseTestCase;
+use Nette\Utils\DateTime;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class AuthFacadeTestCase extends DatabaseTestCase
 {
@@ -72,6 +73,21 @@ class AuthFacadeTestCase extends DatabaseTestCase
 		Assert::equal(1, $user->getId());
 
 		Assert::null($this->authFacade->getUserByToken(self::NOT_ASSIGNED_TOKEN));
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$userOne = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
+			$userTwo = (new User)->setEmail('bb@bb.bb')->setPassword('bbb'),
+			(new Application)->setName('App')->setDescription('desc')->setToken(self::APPLICATION_TOKEN),
+			(new LoginToken)->setUser($userOne)->setToken(self::EXPIRED_TOKEN)->setExpiration(new DateTime('-1 day'))->setLongTerm(0),
+			(new LoginToken)->setUser($userOne)->setToken(self::ACTIVE_TOKEN)->setExpiration(new DateTime('+1 day'))->setLongTerm(0),
+		];
 	}
 }
 

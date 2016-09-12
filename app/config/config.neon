@@ -31,11 +31,13 @@ extensions:
 	eventDispatcher: Symnedi\EventDispatcher\DI\EventDispatcherExtension
 	events: Kdyby\Events\DI\EventsExtension
 	migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
+	monolog: Kdyby\Monolog\DI\MonologExtension
 	goClimb: GoClimb\DI\GoClimbExtension
 	translation: Kdyby\Translation\DI\TranslationExtension
 
 latte:
 	macros:
+		- GoClimb\UI\Macros\CdnMacro::install
 		- Nextras\Latte\Macros\RedefineMacro::install
 
 migrations:
@@ -43,6 +45,10 @@ migrations:
 	directory: %appDir%/../migrations
 	namespace: GoClimb\Migrations
 	codingStandard: tabs
+
+monolog:
+	name: go-climb
+	registerFallback: %debugMode%
 
 session:
 	expiration: 14 days
@@ -54,6 +60,7 @@ services:
 
 	# facades
 
+	- GoClimb\Model\Facades\AclFacade
 	- GoClimb\Model\Facades\AuthFacade
 	- GoClimb\Model\Facades\UserFacade
 	- GoClimb\Model\Facades\RestFacade
@@ -62,15 +69,16 @@ services:
 	# repositories
 
 	- GoClimb\Model\Repositories\AclPermissionRepository
-	- GoClimb\Model\Repositories\AclPrivilegeRepository
 	- GoClimb\Model\Repositories\AclResourceRepository
 	- GoClimb\Model\Repositories\AclRoleRepository
 	- GoClimb\Model\Repositories\ApplicationRepository
 	- GoClimb\Model\Repositories\ArticleRepository
 	- GoClimb\Model\Repositories\CompanyRepository
 	- GoClimb\Model\Repositories\ContentPartRepository
+	- GoClimb\Model\Repositories\EventRepository
 	- GoClimb\Model\Repositories\FileRepository
 	- GoClimb\Model\Repositories\ImageRepository
+	- GoClimb\Model\Repositories\LanguageRepository
 	- GoClimb\Model\Repositories\LineRepository
 	- GoClimb\Model\Repositories\LoginTokenRepository
 	- GoClimb\Model\Repositories\PageRepository
@@ -83,6 +91,7 @@ services:
 	# updaters
 
 	- GoClimb\Model\Rest\Updaters\ArticleUpdater
+	- GoClimb\Model\Rest\Updaters\EventUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters
@@ -109,11 +118,13 @@ services:
 	- GoClimb\UI\Forms\User\IRegisterFormFactory
 	- GoClimb\UI\Forms\User\ISignInFormFactory
 	- GoClimb\UI\Forms\User\IUserFormFactory
+	- GoClimb\UI\Forms\Wall\IWallFormFactory
 
 	# grids
 
 	- GoClimb\UI\Grids\Company\ICompanyGridFactory
 	- GoClimb\UI\Grids\User\IUserGridFactory
+	- GoClimb\UI\Grids\Wall\IWallGridFactory
 
 translation:
 	default: en

@@ -6,6 +6,7 @@ use Kdyby\Doctrine\QueryBuilder;
 use Kdyby\Translation\Translator;
 use Nette\Forms\Container;
 use Nette\Localization\ITranslator;
+use Nette\Utils\Callback;
 use Nette\Utils\Paginator;
 use Nextras\Datagrid\Datagrid;
 use GoClimb\Model\Query\Specifications\Paginate;
@@ -55,11 +56,21 @@ abstract class BaseGrid extends Datagrid
 		if ($this->getReflection()->getMethod('getEditForm')->getFileName() !== __FILE__) {
 			$this->setEditFormFactory([$this, 'getEditForm']);
 		}
+	}
 
-		$this->setColumnGetterCallback(function ($row, $column) {
-			$method = 'get' . $column;
+
+	/**
+	 * @internal
+	 * @ignore
+	 */
+	public function getter($row, $column, $need = TRUE)
+	{
+		$method = 'get' . $column;
+		if (!method_exists($row, $method) && !$need) {
+			return NULL;
+		} else {
 			return $row->$method();
-		});
+		}
 	}
 
 

@@ -2,7 +2,17 @@
 	"articles": {
 		"title": "Title",
 		"edit": "Edit",
-		"publishDate": "Publish date",
+		"delete": "Delete",
+		"publishedDate": "Publish date",
+		"unpublished": "Unpublished",
+		"author": "Author"
+	},
+	"events": {
+		"title": "Title",
+		"edit": "Edit",
+		"delete": "Delete",
+		"publishedDate": "Publish date",
+		"startDate": "Date of the event",
 		"unpublished": "Unpublished",
 		"author": "Author"
 	}

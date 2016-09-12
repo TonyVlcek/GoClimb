@@ -5,7 +5,7 @@
 			"style": "compressed"
 		},
 		"files": {
-			"www/assets/build/admin.css": "app/client/Admin/main.scss"
+			"temp/build/admin.css": "app/client/Admin/main.scss"
 		}
 	},
 	"admin-dev": {
@@ -14,7 +14,7 @@
 			"style": "expanded"
 		},
 		"files": {
-			"www/assets/build/admin.css": "app/client/Admin/main.scss"
+			"temp/build/admin.css": "app/client/Admin/main.scss"
 		}
 	},
 	"auth": {
@@ -23,7 +23,7 @@
 			"style": "compressed"
 		},
 		"files": {
-			"www/assets/build/auth.css": "app/client/Auth/main.scss"
+			"temp/build/auth.css": "app/client/Auth/main.scss"
 		}
 	},
 	"auth-dev": {
@@ -32,7 +32,7 @@
 			"style": "expanded"
 		},
 		"files": {
-			"www/assets/build/auth.css": "app/client/Auth/main.scss"
+			"temp/build/auth.css": "app/client/Auth/main.scss"
 		}
 	},
 	"backend": {
@@ -41,7 +41,7 @@
 			"style": "compressed"
 		},
 		"files": {
-			"www/assets/build/backend.css": "app/client/Backend/main.scss"
+			"temp/build/backend.css": "app/client/Backend/main.scss"
 		}
 	},
 	"backend-dev": {
@@ -50,7 +50,7 @@
 			"style": "expanded"
 		},
 		"files": {
-			"www/assets/build/backend.css": "app/client/Backend/main.scss"
+			"temp/build/backend.css": "app/client/Backend/main.scss"
 		}
 	},
 	"frontend": {
@@ -59,7 +59,7 @@
 			"style": "compressed"
 		},
 		"files": {
-			"www/assets/build/frontend.css": "app/client/Frontend/main.scss"
+			"temp/build/frontend.css": "app/client/Frontend/main.scss"
 		}
 	},
 	"frontend-dev": {
@@ -68,7 +68,7 @@
 			"style": "expanded"
 		},
 		"files": {
-			"www/assets/build/frontend.css": "app/client/Frontend/main.scss"
+			"temp/build/frontend.css": "app/client/Frontend/main.scss"
 		}
 	}
 }

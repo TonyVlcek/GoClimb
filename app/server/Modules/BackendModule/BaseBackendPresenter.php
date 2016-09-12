@@ -3,7 +3,6 @@
 namespace GoClimb\Modules\BackendModule;
 
 use GoClimb\Model\Entities\Application;
-use GoClimb\Model\Enums\AclPrivilege;
 use GoClimb\Model\Enums\AclResource;
 use GoClimb\Modules\BasePresenter;
 use Nette\Application\Request;
@@ -57,7 +56,7 @@ abstract class BaseBackendPresenter extends BasePresenter
 	private function isAllowedToBackend()
 	{
 		foreach (AclResource::getBackend() as $resource) {
-			if ($this->user->isAllowed($resource, AclPrivilege::READ)) {
+			if ($this->user->isAllowed($resource)) {
 				return TRUE;
 			}
 		}

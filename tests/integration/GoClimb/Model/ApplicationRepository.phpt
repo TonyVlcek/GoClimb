@@ -10,13 +10,15 @@ use GoClimb\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class ApplicationRepositoryTestCase extends DatabaseTestCase
 {
 
-	const NOT_EXISTING_TOKEN = 'ThisTokenDoesNotExist';
-	const TOKEN = 'someRandomToken';
+	const NOT_EXISTING_TOKEN = ApplicationRepository::class . 'NotExisting';
+	const TOKEN = ApplicationRepository::class . 'Token';
+	const APP_NAME = ApplicationRepository::class . 'App';
+	const WALL_NAME = ApplicationRepository::class . 'Wall';
 
 	/** @var ApplicationRepository */
 	private $applicationRepository;
@@ -33,7 +35,7 @@ class ApplicationRepositoryTestCase extends DatabaseTestCase
 	{
 		Assert::null($this->applicationRepository->getByToken(self::NOT_EXISTING_TOKEN));
 		Assert::type(Application::class, $app = $this->applicationRepository->getByToken(self::TOKEN));
-		Assert::equal(1, $app->getId());
+		Assert::equal(self::APP_NAME, $app->getName());
 	}
 
 
@@ -42,7 +44,21 @@ class ApplicationRepositoryTestCase extends DatabaseTestCase
 		$app = $this->applicationRepository->getByToken(self::TOKEN);
 
 		Assert::type(Wall::class, $wall = $app->getWall());
-		Assert::equal(1, $wall->getId());
+		Assert::equal(self::WALL_NAME, $wall->getName());
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		$fixtures = [];
+		$fixtures[] = $wall = (new Wall)->setName(self::WALL_NAME);
+		$fixtures[] = $app = (new Application)->setName(self::APP_NAME)->setDescription('Description')->setToken(self::TOKEN)->setWall($wall);
+		$wall->setApplication($app);
+
+		return $fixtures;
 	}
 }
 

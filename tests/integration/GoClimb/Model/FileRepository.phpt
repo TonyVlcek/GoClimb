@@ -41,6 +41,17 @@ class FileRepositoryTestCase extends DatabaseTestCase
 		Assert::equal(1, $wall->getId());
 	}
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$wall = (new Wall)->setName('Wall'),
+			(new File)->setWall($wall)->setName('Name')->setPath('Path'),
+		];
+	}
 }
 
 testCase(FileRepositoryTestCase::class);

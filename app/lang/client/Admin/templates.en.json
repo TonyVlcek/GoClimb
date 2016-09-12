@@ -4,12 +4,17 @@
 		"edit": "Edit",
 		"create": "Create",
 		"add": "Add article",
-		"close": "Close",
-		"compress": "Compress",
-		"expand": "Expand"
+		"close": "Close"
 	},
 	"dashboard": {
 		"title": "Dashboard"
+	},
+	"events": {
+		"title": "Events",
+		"edit": "Edit",
+		"create": "Create",
+		"add": "Add event",
+		"close": "Close"
 	},
 	"plugins": {
 		"table": {

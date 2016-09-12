@@ -5,7 +5,7 @@ namespace GoClimb\Modules\WallModule\RestModule\V1Module;
 class DashboardPresenter extends BaseV1Presenter
 {
 
-	public function actionDefault()
+	public function actionGet()
 	{
 		$this->addData('wall', [
 			'id' => $this->wall->getId(),

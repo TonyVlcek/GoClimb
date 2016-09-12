@@ -29,13 +29,6 @@ class AclPermission
 	private $resource;
 
 	/**
-	 * @var AclPrivilege
-	 * @ORM\ManyToOne(targetEntity="AclPrivilege", inversedBy="permissions")
-	 * @ORM\JoinColumn(nullable=FALSE, onDelete="CASCADE")
-	 */
-	private $privilege;
-
-	/**
 	 * @var bool
 	 * @ORM\Column(type="boolean")
 	 */
@@ -78,26 +71,6 @@ class AclPermission
 	public function setResource(AclResource $resource)
 	{
 		$this->resource = $resource;
-		return $this;
-	}
-
-
-	/**
-	 * @return AclPrivilege
-	 */
-	public function getPrivilege()
-	{
-		return $this->privilege;
-	}
-
-
-	/**
-	 * @param AclPrivilege $privilege
-	 * @return $this
-	 */
-	public function setPrivilege(AclPrivilege $privilege)
-	{
-		$this->privilege = $privilege;
 		return $this;
 	}
 

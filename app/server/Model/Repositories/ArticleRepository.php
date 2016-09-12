@@ -47,9 +47,9 @@ class ArticleRepository extends BaseRepository
 	private function getByWallOrNull(Wall $wall = NULL, $published = NULL)
 	{
 		if ($published === TRUE) {
-			return $this->getDoctrineRepository()->findBy(["wall" => $wall, "published !=" => NULL]);
+			return $this->getDoctrineRepository()->findBy(["wall" => $wall, "publishedDate !=" => NULL]);
 		} elseif ($published === FALSE) {
-			return $this->getDoctrineRepository()->findBy(["wall" => $wall, "published" => NULL]);
+			return $this->getDoctrineRepository()->findBy(["wall" => $wall, "publishedDate" => NULL]);
 		} else {
 			return $this->getDoctrineRepository()->findBy(["wall" => $wall]);
 		}

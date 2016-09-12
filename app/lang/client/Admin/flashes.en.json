@@ -1,5 +1,7 @@
 {
 	"http": {
+		"error403": "Sorry, but you are not allowed to do this. Try refreshing browser or contact administrator.",
+		"error404": "This page or entity was not found. Try refreshing browser.",
 		"error500": "Sorry, server encountered an internal error. Please refresh your browser and try again. Error was reported to us and we are trying to fix it.",
 		"error600": "Sorry, something went wrong. Try refreshing your browser.",
 		"error601": "Your login expired. Please refresh your browser or login again.",
@@ -10,22 +12,30 @@
 			"success": "Wall settings updated."
 		}
 	},
-	"articles":{
+	"articles": {
 		"delete": "Delete this article?",
-
 		"savedAsDraft": "Article was saved as draft.",
 		"saved": "Article was saved.",
 		"savedAndPublished": "Article was saved and published.",
-
-		"deleted":{
-			"success" : "Article was deleted.",
-			"error" : "Article was not deleted."
+		"deleted": {
+			"success": "Article was deleted.",
+			"error": "Article was not deleted."
 		},
 		"error": {
 			"invalidForm": "Invalid form."
 		}
 	},
-	"panel":{
-		"close": "Close panel?"
+	"events": {
+		"delete": "Delete this event?",
+		"savedAsDraft": "Event was saved as draft.",
+		"saved": "Event was saved.",
+		"savedAndPublished": "Event was saved and published.",
+		"deleted": {
+			"success": "Event was deleted.",
+			"error": "Event was not deleted."
+		},
+		"error": {
+			"invalidForm": "Invalid form."
+		}
 	}
 }

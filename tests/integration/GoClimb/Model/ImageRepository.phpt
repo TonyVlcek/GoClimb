@@ -6,6 +6,8 @@
 use GoClimb\Model\Entities\ContentPart;
 use GoClimb\Model\Entities\File;
 use GoClimb\Model\Entities\Image;
+use GoClimb\Model\Entities\Page;
+use GoClimb\Model\Entities\Wall;
 use GoClimb\Model\Repositories\ImageRepository;
 use GoClimb\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
@@ -52,6 +54,20 @@ class ImageRepositoryTestCase extends DatabaseTestCase
 		Assert::equal(1080, $image->getHeight());
 	}
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$file = (new File)->setName('Name')->setPath('Path'),
+			$wall = (new Wall)->setName('Wall'),
+			$page = (new Page)->setName('Page')->setWall($wall),
+			$contentPart = (new ContentPart)->setPage($page)->setContent('Content')->setOrder(1)->setType(1),
+			(new Image)->setFile($file)->setThumbnailFile($file)->setContentPart($contentPart)->setWidth(1920)->setHeight(1080),
+		];
+	}
 }
 
 testCase(ImageRepositoryTestCase::class);

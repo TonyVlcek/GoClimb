@@ -7,60 +7,60 @@
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.min.css",
 			"bower_components/font-awesome/css/font-awesome.min.css",
-			"www/assets/build/admin.css"
+			"temp/build/admin.css"
 		],
-		"dest": "www/assets/admin.css"
+		"dest": "cdn/assets/admin.css"
 	},
 	"admin-dev": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.css",
 			"bower_components/font-awesome/css/font-awesome.css",
-			"www/assets/build/admin.css"
+			"temp/build/admin.css"
 		],
-		"dest": "www/assets/admin.css"
+		"dest": "cdn/assets/admin.css"
 	},
 	"auth": {
 		"src": [
-			"www/assets/build/auth.css"
+			"temp/build/auth.css"
 		],
-		"dest": "www/assets/auth.css"
+		"dest": "cdn/assets/auth.css"
 	},
 	"auth-dev": {
 		"src": [
-			"www/assets/build/auth.css"
+			"temp/build/auth.css"
 		],
-		"dest": "www/assets/auth.css"
+		"dest": "cdn/assets/auth.css"
 	},
 	"backend": {
 		"src": [
 			"bower_components/bootstrap/dist/css/bootstrap.min.css",
 			"bower_components/bootstrap/dist/css/bootstrap-theme.min.css",
-			"www/assets/build/backend.css"
+			"temp/build/backend.css"
 		],
-		"dest": "www/assets/backend.css"
+		"dest": "cdn/assets/backend.css"
 	},
 	"backend-dev": {
 		"src": [
 			"bower_components/bootstrap/dist/css/bootstrap.css",
 			"bower_components/bootstrap/dist/css/bootstrap-theme.css",
-			"www/assets/build/backend.css"
+			"temp/build/backend.css"
 		],
-		"dest": "www/assets/backend.css"
+		"dest": "cdn/assets/backend.css"
 	},
 	"frontend": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.min.css",
 			"bower_components/font-awesome/css/font-awesome.min.css",
-			"www/assets/build/frontend.css"
+			"temp/build/frontend.css"
 		],
-		"dest": "www/assets/frontend.css"
+		"dest": "cdn/assets/frontend.css"
 	},
 	"frontend-dev": {
 		"src": [
 			"bower_components/foundation-apps/dist/css/foundation-apps.css",
 			"bower_components/font-awesome/css/font-awesome.css",
-			"www/assets/build/frontend.css"
+			"temp/build/frontend.css"
 		],
-		"dest": "www/assets/frontend.css"
+		"dest": "cdn/assets/frontend.css"
 	}
 }

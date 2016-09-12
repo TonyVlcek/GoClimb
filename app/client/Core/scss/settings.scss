@@ -65,15 +65,11 @@ $table-button-background: $theme-divider; //#D4D4D4;
 $table-icon-color: $theme-font-color; //$global-font-color;
 
 //Side panel
-$side-panel-border-color: $theme-divider; //#D1D1D1;
 $side-panel-title-padding: $title-bar-padding-side-medium - 2rem;
 $side-panel-content-padding: $grid-container-padding-sides-large - 2rem;
-$side-panel-z-index: 101;
-//33.33333% is same as class large-4
-//$side-panel-compress-size: 33.33333%;
-$side-panel-animation-margin: 33.33333%;
-$side-panel-expanded-width: 56rem;
-$side-panel-animation-duration: 0.3s;
+$side-panel-width-compress: 28em;
+$side-panel-width-expand: 57em;
+$side-panel-z-index: 102;
 
 body, button, input{
 	outline: 0 !important;

@@ -7,7 +7,7 @@
 			"app/lang/client/Core/*.json",
 			"app/lang/client/Admin/*.json"
 		],
-		"dest": "www/assets/build/admin-lang.js"
+		"dest": "temp/build/admin-lang.js"
 	},
 	"frontend": {
 		"options": {
@@ -17,6 +17,6 @@
 			"app/lang/client/Core/*.json",
 			"app/lang/client/Frontend/*.json"
 		],
-		"dest": "www/assets/build/frontend-lang.js"
+		"dest": "temp/build/frontend-lang.js"
 	}
 }

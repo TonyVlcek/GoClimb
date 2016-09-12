@@ -26,19 +26,19 @@ namespace GoClimb.Admin.Model.Http
 		}
 
 
-		public get(request: string, successCallback: Function, errorCallback: Function = null)
+		public requestGet(request: string, successCallback: Function, errorCallback: Function = null)
 		{
 			this.request(request, 'GET', {}, successCallback, errorCallback);
 		}
 
 
-		public post(request: string, params: {}, successCallback: Function, errorCallback: Function = null)
+		public requestPost(request: string, params: {}, successCallback: Function, errorCallback: Function = null)
 		{
 			this.request(request, 'POST', params, successCallback, errorCallback);
 		}
 
 
-		public delete(request: string, params: {}, successCallback: Function, errorCallback: Function = null)
+		public requestDelete(request: string, params: {}, successCallback: Function, errorCallback: Function = null)
 		{
 			this.request(request, 'DELETE', params, successCallback, errorCallback);
 		}
@@ -71,8 +71,10 @@ namespace GoClimb.Admin.Model.Http
 
 		private resolveError(result)
 		{
-			var code = (result.data && result.data.status) ? result.data.status.code : result.status;
+			const code = (result.data && result.data.status) ? result.data.status.code : result.status;
 			switch (code) {
+				case 403:
+				case 404:
 				case 500:
 				case 600:
 				case 601:

@@ -1,10 +1,24 @@
 {
+	"common": {
+		"unsavedData": "You have unsaved data, that will be lost if you proceed. Continue anyway?"
+	},
 	"articles": {
 		"title": "Title",
 		"content": "Content",
-		"published": "Published",
 		"author": "Author",
 		"save": "Save",
+		"saveAsDraft": "Save as draft",
+		"saveAndPublish": "Save and publish",
+		"delete": "Delete"
+	},
+	"events": {
+		"title": "Title",
+		"content": "Content",
+		"eventDate": "Event date",
+		"author": "Author",
+		"save": "Save",
+		"startDate": "Start date of event",
+		"endDate": "End date of event",
 		"saveAsDraft": "Save as draft",
 		"saveAndPublish": "Save and publish",
 		"delete": "Delete"

@@ -6,7 +6,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use GoClimb\Model\Entities\Attributes\Address;
 use GoClimb\Model\Entities\Attributes\Id;
-use GoClimb\Model\Entities\File;
 
 
 /**
@@ -21,7 +20,7 @@ class Wall
 
 	/**
 	 * @var Application|NULL
-	 * @ORM\OneToOne(targetEntity="Application", mappedBy="wall")
+	 * @ORM\OneToOne(targetEntity="Application", mappedBy="wall", cascade={"persist"})
 	 */
 	private $application;
 
@@ -51,7 +50,7 @@ class Wall
 
 	/**
 	 * @var AclRole[]|ArrayCollection
-	 * @ORM\OneToMany(targetEntity="AclRole", mappedBy="wall")
+	 * @ORM\OneToMany(targetEntity="AclRole", mappedBy="wall", cascade={"persist"})
 	 */
 	private $roles;
 
@@ -81,7 +80,7 @@ class Wall
 
 	/**
 	 * @var WallLanguage|NULL
-	 * @ORM\ManyToOne(targetEntity="WallLanguage", inversedBy="wall")
+	 * @ORM\ManyToOne(targetEntity="WallLanguage", inversedBy="wall", cascade={"persist"})
 	 * @ORM\JoinColumn(nullable=TRUE)
 	 */
 	private $primaryLanguage;

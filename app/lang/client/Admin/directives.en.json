@@ -4,6 +4,7 @@
 			"articles": "Articles",
 			"dashboard": "Dashboard",
 			"settings": "Settings",
+			"events": "Events",
 			"plugins": "Plugins"
 		}
 	},
@@ -15,5 +16,9 @@
 	},
 	"loading": {
 		"title": "Loading"
+	},
+	"expandButton":{
+		"compress": "Compress",
+		"expand": "Expand"
 	}
 }

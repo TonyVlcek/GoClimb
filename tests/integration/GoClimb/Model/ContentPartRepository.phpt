@@ -10,7 +10,7 @@ use GoClimb\Tests\Utils\DatabaseTestCase;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class ContentPartRepositoryTestCase extends DatabaseTestCase
 {
@@ -40,6 +40,18 @@ class ContentPartRepositoryTestCase extends DatabaseTestCase
 
 		Assert::type(Page::class, $page = $cp->getPage());
 		Assert::equal(1, $page->getId());
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		return [
+			$page = (new Page)->setName('Page'),
+			(new ContentPart)->setPage($page)->setContent('Content')->setOrder(1)->setType(1),
+		];
 	}
 }
 

@@ -12,7 +12,7 @@ use Nette\Utils\DateTime;
 use Tester\Assert;
 
 
-require __DIR__ . "/../../../bootstrap.php";
+require __DIR__ . '/../../../bootstrap.php';
 
 class LoginTokenRepositoryTestCase extends DatabaseTestCase
 {
@@ -27,34 +27,22 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 	/** @var UserRepository */
 	private $userRepository;
 
-	/** @var  User */
-	private $user;
-
-	/** @var  User */
-	private $userWithoutToken;
-
-	/** @var  User */
-	private $userExpiredToken;
-
 
 	public function __construct(LoginTokenRepository $loginTokenRepository, UserRepository $userRepository)
 	{
 		parent::__construct();
 		$this->loginTokenRepository = $loginTokenRepository;
 		$this->userRepository = $userRepository;
-
-		$this->user = $this->userRepository->getById(1);
-		$this->userWithoutToken = $this->userRepository->getById(3);
-		$this->userExpiredToken = $this->userRepository->getById(2);
 	}
 
 
 	public function testGetByUser()
 	{
-		Assert::null($this->loginTokenRepository->getByUser($this->userWithoutToken));
-		Assert::null($this->loginTokenRepository->getByUser($this->userExpiredToken));
-		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->getByUser($this->user));
-		Assert::equal(1, $loginToken->getId());
+		list($user, $userExpiredToken, $userWithoutToken) = $this->getEntities();
+		Assert::null($this->loginTokenRepository->getByUser($userWithoutToken));
+		Assert::null($this->loginTokenRepository->getByUser($userExpiredToken));
+		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->getByUser($user));
+		Assert::equal(self::ACTIVE_TOKEN, $loginToken->getToken());
 	}
 
 
@@ -62,7 +50,7 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 	{
 		Assert::null($this->loginTokenRepository->getByToken(self::NOT_EXISTING_TOKEN));
 		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->getByToken(self::ACTIVE_TOKEN));
-		Assert::equal(1, $loginToken->getId());
+		Assert::equal(self::ACTIVE_TOKEN, $loginToken->getToken());
 
 		Assert::null($this->loginTokenRepository->getByToken(self::EXPIRED_TOKEN));
 	}
@@ -71,11 +59,12 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 	public function testCreateLoginToken()
 	{
 		$now = new DateTime;
+		list($user) = $this->getEntities();
 
-		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($this->user, TRUE));
+		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($user, TRUE));
 		Assert::true($now < $loginToken->getExpiration());
 		Assert::type(User::class, $user = $loginToken->getUser());
-		Assert::equal(1, $user->getId());
+		Assert::equal('aa@aa.aa', $user->getEmail());
 	}
 
 
@@ -84,7 +73,36 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 		$loginToken = $this->loginTokenRepository->getByToken(self::ACTIVE_TOKEN);
 
 		Assert::type(User::class, $user = $loginToken->getUser());
-		Assert::equal(1, $user->getId());
+		Assert::equal('aa@aa.aa', $user->getEmail());
+	}
+
+
+	/**
+	 * @return array
+	 */
+	protected function getFixtures()
+	{
+		$fixtures =  [
+			$userActiveToken = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
+			$userExpiredToken = (new User)->setEmail('bb@bb.bb')->setPassword('bbb'),
+			(new User)->setEmail('cc@cc.cc')->setPassword('ccc'),
+			$activeToken = (new LoginToken)->setToken(self::ACTIVE_TOKEN)->setUser($userActiveToken)->setExpiration((new DateTime)->modify('+1 day'))->setLongTerm(0),
+			$expiredToken = (new LoginToken)->setToken(self::EXPIRED_TOKEN)->setUser($userExpiredToken)->setExpiration((new DateTime)->modify('-1 day'))->setLongTerm(0),
+		];
+		$userActiveToken->addLoginToken($activeToken);
+		$userExpiredToken->addLoginToken($expiredToken);
+
+		return $fixtures;
+	}
+
+
+	private function getEntities()
+	{
+		return [
+			$this->userRepository->getByEmail('aa@aa.aa'),
+			$this->userRepository->getByEmail('bb@bb.bb'),
+			$this->userRepository->getByEmail('cc@cc.cc'),
+		];
 	}
 }
 

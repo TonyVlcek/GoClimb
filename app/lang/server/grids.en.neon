@@ -27,3 +27,15 @@ company:
 		name: Name
 		apply: Search
 		cancel: Cancel
+
+wall:
+	fields:
+		id: ID
+		name: Name
+		lang: Languages
+	filter:
+		name: Name
+		apply: Search
+		cancel: Cancel
+	adminLink: administration
+	webLink: web

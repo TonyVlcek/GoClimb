@@ -2,33 +2,106 @@ namespace GoClimb.Admin.Model.Facades
 {
 
 	import HttpService = GoClimb.Admin.Model.Http.HttpService;
+	import Utils = GoClimb.Core.Utils.Utils;
+	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
+	import IArticle = GoClimb.Admin.Model.Entities.IArticle;
 
 	export class ArticlesFacade extends BaseFacade
 	{
-		public getArticles(callback: Function, errorCallback: Function = null)
+
+		private articles: IndexedArray<IArticle> = null;
+
+		private loading: boolean = false;
+
+
+		public getArticles(callback: (articles: IndexedArray<IArticle>) => void = null, errorCallback: Function = null)
 		{
-			this.httpService.get('articles/', callback, errorCallback);
+			if (this.articles === null && this.loading === false) {
+				this.loading = true;
+				this.httpService.requestGet('articles/', (data) => {
+					for (var id in data.articles) {
+						data.articles[id] = ArticlesFacade.mapArticle(data.articles[id]);
+					}
+					this.articles = new IndexedArray<IArticle>(data.articles);
+					this.loading = false;
+					if (callback) {
+						callback(this.articles);
+					}
+				}, errorCallback);
+			} else if (this.articles) {
+				callback(this.articles);
+			}
 		}
 
-		public createArticle(article, publish: boolean, callback: Function, errorCallback: Function = null)
+
+		public getArticle(id: string, callback: (article: IArticle) => void = null, errorCallback: Function = null)
+		{
+			this.getArticles((articles) => {
+				callback(articles.getIndex(id));
+			}, errorCallback);
+		}
+
+
+		public createArticle(article: IArticle, publish: boolean, callback: (article: IArticle) => void = null, errorCallback: Function = null): ArticlesFacade
 		{
 			article = angular.copy(article);
 			article.published = publish;
-			this.httpService.post('articles/', {article}, callback, errorCallback);
+			article = ArticlesFacade.articleToJson(article);
+			this.httpService.requestPost('articles/', {article}, (data) => {
+				this.articles.setIndex(data.article.id.toString(), ArticlesFacade.mapArticle(data.article));
+				if (callback) {
+					callback(this.articles.getIndex(data.article.id.toString()));
+				}
+			}, errorCallback);
+			return this;
 		}
 
-		public updateArticle(article, publish: boolean, callback: Function, errorCallback: Function = null)
+
+		public updateArticle(article: IArticle, publish: boolean, callback: (article: IArticle) => void = null, errorCallback: Function = null): ArticlesFacade
 		{
 			article = angular.copy(article);
 			article.published = publish;
-			var url : string = 'articles/default/' + article.id;
-			this.httpService.post(url, {article}, callback, errorCallback);
+			article = ArticlesFacade.articleToJson(article);
+			this.httpService.requestPost('articles/' + article.id, {article}, (data) => {
+				this.articles.setIndex(data.article.id.toString(), ArticlesFacade.mapArticle(data.article));
+				if (callback) {
+					callback(this.articles.getIndex(data.article.id.toString()));
+				}
+			}, errorCallback);
+			return this;
 		}
 
-		public deleteArticle(article, callback: Function, errorCallback: Function = null)
+
+		public deleteArticle(article: IArticle, callback: () => void = null, errorCallback: Function = null): ArticlesFacade
 		{
-			var url: string = 'articles/default/' + article.id;
-			this.httpService.delete(url, {}, callback, errorCallback);
+			article = angular.copy(article);
+			this.httpService.requestDelete('articles/' + article.id, {}, () => {
+				this.articles.removeIndex(article.id.toString());
+				if (callback) {
+					callback();
+				}
+			}, errorCallback);
+			return this;
+		}
+
+
+		private static mapArticle(article: IArticle): IArticle
+		{
+			if (article.published) {
+				article.publishedDate = Utils.stringToDate(article.publishedDate);
+			}
+
+			return article;
+		}
+
+
+		private static articleToJson(article: IArticle): IArticle
+		{
+			if (article.published && article.publishedDate) {
+				article.publishedDate = Utils.dateToString(article.publishedDate);
+			}
+
+			return article;
 		}
 	}
 
