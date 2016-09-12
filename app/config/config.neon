@@ -81,6 +81,7 @@ services:
 	- GoClimb\Model\Repositories\LanguageRepository
 	- GoClimb\Model\Repositories\LineRepository
 	- GoClimb\Model\Repositories\LoginTokenRepository
+	- GoClimb\Model\Repositories\NewsRepository
 	- GoClimb\Model\Repositories\PageRepository
 	- GoClimb\Model\Repositories\RestTokenRepository
 	- GoClimb\Model\Repositories\RouteRepository
@@ -92,6 +93,7 @@ services:
 
 	- GoClimb\Model\Rest\Updaters\ArticleUpdater
 	- GoClimb\Model\Rest\Updaters\EventUpdater
+	- GoClimb\Model\Rest\Updaters\NewsUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters

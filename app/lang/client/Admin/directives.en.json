@@ -4,6 +4,7 @@
 			"articles": "Articles",
 			"dashboard": "Dashboard",
 			"settings": "Settings",
+			"news": "News",
 			"events": "Events",
 			"plugins": "Plugins"
 		}
@@ -11,7 +12,10 @@
 	"dashboard": {
 		"shortcuts": {
 			"title": "Shortcuts",
-			"settings": "Settings"
+			"settings": "Settings",
+			"articleAdd": "Add article",
+			"newsAdd": "Add news",
+			"eventAdd": "Add event"
 		}
 	},
 	"loading": {

@@ -12,7 +12,7 @@ use GoClimb\Model\Entities\Attributes\Id;
  * @ORM\Entity
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({"article" = "Article", "event" = "Event"})
+ * @ORM\DiscriminatorMap({"article" = "Article", "event" = "Event", "news" = "News"})
  */
 abstract class Post
 {
@@ -45,7 +45,7 @@ abstract class Post
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="text", nullable=FALSE)
+	 * @ORM\Column(type="text", nullable=TRUE)
 	 */
 	private $content;
 

@@ -12,7 +12,7 @@
 	<!--End of Title bar-->
 	<!--Section with content-->
 	<div class="grid-container contain-left">
-		<h2 class="content-title grid-content"></h2>
+		<h2 class="notitle grid-content"></h2>
 		<div class="grid-content" data-ng-hide="eventsCtrl.getEvents()">
 			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
 		</div>
@@ -23,6 +23,11 @@
 						<th data-panel-control data-st-sort="name" data-st-skip-natural="true" class="clickable">
 							{{'grids.events.title'|translate}}
 						</th>
+
+						<th data-panel-control data-st-sort="author" data-st-skip-natural="true" class="clickable">
+							{{'grids.events.author'|translate}}
+						</th>
+
 						<th data-panel-control data-st-sort="startDate" data-st-skip-natural="true" class="clickable">
 							{{'grids.events.startDate'|translate}}
 						</th>
@@ -35,6 +40,7 @@
 				<tbody>
 					<tr data-ng-repeat="event in events">
 						<td>{{event.name|limitTo:40}}{{event.name.length > 40 ? '...' : ''}}</td>
+						<td>{{event.author.name}}</td>
 						<td>{{event.startDate|date: 'yyyy. MM. dd.'}}</td>
 						<td data-ng-show="event.published">{{event.publishedDate|date: 'yyyy. MM. dd.'}}</td>
 						<!-- High number is hack to sort unpublished articles as first. This won't work after year 99999 -->

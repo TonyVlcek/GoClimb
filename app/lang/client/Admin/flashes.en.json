@@ -25,6 +25,18 @@
 			"invalidForm": "Invalid form."
 		}
 	},
+	"news": {
+		"delete": "Delete this news?",
+		"saved": "News was saved.",
+		"savedAndPublished": "News was saved and published.",
+		"deleted": {
+			"success": "News was deleted.",
+			"error": "News was not deleted."
+		},
+		"error": {
+			"invalidForm": "Invalid form."
+		}
+	},
 	"events": {
 		"delete": "Delete this event?",
 		"savedAsDraft": "Event was saved as draft.",
