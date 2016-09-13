@@ -15,7 +15,8 @@ class CdnMacro
 	public static function install(Compiler $compiler)
 	{
 		$set = new MacroSet($compiler);
-		$set->addMacro('cdn', NULL, NULL, 'echo "src=\\"" . $cdn(%node.word) . "\\""');
+		$set->addMacro('cdnSrc', NULL, NULL, 'echo " src=\\"" . $cdn(%node.word) . "\\""');
+		$set->addMacro('cdnHref', NULL, NULL, 'echo " href=\\"" . $cdn(%node.word) . "\\""');
 	}
 
 }

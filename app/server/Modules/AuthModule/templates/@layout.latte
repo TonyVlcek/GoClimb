@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="noindex, nofollow">
+	{include ../../templates/includes/favicon.latte}
 
 	<title>
 		{ifset #title}{include title|striptags} &middot; {/ifset}
@@ -11,7 +12,7 @@
 		{_templates.core.websiteName}
 	</title>
 
-	<link rel="stylesheet" href="{$cdn('assets/auth.css')}">
+	<link rel="stylesheet" n:cdnHref="assets/auth.css">
 </head>
 <body>
 
@@ -19,6 +20,6 @@
 		{include content}
 	</div>
 
-	<script src="{$cdn('assets/auth.js')}"></script>
+	<script n:cdnSrc="assets/auth.js"></script>
 </body>
 </html>
