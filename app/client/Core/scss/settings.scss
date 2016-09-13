@@ -6,7 +6,8 @@ $global-font-color: #222222; // Same as in foundation
 $text-opacaty: 0.13;
 $light-text-opacaty: 0.46;
 $dividers-opacaty: 0.88;
-$disable-opacaty: 0.62;
+//$disable-opacaty: 0.62;
+$disable-opacaty: 0.72;
 
 $theme-font-color: transparentize($theme-color, $text-opacaty);
 $theme-light-font-color: transparentize($theme-color, $light-text-opacaty);
@@ -71,6 +72,10 @@ $side-panel-width-compress: 28em;
 $side-panel-width-expand: 57em;
 $side-panel-z-index: 102;
 
+//ColorPicker
+$color-picker-color-size: 1.7rem;
+$color-picker-color-size-small: 2.7rem;
+
 body, button, input{
 	outline: 0 !important;
 }
@@ -79,9 +84,9 @@ body, button, input{
 	padding-bottom: 1rem;
 }
 
-.hollow {
+//.hollow {
 	//border: 0 !important; ?????
-}
+//}
 
 .remove-button-styles {
 	background: transparent;

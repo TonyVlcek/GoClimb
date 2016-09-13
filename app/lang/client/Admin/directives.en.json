@@ -24,5 +24,8 @@
 	"expandButton":{
 		"compress": "Compress",
 		"expand": "Expand"
+	},
+	"colorPicker":{
+		"max": "You can select maximum of 3 colors."
 	}
 }
