@@ -1,0 +1,51 @@
+<div id="advancedSettingsPanel" class="side-panel vertical">
+	<button type="button" data-ui-sref="settings" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
+	<div class="title-bar main">
+		<h2 class="title left">{{'templates.settings.general'|translate}}</h2>
+		<span class="menu">
+			<span data-expand-button></span>
+		</span>
+	</div>
+	<div class="grid-container contain-left wrap">
+		<form name="advancedSettingsForm" class="form" novalidate>
+			<div class="grid-block wrap">
+				<div class="notitle"></div>
+				<div class="grid-content small-12 noscroll">
+					<label>
+						{{'templates.settings.default.name'|translate}}
+						<input type="text" data-ng-model="advancedSettings.details.name" required>
+					</label>
+					<label>
+						{{'templates.settings.default.street'|translate}}
+						<input type="text" data-ng-model="advancedSettings.details.street">
+					</label>
+					<label>
+						{{'templates.settings.default.number'|translate}}
+						<input type="text" data-ng-model="advancedSettings.details.number">
+					</label>
+					<label>
+						{{'templates.settings.default.country'|translate}}
+						<input type="text" data-ng-model="advancedSettings.details.country">
+					</label>
+					<label>
+						{{'templates.settings.default.zip'|translate}}
+						<input type="text" data-ng-model="advancedSettings.details.zip">
+					</label>
+				</div>
+
+				<div class="grid-content small-12">
+
+					<button type="submit" class="button default"
+					        data-ng-class="{spinner : processingSave}"
+					        data-ng-disabled="(advancedSettingsForm.$invalid || isProcessing() || advancedSettingsForm.$pristine)"
+					        data-ng-click="save()">
+						{{'templates.settings.default.submit'|translate}}
+					</button>
+
+					<button type="button" data-ui-sref="settings" class="button secondary">{{'templates.news.close'|translate}}</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>
