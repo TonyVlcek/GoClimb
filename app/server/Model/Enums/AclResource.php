@@ -13,6 +13,7 @@ class AclResource
 	const ADMIN_ARTICLES = 'admin.articles';
 	const ADMIN_EVENTS = 'admin.events';
 	const ADMIN_NEWS = 'admin.news';
+	const ADMIN_ACL = 'admin.acl';
 
 
 	public static function isValid($resource)

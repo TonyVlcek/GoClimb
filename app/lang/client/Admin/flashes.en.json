@@ -50,5 +50,13 @@
 		"error": {
 			"invalidForm": "Invalid form."
 		}
+	},
+	"roles": {
+		"userLinkedUp": "User was successfully added to this role",
+		"userUnlinked": "User was successfully removed from this role",
+		"unlink": "Are you sure you want to remove this user from this role?",
+		"error": {
+			"invalidForm": "Invalid form."
+		}
 	}
 }

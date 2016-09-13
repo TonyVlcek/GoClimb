@@ -15,6 +15,12 @@ namespace GoClimb.Admin.Model.Facades
 			this.httpService.requestGet(url, callback, errorCallback);
 		}
 
+		public getByEmail(email: string, callback: (user) => void = null, errorCallback: Function = null)
+		{
+			this.httpService.requestGet('users', (data) => {
+				callback(data.user);
+			}, {email: email}, errorCallback);
+		}
 	}
 
 	UserFacade.register(angular, 'userFacade', ['httpService']);

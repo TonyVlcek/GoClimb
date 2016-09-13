@@ -2,6 +2,7 @@
 	"adminMenu": {
 		"items": {
 			"articles": "Articles",
+			"roles": "Roles",
 			"dashboard": "Dashboard",
 			"settings": "Settings",
 			"news": "News",
@@ -45,6 +46,15 @@
 				},
 				"list": {
 					"title": "Events list",
+					"description": ""
+				}
+			}
+		},
+		"roles": {
+			"title": "Roles",
+			"items": {
+				"list": {
+					"title": "Roles list",
 					"description": ""
 				}
 			}

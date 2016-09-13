@@ -85,7 +85,8 @@ class AclFacade
 			->addPermission($admin, $resources[AclResourceEnum::ADMIN_ARTICLES])
 			->addPermission($admin, $resources[AclResourceEnum::ADMIN_EVENTS])
 			->addPermission($admin, $resources[AclResourceEnum::ADMIN_NEWS])
-			->addPermission($owner, $resources[AclResourceEnum::ADMIN_SETTINGS_ADVANCED]);
+			->addPermission($owner, $resources[AclResourceEnum::ADMIN_SETTINGS_ADVANCED])
+			->addPermission($owner, $resources[AclResourceEnum::ADMIN_ACL]);
 
 		$user->addRole($owner);
 		$owner->addUser($user);

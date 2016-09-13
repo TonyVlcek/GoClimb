@@ -26,9 +26,9 @@ namespace GoClimb.Admin.Model.Http
 		}
 
 
-		public requestGet(request: string, successCallback: Function, errorCallback: Function = null)
+		public requestGet(request: string, successCallback: Function, params: {} = {}, errorCallback: Function = null)
 		{
-			this.request(request, 'GET', {}, successCallback, errorCallback);
+			this.request(request, 'GET', params, successCallback, errorCallback);
 		}
 
 

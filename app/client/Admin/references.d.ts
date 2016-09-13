@@ -5,6 +5,7 @@
 /// <reference path="ts/Model/Entities/IArticle.ts" />
 /// <reference path="ts/Model/Entities/IEvent.ts" />
 /// <reference path="ts/Model/Entities/INews.ts" />
+/// <reference path="ts/Model/Entities/IRole.ts" />
 /// <reference path="ts/Model/Entities/IWallDetails.ts" />
 
 
@@ -14,6 +15,7 @@
 /// <reference path="ts/Model/Facades/EventsFacade.ts" />
 /// <reference path="ts/Model/Facades/NewsFacade.ts" />
 /// <reference path="ts/Model/Facades/UserFacade.ts" />
+/// <reference path="ts/Model/Facades/RolesFacade.ts" />
 /// <reference path="ts/Model/Facades/WallDetailsFacade.ts" />
 
 
@@ -35,6 +37,8 @@
 /// <reference path="ts/States/NewsCreateState.ts" />
 /// <reference path="ts/States/NewsEditState.ts" />
 /// <reference path="ts/States/PluginsState.ts" />
+/// <reference path="ts/States/RoleManageUsersState.ts" />
+/// <reference path="ts/States/RolesState.ts" />
 /// <reference path="ts/States/SettingsState.ts" />
 /// <reference path="ts/States/AdvancedSettingsState.ts" />
 
@@ -55,9 +59,8 @@
 /// <reference path="ts/Controllers/DashboardController.ts" />
 /// <reference path="ts/Controllers/EventsController.ts" />
 /// <reference path="ts/Controllers/NewsController.ts" />
+/// <reference path="ts/Controllers/RolesController.ts" />
 /// <reference path="ts/Controllers/SettingsController.ts" />
 
 
 /// <reference path="ts/Model/Http/HttpService.ts" />
-
-

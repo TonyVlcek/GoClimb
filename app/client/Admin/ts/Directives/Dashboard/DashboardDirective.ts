@@ -66,6 +66,16 @@ namespace GoClimb.Admin.Directives
 					]
 				},
 				{
+					name: 'directives.dashboard.roles.title',
+					links: [
+						{
+							name: 'directives.dashboard.roles.items.list.title',
+							href: 'roles',
+							description: 'directives.dashboard.roles.items.list.description'
+						}
+					]
+				},
+				{
 					name: 'directives.dashboard.settings.title',
 					links: [
 						{

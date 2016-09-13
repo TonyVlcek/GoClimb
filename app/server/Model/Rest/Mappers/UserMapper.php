@@ -3,7 +3,6 @@
 namespace GoClimb\Model\Rest\Mappers;
 
 use GoClimb\Model\Entities\User;
-use Nette\Utils\DateTime;
 
 
 class UserMapper
@@ -36,4 +35,19 @@ class UserMapper
 			'name' => $user->getFullName(),
 		];
 	}
+
+
+	/**
+	 * @param User $user
+	 * @return array
+	 */
+	public static function mapBasicInfo(User $user)
+	{
+		return [
+			'id' => $user->getId(),
+			'nick' => $user->getNick(),
+			'email' => $user->getEmail(),
+		];
+	}
+
 }
