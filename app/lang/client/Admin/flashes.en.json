@@ -8,8 +8,9 @@
 		"error602": "Your IP address has changed since last visit. Please refresh your browser."
 	},
 	"settings": {
-		"updated": {
-			"success": "Wall settings updated."
+		"updated": "Wall settings updated.",
+		"error": {
+			"invalidForm": "Invalid form."
 		}
 	},
 	"articles": {
