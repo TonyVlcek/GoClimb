@@ -26,12 +26,13 @@ namespace GoClimb.Admin.Directives
 			element.on('click', (event) => {
 				var panelElement = angular.element('.side-panel');
 				if (panelElement.length && !panelElement.get(0).contains(event.target)) {
+					var body = angular.element('body');
 					if (this.$window.matchMedia("(max-width: 1200px)").matches) {
 						event.preventDefault();
 						panelElement.find('.js-close-panel').click();
-					} else if (!panelElement.hasClass('compress')) {
+					} else if (!body.hasClass('panel-is-compressed')) {
 						event.preventDefault();
-						panelElement.addClass('compress');
+						body.addClass('panel-is-compressed');
 					}
 					try {
 						scope.$apply();
