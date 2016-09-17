@@ -5,7 +5,7 @@ namespace GoClimb.Admin.States
 	import IStateService = angular.ui.IStateService;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
 	import WallDetailsFacade = GoClimb.Admin.Model.Facades.WallDetailsFacade;
-	import IAdvancedSettings = GoClimb.Admin.Model.Entities.IAdvancedSettings;
+	import IWallDetails = GoClimb.Admin.Model.Entities.IWallDetails;
 
 	export class AdvancedSettingsState extends BasePanelState
 	{
@@ -14,7 +14,7 @@ namespace GoClimb.Admin.States
 		public templateUrl = 'app/client/Admin/ts/templates/Settings/advancedSettings.html';
 
 		public resolve = {
-			settings: ['$stateParams', 'wallDetailsFacade', ($stateParams, wallDetailsFacade: WallDetailsFacade) => {
+			settings: ['wallDetailsFacade', (wallDetailsFacade: WallDetailsFacade) => {
 				return new Promise((resolve, reject) => {
 					wallDetailsFacade.getDetails(function (settings) {
 						resolve(angular.copy(settings));
@@ -24,7 +24,6 @@ namespace GoClimb.Admin.States
 		};
 
 		public controller = ['$scope', 'settings', 'wallDetailsFacade', 'flashMessageSender', ($scope, settings, wallDetailsFacade: WallDetailsFacade, flashMessageSender: FlashMessageSender) => {
-			console.log("Asap");
 			this.data.canLeave = () => {
 				return !($scope.advancedSettingsForm && $scope.advancedSettingsForm.$dirty);
 			};
@@ -42,7 +41,7 @@ namespace GoClimb.Admin.States
 				$scope.processingSave = true;
 				var message = 'flashes.settings.updated';
 
-				wallDetailsFacade.updateDetails($scope.advancedSettings.details, (settings: IAdvancedSettings) => {
+				wallDetailsFacade.updateDetails($scope.advancedSettings.details, (settings: IWallDetails) => {
 					$scope.advancedSettings = settings;
 					$scope.advancedSettingsForm.$setPristine();
 					$scope.processingSave = false;

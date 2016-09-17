@@ -1,7 +1,7 @@
 namespace GoClimb.Admin.Model.Entities
 {
 
-	export interface IAdvancedSettings
+	export interface IWallDetails
 	{
 
 		name: string;

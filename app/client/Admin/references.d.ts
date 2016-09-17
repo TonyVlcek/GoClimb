@@ -5,7 +5,7 @@
 /// <reference path="ts/Model/Entities/IArticle.ts" />
 /// <reference path="ts/Model/Entities/IEvent.ts" />
 /// <reference path="ts/Model/Entities/INews.ts" />
-/// <reference path="ts/Model/Entities/IAdvancedSettings.ts" />
+/// <reference path="ts/Model/Entities/IWallDetails.ts" />
 
 
 /// <reference path="ts/Model/Facades/BaseFacade.ts" />
