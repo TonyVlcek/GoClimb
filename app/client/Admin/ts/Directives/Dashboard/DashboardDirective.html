@@ -1,9 +1,47 @@
 <div class="grid-container contain-left">
 	<div class="grid-content">
-		<h2 class="content-title">{{'directives.dashboard.shortcuts.title'|translate}}</h2>
-		<a class="button primary" data-ui-sref="settings">{{'directives.dashboard.shortcuts.settings'|translate}}</a>
-		<a class="button primary" data-ui-sref="articles.create"><span class="fa fa-pencil-square-o"></span> {{'directives.dashboard.shortcuts.articleAdd'|translate}}</a>
-		<a class="button primary" data-ui-sref="news.create"><span class="fa fa-pencil-square-o"></span> {{'directives.dashboard.shortcuts.newsAdd'|translate}}</a>
-		<a class="button primary" data-ui-sref="events.create"><span class="fa fa-pencil-square-o"></span> {{'directives.dashboard.shortcuts.eventAdd'|translate}}</a>
+		<br>
+		<label>
+			<span class="inline-label">
+				<input type="search" placeholder="Search action" ng-model="query">
+				<button class="button dark" data-ng-click="query = null" data-ng-disabled="!query">Cancel</button>
+			</span>
+		</label>
+
+		<!--Body content-->
+
+		<div class="grid-block small-up-1 medium-up-2 large-up-3" data-ng-hide="query">
+			<div class="grid-content" data-ng-repeat="category in categories">
+				<div class="card">
+					<div class="card-divider">
+						<h4>{{category.name}}</h4>
+					</div>
+
+					<div class="grid-content">
+						<section class="block-list">
+							<ul>
+								<li data-ng-repeat="link in category.links">
+									<a data-ng-click="goTo(link.href)">
+										{{link.name}}
+										<span class="description" data-ng-show="link.description"> - {{link.description}}</span>
+									</a>
+								</li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="block-list grid-content" data-ng-show="query">
+			<ul>
+				<li data-ng-repeat="link in links | filter:query">
+					<a data-ng-click="goTo(link.href)" class="clearfix">
+						<span class="float-left">{{link.name}}</span>
+						<span class="float-right description">{{link.description}} <span class="fa fa-chevron-right icon"></span> </span>
+					</a>
+				</li>
+			</ul>
+		</section>
+
 	</div>
 </div>

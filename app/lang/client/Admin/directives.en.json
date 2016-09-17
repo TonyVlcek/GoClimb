@@ -10,12 +10,57 @@
 		}
 	},
 	"dashboard": {
-		"shortcuts": {
-			"title": "Shortcuts",
-			"settings": "Settings",
-			"articleAdd": "Add article",
-			"newsAdd": "Add news",
-			"eventAdd": "Add event"
+		"article": {
+			"title": "Articles",
+			"items": {
+				"create": {
+					"title": "Create article",
+					"description": ""
+				},
+				"list": {
+					"title": "Articles list",
+					"description": ""
+				}
+			}
+		},
+		"news": {
+			"title": "News",
+			"items": {
+				"create": {
+					"title": "Create news",
+					"description": ""
+				},
+				"list": {
+					"title": "News list",
+					"description": ""
+				}
+			}
+		},
+		"events": {
+			"title": "Events",
+			"items": {
+				"create": {
+					"title": "Create event",
+					"description": ""
+				},
+				"list": {
+					"title": "Events list",
+					"description": ""
+				}
+			}
+		},
+		"settings": {
+			"title": "Settings",
+			"items": {
+				"list": {
+					"title": "All settings",
+					"description": "List of all settings"
+				},
+				"advanced": {
+					"title": "Global settings",
+					"description": "Wall name, location"
+				}
+			}
 		}
 	},
 	"loading": {
