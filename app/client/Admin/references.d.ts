@@ -7,6 +7,15 @@
 /// <reference path="ts/Model/Entities/INews.ts" />
 
 
+/// <reference path="ts/Model/Facades/BaseFacade.ts" />
+/// <reference path="ts/Model/Facades/ColorsFacade.ts" />
+/// <reference path="ts/Model/Facades/ArticlesFacade.ts" />
+/// <reference path="ts/Model/Facades/EventsFacade.ts" />
+/// <reference path="ts/Model/Facades/NewsFacade.ts" />
+/// <reference path="ts/Model/Facades/UserFacade.ts" />
+/// <reference path="ts/Model/Facades/WallDetailsFacade.ts" />
+
+
 /// <reference path="ts/Services/Authorizator.ts" />
 /// <reference path="ts/Services/FlashMessageType.ts" />
 /// <reference path="ts/Services/FlashMessageSender.ts" />
@@ -31,6 +40,7 @@
 /// <reference path="ts/Directives/App/AppDirective.ts" />
 /// <reference path='ts/Directives/AdminMenu/AdminMenuDirective.ts' />
 /// <reference path='ts/Directives/AdminMenuButton/AdminMenuButtonDirective.ts' />
+/// <reference path='ts/Directives/ColorPicker/ColorPickerDirective.ts' />
 /// <reference path='ts/Directives/Dashboard/DashboardDirective.ts' />
 /// <reference path='ts/Directives/ExpandButton/ExpandButtonDirective.ts' />
 /// <reference path='ts/Directives/CdnImage/CdnImageDirective.ts' />
@@ -49,9 +59,3 @@
 /// <reference path="ts/Model/Http/HttpService.ts" />
 
 
-/// <reference path="ts/Model/Facades/BaseFacade.ts" />
-/// <reference path="ts/Model/Facades/ArticlesFacade.ts" />
-/// <reference path="ts/Model/Facades/EventsFacade.ts" />
-/// <reference path="ts/Model/Facades/NewsFacade.ts" />
-/// <reference path="ts/Model/Facades/UserFacade.ts" />
-/// <reference path="ts/Model/Facades/WallDetailsFacade.ts" />

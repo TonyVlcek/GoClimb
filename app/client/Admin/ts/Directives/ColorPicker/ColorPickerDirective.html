@@ -1,0 +1,3 @@
+<div class="color-picker">
+	<button ng-repeat="color in colors" type="button" class="color-button" ng-class="{'active': isColorActive(color)}" style="background: {{color}};" ng-click="toggleColor(color)"></button>
+</div>
