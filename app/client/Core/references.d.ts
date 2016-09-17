@@ -14,6 +14,8 @@
 /// <reference path="ts/Providers/BaseProvider.ts" />
 
 /// <reference path="ts/Services/BaseService.ts" />
+/// <reference path="ts/Services/Authorizator.ts" />
+/// <reference path="ts/Services/DialogService.ts" />
 /// <reference path="ts/Services/LanguageService.ts" />
 /// <reference path="ts/Plugins/PluginDefinition.ts" />
 
@@ -41,6 +43,16 @@
 // DIRECTIVES
 
 /// <reference path="ts/Directives/BaseDirective.ts" />
+
+/// <reference path='ts/Directives/CdnImage/CdnImageDirective.ts' />
+
+/// <reference path='ts/Directives/Close/CloseDirective.ts' />
+
+/// <reference path='ts/Directives/CloseButton/CloseButtonDirective.ts' />
+
+/// <reference path='ts/Directives/ExpandButton/ExpandButtonDirective.ts' />
+
+/// <reference path='ts/Directives/IfAllowed/IfAllowedDirective.ts' />
 
 /// <reference path='ts/Directives/TopPanel/TopPanelDirective.ts' />
 

@@ -31,10 +31,8 @@
 /// <reference path="ts/Model/Facades/WallDetailsFacade.ts" />
 
 
-/// <reference path="ts/Services/Authorizator.ts" />
 /// <reference path="ts/Services/FlashMessageType.ts" />
 /// <reference path="ts/Services/FlashMessageSender.ts" />
-/// <reference path="ts/Services/DialogService.ts" />
 
 
 /// <reference path="ts/States/AdvancedSettingsState.ts" />
@@ -67,10 +65,6 @@
 /// <reference path='ts/Directives/ColorPicker/ColorPickerDirective.ts' />
 /// <reference path='ts/Directives/Dashboard/DashboardDirective.ts' />
 /// <reference path='ts/Directives/DifficultyPicker/DifficultyPickerDirective.ts' />
-/// <reference path='ts/Directives/ExpandButton/ExpandButtonDirective.ts' />
-/// <reference path='ts/Directives/CdnImage/CdnImageDirective.ts' />
-/// <reference path="ts/Directives/IfAllowed/IfAllowedDirective.ts" />
-/// <reference path='ts/Directives/Close/CloseDirective.ts' />
 
 
 /// <reference path="ts/Controllers/BaseAdminController.ts" />

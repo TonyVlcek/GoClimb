@@ -1,0 +1,43 @@
+<div id="logPanel" class="gc-side-panel gc-small js-disable-compressed">
+	<span data-close-button></span>
+	<div class="gc-title-bar">
+		<h1 class="gc-title">{{'templates.logs.create'|translate}}</h1>
+	</div>
+	<div class="gc-content">
+		<form name="logForm" class="gc-form" novalidate>
+			<label>
+				{{'forms.logs.date'|translate}}:
+				<input type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+			</label>
+
+			<label>
+				{{'forms.logs.style'|translate}}:
+				<select required>
+					<option>test</option>
+					<option>test</option>
+					<option>test</option>
+				</select>
+			</label>
+
+			<label>
+				{{'forms.logs.climbUp.title'|translate}}:
+				<small>{{'forms.logs.climbUp.description'|translate}}:</small>
+				<input type="checkbox">
+			</label>
+
+			<label>
+				{{'forms.logs.numberOfTries'|translate}}:
+				<input type="number" ng-model="record.tries" required>
+			</label>
+
+			<label>
+				{{'forms.logs.privateNote'|translate}}:
+				<textarea></textarea>
+			</label>
+
+			<button class="gc-button">{{'forms.logs.save'|translate}}</button>
+			<button class="gc-button gc-secondary" data-ui-sref="logs">{{'templates.panel.close'|translate}}</button>
+		</form>
+
+	</div>
+</div>

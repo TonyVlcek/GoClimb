@@ -1,0 +1,15 @@
+{
+	"routes": {
+		"name": "Name",
+		"uiaa": "UIAA",
+		"fr": "FR",
+		"hueco": "HUECO",
+		"built": "Built",
+		"author": "Author",
+		"sector": "Sector",
+		"length": "Length",
+		"steps": "Steps",
+		"parameters": "Parameters",
+		"log": "Log"
+	}
+}

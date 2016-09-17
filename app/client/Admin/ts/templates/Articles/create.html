@@ -1,12 +1,12 @@
-<div id="articlePanel" class="side-panel vertical">
-	<button type="button" data-ui-sref="articles" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
-	<div class="title-bar main">
-		<h2 class="title left">{{'templates.articles.create'|translate}}</h2>
-		<span class="menu">
-			<span data-expand-button></span>
-		</span>
+<div id="articlePanel" class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{'templates.articles.create'|translate}}</h1>
+		<div class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</div>
 	</div>
-	<div class="grid-container contain-left wrap">
+	<div class="gc-content gc-flex">
 		<form name="articleForm" class="form" novalidate>
 			<div class="grid-block wrap">
 				<div class="notitle"></div>
@@ -47,7 +47,9 @@
 						{{'forms.articles.save'|translate}}
 					</button>
 
-					<button type="button" data-ui-sref="articles" class="button secondary">{{'templates.articles.close'|translate}}</button>
+					<button type="button" data-ui-sref="articles" class="button secondary">
+						{{'templates.articles.close'|translate}}
+					</button>
 				</div>
 			</div>
 		</form>

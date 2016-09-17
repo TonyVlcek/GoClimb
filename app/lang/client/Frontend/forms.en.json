@@ -1,0 +1,13 @@
+{
+	"logs": {
+		"date": "Date of climbing",
+		"style": "Style",
+		"climbUp": {
+			"title": "Climb up",
+			"description": "Short description what it mean"
+		},
+		"numberOfTries": "Number of tries",
+		"privateNote": "Private note",
+		"save": "Save"
+	}
+}

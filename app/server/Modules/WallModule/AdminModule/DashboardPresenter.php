@@ -2,7 +2,6 @@
 
 namespace GoClimb\Modules\WallModule\AdminModule;
 
-use GoClimb\Model\Entities\AclRole;
 use GoClimb\Model\Enums\AclResource;
 use GoClimb\Model\Facades\RestFacade;
 
@@ -55,42 +54,5 @@ class DashboardPresenter extends BaseAdminPresenter
 		$this->template->locale = $this->locale;
 	}
 
-
-	/**
-	 * @return string[]
-	 */
-	private function getPermissions()
-	{
-		if (!$this->user->isLoggedIn()) {
-			return [];
-		}
-		$result = [];
-		foreach ($this->user->getUserEntity()->getRoles() as $role) {
-			$result = array_merge($result, $this->getRolePermissions($role));
-		}
-		return array_unique($result);
-	}
-
-
-	/**
-	 * @param AclRole $role
-	 * @return string[]
-	 */
-	private function getRolePermissions(AclRole $role)
-	{
-		if ($role->getWall() !== $this->wall) {
-			return [];
-		}
-		$permissions = [];
-		foreach ($role->getPermissions() as $permission) {
-			if ($permission->isAllowed()) {
-				$permissions[] = $permission->getResource()->getName();
-			}
-		}
-		if ($role->getParent()) {
-			$permissions = array_merge($permissions, $this->getRolePermissions($role->getParent()));
-		}
-		return $permissions;
-	}
 
 }

@@ -1,0 +1,53 @@
+.#{$class-prefix}-title-bar {
+	//Padding + title size + btn size + btn padding
+	min-height: $title-bar-minimal-height;
+	background: $title-bar-background;
+	display: block;
+	padding-top: $title-bar-padding;
+	padding-bottom: $title-bar-padding;
+
+	&.#{$class-prefix}-with-menu {
+		padding-bottom: 0;
+	}
+
+	.#{$class-prefix}-title {
+		display: block;
+		font-weight: normal;
+		letter-spacing: 0.1rem;
+		line-height: 1.5;
+		font-size: $title-bar-title-size;
+		color: $title-bar-title-color;
+		padding: 0 3.4rem 0.65rem;
+		margin: 0;
+		max-width: 100%;
+		overflow: auto;
+	}
+
+	.#{$class-prefix}-menu {
+		display: block;
+		padding: 0 ($title-bar-padding-sides - $title-bar-button-padding);
+		background: $global-theme-divider;
+
+		.#{$class-prefix}-item-container {
+			display: inline;
+		}
+
+		.#{$class-prefix}-item {
+			display: inline-block;
+			text-transform: uppercase;
+			color: $title-bar-button-color;
+			letter-spacing: 0.1rem;
+			background: transparent;
+			padding: $title-bar-button-padding;
+			border: 0;
+
+			&:hover {
+				background: $global-theme-divider;
+			}
+
+			.#{$class-prefix}-icon {
+				margin-right: 0.3rem
+			}
+		}
+	}
+}

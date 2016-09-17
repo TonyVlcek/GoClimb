@@ -45,7 +45,7 @@
 		color: transparent;
 	}
 	to {
-		background: $theme-accent-color;
+		background: $global-theme-accent-color;
 		color: inherit;
 	}
 }
@@ -56,7 +56,7 @@
 		color: transparent;
 	}
 	to {
-		background: darken($theme-divider, 40);
+		background: darken($global-theme-divider, 40);
 		color: inherit;
 	}
 }

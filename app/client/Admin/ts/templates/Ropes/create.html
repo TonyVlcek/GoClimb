@@ -1,12 +1,12 @@
-<div id="ropePanel" class="side-panel vertical">
-	<button type="button" data-ui-sref="ropes" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
-	<div class="title-bar main">
-		<h2 class="title left">{{'templates.ropes.create'|translate}}</h2>
-		<span class="menu">
-			<span data-expand-button></span>
-		</span>
+<div id="ropePanel" class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h2 class="gc-title">{{'templates.ropes.create'|translate}}</h2>
+		<div class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</div>
 	</div>
-	<div class="grid-container contain-left wrap">
+	<div class="gc-content gc-flex">
 		<form name="ropeForm" class="form" novalidate>
 			<div class="grid-block wrap">
 				<div class="notitle"></div>
@@ -71,30 +71,42 @@
 
 					<div data-difficulty-picker="rope.difficulty" data-type="'rope'"></div>
 
-					{{'forms.ropes.parameters'|translate}}
-					<button class="button" data-ng-click="addParameter()"><span class="fa fa-plus"></span></button>
+					<hr>
+					<div class="clearfix">
+						<h3 class="subheader float-left">{{'forms.ropes.parameters'|translate}}</h3>
+						<div class="grid-block float-right">
+							<button class="button small" data-ng-click="addParameter()"><span class="fa fa-plus"></span>
+							</button>
+						</div>
+					</div>
 
 					<div data-ng-repeat="(index, parameter) in rope.parameters">
 						<label>
 							{{'forms.ropes.parameter.name'|translate}}
+							<span class="inline-label">
 							<select data-ng-hide="parameter.parameter" data-ng-model="parameter.parameter">
 								<option data-ng-repeat="item in parameters" data-ng-value="item.name">
 									{{'enums.parameters.' + item.name|translate}}
 								</option>
 							</select>
-							<span data-ng-show="parameter.parameter">{{'enums.parameters.' + parameter.parameter|translate}}</span>
+								<span data-ng-show="parameter.parameter">{{'enums.parameters.' + parameter.parameter|translate}}</span>
+							</span>
 						</label>
 						<label>
 							{{'forms.ropes.parameter.level'|translate}}
+							<span data-ng-show="parameter.level">{{parameter.level}}</span>
+							<span class="inline-label">
 							<select data-ng-hide="parameter.level" data-ng-model="parameter.level">
 								<option data-ng-value="1">1</option>
 								<option data-ng-value="2">2</option>
 								<option data-ng-value="3">3</option>
 							</select>
-							<span data-ng-show="parameter.level">{{parameter.level}}</span>
+								<span data-ng-show="parameter.level">{{parameter.level}}</span>
+							</span>
 						</label>
-						<button class="button" data-ng-click="removeParameter(index)"><span class="fa fa-times"></span></button>
+						<button class="button small" data-ng-click="removeParameter(index)"><span class="fa fa-times"></span></button>
 					</div>
+					<hr>
 				</div>
 
 				<div class="grid-block noscroll" data-ng-show="displayRest()">

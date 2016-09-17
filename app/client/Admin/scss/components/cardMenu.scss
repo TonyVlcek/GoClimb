@@ -4,11 +4,11 @@
 	li {
 		border: 0;
 		a {
-			color: $theme-accent-color;
+			color: $global-theme-accent-color;
 		}
 	}
 }
 
 .description {
-	color: $theme-light-font-color;
+	color: $global-theme-light-font-color;
 }

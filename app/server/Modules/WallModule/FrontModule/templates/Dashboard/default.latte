@@ -1,0 +1,23 @@
+<!doctype html>
+<html data-ng-app="GoClimb">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="{link this, 'path' => NULL}">
+
+	{*TODO Title*}
+	<title>Stodulky</title>
+
+	<link rel="stylesheet" n:cdnHref="assets/frontend.css">
+</head>
+
+<body data-close>
+
+<span class="gc-overlay"></span>
+<div data-ui-view></div>
+
+<script n:cdnSrc="assets/frontend.js"></script>
+<script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>
+<script n:syntax="double">(function(a,m,d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular,'GoClimb',{{$data}})</script>
+</body>
+</html>

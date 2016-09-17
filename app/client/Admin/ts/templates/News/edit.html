@@ -1,38 +1,37 @@
-<div id="newsPanel" class="side-panel vertical">
-	<button type="button" data-ui-sref="news" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
-	<div class="title-bar main">
-		<h2 class="title left">{{'templates.news.edit'|translate}}</h2>
-		<span class="menu">
-			<span data-expand-button></span>
-		</span>
+<div id="newsPanel" class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h2 class="gc-title">{{'templates.news.edit'|translate}}</h2>
+		<div class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</div>
 	</div>
-	<div class="grid-container contain-left wrap">
-		<form name="newsForm" class="form" novalidate>
-			<div class="grid-block wrap">
-				<div class="notitle"></div>
-				<div class="grid-content small-12 noscroll">
-					<label>
-						{{'forms.news.title'|translate}}:
-						<input name="name" type="text" ng-model="news.name" required>
-					</label>
-					<p class="small-12">
-						{{'forms.news.author'|translate}} : {{news.author.name}}
-					</p>
-				</div>
+	<div class="gc-content gc-flex">
+		<form name="newsForm" class="form grid-block wrap" novalidate>
+			<div class="notitle"></div>
+			<div class="grid-content small-12 noscroll">
+				<label>
+					{{'forms.news.title'|translate}}:
+					<input name="name" type="text" ng-model="news.name" required>
+				</label>
+				<p class="small-12">
+					{{'forms.news.author'|translate}} : {{news.author.name}}
+				</p>
+			</div>
 
-				<div class="grid-content small-12">
-					<button type="submit" class="button primary"
-						data-ng-show="news.published"
-						data-ng-class="{spinner : processingSave}"
-						data-ng-disabled="(newsForm.$invalid || isProcessing())"
-						data-ng-click="save()">
-						{{'forms.news.save'|translate}}
-					</button>
+			<div class="grid-content small-12">
+				<button type="submit" class="button primary"
+					data-ng-show="news.published"
+					data-ng-class="{spinner : processingSave}"
+					data-ng-disabled="(newsForm.$invalid || isProcessing())"
+					data-ng-click="save()">
+					{{'forms.news.save'|translate}}
+				</button>
 
-					<button type="button" data-ui-sref="news" class="button secondary">{{'templates.news.close'|translate}}</button>
-				</div>
+				<button type="button" data-ui-sref="news" class="button secondary">
+					{{'templates.news.close'|translate}}
+				</button>
 			</div>
 		</form>
-
 	</div>
 </div>

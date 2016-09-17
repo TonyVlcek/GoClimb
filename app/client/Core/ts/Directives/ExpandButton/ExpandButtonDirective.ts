@@ -9,7 +9,7 @@ namespace GoClimb.Admin.Directives
 	export class ExpandButtonDirective extends BaseDirective
 	{
 
-		public templateUrl: string = 'app/client/Admin/ts/Directives/ExpandButton/ExpandButtonDirective.html';
+		public templateUrl: string = 'app/client/Core/ts/Directives/ExpandButton/ExpandButtonDirective.html';
 
 		public link = (scope, element: IAugmentedJQuery, attributes: IAttributes) =>
 		{
