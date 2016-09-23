@@ -61,7 +61,9 @@
 					"description": "Wall name, location"
 				}
 			}
-		}
+		},
+		"searchPlaceholder": "Search action",
+		"cancel": "Cancel"
 	},
 	"loading": {
 		"title": "Loading"
