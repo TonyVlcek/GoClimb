@@ -2,19 +2,23 @@ namespace GoClimb.Admin.Model.Facades
 {
 	export class ColorsFacade extends BaseFacade
 	{
-		protected colors = [
-			'#2ecc71',
-			'#3498db',
-			'#2c3e50',
-			'#c0392b',
-			'#8e44ad',
-			'#95a5a6',
-		];
+
+		private loading: boolean = false;
+		private colors: string[] = null;
 
 		public getColors(callback: (colors: string[]) => void = null)
 		{
-		 	callback(this.colors);
+			if (!this.colors && !this.loading) {
+				this.loading = true;
+				this.httpService.requestGet('colors/', (data) => {
+					this.colors = data.colors;
+					callback(this.colors);
+				});
+			} else if (this.colors) {
+				callback(this.colors);
+			}
 		}
+
 	}
 
 	ColorsFacade.register(angular, 'colorsFacade', ['httpService']);

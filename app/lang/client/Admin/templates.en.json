@@ -34,6 +34,20 @@
 			"disable": "Disable"
 		}
 	},
+	"ropes": {
+		"title": "Routes - Rope",
+		"add": "Add rope route",
+		"edit": "Edit rope route",
+		"create": "Create rope route",
+		"close": "Close"
+	},
+	"boulders": {
+		"title": "Routes - Boulder",
+		"add": "Add boulder route",
+		"edit": "Edit boulder route",
+		"create": "Create boulder route",
+		"close": "Close"
+	},
 	"settings": {
 		"title": "Settings",
 		"general": "General settings",

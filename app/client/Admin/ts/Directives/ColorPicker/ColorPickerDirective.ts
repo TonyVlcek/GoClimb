@@ -42,7 +42,7 @@ namespace GoClimb.Admin.Directives
 
 
 			scope.isColorActive = (color) => {
-				return scope.selectedColors.indexOf(color) > -1 ? true : false;
+				return scope.selectedColors.indexOf(color) > -1;
 			};
 
 			scope.toggleColor = (color) => {

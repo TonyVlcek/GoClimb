@@ -36,7 +36,7 @@ class ArticleMapper
 			'content' => $article->getContent(),
 			'author' => [
 				'id' => $article->getAuthor()->getId(),
-				'name' => $article->getAuthor()->getFullName(),
+				'name' => $article->getAuthor()->getDisplayedName(),
 			],
 			'publishedDate' => Utils::formatDateTime($article->getPublishedDate()),
 			'published' => $article->isPublished(),

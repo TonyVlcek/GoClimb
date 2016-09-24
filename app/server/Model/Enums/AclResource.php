@@ -14,6 +14,8 @@ class AclResource
 	const ADMIN_EVENTS = 'admin.events';
 	const ADMIN_NEWS = 'admin.news';
 	const ADMIN_ACL = 'admin.acl';
+	const ADMIN_ROUTES_ROPE = 'admin.routes.rope';
+	const ADMIN_ROUTES_BOULDER = 'admin.routes.boulder';
 
 
 	public static function isValid($resource)
@@ -44,6 +46,9 @@ class AclResource
 			self::ADMIN_ARTICLES,
 			self::ADMIN_EVENTS,
 			self::ADMIN_NEWS,
+			self::ADMIN_ACL,
+			self::ADMIN_ROUTES_ROPE,
+			self::ADMIN_ROUTES_BOULDER,
 		];
 	}
 

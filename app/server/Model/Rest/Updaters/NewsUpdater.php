@@ -5,6 +5,7 @@ namespace GoClimb\Model\Rest\Updaters;
 use GoClimb\Model\Entities\News;
 use GoClimb\Model\MappingException;
 use GoClimb\Model\Repositories\NewsRepository;
+use GoClimb\Model\Rest\Utils;
 use stdClass;
 
 
@@ -33,24 +34,17 @@ class NewsUpdater
 			throw MappingException::invalidData();
 		}
 
-		$properties = [
+		Utils::updateProperties($news, $data, [
 			'name' => TRUE
-		];
-
-		foreach ($properties as $field => $required) {
-			if ((!property_exists($data, $field)) || ($required && ($data->$field === NULL))) {
-				throw MappingException::invalidField($field, $required);
-			}
-
-			$method = 'set' . ucfirst($field);
-			$news->$method($data->$field);
-		}
+		]);
 
 		if (isset($data->published) && !$news->isPublished() && $data->published) {
 			$news->publish();
 		}
 
 		$this->newsRepository->save($news);
+
+		return $news;
 	}
 
 }

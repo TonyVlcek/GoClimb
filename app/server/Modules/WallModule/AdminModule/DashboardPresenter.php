@@ -28,12 +28,13 @@ class DashboardPresenter extends BaseAdminPresenter
 			$this->redirectUrl($this->getLoginLink($this->getApplicationToken(), $this->link('//this', [$this::LOGIN_PARAMETER => $this::TOKEN_PLACEHOLDER])));
 		}
 		foreach (AclResource::getAdmin() as $resource) {
-			if (!$this->user->isAllowed($resource)) {
-				$this->template->setFile(__DIR__ . '/templates/Error/forbidden.latte');
-				$this->template->logoutLink = $this->getLogoutLink($this->getApplicationToken(), $this->link('//this', [$this::LOGOUT_PARAMETER => 1]));
-				$this->sendTemplate();
+			if ($this->user->isAllowed($resource)) {
+				return;
 			}
 		}
+		$this->template->setFile(__DIR__ . '/templates/Error/forbidden.latte');
+		$this->template->logoutLink = $this->getLogoutLink($this->getApplicationToken(), $this->link('//this', [$this::LOGOUT_PARAMETER => 1]));
+		$this->sendTemplate();
 	}
 
 

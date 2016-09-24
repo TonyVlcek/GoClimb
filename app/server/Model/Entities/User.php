@@ -465,6 +465,23 @@ class User
 
 
 	/**
+	 * @return string
+	 */
+	public function getDisplayedName()
+	{
+		if ($this->firstName && $this->lastName) {
+			return $this->firstName . ' ' . $this->lastName;
+		} elseif ($this->firstName) {
+			return $this->firstName;
+		} elseif ($this->nick) {
+			return $this->nick;
+		} else {
+			return $this->email;
+		}
+	}
+
+
+	/**
 	 * @return DateTime|NULL
 	 */
 	public function getBirthDate()

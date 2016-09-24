@@ -3,10 +3,12 @@
 namespace GoClimb\Model\Rest;
 
 use DateTime;
+use GoClimb\Model\MappingException;
+use stdClass;
+
 
 class Utils
 {
-
 
 	/**
 	 * @param DateTime|NULL $date
@@ -28,4 +30,28 @@ class Utils
 	{
 		return new DateTime($date);
 	}
+
+
+	public static function updateProperties($entity, stdClass $data, array $fieldsDefinition)
+	{
+		foreach ($fieldsDefinition as $field => $required) {
+			self::checkProperty($data, $field, $required);
+			$method = 'set' . ucfirst($field);
+			$entity->$method($data->$field);
+		}
+	}
+
+
+	/**
+	 * @param stdClass $data
+	 * @param string $field
+	 * @param bool $required
+	 */
+	public static function checkProperty(stdClass $data, $field, $required = FALSE)
+	{
+		if ((!property_exists($data, $field)) || ($required && ($data->$field === NULL))) {
+			throw MappingException::invalidField($field, $required);
+		}
+	}
+
 }

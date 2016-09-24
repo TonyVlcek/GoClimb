@@ -119,8 +119,8 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		Helpers::assertTypeRecursive(Article::class, $articles = $user->getArticles());
 		Assert::equal([1], Helpers::mapIds($articles));
 
-		Helpers::assertTypeRecursive(Route::class, $routes = $user->getBuiltRoutes());
-		Assert::equal([1], Helpers::mapIds($routes));
+		/*Helpers::assertTypeRecursive(Route::class, $routes = $user->getBuiltRoutes());
+		Assert::equal([1], Helpers::mapIds($routes));*/
 
 		Helpers::assertTypeRecursive(LoginToken::class, $loginTokens = $user->getLoginTokens());
 		Assert::equal([1], Helpers::mapIds($loginTokens));
@@ -149,13 +149,13 @@ class UserRepositoryTestCase extends DatabaseTestCase
 		$fixtures[] = $article = (new Article)->setName('Article')->setWall($wallOne)->setPublishedDate(new DateTime('-7 days'))->setAuthor($userOne)->setContent('Content');
 		$fixtures[] = $sector = (new Sector)->setName('Sector')->setWall($wallOne);
 		$fixtures[] = $line = (new Line)->setName('Line One')->setSector($sector);
-		$fixtures[] = $route = (new Route)->setName('Test Route')->setBuilder($userOne)->setLine($line);
+//		$fixtures[] = $route = (new Route)->setName('Test Route')->setBuilder($userOne)->setLine($line);
 		$fixtures[] = $loginToken = (new LoginToken)->setToken('Login Token')->setUser($userOne)->setExpiration(new DateTime('+1 day'))->setLongTerm(0);
 		$fixtures[] = $restToken = (new RestToken)->setUser($userOne)->setWall($wallOne)->setToken('Rest Token')->setRemoteIp('192.168.0.1')->setExpiration(new DateTime('+1 day'));
 		$fixtures[] = $company = (new Company)->setName('Company')->addUser($userOne)->addWall($wallOne);
 		$wallOne->addUserFavorite($userOne)->addUserFavorite($userTwo);
 		$wallTwo->addUserFavorite($userOne)->addUserFavorite($userTwo);
-		$userOne->addArticle($article)->addBuiltRoute($route)->addLoginToken($loginToken)->addRestToken($restToken)->addCompany($company);
+		$userOne->addArticle($article)/*->addBuiltRoute($route)*/->addLoginToken($loginToken)->addRestToken($restToken)->addCompany($company);
 
 		return $fixtures;
 	}

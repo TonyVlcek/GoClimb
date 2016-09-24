@@ -27,5 +27,21 @@
 		"nick": "Nick",
 		"email": "Email",
 		"delete": "Delete"
+	},
+	"ropes": {
+		"name": "Name",
+		"sector": "Sector",
+		"line": "Line",
+		"builder": "Builder",
+		"edit": "Edit",
+		"delete": "Delete"
+	},
+	"boulders": {
+		"name": "Name",
+		"sector": "Sector",
+		"line": "Line",
+		"builder": "Builder",
+		"edit": "Edit",
+		"delete": "Delete"
 	}
 }

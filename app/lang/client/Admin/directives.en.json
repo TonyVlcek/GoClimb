@@ -7,7 +7,8 @@
 			"settings": "Settings",
 			"news": "News",
 			"events": "Events",
-			"plugins": "Plugins"
+			"ropes": "Routes - Rope",
+			"boulders": "Routes - Boulder"
 		}
 	},
 	"dashboard": {
@@ -19,7 +20,7 @@
 					"description": ""
 				},
 				"list": {
-					"title": "Articles list",
+					"title": "List articles",
 					"description": ""
 				}
 			}
@@ -32,7 +33,7 @@
 					"description": ""
 				},
 				"list": {
-					"title": "News list",
+					"title": "List news",
 					"description": ""
 				}
 			}
@@ -45,7 +46,28 @@
 					"description": ""
 				},
 				"list": {
-					"title": "Events list",
+					"title": "List events",
+					"description": ""
+				}
+			}
+		},
+		"routes": {
+			"title": "Routes",
+			"items": {
+				"ropeList": {
+					"title": "List rope routes",
+					"description": ""
+				},
+				"ropeCreate": {
+					"title": "Create rope route",
+					"description": ""
+				},
+				"boulderList": {
+					"title": "List boulder routes",
+					"description": ""
+				},
+				"boulderCreate": {
+					"title": "Create boulder route",
 					"description": ""
 				}
 			}
@@ -68,7 +90,7 @@
 				},
 				"advanced": {
 					"title": "Global settings",
-					"description": "Wall name, location"
+					"description": "Wall name, address"
 				}
 			}
 		},
@@ -78,11 +100,17 @@
 	"loading": {
 		"title": "Loading"
 	},
-	"expandButton":{
+	"expandButton": {
 		"compress": "Compress",
 		"expand": "Expand"
 	},
-	"colorPicker":{
+	"colorPicker": {
 		"max": "You can select maximum of 3 colors."
+	},
+	"difficultyPicker": {
+		"label": {
+			"rope": "Difficulty: UIAA | FR - rope (points)",
+			"boulder": "Difficulty: HUECO | FR - boulder (points)"
+		}
 	}
 }

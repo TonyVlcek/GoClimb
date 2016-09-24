@@ -35,7 +35,7 @@ class NewsMapper
 			'name' => $news->getName(),
 			'author' => [
 				'id' => $news->getAuthor()->getId(),
-				'name' => $news->getAuthor()->getFullName(),
+				'name' => $news->getAuthor()->getDisplayedName(),
 			],
 			'publishedDate' => Utils::formatDateTime($news->getPublishedDate()),
 			'published' => $news->isPublished(),

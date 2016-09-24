@@ -58,5 +58,48 @@
 		"error": {
 			"invalidForm": "Invalid form."
 		}
+	},
+	"routes": {
+		"delete": "Delete this route?",
+		"sector": {
+			"created": {
+				"success": "Sector was created."
+			}
+		},
+		"line": {
+			"created": {
+				"success": "Line was created."
+			}
+		},
+		"rope": {
+			"created": {
+				"success": "Rope route was created."
+			},
+			"updated": {
+				"success": "Rope route was updated."
+			},
+			"delete": "Route will get erased from logs. You should prefer setting date of removal. Are you sure you want to delete this rope route anyway?",
+			"deleted": {
+				"success": "Rope route was deleted."
+			},
+			"error": {
+				"invalidForm": "Please fill in all required fields."
+			}
+		},
+		"boulder": {
+			"created": {
+				"success": "Boulder route was created."
+			},
+			"updated": {
+				"success": "Boulder route was updated."
+			},
+			"delete": "Route will get erased from logs. You should prefer setting date of removal. Are you sure you want to delete this rope route anyway?",
+			"deleted": {
+				"success": "Boulder route was deleted."
+			},
+			"error": {
+				"invalidForm": "Please fill in all required fields."
+			}
+		}
 	}
 }

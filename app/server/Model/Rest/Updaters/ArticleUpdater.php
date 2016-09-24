@@ -7,6 +7,7 @@ use GoClimb\Model\Entities\Wall;
 use GoClimb\Model\Facades\UserFacade;
 use GoClimb\Model\MappingException;
 use GoClimb\Model\Repositories\ArticleRepository;
+use GoClimb\Model\Rest\Utils;
 use GoClimb\Security\User;
 use Nette\Utils\DateTime;
 use stdClass;
@@ -37,25 +38,18 @@ class ArticleUpdater
 			throw MappingException::invalidData();
 		}
 
-		$properties = [
+		Utils::updateProperties($article, $data, [
 			'name' => TRUE,
 			'content' => TRUE,
-		];
-
-		foreach ($properties as $field => $required) {
-			if ((!property_exists($data, $field)) || ($required && ($data->$field === NULL))) {
-				throw MappingException::invalidField($field, $required);
-			}
-
-			$method = 'set' . ucfirst($field);
-			$article->$method($data->$field);
-		}
+		]);
 
 		if (isset($data->published) && !$article->isPublished() && $data->published) {
 			$article->publish();
 		}
 
 		$this->articleRepository->save($article);
+
+		return $article;
 	}
 
 }
