@@ -2,16 +2,12 @@
 
 namespace GoClimb\Modules\WallModule\RestModule\V1Module;
 
-use GoClimb\Model\Entities\Article;
 use GoClimb\Model\Entities\Event;
 use GoClimb\Model\Enums\AclResource;
 use GoClimb\Model\Facades\UserFacade;
 use GoClimb\Model\MappingException;
-use GoClimb\Model\Repositories\ArticleRepository;
 use GoClimb\Model\Repositories\EventRepository;
-use GoClimb\Model\Rest\Mappers\ArticleMapper;
 use GoClimb\Model\Rest\Mappers\EventMapper;
-use GoClimb\Model\Rest\Updaters\ArticleUpdater;
 use GoClimb\Model\Rest\Updaters\EventUpdater;
 
 
@@ -45,6 +41,9 @@ class EventsPresenter extends BaseV1Presenter
 		} elseif (!$event = $this->eventRepository->getById($id)) {
 			$this->sendNotFound();
 		} else {
+			if ($event->getWall() === $this->wall) {
+				$this->sendNotFound();
+			}
 			$this->addEventData($event);
 		}
 	}
