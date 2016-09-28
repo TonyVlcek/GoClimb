@@ -27,7 +27,7 @@ namespace GoClimb.Admin.Model.Facades
 					if (callback) {
 						callback(this.events);
 					}
-				}, errorCallback);
+				}, {}, errorCallback);
 			} else if (this.events) {
 				callback(this.events);
 			}
@@ -47,7 +47,7 @@ namespace GoClimb.Admin.Model.Facades
 			event = angular.copy(event);
 			event.published = publish;
 			event = EventsFacade.eventToJson(event);
-			this.httpService.requestPost('events/', {event}, (data) => {
+			this.httpService.requestPost('events/', {event: event}, (data) => {
 				this.events.setIndex(data.event.id.toString(), EventsFacade.mapEvent(data.event));
 				if (callback) {
 					callback(this.events.getIndex(data.event.id.toString()));
@@ -62,7 +62,7 @@ namespace GoClimb.Admin.Model.Facades
 			event = angular.copy(event);
 			event.published = publish;
 			event = EventsFacade.eventToJson(event);
-			this.httpService.requestPost('events/' + event.id, {event}, (data) => {
+			this.httpService.requestPost('events/' + event.id, {event: event}, (data) => {
 				this.events.setIndex(data.event.id.toString(), EventsFacade.mapEvent(data.event));
 				if (callback) {
 					callback(this.events.getIndex(data.event.id.toString()));

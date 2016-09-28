@@ -24,7 +24,7 @@ namespace GoClimb.Admin.Model.Facades
 					if (callback) {
 						callback(this.boulders);
 					}
-				}, errorCallback);
+				}, {}, errorCallback);
 			} else if (this.boulders) {
 				callback(this.boulders);
 			}

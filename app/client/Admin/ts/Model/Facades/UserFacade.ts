@@ -6,13 +6,12 @@ namespace GoClimb.Admin.Model.Facades
 
 		public getUsers(callback: Function, errorCallback: Function = null)
 		{
-			this.httpService.requestGet('users/default/', callback, errorCallback);
+			this.httpService.requestGet('users/', callback, {}, errorCallback);
 		}
 
 		public getUser(id: number, callback: Function, errorCallback: Function = null)
 		{
-			var url: string = 'users/default/' + id;
-			this.httpService.requestGet(url, callback, errorCallback);
+			this.httpService.requestGet('users' + id, callback, {}, errorCallback);
 		}
 
 		public getByEmail(email: string, callback: (user) => void = null, errorCallback: Function = null)

@@ -24,7 +24,7 @@ namespace GoClimb.Admin.Model.Facades
 					if (callback) {
 						callback(this.ropes);
 					}
-				}, errorCallback);
+				}, {}, errorCallback);
 			} else if (this.ropes) {
 				callback(this.ropes);
 			}
