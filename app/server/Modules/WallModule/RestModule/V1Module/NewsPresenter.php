@@ -41,6 +41,9 @@ class NewsPresenter extends BaseV1Presenter
 		} elseif (!$news = $this->newsRepository->getById($id)) {
 			$this->sendNotFound();
 		} else {
+			if ($news->getWall() !== $this->wall) {
+				$this->sendNotFound();
+			}
 			$this->addNewsData($news);
 		}
 	}
