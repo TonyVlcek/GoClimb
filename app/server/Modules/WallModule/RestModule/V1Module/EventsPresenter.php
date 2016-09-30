@@ -41,7 +41,7 @@ class EventsPresenter extends BaseV1Presenter
 		} elseif (!$event = $this->eventRepository->getById($id)) {
 			$this->sendNotFound();
 		} else {
-			if ($event->getWall() === $this->wall) {
+			if ($event->getWall() !== $this->wall) {
 				$this->sendNotFound();
 			}
 			$this->addEventData($event);

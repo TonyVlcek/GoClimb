@@ -59,7 +59,7 @@ class ArticlesPresenter extends BaseV1Presenter
 				if (!$article = $this->articleRepository->getById($id)) {
 					$this->sendNotFound();
 				}
-				if ($article->getWall() === $this->wall) {
+				if ($article->getWall() !== $this->wall) {
 					$this->sendNotFound();
 				}
 			}
