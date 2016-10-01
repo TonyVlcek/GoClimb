@@ -6,7 +6,7 @@ namespace GoClimb.Admin.Model.Facades
 
 		public getDetails(callback: Function, errorCallback: Function = null)
 		{
-			this.httpService.requestGet('details/', callback, errorCallback);
+			this.httpService.requestGet('details/', callback, {}, errorCallback);
 		}
 
 		public updateDetails(details, callback: Function, errorCallback: Function = null)

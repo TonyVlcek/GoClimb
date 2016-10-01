@@ -46,6 +46,10 @@
 			"submit": "Submit"
 		}
 	},
+	"roles": {
+		"title": "Roles",
+		"manageUsers": "Manage Users"
+	},
 	"404":{
 		"notFound": "Page not found",
 		"dashboard": "Dashboard",

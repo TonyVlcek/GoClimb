@@ -22,5 +22,10 @@
 		"startDate": "Date of the event",
 		"unpublished": "Unpublished",
 		"author": "Author"
+	},
+	"roles": {
+		"nick": "Nick",
+		"email": "Email",
+		"delete": "Delete"
 	}
 }

@@ -94,6 +94,7 @@ services:
 	- GoClimb\Model\Rest\Updaters\ArticleUpdater
 	- GoClimb\Model\Rest\Updaters\EventUpdater
 	- GoClimb\Model\Rest\Updaters\NewsUpdater
+	- GoClimb\Model\Rest\Updaters\RoleUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters

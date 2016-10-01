@@ -29,5 +29,9 @@
 		"saveAsDraft": "Save as draft",
 		"saveAndPublish": "Save and publish",
 		"delete": "Delete"
+	},
+	"roles": {
+		"email": "Add user by email",
+		"add": "Add"
 	}
 }
