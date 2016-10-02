@@ -25,6 +25,24 @@ class MappingException extends InvalidArgumentException
 	}
 
 
+	public static function invalidId($field)
+	{
+		return new self(sprintf('Field \'%s\' contains non-existing ID.', $field));
+	}
+
+
+	public static function invalidRelation($field, $id)
+	{
+		return new self(sprintf('Field \'%s\' contains ID \'%d\', which is not allowed for this relation.', $field, $id));
+	}
+
+
+	public static function invalidValue($field, $value)
+	{
+		return new self(sprintf('Field \'%s\' contains value \'%s\', which is not allowed for this field.', $field, $value));
+	}
+
+
 	public static function invalidTranslation($shortcut)
 	{
 		return new self(sprintf('Language with \'%s\' shortcut is not available for this wall.', $shortcut));
@@ -60,6 +78,12 @@ class EntityException extends ModelException
 {
 
 	const NOT_OWN_ENTITY = 1;
+
+
+	public static function readonlyEntity($class)
+	{
+		return new self(sprintf('Entity \'%s\' cannot be saved, because it is read-only.', $class));
+	}
 
 
 	public static function notOwnEntity($class)

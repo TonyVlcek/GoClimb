@@ -1,7 +1,7 @@
 <div class="shrink grid-block admin-menu-container">
 	<div data-zf-panel id="admin-menu" data-position="left" class="large-grid-block admin-menu-panel easeInOut fast"
-	     data-animation-in="slideInRight" data-animation-out="slideOutLeft">
-		<button data-zf-close="" class="hide-for-large close-button remove-button-styles">×</button>
+		data-animation-in="slideInRight" data-animation-out="slideOutLeft">
+		<button data-zf-close class="hide-for-large close-button remove-button-styles">×</button>
 		<section>
 			<img data-cdn-image="static/GoClimbLogo.png" class="logo">
 			<ul class="menu-bar admin-menu vertical">
@@ -9,6 +9,8 @@
 				<li data-if-allowed="admin.articles" data-ui-sref-active="is-active"><a data-ui-sref="articles"><span class="fa fa-pencil"></span><span> {{'directives.adminMenu.items.articles'|translate}}</span></a></li>
 				<li data-if-allowed="admin.news" data-ui-sref-active="is-active"><a data-ui-sref="news"><span class="fa fa-paper-plane"></span><span> {{'directives.adminMenu.items.news'|translate}}</span></a></li>
 				<li data-if-allowed="admin.events" data-ui-sref-active="is-active"><a data-ui-sref="events"><span class="fa fa-calendar"></span><span> {{'directives.adminMenu.items.events'|translate}}</span></a></li>
+				<li data-if-allowed="admin.routes.rope" data-ui-sref-active="is-active"><a data-ui-sref="ropes"><span class="fa fa-map-signs"></span><span> {{'directives.adminMenu.items.ropes'|translate}}</span></a></li>
+				<li data-if-allowed="admin.routes.boulder" data-ui-sref-active="is-active"><a data-ui-sref="boulders"><span class="fa fa-map-signs"></span><span> {{'directives.adminMenu.items.boulders'|translate}}</span></a></li>
 				<li data-if-allowed="admin.acl" data-ui-sref-active="is-active"><a data-ui-sref="roles"><span class="fa fa-users"></span><span> {{'directives.adminMenu.items.roles'|translate}}</span></a></li>
 				<li data-if-allowed="admin.settings.advanced" data-ui-sref-active="is-active"><a data-ui-sref="settings"><span class="fa fa-cog"></span><span> {{'directives.adminMenu.items.settings'|translate}}</span></a></li>
 			</ul>

@@ -76,6 +76,31 @@ namespace GoClimb.Admin.Directives
 					]
 				},
 				{
+					name: 'directives.dashboard.routes.title',
+					links: [
+						{
+							name: 'directives.dashboard.routes.items.ropeList.title',
+							href: 'ropes',
+							description: 'directives.dashboard.routes.items.ropeList.description'
+						},
+						{
+							name: 'directives.dashboard.routes.items.ropeCreate.title',
+							href: 'ropes.create',
+							description: 'directives.dashboard.routes.items.ropeCreate.description'
+						},
+						{
+							name: 'directives.dashboard.routes.items.boulderList.title',
+							href: 'boulders',
+							description: 'directives.dashboard.routes.items.boulderList.description'
+						},
+						{
+							name: 'directives.dashboard.routes.items.boulderCreate.title',
+							href: 'boulders.create',
+							description: 'directives.dashboard.routes.items.boulderCreate.description'
+						}
+					]
+				},
+				{
 					name: 'directives.dashboard.settings.title',
 					links: [
 						{

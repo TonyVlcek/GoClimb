@@ -68,8 +68,8 @@ class LineRepositoryTestCase extends DatabaseTestCase
 		Assert::type(Sector::class, $line->getSector());
 		Assert::equal(1, $line->getSector()->getId());
 
-		Helpers::assertTypeRecursive(Route::class, $line->getRoutes());
-		Assert::equal([1], Helpers::mapIds($line->getRoutes()));
+		/*Helpers::assertTypeRecursive(Route::class, $line->getRoutes());
+		Assert::equal([1], Helpers::mapIds($line->getRoutes()));*/
 	}
 
 
@@ -85,8 +85,8 @@ class LineRepositoryTestCase extends DatabaseTestCase
 			$sectorTwo = (new Sector)->setName('Sector Two')->setWall($wallTwo),
 			$builder = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
 			$line = (new Line)->setName(self::LINE_NAME)->setSector($sectorOne),
-			$route = (new Route)->setName('Test Route')->setBuilder($builder)->setLine($line),
-			$line->addRoute($route),
+			/*$route = (new Route)->setName('Test Route')->setBuilder($builder)->setLine($line),
+			$line->addRoute($route),*/
 		];
 	}
 }

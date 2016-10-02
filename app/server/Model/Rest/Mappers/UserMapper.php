@@ -32,7 +32,7 @@ class UserMapper
 	{
 		return [
 			'id' => $user->getId(),
-			'name' => $user->getFullName(),
+			'name' => $user->getDisplayedName(),
 		];
 	}
 

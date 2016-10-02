@@ -1,0 +1,140 @@
+<div id="ropePanel" class="side-panel vertical">
+	<button type="button" data-ui-sref="ropes" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
+	<div class="title-bar main">
+		<h2 class="title left">{{'templates.ropes.create'|translate}}</h2>
+		<span class="menu">
+			<span data-expand-button></span>
+		</span>
+	</div>
+	<div class="grid-container contain-left wrap">
+		<form name="ropeForm" class="form" novalidate>
+			<div class="grid-block wrap">
+				<div class="notitle"></div>
+
+				<div class="grid-content noscroll small-12">
+					<label>
+						{{'forms.ropes.sector'|translate}}
+						<span class="inline-label">
+							<select name="sector" data-ng-model="rope.sector" data-ng-options="option.name for option in sectors track by option.id" data-ng-disabled="newSector !== null || newLine !== null"></select>
+							<button class="button" data-ng-click="newSector = ''"><span class="fa fa-plus"></span></button>
+						</span>
+					</label>
+
+					<label data-ng-hide="newSector === null">
+						<span class="inline-label">
+							<input type="text" placeholder="{{'forms.ropes.newSector'|translate}}" ng-model="newSector">
+							<button class="button" data-ng-click="saveSector()" data-ng-disabled="!newSector || sectorSaving" data-ng-class="{spinner: sectorSaving}">
+								<span class="fa fa-check"></span>
+							</button>
+							<button class="button dark" data-ng-click="newSector = null" data-ng-disabled="sectorSaving">
+								<span class="fa fa-times"></span>
+							</button>
+						</span>
+					</label>
+				</div>
+
+				<div class="grid-content noscroll small-12" data-ng-show="isSectorOk()">
+					<label>
+						{{'forms.ropes.line'|translate}}
+						<span class="inline-label">
+							<select name="sector" data-ng-model="rope.line" data-ng-options="option.name for option in rope.sector.lines track by option.id" data-ng-disabled="newSector !== null || newLine !== null"></select>
+							<button class="button" data-ng-click="newLine = ''"><span class="fa fa-plus"></span></button>
+						</span>
+					</label>
+
+					<label data-ng-hide="newLine === null">
+						<span class="inline-label">
+							<input type="text" placeholder="{{'forms.ropes.newLine'|translate}}" ng-model="newLine">
+							<button class="button" data-ng-click="saveLine()" data-ng-disabled="!newLine || lineSaving" data-ng-class="{spinner: lineSaving}">
+								<span class="fa fa-check"></span>
+							</button>
+							<button class="button dark" data-ng-click="newLine = null" data-ng-disabled="lineSaving">
+								<span class="fa fa-times"></span>
+							</button>
+						</span>
+					</label>
+				</div>
+
+				<div class="grid-content small-12 noscroll" data-ng-show="displayRest()">
+					<label>
+						{{'forms.ropes.name'|translate}}:
+						<input type="text" data-ng-model="rope.name" required>
+					</label>
+					<label>
+						{{'forms.ropes.description'|translate}}:
+						<input type="text" data-ng-model="rope.description">
+					</label>
+					<label>
+						{{'forms.ropes.colors'|translate}}:
+						<span data-color-picker="rope.colors"></span>
+					</label>
+
+					<div data-difficulty-picker="rope.difficulty" data-type="'rope'"></div>
+
+					{{'forms.ropes.parameters'|translate}}
+					<button class="button" data-ng-click="addParameter()"><span class="fa fa-plus"></span></button>
+
+					<div data-ng-repeat="(index, parameter) in rope.parameters">
+						<label>
+							{{'forms.ropes.parameter.name'|translate}}
+							<select data-ng-hide="parameter.parameter" data-ng-model="parameter.parameter">
+								<option data-ng-repeat="item in parameters" data-ng-value="item.name">
+									{{'enums.parameters.' + item.name|translate}}
+								</option>
+							</select>
+							<span data-ng-show="parameter.parameter">{{'enums.parameters.' + parameter.parameter|translate}}</span>
+						</label>
+						<label>
+							{{'forms.ropes.parameter.level'|translate}}
+							<select data-ng-hide="parameter.level" data-ng-model="parameter.level">
+								<option data-ng-value="1">1</option>
+								<option data-ng-value="2">2</option>
+								<option data-ng-value="3">3</option>
+							</select>
+							<span data-ng-show="parameter.level">{{parameter.level}}</span>
+						</label>
+						<button class="button" data-ng-click="removeParameter(index)"><span class="fa fa-times"></span></button>
+					</div>
+				</div>
+
+				<div class="grid-block noscroll" data-ng-show="displayRest()">
+					<label class="grid-content medium-12">
+						{{'forms.ropes.length'|translate}}:
+						<input type="number" data-ng-model="rope.length">
+					</label>
+				</div>
+				<div class="grid-block noscroll" data-ng-show="displayRest()">
+					<label class="grid-content medium-12">
+						{{'forms.ropes.steps'|translate}}:
+						<input type="number" data-ng-model="rope.steps">
+					</label>
+				</div>
+
+				<div class="grid-block noscroll" data-ng-show="displayRest()">
+					<label class="grid-content medium-12">
+						{{'forms.ropes.dateCreated'|translate}}:
+						<input type="datetime-local" ng-model="rope.dateCreated" required>
+					</label>
+				</div>
+
+				<div class="grid-block noscroll" data-ng-show="displayRest()">
+					<label class="grid-content medium-12">
+						{{'forms.ropes.dateRemoved'|translate}}:
+						<input type="datetime-local" ng-model="rope.dateRemoved">
+					</label>
+				</div>
+				<div class="notitle"></div>
+
+				<div class="grid-content small-12">
+					<button data-ng-show="displayRest()" type="submit" class="button primary" data-ng-class="{spinner: saving}"
+						data-ng-disabled="(ropeForm.$invalid || saving)" data-ng-click="save()">
+						{{'forms.ropes.save'|translate}}
+					</button>
+
+					<button type="button" data-ui-sref="ropes" class="button secondary">{{'templates.ropes.close'|translate}}</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>

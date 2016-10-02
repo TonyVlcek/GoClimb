@@ -6,6 +6,7 @@ use GoClimb\Model\Entities\Wall;
 use GoClimb\Model\Entities\WallTranslation;
 use GoClimb\Model\MappingException;
 use GoClimb\Model\Repositories\WallRepository;
+use GoClimb\Model\Rest\Utils;
 use stdClass;
 
 
@@ -34,22 +35,13 @@ class WallUpdater
 			throw MappingException::invalidData();
 		}
 
-		$properties = [
+		Utils::updateProperties($wall, $data, [
 			'name' => TRUE,
 			'street' => FALSE,
 			'number' => FALSE,
 			'country' => FALSE,
 			'zip' => FALSE,
-		];
-
-		foreach ($properties as $field => $required) {
-			if ((!property_exists($data, $field)) || ($required && ($data->$field === NULL))) {
-				throw MappingException::invalidField($field, $required);
-			}
-
-			$method = 'set' . ucfirst($field);
-			$wall->$method($data->$field);
-		}
+		]);
 
 		foreach ($data->description as $lang => $description) {
 			if (!$wallLanguage = $wall->getWallLanguage($lang)) {

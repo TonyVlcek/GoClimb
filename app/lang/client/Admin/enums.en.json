@@ -1,0 +1,13 @@
+{
+	"parameters": {
+		"sideFace": "Side face",
+		"strength": "Strength",
+		"technique": "Technique",
+		"endurance": "Endurance",
+		"boulder": "Boulder",
+		"knowHow": "Know-how",
+		"keyPoints": "Key point",
+		"bulge": "Bulge",
+		"smallHandles": "Small handles"
+	}
+}
