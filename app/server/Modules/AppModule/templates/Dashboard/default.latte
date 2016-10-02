@@ -1,0 +1,48 @@
+{block content}
+	<div class="grid-block vertical gc-main-view">
+		<div data-admin-menu-button></div>
+		<div class="gc-title-bar gc-with-menu">
+			<h1 class="gc-title">{_templates.app.dashboard.title}</h1>
+		</div>
+
+		<div class="grid-container contain-left">
+			<h2 class="notitle grid-content"></h2>
+			<div class="grid-content">
+				<div></div>
+			</div>
+			<div class="grid-content" >
+				<table class="table">
+					<thead>
+					<tr>
+						<th>{_grids.app.dashboard.fields.name}</th>
+						<th>{_grids.app.dashboard.fields.difficulty}</th>
+						<th>{_grids.app.dashboard.fields.logged}</th>
+						<th>{_grids.app.dashboard.fields.style}</th>
+						<th>{_grids.app.dashboard.fields.points}</th>
+						<th>{_grids.app.dashboard.fields.note}</th>
+						<th>{_grids.app.dashboard.fields.length}</th>
+						<th>{_grids.app.dashboard.fields.steps}</th>
+						<th>{_grids.app.dashboard.fields.parameters}</th>
+					</tr>
+					</thead>
+					<tbody>
+						{foreach $logs as $log}
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						{/foreach}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+{/block}
