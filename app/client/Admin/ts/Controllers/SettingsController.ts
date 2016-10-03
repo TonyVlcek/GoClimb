@@ -1,8 +1,8 @@
 namespace GoClimb.Admin.Controllers
 {
 
-	import WallDetailsFacade = GoClimb.Admin.Model.Facades.WallDetailsFacade;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import WallDetailsFacade = GoClimb.Core.Model.Facades.WallDetailsFacade;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 
 	export class SettingsController extends BaseAdminController
 	{

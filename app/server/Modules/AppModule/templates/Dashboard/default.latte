@@ -19,23 +19,59 @@
 						<th>{_grids.app.dashboard.fields.logged}</th>
 						<th>{_grids.app.dashboard.fields.style}</th>
 						<th>{_grids.app.dashboard.fields.points}</th>
-						<th>{_grids.app.dashboard.fields.note}</th>
+						<th>{_grids.app.dashboard.fields.description}</th>
 						<th>{_grids.app.dashboard.fields.length}</th>
 						<th>{_grids.app.dashboard.fields.steps}</th>
 						<th>{_grids.app.dashboard.fields.parameters}</th>
+						<th></th>
 					</tr>
 					</thead>
 					<tbody>
-						{foreach $logs as $log}
+						{foreach $user->getUserEntity()->getLogs() as $log}
 							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>
+									{$log->getRoute()->getName()}
+								</td>
+								<td>
+									{if $log->getRoute()->isRope()}
+										UIAA: {$log->getRoute()->getDifficulty()->getRatingUIAA()} / FR: {$log->getRoute()->getDifficulty()->getRatingFRL()}
+									{else}
+										HUECO: {$log->getRoute()->getDifficulty()->getRatingHUECO()} / FR: {$log->getRoute()->getDifficulty()->getRatingFRB()}
+									{/if}
+								</td>
+								<td>
+									{$log->getLoggedDate()|date}
+								</td>
+								<td>
+									{$log->getStyle()->getName()}
+								</td>
+								<td>{$log->getPoints()}</td>
+								<td>{$log->getDescription()}</td>
+								<td>
+									{if $log->getRoute()->isRope()}
+										{$log->getRoute()->getLength()}m
+									{else}
+										-
+									{/if}
+								</td>
+								<td>
+									{if $log->getRoute()->isRope()}
+										{$log->getRoute()->getSteps()}m
+									{else}
+										-
+									{/if}
+								</td>
+								<td>
+									{if $log->getRoute()->isRope() && count($log->getRoute()->getRouteParameters())}
+										<ul>
+											<li n:inner-foreach="$log->getRoute()->getRouteParameters() as $parameter">
+												{$parameter->getName()}: {$parameter->getLevel()}
+											</li>
+										</ul>
+									{else}
+										-
+									{/if}
+								</td>
 								<td></td>
 							</tr>
 						{/foreach}

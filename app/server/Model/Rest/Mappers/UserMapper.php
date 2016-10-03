@@ -45,8 +45,7 @@ class UserMapper
 	{
 		return [
 			'id' => $user->getId(),
-			'nick' => $user->getNick(),
-			'email' => $user->getEmail(),
+			'name' => $user->getDisplayedName(),
 		];
 	}
 

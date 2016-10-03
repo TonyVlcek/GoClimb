@@ -1,8 +1,8 @@
 <!--Title bar-->
-<div class="grid-block vertical main-view">
+<div class="grid-block vertical gc-main-view">
 	<div data-admin-menu-button></div>
-	<div class="title-bar main">
-		<h1 class="title">{{'templates.roles.title'|translate}}</h1>
+	<div class="gc-title-bar">
+		<h1 class="gc-title">{{'templates.roles.title'|translate}}</h1>
 	</div>
 	<!--End of Title bar-->
 
@@ -16,7 +16,7 @@
 
 		<div class="grid-block small-up-3">
 			<div class="grid-content" data-ng-repeat="role in rolesCtrl.getRoles().getAsObject()">
-				<h1>{{'roles.' + role.name|translate}}</h1>
+				<h1 class="title-1">{{'roles.' + role.name|translate}}</h1>
 				<button class="button hollow warning" type="button" data-ui-sref="roles.manageUsers({id: role.id})">
 					<span class="fa fa-pencil"></span> {{'templates.roles.manageUsers'|translate}}
 				</button>
@@ -25,6 +25,6 @@
 	</div>
 <!--End of content-->
 <!--Panels-->
-<div data-ui-view class="panel-view"></div>
+<div data-ui-view class="gc-panel-view"></div>
 <!--End of panels-->
 </div>

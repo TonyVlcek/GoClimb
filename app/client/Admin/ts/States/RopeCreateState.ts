@@ -2,17 +2,17 @@ namespace GoClimb.Admin.States
 {
 
 	import BaseState = GoClimb.Core.States.BaseState;
-	import RopesFacade = GoClimb.Admin.Model.Facades.RopesFacade;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import RopesFacade = GoClimb.Core.Model.Facades.RopesFacade;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import IStateService = angular.ui.IStateService;
-	import IRope = GoClimb.Admin.Model.Entities.IRope;
+	import IRope = GoClimb.Core.Model.Entities.IRope;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
-	import SectorsFacade = GoClimb.Admin.Model.Facades.SectorsFacade;
+	import SectorsFacade = GoClimb.Core.Model.Facades.SectorsFacade;
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import ISector = GoClimb.Admin.Model.Entities.ISector;
-	import ILine = GoClimb.Admin.Model.Entities.ILine;
+	import ISector = GoClimb.Core.Model.Entities.ISector;
+	import ILine = GoClimb.Core.Model.Entities.ILine;
 	import ITranslateService = angular.translate.ITranslateService;
-	import ParametersFacade = GoClimb.Admin.Model.Facades.ParametersFacade;
+	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
 
 	export class RopeCreateState extends BasePanelState
 	{

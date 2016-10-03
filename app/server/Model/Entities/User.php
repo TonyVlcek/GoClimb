@@ -116,6 +116,13 @@ class User
 	private $restTokens;
 
 	/**
+	 * @var Log[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Log", mappedBy="user")
+	 * @ORM\OrderBy({"loggedDate": "DESC"})
+	 */
+	private $logs;
+
+	/**
 	 * @var AclRole[]|ArrayCollection
 	 * @ORM\ManyToMany(targetEntity="AclRole", mappedBy="users")
 	 * @ORM\JoinTable(name="user_role")
@@ -132,6 +139,7 @@ class User
 		$this->loginTokens = new ArrayCollection;
 		$this->restTokens = new ArrayCollection;
 		$this->roles = new ArrayCollection;
+		$this->logs = new ArrayCollection;
 	}
 
 
@@ -601,6 +609,15 @@ class User
 	{
 		$this->roles->removeElement($role);
 		return $this;
+	}
+
+
+	/**
+	 * @return Log[]
+	 */
+	public function getLogs()
+	{
+		return $this->logs->toArray();
 	}
 
 }

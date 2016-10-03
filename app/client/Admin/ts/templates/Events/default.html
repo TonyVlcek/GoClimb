@@ -1,13 +1,13 @@
 <!--Title bar-->
-<div class="grid-block vertical main-view">
+<div class="grid-block vertical gc-main-view">
 	<div data-admin-menu-button></div>
-	<div class="title-bar main">
-		<h1 class="title">{{'templates.events.title'|translate}}</h1>
-		<span class="menu">
-			<button type="button" class="remove-button-styles" data-ui-sref="events.create">
-				<span class="fa fa-pencil-square-o"></span> {{'templates.events.add'|translate}}
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{'templates.events.title'|translate}}</h1>
+		<div class="gc-menu">
+			<button type="button" class="gc-item" data-ui-sref="events.create">
+				<span class="fa fa-pencil-square-o gc-icon"></span> {{'templates.events.add'|translate}}
 			</button>
-		</span>
+		</div>
 	</div>
 	<!--End of Title bar-->
 	<!--Section with content-->
@@ -41,8 +41,8 @@
 					<tr data-ng-repeat="event in events">
 						<td>{{event.name|limitTo:40}}{{event.name.length > 40 ? '...' : ''}}</td>
 						<td>{{event.author.name}}</td>
-						<td>{{event.startDate|date: 'yyyy. MM. dd.'}}</td>
-						<td data-ng-show="event.published">{{event.publishedDate|date: 'yyyy. MM. dd.'}}</td>
+						<td>{{event.startDate|date: 'yyyy MM. dd.'}}</td>
+						<td data-ng-show="event.published">{{event.publishedDate|date: 'yyyy MM. dd.'}}</td>
 						<!-- High number is hack to sort unpublished articles as first. This won't work after year 99999 -->
 						<td data-ng-hide="event.published"><span class="hide-for-small">99999</span>
 							{{'grids.events.unpublished'|translate}}
@@ -63,5 +63,5 @@
 </div>
 <!--End of content-->
 <!--Panels-->
-<div data-ui-view class="panel-view"></div>
+<div data-ui-view class="gc-panel-view"></div>
 <!--End of panels-->

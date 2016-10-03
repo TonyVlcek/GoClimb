@@ -33,7 +33,6 @@ class BouldersPresenter extends BaseV1Presenter
 
 	public function actionGet()
 	{
-		$this->checkPermissions();
 		$this->addBouldersData($this->boulderRepository->getByWall($this->wall));
 	}
 

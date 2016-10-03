@@ -1,6 +1,7 @@
 //Global
-$theme-color: #000000;
-$theme-accent-color: #004876; //#162430; //#2E79F4;
+$global-theme-background: #FFFFFF;
+$global-theme-color: set-text-color($global-theme-background);
+$global-theme-accent-color: #004876; //#162430; //#2E79F4;
 $global-font-color: #222222; // Same as in foundation
 
 $text-opacaty: 0.13;
@@ -9,114 +10,49 @@ $dividers-opacaty: 0.88;
 //$disable-opacaty: 0.62;
 $disable-opacaty: 0.72;
 
-$theme-font-color: transparentize($theme-color, $text-opacaty);
-$theme-light-font-color: transparentize($theme-color, $light-text-opacaty);
-$theme-divider: transparentize($theme-color, $dividers-opacaty);
-$theme-disable: transparentize($theme-color, $disable-opacaty);
+$global-theme-font-color: transparentize($global-theme-color, $text-opacaty);
+$global-theme-light-font-color: transparentize($global-theme-color, $light-text-opacaty);
+$global-theme-accent-font-color: transparentize(set-text-color($global-theme-accent-color), $text-opacaty);
+$global-theme-divider: transparentize($global-theme-color, $dividers-opacaty);
+$global-theme-disable: transparentize($global-theme-color, $disable-opacaty);
 
-//Typography
-$typography-title-1: 2.75rem;
-$typography-title-2: 2.3125rem;
-$typography-title-3: 1.6875rem;
+//Side padding
+$global-side-padding: 3.4rem;
 
-//Form
-$form-invalid: red;
-$form-disable: $theme-disable;
-$form-disable-color: $theme-font-color;
+//Class prefix
+//Don't forget to change it in CloseDirective.ts
+$class-prefix: "gc";
 
-//Top bar
+//Top bar (Core component)
 $top-panel-backgound: #000000;
 $top-panel-hover-backgound: transparentize(invert(#000000), 0.86);
 
-//Admin Menu
-$admin-menu-width: 220px;
-$admin-menu-background: #FAFAFA;
-$admin-menu-text: $theme-light-font-color;
-$admin-menu-text-size: 1rem; //18
-$admin-menu-hover-background: $theme-divider; //transparentize(invert(#F7F7F7), 0.86);
-$admin-menu-z-index: 101;
+//Title bar (Core component)
+$title-bar-minimal-height: 130px;
+$title-bar-background: $global-theme-accent-color;
+$title-bar-padding: 1rem;
+$title-bar-padding-sides: $global-side-padding;
+$title-bar-title-size: 2.25rem;
+$title-bar-title-color: $global-theme-accent-font-color;
+$title-bar-button-padding: 1rem;
+$title-bar-button-color: $global-theme-accent-font-color;
 
-//Title bar(main)
-$title-bar-padding: 1rem; //1rem //1.5rem;
-$title-bar-padding-side: 1.3rem;
-$title-bar-padding-side-medium: 3.4rem;
-$title-bar-title-weight: Normal;
-$title-bar-background: $theme-accent-color;
-$title-bar-title-size: $typography-title-1;
-$title-bar-title-color: #FFFFFF;
-$title-bar-title-letter-spacing: 0.3rem;
-$title-bar-shadow: 0; //0 2px 5px rgba(0, 0, 0, 0.26);
-$title-bar-z-index: 99;
-$title-bar-padding-button: 1rem;
-
-//Grid
-$grid-container-padding-sides-large: 2.5rem;
-$grid-content-dark: #F7F7F7;
-$content-title-space: 1rem;
-
-//Tabs
-$tab-border-color: #D1D1D1;
-$tab-active: $theme-accent-color;
-
-//Tables
-$table-border: 1px solid $theme-divider; //#D4D4D4;
-$table-head-border: 2px solid $theme-divider; //#D4D4D4;
-$table-button-size: 2rem; //30px
-$table-button-background: $theme-divider; //#D4D4D4;
-$table-icon-color: $theme-font-color; //$global-font-color;
-
-//Side panel
-$side-panel-title-padding: $title-bar-padding-side-medium - 2rem;
-$side-panel-content-padding: $grid-container-padding-sides-large - 2rem;
+//Side panel (Core component)
+$side-panel-content-padding-sides: 2rem;
+//See usage for more details
+$side-panel-grid-block-padding: 1rem;
 $side-panel-width-compress: 28em;
 $side-panel-width-expand: 57em;
-$side-panel-z-index: 102;
+// $side-panel-z-index - 1 = panel-view, $side-panel-z-index - 2 = overlay
+$side-panel-z-index: 502;
 
-//ColorPicker
-$color-picker-color-size: 1.7rem;
-$color-picker-color-size-small: 2.7rem;
+//Form (Core component)
+$core-form-invalid-color: #E23237;
 
-body, button, input{
-	outline: 0 !important;
-}
+//Button (Core component)
+$core-button-secondary-color: #e5e5e5;
 
-.helper-bottom-space {
-	padding-bottom: 1rem;
-}
-
-//.hollow {
-	//border: 0 !important; ?????
-//}
-
-.remove-button-styles {
-	background: transparent;
-	border: 0;
-}
-
-.padding {
-	padding: 1rem !important;
-}
-
-.drop-box {
-	background: $theme-divider;
-	border: 5px dashed $theme-divider;
-	height: 100px;
-	text-align: center;
-	padding-top: 34px;
-	margin: 10px 0;
-}
-
-.drop-box.dragover {
-	background: transparentize($theme-accent-color, $dividers-opacaty);
-	border-color: transparentize($theme-accent-color, $dividers-opacaty);
-}
-
-.image-preview {
-	height: 150px;
-	width: auto;
-	max-width: 100%;
-}
-
-.modal {
-	overflow-y: visible;
+html {
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
 }

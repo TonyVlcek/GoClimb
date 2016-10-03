@@ -72,6 +72,12 @@ abstract class Route
 	private $colors;
 
 	/**
+	 * @var Log[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Log", mappedBy="route")
+	 */
+	private $logs;
+
+	/**
 	 * @var RouteParameter[]|ArrayCollection
 	 * @ORM\OneToMany(targetEntity="RouteParameter", mappedBy="route", cascade={"persist"})
 	 */
@@ -82,6 +88,7 @@ abstract class Route
 	{
 		$this->colors = new ArrayCollection;
 		$this->routeParameters = new ArrayCollection;
+		$this->logs = new ArrayCollection;
 	}
 
 
@@ -276,6 +283,33 @@ abstract class Route
 	{
 		$this->routeParameters->removeElement($routeParameter);
 		return $this;
+	}
+
+
+	/**
+	 * @return Log[]
+	 */
+	public function getLogs()
+	{
+		return $this->logs->toArray();
+	}
+
+
+	/**
+	 * @return bool
+	 */
+	public function isRope()
+	{
+		return $this instanceof Rope;
+	}
+
+
+	/**
+	 * @return bool
+	 */
+	public function isBoulder()
+	{
+		return $this instanceof Boulder;
 	}
 
 }

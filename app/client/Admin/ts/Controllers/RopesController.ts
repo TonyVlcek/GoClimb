@@ -1,10 +1,10 @@
 namespace GoClimb.Admin.Controllers
 {
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import DialogService = GoClimb.Admin.Services.DialogService;
-	import RopesFacade = GoClimb.Admin.Model.Facades.RopesFacade;
-	import IRope = GoClimb.Admin.Model.Entities.IRope;
+	import RopesFacade = GoClimb.Core.Model.Facades.RopesFacade;
+	import IRope = GoClimb.Core.Model.Entities.IRope;
 
 
 	export class RopesController extends BaseAdminController

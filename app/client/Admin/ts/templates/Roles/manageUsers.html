@@ -1,12 +1,12 @@
-<div id="rolePanel" class="side-panel vertical">
-	<button type="button" data-ui-sref="roles" class="remove-button-styles close-button ng-scope js-close-panel">×</button>
-	<div class="title-bar main">
-		<h2 class="title left">{{'roles.' + role.name|translate}}</h2>
-		<span class="menu">
-			<span data-expand-button></span>
-		</span>
+<div id="rolePanel" class="gc-side-panel vertical">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{'roles.' + role.name|translate}}</h1>
+		<div class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</div>
 	</div>
-	<div class="grid-container contain-left wrap">
+	<div class="gc-content contain-left wrap">
 		<form name="linkUpUserForm" class="form" novalidate>
 			<div class="grid-block wrap">
 				<div class="notitle"></div>
@@ -28,7 +28,7 @@
 		<div class="grid-content">
 			<table class="table">
 				<thead data-ng-show="role.users.length">
-					<tr><th>{{'grids.roles.nick'|translate}}</th><th>{{'grids.roles.email'|translate}}</th></tr>
+					<tr><th>{{'grids.roles.nick'|translate}}</th><th>{{'grids.roles.email'|translate}}</th><th></th></tr>
 				</thead>
 				<tbody data-ng-repeat="user in role.users">
 					<tr>

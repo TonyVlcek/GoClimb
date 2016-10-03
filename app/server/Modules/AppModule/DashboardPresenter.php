@@ -2,33 +2,25 @@
 
 namespace GoClimb\Modules\AppModule;
 
-use GoClimb\Model\Repositories\UserRepository;
+use GoClimb\Model\Repositories\WallRepository;
 
 
 class DashboardPresenter extends BaseAppPresenter
 {
 
-	/** @var UserRepository */
-	public $userRepository;
+	/** @var WallRepository */
+	private $wallRepository;
 
 
-	public function __construct(UserRepository $userRepository)
+	public function __construct(WallRepository $wallRepository)
 	{
 		parent::__construct();
-		$this->userRepository = $userRepository;
+		$this->wallRepository = $wallRepository;
 	}
 
-
-	public function startup()
+	public function beforeRender()
 	{
-		parent::startup();
-
-		$user = $this->userRepository->getById($this->user->getIdentity()->getId());
-		$this->template->userEmail = $user->getEmail();
-	}
-
-	public function actionDefault()
-	{
-		$this->template->logs = [];
+		parent::beforeRender();
+		$this->template->walls = $this->wallRepository->getAll();
 	}
 }

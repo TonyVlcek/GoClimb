@@ -1,0 +1,22 @@
+.#{$class-prefix}-button {
+	appearance: none;
+	display: inline-block;
+	background: $global-theme-accent-color;
+	color: $global-theme-accent-font-color;
+	padding: 0.5em 1em;
+	margin: 0 1rem 1rem 0;
+	border: 0;
+
+	&.#{$class-prefix}-secondary {
+		background: $core-button-secondary-color;
+		color: transparentize(set-text-color($core-button-secondary-color), $text-opacaty);
+
+		&:hover {
+			background: darken($core-button-secondary-color, 3);
+		}
+	}
+
+	&:hover {
+		background: darken($global-theme-accent-color, 3);
+	}
+}

@@ -33,7 +33,6 @@ class RopesPresenter extends BaseV1Presenter
 
 	public function actionGet()
 	{
-		$this->checkPermissions();
 		$this->addRopesData($this->ropeRepository->getByWall($this->wall));
 	}
 

@@ -2,11 +2,11 @@ namespace GoClimb.Admin.States
 {
 
 	import BaseState = GoClimb.Core.States.BaseState;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import IStateService = angular.ui.IStateService;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
-	import NewsFacade = GoClimb.Admin.Model.Facades.NewsFacade;
-	import INews = GoClimb.Admin.Model.Entities.INews;
+	import NewsFacade = GoClimb.Core.Model.Facades.NewsFacade;
+	import INews = GoClimb.Core.Model.Entities.INews;
 
 	export class NewsCreateState extends BasePanelState
 	{

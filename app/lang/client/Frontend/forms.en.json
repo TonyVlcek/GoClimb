@@ -1,0 +1,12 @@
+{
+	"common": {
+		"unsavedData": "You have unsaved data, that will be lost if you proceed. Continue anyway?"
+	},
+	"logs": {
+		"date": "Date of climbing",
+		"style": "Style",
+		"noStyle": "Not finished",
+		"description": "Description",
+		"save": "Save"
+	}
+}

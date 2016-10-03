@@ -1,4 +1,5 @@
 .color-picker {
+	margin-top: 0.5rem;
 	.color-button {
 		@include breakpoint(large) {
 			height: $color-picker-color-size;
@@ -14,11 +15,11 @@
 
 		&:hover {
 			cursor: pointer;
-			outline: 2.5px solid $theme-divider !important;
+			outline: 2.5px solid $global-theme-divider !important;
 		}
 
 		&.active {
-			outline: 3.5px solid $theme-disable !important;
+			outline: 3.5px solid $global-theme-disable !important;
 		}
 	}
 }

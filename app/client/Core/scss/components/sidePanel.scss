@@ -1,0 +1,135 @@
+.#{$class-prefix}-side-panel {
+	//Expand is default width
+	width: $side-panel-width-expand;
+	max-width: 90%;
+	transition: width .3s;
+
+	top: 0;
+	right: 0;
+	height: 100%;
+	display: block;
+	overflow-y: auto;
+	position: fixed;
+	z-index: $side-panel-z-index;
+	background: #FFFFFF !important;
+	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25);
+	animation-fill-mode: forwards;
+
+	&.#{$class-prefix}-small {
+		max-width: $side-panel-width-compress;
+	}
+
+	.#{$class-prefix}-close-button {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		font-size: 2em;
+		color: rgba(133, 133, 133, 0.71);
+		line-height: 0.5;
+		cursor: pointer;
+		border: 0;
+		background: transparent;
+
+		&:hover {
+			color: rgba(33, 33, 33, 0.71);
+		}
+	}
+
+	.#{$class-prefix}-title-bar {
+		.#{$class-prefix}-title {
+			padding-left: $side-panel-content-padding-sides;
+			padding-right: $side-panel-content-padding-sides;
+		}
+
+		.#{$class-prefix}-menu {
+			padding-left: $side-panel-content-padding-sides - $title-bar-button-padding;
+			padding-right: $side-panel-content-padding-sides - $title-bar-button-padding;
+		}
+	}
+
+	.#{$class-prefix}-content {
+		padding-left: $side-panel-content-padding-sides;
+		padding-right: $side-panel-content-padding-sides;
+
+		// Removes bigger padding caused by flex box content element
+		&.#{$class-prefix}-flex {
+			padding-left: $side-panel-content-padding-sides - $side-panel-grid-block-padding;
+			padding-right: $side-panel-content-padding-sides - $side-panel-grid-block-padding;
+		}
+	}
+}
+
+.#{$class-prefix}-main-view, .#{$class-prefix}-main-view .#{$class-prefix}-title-bar, .#{$class-prefix}-main-view .#{$class-prefix}-grid-container {
+	transition: margin 0.3s, padding 0.3s;
+}
+
+.#{$class-prefix}-overlay{
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	width: 0;
+	height:0;
+	z-index: $side-panel-z-index - 2;
+	transition: background-color 0.3s;
+	background-color: transparent;
+}
+.panel-is-active:not(.panel-is-compressed){
+	.#{$class-prefix}-overlay{
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+		background-color: $global-theme-disable;
+	}
+}
+
+.panel-is-compressed.panel-is-active {
+	@include breakpoint(large) {
+		.#{$class-prefix}-main-view {
+			padding-right: $side-panel-width-compress;
+		}
+
+		//In progress
+		//.main-view .title-bar {
+		//	padding-right: $side-panel-width-compress;
+		//}
+		//
+		//.main-view .grid-container {
+		//	margin-right: $side-panel-width-compress !important;
+		//}
+
+		.#{$class-prefix}-side-panel {
+			width: $side-panel-width-compress;
+		}
+	}
+}
+
+.#{$class-prefix}-panel-view {
+	z-index: $side-panel-z-index - 1;
+
+	&.ng-enter, &.ng-leave {
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		display: block;
+		transition: all 0.5s ease-in-out;
+	}
+
+	&.ng-enter {
+		transform: translateX(100%);
+	}
+
+	&.ng-enter-active {
+		transform: translateX(0);
+	}
+
+	&.ng-leave {
+		transform: translateX(0);
+	}
+
+	&.ng-leave-active {
+		transform: translateX(100%);
+	}
+}

@@ -1,0 +1,84 @@
+//Typography
+$typography-title-1: 2.25rem;
+$typography-title-2: 2.3125rem;
+$typography-title-3: 1.6875rem;
+
+//Form
+$form-invalid: red;
+$form-disable: $global-theme-disable;
+$form-disable-color: $global-theme-font-color;
+
+//Admin Menu
+$admin-menu-width: 220px;
+$admin-menu-background: #FAFAFA;
+$admin-menu-text: $global-theme-light-font-color;
+$admin-menu-text-size: 1rem; //18
+$admin-menu-hover-background: $global-theme-divider; //transparentize(invert(#F7F7F7), 0.86);
+$admin-menu-z-index: 101;
+
+//Grid
+$grid-container-padding-sides-large: 2.5rem;
+$grid-content-dark: #F7F7F7;
+$content-title-space: 1rem;
+
+//Tabs
+$tab-border-color: #D1D1D1;
+$tab-active: $global-theme-accent-color;
+
+//Tables
+$table-border: 1px solid $global-theme-divider; //#D4D4D4;
+$table-head-border: 2px solid $global-theme-divider; //#D4D4D4;
+$table-button-size: 2rem; //30px
+$table-button-background: $global-theme-divider; //#D4D4D4;
+$table-icon-color: $global-theme-font-color; //$global-font-color;
+
+//ColorPicker
+$color-picker-color-size: 1.7rem;
+$color-picker-color-size-small: 2.7rem;
+
+body, button, input {
+	outline: 0 !important;
+}
+
+button[disabled] {
+	cursor: not-allowed;
+	color: $form-disable-color !important;
+	background: $form-disable !important;
+}
+
+.helper-bottom-space {
+	padding-bottom: 1rem;
+}
+
+.remove-button-styles {
+	background: transparent;
+	border: 0;
+}
+
+.padding {
+	padding: 1rem !important;
+}
+
+.drop-box {
+	background: $global-theme-divider;
+	border: 5px dashed $global-theme-divider;
+	height: 100px;
+	text-align: center;
+	padding-top: 34px;
+	margin: 10px 0;
+}
+
+.drop-box.dragover {
+	background: transparentize($global-theme-accent-color, $dividers-opacaty);
+	border-color: transparentize($global-theme-accent-color, $dividers-opacaty);
+}
+
+.image-preview {
+	height: 150px;
+	width: auto;
+	max-width: 100%;
+}
+
+.modal {
+	overflow-y: visible;
+}
