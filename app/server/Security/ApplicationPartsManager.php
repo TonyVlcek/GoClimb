@@ -13,6 +13,7 @@ class ApplicationPartsManager
 	const AUTH_NAMESPACE = 'GoClimb.auth';
 	const REST_NAMESPACE = 'GoClimb.rest';
 	const WALL_NAMESPACE = 'GoClimb.wall';
+	const APP_NAMESPACE = 'GoClimb.app';
 
 
 	/** @var UserStorage */
@@ -46,6 +47,12 @@ class ApplicationPartsManager
 	public function setAsWallSite(Wall $wall)
 	{
 		$this->userStorage->setNamespace(self::WALL_NAMESPACE . '.' . $wall->getId());
+	}
+
+
+	public function setAsApp()
+	{
+		$this->userStorage->setNamespace(self::APP_NAMESPACE);
 	}
 
 }

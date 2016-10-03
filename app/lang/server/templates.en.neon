@@ -9,6 +9,7 @@ auth:
 			back: Back to website
 			oneAccount: All walls. One account.
 			title: 'Sign in to %appName% using GoClimb.'
+			goClimbTitle: 'Sign in to GoClimb.'
 			welcome: Welcome back!
 			loggedIn: "You are currently logged in as:"
 			register: Create new account
@@ -16,6 +17,15 @@ auth:
 			login: Login
 		register:
 			register: Registration into GoClimb.
+	descriptions:
+		app: You can see your logs here.
+
+app:
+	dashboard:
+		title: App
+	menu:
+		dashboard: Dashboard
+		about: About
 
 backend:
 	layout:

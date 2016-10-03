@@ -5,7 +5,6 @@ namespace GoClimb\Modules\AuthModule;
 use GoClimb\Model\Entities\Application;
 use GoClimb\Model\Entities\LoginToken;
 use GoClimb\Model\Facades\AuthFacade;
-use GoClimb\Model\Facades\UserFacade;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\User\IContinueFormFactory;
 use GoClimb\UI\Forms\User\IRegisterFormFactory;
@@ -64,18 +63,21 @@ final class DashboardPresenter extends BaseAuthPresenter
 	public function renderLogin(Application $application)
 	{
 		$this->template->application = $application;
+		$this->template->isGoClimb = $application->getToken() === Application::APP_TOKEN;
 	}
 
 
 	public function renderContinue(Application $application)
 	{
 		$this->template->application = $application;
+		$this->template->isGoClimb = $application->getToken() === Application::APP_TOKEN;
 	}
 
 
 	public function renderRegister(Application $application)
 	{
 		$this->template->application = $application;
+		$this->template->isGoClimb = $application->getToken() === Application::APP_TOKEN;
 	}
 
 

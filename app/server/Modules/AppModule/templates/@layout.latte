@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>App</title>
+
+	<link rel="stylesheet" n:cdnHref="assets/admin.css">
+</head>
+<body>
+<div class="vertical grid-frame">
+	<div ><div class="grid-content shrink collapse">
+			<div class="menu-group dark top-panel">
+				<div class="menu-group-left">
+					<ul class="dark menu-bar">
+						<li><a href="http://cesty.stenastodulky.cz">StěnaStodůlky</a></li>
+					</ul>
+				</div>
+				<div class="menu-group-right">
+					<ul class="dark menu-bar">
+						<li><a href="javascript: void(0);">{$userEmail}</a></li>
+						<li><a href="{$logoutLink}">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid-block">
+		<div class="grid-block shrink">
+			<div class="shrink grid-block admin-menu-container">
+				<div class="large-grid-block admin-menu-panel easeInOut fast panel ng-isolate-scope panel-left" id="admin-menu">
+					<button class="hide-for-large close-button remove-button-styles ng-scope">×</button>
+					<section class="ng-scope">
+						<img class="logo" n:cdnSrc="static/GoClimbLogo.png">
+						<ul class="menu-bar admin-menu vertical">
+							<li><a n:href=":App:Dashboard:default"><span class="fa fa-dashboard"></span>{_templates.app.menu.dashboard}</a></li>
+							<li><a  n:href=":App:Dashboard:about"><span class="fa fa-comment"></span>{_templates.app.menu.about}</a></li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+		<div class="grid-block">
+			{include content}
+		</div>
+	</div>
+</div>
+<script n:cdnSrc="assets/admin.js"></script>
+</body>
+</html>
