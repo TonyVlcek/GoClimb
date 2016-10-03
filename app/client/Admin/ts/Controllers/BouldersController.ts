@@ -1,10 +1,10 @@
 namespace GoClimb.Admin.Controllers
 {
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import DialogService = GoClimb.Admin.Services.DialogService;
-	import BouldersFacade = GoClimb.Admin.Model.Facades.BouldersFacade;
-	import IBoulder = GoClimb.Admin.Model.Entities.IBoulder;
+	import BouldersFacade = GoClimb.Core.Model.Facades.BouldersFacade;
+	import IBoulder = GoClimb.Core.Model.Entities.IBoulder;
 
 
 	export class BouldersController extends BaseAdminController

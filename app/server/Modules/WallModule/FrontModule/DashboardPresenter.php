@@ -57,10 +57,10 @@ class DashboardPresenter extends BaseFrontPresenter
 			'availableLanguages' => $languages,
 			'restToken' => $this->user->isLoggedIn() ? $this->restFacade->getOrGenerateRestToken($this->wall, $this->user->getUserEntity(), $this->getHttpRequest()->getRemoteAddress())->getToken() : NULL,
 			'cdnUrl' => $this->cdnLinkGenerator->getCdnUrl(),
+			'apiUrl' => $this->link('//:Wall:Rest:V1:Dashboard:default'),
 			'permissions' => $this->getPermissions(),
 			'links' => [
-				//'logs' => $this->link('//:App:Dashboard:default'),
-				'logs' => NULL,
+				'logs' => $this->link('//:App:Dashboard:default'),
 				'login' => $this->getLoginLink($this->getApplicationToken(), $loginBacklink),
 				'logout' => $this->getLogoutLink($this->getApplicationToken(), $logoutBacklink),
 				'register' => $this->getRegisterLink($this->getApplicationToken(), $loginBacklink),

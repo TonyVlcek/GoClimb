@@ -1,15 +1,15 @@
 {
 	"routes": {
 		"name": "Name",
-		"uiaa": "UIAA",
-		"fr": "FR",
-		"hueco": "HUECO",
-		"built": "Built",
-		"author": "Author",
+		"ratingRope": "Rating (UIAA / FR)",
+		"ratingBoulder": "Rating (HUECO / FR)",
 		"sector": "Sector",
+		"line": "Line",
 		"length": "Length",
 		"steps": "Steps",
 		"parameters": "Parameters",
-		"log": "Log"
+		"log": "Log",
+		"start": "Start",
+		"end": "End"
 	}
 }

@@ -3,8 +3,8 @@ namespace GoClimb.Admin.Directives
 
 	import BaseDirective = GoClimb.Core.Directives.BaseDirective;
 	import IScope = angular.IScope;
-	import ColorsFacade = GoClimb.Admin.Model.Facades.ColorsFacade;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import ColorsFacade = GoClimb.Core.Model.Facades.ColorsFacade;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 
 	export class ColorPickerDirective extends BaseDirective
 	{

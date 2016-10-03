@@ -1,11 +1,11 @@
 namespace GoClimb.Admin.States
 {
 
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import IStateService = angular.ui.IStateService;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
-	import WallDetailsFacade = GoClimb.Admin.Model.Facades.WallDetailsFacade;
-	import IWallDetails = GoClimb.Admin.Model.Entities.IWallDetails;
+	import WallDetailsFacade = GoClimb.Core.Model.Facades.WallDetailsFacade;
+	import IWallDetails = GoClimb.Core.Model.Entities.IWallDetails;
 
 	export class AdvancedSettingsState extends BasePanelState
 	{

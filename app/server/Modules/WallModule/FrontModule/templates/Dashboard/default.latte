@@ -5,8 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<base href="{link this, 'path' => NULL}">
 
-	{*TODO Title*}
-	<title>Stodulky</title>
+	<title>Lezecká stěna Třináctka | Stěna & boulder, Praha 13</title>
 
 	<link rel="stylesheet" n:cdnHref="assets/frontend.css">
 </head>
@@ -14,7 +13,59 @@
 <body data-close>
 
 <span class="gc-overlay"></span>
-<div data-ui-view></div>
+
+<div class="gc-main-view landing-page-temp">
+
+	<div class="logo-container">
+		<img data-cdn-image="static/trinactka-logo.png" class="logo">
+	</div>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown" ng-class="{'open': open1}" ng-mouseleave="open1 = false" ng-mouseover="open1 = true">
+						<a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Třináctka <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="http://stenastodulky.cz/stenaboulder/">Stěna & Boulder</a></li>
+							<li><a href="http://stenastodulky.cz/manual-spokojeneho-lezce/">Manuál spokojeného lezce</a></li>
+							<li><a href="http://stenastodulky.cz/provozni-a-bezpecnosti-rad/">Provozní řád</a></li>
+							<li><a href="http://stenastodulky.cz/bezpecnost-na-boulderu/">Bezpečnost na boulderu</a></li>
+						</ul>
+					</li>
+					<li><a href="http://stenastodulky.cz/bezpecnost/">Bezpečnost na stěně!</a></li>
+					<li><a href="http://stenastodulky.cz/detske-krouzky/">KROUŽKY 2016/17</a></li>
+					<li><a href="http://stenastodulky.cz/cenik/">Ceník</a></li>
+					<li class="dropdown" ng-class="{'open': open2}" ng-mouseleave="open2 = false" ng-mouseover="open2 = true">
+						<a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Kurzy <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="http://stenastodulky.cz/kurzy-pro-zacatecniky/">Kurzy pro začátečníky</a></li>
+							<li><a href="http://stenastodulky.cz/pro-ratolesti/">Pro děti</a></li>
+							<li><a href="http://stenastodulky.cz/treninkove-skupiny/">Tréninkové skupiny</a></li>
+							<li><a href="http://stenastodulky.cz/aktualni-terminy/">Aktuální termíny</a></li>
+						</ul>
+					</li>
+					<li><a href="http://stenastodulky.cz/category/aktuality/">Aktuality</a></li>
+					<li><a href="http://stenastodulky.cz/kontakt/">Kudy za námi</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div data-ui-view></div>
+</div>
 
 <script n:cdnSrc="assets/frontend.js"></script>
 <script n:syntax="double">(function(a,m,s,l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular,'GoClimb','$translateProvider',{{$locale}})</script>

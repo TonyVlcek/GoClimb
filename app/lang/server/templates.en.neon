@@ -21,10 +21,12 @@ auth:
 		app: You can see your logs here.
 
 app:
+	layout:
+		title: Logs
 	dashboard:
-		title: App
+		title: Logs
 	menu:
-		dashboard: Dashboard
+		dashboard: Logs
 		about: About
 
 backend:

@@ -3,10 +3,10 @@ namespace GoClimb.Admin.Directives
 
 	import BaseDirective = GoClimb.Core.Directives.BaseDirective;
 	import IScope = angular.IScope;
-	import ColorsFacade = GoClimb.Admin.Model.Facades.ColorsFacade;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
-	import DifficultyFacade = GoClimb.Admin.Model.Facades.DifficultyFacade;
-	import IDifficulty = GoClimb.Admin.Model.Entities.IDifficulty;
+	import ColorsFacade = GoClimb.Core.Model.Facades.ColorsFacade;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
+	import DifficultyFacade = GoClimb.Core.Model.Facades.DifficultyFacade;
+	import IDifficulty = GoClimb.Core.Model.Entities.IDifficulty;
 
 	export class DifficultyPickerDirective extends BaseDirective
 	{

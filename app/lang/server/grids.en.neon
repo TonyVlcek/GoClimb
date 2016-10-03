@@ -45,10 +45,10 @@ app:
 		fields:
 			name: Name
 			difficulty: Difficulty
-			logged: Logged
+			logged: Log date
 			style: Style
 			points: Points
-			note: Note
+			description: Description
 			length: Length
 			steps: Steps
 			parameters: Params

@@ -52,8 +52,7 @@ class ArticlesPresenter extends BaseV1Presenter
 		try {
 			if ($id === NULL) {
 				$article = new Article;
-				$author = $this->getUser()->getUserEntity();
-				$article->setAuthor($author);
+				$article->setAuthor($this->getUser()->getUserEntity());
 				$article->setWall($this->wall);
 			} else {
 				if (!$article = $this->articleRepository->getById($id)) {

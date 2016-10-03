@@ -25,7 +25,7 @@ namespace GoClimb.Admin.Directives
 		{
 			element.on('click', (event) => {
 				var panelElement = angular.element('.gc-side-panel');
-				var compressDisabled = panelElement.hasClass('js-disable-compressed');
+				var compressDisabled = panelElement.hasClass('js-disable-compress');
 				if (panelElement.length && !panelElement.get(0).contains(event.target)) {
 					var body = angular.element('body');
 					if (!compressDisabled && this.$window.matchMedia("(max-width: 1200px)").matches) {

@@ -55,8 +55,7 @@ class NewsPresenter extends BaseV1Presenter
 		try {
 			if ($id === NULL) {
 				$news = new News;
-				$author = $this->getUser()->getUserEntity();
-				$news->setAuthor($author);
+				$news->setAuthor($this->getUser()->getUserEntity());
 				$news->setWall($this->wall);
 			} else {
 				if (!$news = $this->newsRepository->getById($id)) {

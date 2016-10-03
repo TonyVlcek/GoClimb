@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>App</title>
+	<title>{_templates.app.layout.title} &middot; {_templates.core.websiteName}</title>
 
 	<link rel="stylesheet" n:cdnHref="assets/admin.css">
 </head>
@@ -14,12 +14,14 @@
 			<div class="menu-group dark top-panel">
 				<div class="menu-group-left">
 					<ul class="dark menu-bar">
-						<li><a href="http://cesty.stenastodulky.cz">StěnaStodůlky</a></li>
+						<li n:foreach="$walls as $wall">
+							<a n:href=":Wall:Front:Dashboard:default, wall => $wall" target="_blank">{$wall->getName()}</a>
+						</li>
 					</ul>
 				</div>
 				<div class="menu-group-right">
 					<ul class="dark menu-bar">
-						<li><a href="javascript: void(0);">{$userEmail}</a></li>
+						<li><a href="javascript: void(0);">{$user->getUserEntity()->getDisplayedName()}</a></li>
 						<li><a href="{$logoutLink}">Logout</a></li>
 					</ul>
 				</div>

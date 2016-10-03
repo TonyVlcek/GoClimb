@@ -55,8 +55,7 @@ class EventsPresenter extends BaseV1Presenter
 		try {
 			if ($id === NULL) {
 				$event = new Event;
-				$author = $this->getUser()->getUserEntity();
-				$event->setAuthor($author);
+				$event->setAuthor($this->getUser()->getUserEntity());
 				$event->setWall($this->wall);
 			} else {
 				if (!$event = $this->eventRepository->getById($id)) {

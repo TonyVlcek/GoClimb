@@ -2,10 +2,10 @@
 namespace GoClimb.Admin.Controllers
 {
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import DialogService = GoClimb.Admin.Services.DialogService;
-	import INews = GoClimb.Admin.Model.Entities.INews;
-	import NewsFacade = GoClimb.Admin.Model.Facades.NewsFacade;
+	import INews = GoClimb.Core.Model.Entities.INews;
+	import NewsFacade = GoClimb.Core.Model.Facades.NewsFacade;
 
 
 	export class NewsController extends BaseAdminController

@@ -1,8 +1,8 @@
 namespace GoClimb.Admin.Controllers {
 
-	import RolesFacade = GoClimb.Admin.Model.Facades.RolesFacade;
+	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import IRole = GoClimb.Admin.Model.Entities.IRole;
+	import IRole = GoClimb.Core.Model.Entities.IRole;
 
 
 	export class RolesController extends BaseAdminController

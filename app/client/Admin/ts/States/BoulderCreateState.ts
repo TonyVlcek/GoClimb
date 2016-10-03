@@ -2,17 +2,17 @@ namespace GoClimb.Admin.States
 {
 
 	import BaseState = GoClimb.Core.States.BaseState;
-	import BouldersFacade = GoClimb.Admin.Model.Facades.BouldersFacade;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import BouldersFacade = GoClimb.Core.Model.Facades.BouldersFacade;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import IStateService = angular.ui.IStateService;
-	import IBoulder = GoClimb.Admin.Model.Entities.IBoulder;
+	import IBoulder = GoClimb.Core.Model.Entities.IBoulder;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
-	import SectorsFacade = GoClimb.Admin.Model.Facades.SectorsFacade;
+	import SectorsFacade = GoClimb.Core.Model.Facades.SectorsFacade;
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import ISector = GoClimb.Admin.Model.Entities.ISector;
-	import ILine = GoClimb.Admin.Model.Entities.ILine;
+	import ISector = GoClimb.Core.Model.Entities.ISector;
+	import ILine = GoClimb.Core.Model.Entities.ILine;
 	import ITranslateService = angular.translate.ITranslateService;
-	import ParametersFacade = GoClimb.Admin.Model.Facades.ParametersFacade;
+	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
 
 	export class BoulderCreateState extends BasePanelState
 	{

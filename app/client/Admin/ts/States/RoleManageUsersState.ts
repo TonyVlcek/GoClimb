@@ -3,11 +3,11 @@ namespace GoClimb.Admin.States
 
 	import BaseState = GoClimb.Core.States.BaseState;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import IStateService = angular.ui.IStateService;
-	import RolesFacade = GoClimb.Admin.Model.Facades.RolesFacade;
-	import IRole = GoClimb.Admin.Model.Entities.IRole;
-	import UserFacade = GoClimb.Admin.Model.Facades.UserFacade;
+	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
+	import IRole = GoClimb.Core.Model.Entities.IRole;
+	import UserFacade = GoClimb.Core.Model.Facades.UserFacade;
 	import DialogService = GoClimb.Admin.Services.DialogService;
 
 	export class RoleManageUsersState extends BasePanelState
