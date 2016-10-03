@@ -2,6 +2,7 @@ namespace GoClimb.Admin.Directives
 {
 
 	import BaseDirective = GoClimb.Core.Directives.BaseDirective;
+	import Authorizator = GoClimb.Admin.Services.Authorizator;
 
 	export class DashboardDirective extends BaseDirective
 	{
@@ -10,136 +11,114 @@ namespace GoClimb.Admin.Directives
 
 		private $state;
 		private $translate;
+		private authorizator: Authorizator;
 
-		public constructor($state, $translate) {
+		public constructor($state, $translate, authorizator: Authorizator) {
 			super();
 			this.$state = $state;
 			this.$translate = $translate;
+			this.authorizator = authorizator;
 		}
 
 		public link = (scope) =>
 		{
-			var categories = [
-				{
-					name: 'directives.dashboard.article.title',
-					links: [
-						{
-							name: 'directives.dashboard.article.items.list.title',
-							href: 'articles',
-							description: 'directives.dashboard.article.items.list.description'
-						},
-						{
-							name: 'directives.dashboard.article.items.create.title',
-							href: 'articles.create',
-							description: 'directives.dashboard.article.items.create.description'
-						}
-					]
+
+			var categories = {
+				articles: {
+					list: {
+						link: 'articles',
+						permission: 'admin.articles',
+					},
+					create: {
+						link: 'articles.create',
+						permission: 'admin.articles',
+					},
 				},
-				{
-					name: 'directives.dashboard.news.title',
-					links: [
-						{
-							name: 'directives.dashboard.news.items.list.title',
-							href: 'news',
-							description: 'directives.dashboard.news.items.list.description'
-						},
-						{
-							name: 'directives.dashboard.news.items.create.title',
-							href: 'news.create',
-							description: 'directives.dashboard.news.items.create.description'
-						}
-					]
+				news: {
+					list: {
+						link: 'news',
+						permission: 'admin.news',
+					},
+					create: {
+						link: 'news.create',
+						permission: 'admin.news'
+					},
 				},
-				{
-					name: 'directives.dashboard.events.title',
-					links: [
-						{
-							name: 'directives.dashboard.events.items.list.title',
-							href: 'events',
-							description: 'directives.dashboard.events.items.list.description'
-						},
-						{
-							name: 'directives.dashboard.events.items.create.title',
-							href: 'events.create',
-							description: 'directives.dashboard.events.items.create.description'
-						}
-					]
+				events: {
+					list: {
+						link: 'events',
+						permission: 'admin.events',
+					},
+					create: {
+						link: 'events.create',
+						permission: 'admin.events'
+					},
 				},
-				{
-					name: 'directives.dashboard.roles.title',
-					links: [
-						{
-							name: 'directives.dashboard.roles.items.list.title',
-							href: 'roles',
-							description: 'directives.dashboard.roles.items.list.description'
-						}
-					]
+				roles: {
+					list: {
+						link: 'roles',
+						permission: 'admin.acl',
+					},
 				},
-				{
-					name: 'directives.dashboard.routes.title',
-					links: [
-						{
-							name: 'directives.dashboard.routes.items.ropeList.title',
-							href: 'ropes',
-							description: 'directives.dashboard.routes.items.ropeList.description'
-						},
-						{
-							name: 'directives.dashboard.routes.items.ropeCreate.title',
-							href: 'ropes.create',
-							description: 'directives.dashboard.routes.items.ropeCreate.description'
-						},
-						{
-							name: 'directives.dashboard.routes.items.boulderList.title',
-							href: 'boulders',
-							description: 'directives.dashboard.routes.items.boulderList.description'
-						},
-						{
-							name: 'directives.dashboard.routes.items.boulderCreate.title',
-							href: 'boulders.create',
-							description: 'directives.dashboard.routes.items.boulderCreate.description'
-						}
-					]
+				routes: {
+					ropeList: {
+						link: 'ropes',
+						permission: 'admin.routes.rope',
+					},
+					ropeCreate: {
+						link: 'ropes.create',
+						permission: 'admin.routes.rope',
+					},
+					boulderList: {
+						link: 'boulders',
+						permission: 'admin.routes.boulder',
+					},
+					boulderCreate: {
+						link: 'boulders.create',
+						permission: 'admin.routes.boulder',
+					},
 				},
-				{
-					name: 'directives.dashboard.settings.title',
-					links: [
-						{
-							name: 'directives.dashboard.settings.items.list.title',
-							href: 'settings',
-							description: 'directives.dashboard.settings.items.list.description'
-						},
-						{
-							name: 'directives.dashboard.settings.items.advanced.title',
-							href: 'settings.advancedSettings',
-							description: 'directives.dashboard.settings.items.advanced.description'
-						}
-					]
-				}
-			];
+				settings: {
+					list: {
+						link: 'settings',
+						permission: 'admin.settings.advanced',
+					},
+					advanced: {
+						link: 'settings.advancedSettings',
+						permission: 'admin.settings.advanced'
+					},
+				},
+			};
 
 			scope.categories = [];
 
 			for (var key in categories) {
 				var category = {
-					name: this.$translate.instant(categories[key].name),
-					links: []
+					name: this.$translate.instant('dashboard.' + key + '.title'),
+					items: []
 				};
-				for (var key2 in categories[key].links) {
-					category.links.push({
-						name: this.$translate.instant(categories[key].links[key2].name),
-						href: this.$translate.instant(categories[key].links[key2].href),
-						description: this.$translate.instant(categories[key].links[key2].description)
-					});
+				for (var key2 in categories[key]) {
+					if (this.authorizator.isAllowed(categories[key][key2].permission)) {
+						category.items.push({
+							name: this.$translate.instant('dashboard.' + key + '.items.' + key2 + '.title'),
+							link: categories[key][key2].link,
+							description: this.$translate.instant('dashboard.' + key + '.items.' + key2 + '.description'),
+							aliases: this.$translate.instant('dashboard.' + key + '.items.' + key2 + '.aliases'),
+						});
+					}
 				}
-				scope.categories.push(category);
+
+				if (category.items.length) {
+					scope.categories.push(category);
+				}
 			}
 
 			scope.links = [];
 			for (var key in scope.categories) {
-				for (var key2 in scope.categories[key].links) {
-					var link = scope.categories[key].links[key2];
-					link.category = scope.categories[key].name;
-					scope.links.push(link);
+				for (var key2 in scope.categories[key].items) {
+					var item = scope.categories[key].items[key2];
+					item.category = scope.categories[key].name;
+					scope.links.push(item);
 				}
 			}
 
@@ -150,6 +129,6 @@ namespace GoClimb.Admin.Directives
 
 	}
 
-	DashboardDirective.register(angular, 'dashboard', ['$state', '$translate']);
+	DashboardDirective.register(angular, 'dashboard', ['$state', '$translate', 'authorizator']);
 
 }

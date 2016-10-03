@@ -3,8 +3,8 @@
 		<br>
 		<label>
 			<span class="inline-label">
-				<input type="search" placeholder="{{'directives.dashboard.searchPlaceholder'|translate}}" data-ng-model="query">
-				<button class="button dark" data-ng-click="query = null" data-ng-disabled="!query">{{'directives.dashboard.cancel'|translate}}</button>
+				<input type="search" placeholder="{{'dashboard.searchPlaceholder'|translate}}" data-ng-model="query">
+				<button class="button dark" data-ng-click="query = null" data-ng-disabled="!query">{{'dashboard.cancel'|translate}}</button>
 			</span>
 		</label>
 
@@ -20,10 +20,10 @@
 					<div class="grid-content">
 						<section class="block-list">
 							<ul>
-								<li data-ng-repeat="link in category.links">
-									<a data-ng-click="goTo(link.href)">
-										{{link.name}}
-										<span class="description" data-ng-show="link.description"> - {{link.description}}</span>
+								<li data-ng-repeat="item in category.items">
+									<a data-ng-click="goTo(item.link)">
+										{{item.name}}
+										<span class="description" data-ng-show="item.description"> - {{item.description}}</span>
 									</a>
 								</li>
 							</ul>
@@ -35,7 +35,7 @@
 		<section class="block-list grid-content" data-ng-show="query">
 			<ul>
 				<li data-ng-repeat="link in links | filter:query">
-					<a data-ng-click="goTo(link.href)" class="clearfix">
+					<a data-ng-click="goTo(link.link)" class="clearfix">
 						<span class="float-left">{{link.name}}</span>
 						<span class="float-right description">{{link.description}} <span class="fa fa-chevron-right icon"></span> </span>
 					</a>
