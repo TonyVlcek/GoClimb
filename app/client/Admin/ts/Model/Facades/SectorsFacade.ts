@@ -16,7 +16,7 @@ namespace GoClimb.Admin.Model.Facades
 				this.httpService.requestGet('sectors/', (data) => {
 					this.sectors = new IndexedArray<ISector>(data.sectors);
 					callback(this.sectors);
-				}, errorCallback);
+				}, {}, errorCallback);
 			} else if (this.sectors) {
 				callback(this.sectors);
 			}

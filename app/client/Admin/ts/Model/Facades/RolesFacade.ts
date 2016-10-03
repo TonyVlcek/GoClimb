@@ -25,7 +25,7 @@ namespace GoClimb.Admin.Model.Facades
 					if (callback) {
 						callback(this.roles);
 					}
-				}, errorCallback);
+				}, {}, errorCallback);
 			} else if (this.roles) {
 				callback(this.roles);
 			}

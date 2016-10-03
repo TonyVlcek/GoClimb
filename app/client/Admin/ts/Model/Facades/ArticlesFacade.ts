@@ -27,7 +27,7 @@ namespace GoClimb.Admin.Model.Facades
 					if (callback) {
 						callback(this.articles);
 					}
-				}, errorCallback);
+				}, {}, errorCallback);
 			} else if (this.articles) {
 				callback(this.articles);
 			}
@@ -47,7 +47,7 @@ namespace GoClimb.Admin.Model.Facades
 			article = angular.copy(article);
 			article.published = publish;
 			article = ArticlesFacade.articleToJson(article);
-			this.httpService.requestPost('articles/', {article}, (data) => {
+			this.httpService.requestPost('articles/', {article: article}, (data) => {
 				this.articles.setIndex(data.article.id.toString(), ArticlesFacade.mapArticle(data.article));
 				if (callback) {
 					callback(this.articles.getIndex(data.article.id.toString()));
@@ -62,7 +62,7 @@ namespace GoClimb.Admin.Model.Facades
 			article = angular.copy(article);
 			article.published = publish;
 			article = ArticlesFacade.articleToJson(article);
-			this.httpService.requestPost('articles/' + article.id, {article}, (data) => {
+			this.httpService.requestPost('articles/' + article.id, {article: article}, (data) => {
 				this.articles.setIndex(data.article.id.toString(), ArticlesFacade.mapArticle(data.article));
 				if (callback) {
 					callback(this.articles.getIndex(data.article.id.toString()));
