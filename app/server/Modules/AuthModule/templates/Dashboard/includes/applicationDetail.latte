@@ -2,13 +2,7 @@
 	{if $isGoClimb}
 		{_templates.auth.dashboard.default.goClimbTitle}
 	{else}
-		{capture $appName}
-			<a href="javascript: void(0);" title="{$application->getDescription()}" class="tooltip">
-				<span>
-					{$application->getName()}
-				</span>
-			</a>
-		{/capture}
+		{capture $appName}<a href="javascript: void(0);" title="{$application->getDescription()}" class="tooltip"><span>{$application->getName()}</span></a>{/capture}
 		{_templates.auth.dashboard.default.title, [appName => $appName]|noescape}
 	{/if}
 </h2>

@@ -1,0 +1,15 @@
+{
+	"routes": {
+		"name": "Jméno",
+		"ratingRope": "Hodnocení (UIAA / FR)",
+		"ratingBoulder": "Hodnocení (HUECO / FR)",
+		"sector": "Sektor",
+		"line": "Linie",
+		"length": "Délka (m)",
+		"steps": "Počet kroků",
+		"parameters": "Parametry",
+		"log": "Zapsat přelez",
+		"start": "Začátek",
+		"end": "Konec"
+	}
+}

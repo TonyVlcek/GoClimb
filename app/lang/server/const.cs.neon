@@ -1,0 +1,20 @@
+languages:
+	english: Angličtina
+	czech: Čeština
+parameters:
+	sideFace: Profil
+	strength: Síla
+	technique: Technika
+	endurance: Výdrž
+	boulder: Boulderová
+	knowHow: Know-how
+	keyPoints: Klíčové body
+	bulge: Boule
+	smallHandles: Malé chyty
+styles:
+	os: OS
+	flash: FLASH
+	pp2: PP2
+	ppn: PPN
+	solo: SOLO
+	af: AF

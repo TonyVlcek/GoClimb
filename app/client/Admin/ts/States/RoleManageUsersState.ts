@@ -13,9 +13,6 @@ namespace GoClimb.Admin.States
 	export class RoleManageUsersState extends BasePanelState
 	{
 
-		private user;
-		private unlinkProcessing: number;
-
 		public url = '/role/{id}/users';
 		public templateUrl = 'app/client/Admin/ts/templates/Roles/manageUsers.html';
 		public resolve = {
@@ -27,6 +24,8 @@ namespace GoClimb.Admin.States
 				});
 			}]
 		};
+
+		private unlinkProcessing: number;
 
 		public controller = ['$scope', 'role', 'rolesFacade', 'userFacade', 'flashMessageSender', 'dialogService', ($scope, role, rolesFacade: RolesFacade, userFacade: UserFacade, flashMessageSender: FlashMessageSender, dialogService: DialogService) => {
 			this.data.canLeave = () => {
@@ -43,13 +42,20 @@ namespace GoClimb.Admin.States
 
 
 				$scope.processingSave = true;
-				userFacade.getByEmail($scope.user.email, (user) => {
-					rolesFacade.linkUpUser($scope.role.id, user.id, (role: IRole) => {
+				userFacade.getByEmail($scope.newUser.email, (user) => {
+					if (!user) {
 						$scope.linkUpUserForm.$setPristine();
 						$scope.processingSave = false;
-						$scope.role = role;
-						flashMessageSender.sendSuccess('flashes.roles.userLinkedUp');
-					});
+						flashMessageSender.sendError('flashes.roles.userNotFound');
+					} else {
+						rolesFacade.linkUpUser($scope.role.id, user.id, (role: IRole) => {
+							$scope.newUser.email = '';
+							$scope.linkUpUserForm.$setPristine();
+							$scope.processingSave = false;
+							$scope.role = role;
+							flashMessageSender.sendSuccess('flashes.roles.userLinkedUp');
+						});
+					}
 				});
 
 			};
@@ -70,7 +76,7 @@ namespace GoClimb.Admin.States
 
 			$scope.isUnlinkProcessing = (userId) => {
 				return this.unlinkProcessing === userId;
-			}
+			};
 		}];
 
 	}

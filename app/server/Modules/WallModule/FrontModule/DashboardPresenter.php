@@ -4,6 +4,7 @@ namespace GoClimb\Modules\WallModule\FrontModule;
 
 use GoClimb\Model\Facades\RestFacade;
 use GoClimb\Model\Facades\UserFacade;
+use GoClimb\Model\Rest\Mappers\UserMapper;
 
 
 class DashboardPresenter extends BaseFrontPresenter
@@ -35,19 +36,7 @@ class DashboardPresenter extends BaseFrontPresenter
 
 		$user = NULL;
 		if ($this->user->isLoggedIn()) {
-			$user = $this->userFacade->getById($this->user->getId());
-			if ($user->getFullName()) {
-				$name = $user->getFullName();
-			} elseif ($user->getNick()) {
-				$name = $user->getNick();
-			} else {
-				$name = $user->getEmail();
-			}
-
-			$user = [
-				'id' => $user->getId(),
-				'name' => $name,
-			];
+			$user = UserMapper::mapBasicInfo($this->userFacade->getById($this->user->getId()));
 		}
 
 		$loginBacklink = $this->link('//this', [$this::LOGIN_PARAMETER => $this::TOKEN_PLACEHOLDER]);

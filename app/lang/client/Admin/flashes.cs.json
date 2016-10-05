@@ -1,0 +1,106 @@
+{
+	"http": {
+		"error403": "Omlouváme se, ale nemáš přístup. Zkus obnovit stránku nebo kontaktovat administrátora.",
+		"error404": "Tato stránka nebo entita nebyla nalezena. Zkus obnovit stránku.",
+		"error500": "Omlouváme se, ale server nefunguje úplně podle našich představ. Zkus obnovit stránku. Chyba nám přišla na email a už ji opravujeme.",
+		"error600": "Omlouváme se, něco je špatně. Zkus obnovit stránku.",
+		"error601": "Tvoje přihlášení vypršelo. Prosím obnov stránku, nebo se přihlaš znova.",
+		"error602": "Tvoje IP adresa se změnila od poslední návštěvy. Prosím obnov stránku."
+	},
+	"settings": {
+		"updated": "Nastavení zdi bylo uloženo.",
+		"error": {
+			"invalidForm": "Prosím vyplň všechna povinná pole."
+		}
+	},
+	"articles": {
+		"delete": "Opravdu chceš smazat tento článek?",
+		"savedAsDraft": "Článek byl uložen jako koncept.",
+		"saved": "Článek byl upraven.",
+		"savedAndPublished": "Článek byl uložen a publikován.",
+		"deleted": {
+			"success": "Článek byl smazán.",
+			"error": "Článek nebyl smazán."
+		},
+		"error": {
+			"invalidForm": "Prosím vyplň všechna povinná pole."
+		}
+	},
+	"news": {
+		"delete": "Opravdu chceš smazat tuto novinku?",
+		"saved": "Novinka byla uložena.",
+		"savedAndPublished": "Novinka byla uložena a publikována.",
+		"deleted": {
+			"success": "Novinka byla smazána.",
+			"error": "Novinka nebyla smazána."
+		},
+		"error": {
+			"invalidForm": "Prosím vyplň všechna povinná pole."
+		}
+	},
+	"events": {
+		"delete": "Opravdu chceš smazat tuto událost?",
+		"savedAsDraft": "Událost byla uložena jako koncept.",
+		"saved": "Událost byla upravena.",
+		"savedAndPublished": "Událost byla upravena a publikována.",
+		"deleted": {
+			"success": "Událost byla smazána.",
+			"error": "Událost nebyla smazána."
+		},
+		"error": {
+			"invalidForm": "Prosím vyplň všechna povinná pole."
+		}
+	},
+	"roles": {
+		"userNotFound": "Uživatel s tímto emailem nebyl nalezen. Nejdřív se musí zaregistrovat.",
+		"userLinkedUp": "Uživatel byl přidán k této roli.",
+		"userUnlinked": "Uživatel byl odebrán z této role.",
+		"unlink": "Opravdu chceš toho uživatele odstranit z této role?",
+		"error": {
+			"invalidForm": "Prosím vyplň všechna povinná pole."
+		}
+	},
+	"routes": {
+		"delete": "Opradu chceš odstranit tuto cestu?",
+		"sector": {
+			"created": {
+				"success": "Sektor byl vytvořen."
+			}
+		},
+		"line": {
+			"created": {
+				"success": "Linie byla vytvořena."
+			}
+		},
+		"rope": {
+			"created": {
+				"success": "Cesta (lano) byla vytvořena."
+			},
+			"updated": {
+				"success": "Cesta (lano) byla upravena."
+			},
+			"delete": "Cesta (lano) se tímto smaže z deníčků a ze systému. Pokud byla sundána, nastav jí datum sundání. Opravdu ji chceš odstranit?",
+			"deleted": {
+				"success": "Cesta (lano) byla smazána."
+			},
+			"error": {
+				"invalidForm": "Prosím vyplň všechna povinná pole."
+			}
+		},
+		"boulder": {
+			"created": {
+				"success": "Cesta (boulder) byla vytvořena."
+			},
+			"updated": {
+				"success": "Cesta (boulder) byla upravena."
+			},
+			"delete": "Cesta (boulder) se tímto smaže z deníčků a ze systému. Pokud byla sundána, nastav jí datum sundání. Opravdu ji chceš odstranit?",
+			"deleted": {
+				"success": "Cesta (boulder) byla smazána."
+			},
+			"error": {
+				"invalidForm": "Prosím vyplň všechna povinná pole."
+			}
+		}
+	}
+}

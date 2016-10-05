@@ -1,3 +1,20 @@
 languages:
 	english: English
 	czech: Czech
+parameters:
+	sideFace: Side face
+	strength: Strength
+	technique: Technique
+	endurance: Endurance
+	boulder: Boulder
+	knowHow: Know-how
+	keyPoints: Key point
+	bulge: Bulge
+	smallHandles: Small handles
+styles:
+	os: OS
+	flash: FLASH
+	pp2: PP2
+	ppn: PPN
+	solo: SOLO
+	af: AF

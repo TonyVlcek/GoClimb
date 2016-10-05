@@ -24,40 +24,30 @@ namespace GoClimb.Admin.Directives
 		{
 
 			var categories = {
-				articles: {
-					list: {
+				content: {
+					listArticles: {
 						link: 'articles',
 						permission: 'admin.articles',
 					},
-					create: {
+					createArticle: {
 						link: 'articles.create',
 						permission: 'admin.articles',
 					},
-				},
-				news: {
-					list: {
+					listNews: {
 						link: 'news',
 						permission: 'admin.news',
 					},
-					create: {
+					createNews: {
 						link: 'news.create',
 						permission: 'admin.news'
 					},
-				},
-				events: {
-					list: {
+					listEvents: {
 						link: 'events',
 						permission: 'admin.events',
 					},
-					create: {
+					createEvent: {
 						link: 'events.create',
 						permission: 'admin.events'
-					},
-				},
-				roles: {
-					list: {
-						link: 'roles',
-						permission: 'admin.acl',
 					},
 				},
 				routes: {
@@ -79,11 +69,15 @@ namespace GoClimb.Admin.Directives
 					},
 				},
 				settings: {
-					list: {
+					listRoles: {
+						link: 'roles',
+						permission: 'admin.acl',
+					},
+					listSettings: {
 						link: 'settings',
 						permission: 'admin.settings.advanced',
 					},
-					advanced: {
+					advancedSettings: {
 						link: 'settings.advancedSettings',
 						permission: 'admin.settings.advanced'
 					},

@@ -1,0 +1,89 @@
+core:
+	websiteName: GoClimb
+
+auth:
+	layout:
+		title: Autorizace
+	dashboard:
+		default:
+			back: Zpět
+			oneAccount: Všechny lezecké stěny. Jeden účet.
+			title: 'Přihlásit se do %appName% pomocí GoClimb účtu.'
+			goClimbTitle: 'Přihlásit se do GoClimb.'
+			welcome: Vítej zpátky!
+			loggedIn: 'Aktuálně jsi přihlášen jako:'
+			register: Vytvořit nový účet
+			notYou: Nejsi to ty?
+			login: Přihlásit se
+		register:
+			register: Registrace do GoClimb.
+
+app:
+	layout:
+		title: Deníčky
+		logout: Odhlásit se
+	dashboard:
+		title: Deníčky
+	menu:
+		dashboard: Deníčky
+		about: O aplikaci
+
+backend:
+	layout:
+		title: Administrace
+		toggleNav: Zobrazit / skrýt menu
+		brand: Administrace
+		close: Zavřít
+		topMenu:
+			dashboard: Nástěnka
+			users: Uživatelé
+			company: Společnosti
+			walls: Lezecké stěny
+			login: Přihlásit se
+			logout: Odhlásit se
+	dashboard:
+		default:
+			title: Nástěnka
+	wall:
+		default:
+			create: Vytvořit lezeckou stěnu
+	error:
+		forbidden:
+			title: Tak tohle ne!
+			heading: 'Omlouváme se, ale sem je přístup povolaným. Jestli si myslíš, že to je chyba, kontaktuj prosím administrátora.'
+			logout: Odhlásit se
+
+
+admin:
+	loading:
+		loading: Načítám
+		madeWithLove: Vytvořeno s láskou.
+		madeBy: Vytvořeno pomocí GoClimb.
+	error:
+		forbidden:
+			title: Tak tohle ne!
+			heading: 'Omlouváme se, ale sem je přístup povolaným. Jestli si myslíš, že to je chyba, kontaktuj prosím administrátora.'
+			logout: Odhlásit se
+
+
+errors:
+	4xx:
+		title: A jé...
+		description: 'Tvůj prohlížeč poslal dotaz, kterému náš server nerozumněl.'
+	403:
+		name: Chyba 403
+		title: Přístup odepřen
+		description: 'Omlouváme se, ale sem je přístup povolaným. Jestli si myslíš, že to je chyba, kontaktuj prosím administrátora.'
+	404:
+		name: Chyba 404
+		title: Stránka nenalezena
+		description: Stránka nebyla nalezena. Zkus použít vyhledávání nebo kontaktuj administrátora.
+	405:
+		name: Chyba 405
+		title: Metoda nepovolena
+		description: Metoda požadavku nebyla povolena naším serverem.
+
+	410:
+		name: Chyba 410
+		title: Stránka nenalezena
+		description: 'Stránka nebyla nalezena, protože byla smazána ze systému.'

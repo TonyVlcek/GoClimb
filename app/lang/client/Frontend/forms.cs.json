@@ -1,0 +1,12 @@
+{
+	"common": {
+		"unsavedData": "Máš neuložená data, která se touto akcí ztratí. Opravdu chceš pokračovat?"
+	},
+	"logs": {
+		"date": "Datum přelezu",
+		"style": "Styl",
+		"noStyle": "Nedokončeno",
+		"description": "Poznámka",
+		"save": "Uložit"
+	}
+}

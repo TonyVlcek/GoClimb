@@ -1,0 +1,9 @@
+.#{$class-prefix}-side-panel {
+	position: fixed;
+}
+
+.#{$class-prefix}-panel-view {
+	&.ng-enter, &.ng-leave {
+		position: fixed;
+	}
+}

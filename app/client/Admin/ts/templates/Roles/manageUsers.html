@@ -13,12 +13,12 @@
 				<div class="grid-content small-12 noscroll">
 					<label>
 						{{'forms.roles.email'|translate}}:
-						<input name="email" type="email" ng-model="user.email" required>
+						<input name="email" type="email" ng-model="newUser.email" required>
 					</label>
 					<button type="submit" class="button default"
-					        data-ng-class="{spinner : processingSave}"
-					        data-ng-disabled="(linkUpUserForm.$invalid || processingSave)"
-					        data-ng-click="save()">
+						data-ng-class="{spinner : processingSave}"
+						data-ng-disabled="(linkUpUserForm.$invalid || processingSave)"
+						data-ng-click="save()">
 						{{'forms.roles.add'|translate}}
 					</button>
 					<div class="notitle"></div>
@@ -28,11 +28,11 @@
 		<div class="grid-content">
 			<table class="table">
 				<thead data-ng-show="role.users.length">
-					<tr><th>{{'grids.roles.nick'|translate}}</th><th>{{'grids.roles.email'|translate}}</th><th></th></tr>
+					<tr><th>{{'grids.roles.displayedName'|translate}}</th><th>{{'grids.roles.email'|translate}}</th><th></th></tr>
 				</thead>
 				<tbody data-ng-repeat="user in role.users">
 					<tr>
-						<td>{{user.nick}}</td>
+						<td>{{user.name}}</td>
 						<td>{{user.email}}</td>
 						<td>
 							<button class="button hollow alert" data-ng-class="{spinner: isUnlinkProcessing(user.id)}" type="button" data-ng-click="unlink(user.id)">

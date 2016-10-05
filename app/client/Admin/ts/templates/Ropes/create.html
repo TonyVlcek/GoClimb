@@ -1,7 +1,10 @@
-<div id="ropePanel" class="gc-side-panel js-disable-compress">
+<div id="ropePanel" class="gc-side-panel">
 	<span data-close-button></span>
 	<div class="gc-title-bar gc-with-menu">
 		<h2 class="gc-title">{{'templates.ropes.create'|translate}}</h2>
+		<div class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</div>
 	</div>
 	<div class="gc-content gc-flex">
 		<form name="ropeForm" class="form" novalidate>
@@ -81,11 +84,11 @@
 						<label>
 							{{'forms.ropes.parameter.name'|translate}}
 							<span class="inline-label">
-							<select data-ng-hide="parameter.parameter" data-ng-model="parameter.parameter">
-								<option data-ng-repeat="item in parameters" data-ng-value="item.name">
-									{{'enums.parameters.' + item.name|translate}}
-								</option>
-							</select>
+								<select data-ng-hide="parameter.parameter" data-ng-model="parameter.parameter">
+									<option data-ng-repeat="item in parameters" data-ng-value="item.name">
+										{{'enums.parameters.' + item.name|translate}}
+									</option>
+								</select>
 								<span data-ng-show="parameter.parameter">{{'enums.parameters.' + parameter.parameter|translate}}</span>
 							</span>
 						</label>
@@ -93,11 +96,11 @@
 							{{'forms.ropes.parameter.level'|translate}}
 							<span data-ng-show="parameter.level">{{parameter.level}}</span>
 							<span class="inline-label">
-							<select data-ng-hide="parameter.level" data-ng-model="parameter.level">
-								<option data-ng-value="1">1</option>
-								<option data-ng-value="2">2</option>
-								<option data-ng-value="3">3</option>
-							</select>
+								<select data-ng-hide="parameter.level" data-ng-model="parameter.level">
+									<option data-ng-value="1">1</option>
+									<option data-ng-value="2">2</option>
+									<option data-ng-value="3">3</option>
+								</select>
 								<span data-ng-show="parameter.level">{{parameter.level}}</span>
 							</span>
 						</label>

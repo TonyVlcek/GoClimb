@@ -1,0 +1,61 @@
+{
+	"articles": {
+		"title": "Články",
+		"edit": "Upravit článek",
+		"create": "Napsat článek",
+		"add": "Napsat článek",
+		"close": "Zavřít"
+	},
+	"dashboard": {
+		"title": "Hlavní stránka"
+	},
+	"news": {
+		"title": "Novinky",
+		"edit": "Upravit novinku",
+		"create": "Přidat novinku",
+		"add": "Přidat novinku",
+		"close": "Zavřít"
+	},
+	"events": {
+		"title": "Události",
+		"edit": "Upravit událost",
+		"create": "Vytvořit událost",
+		"add": "Vytvořit událost",
+		"close": "Zavřít"
+	},
+	"ropes": {
+		"title": "Cesty - lano",
+		"add": "Přidat cestu (lano)",
+		"edit": "Upravit cestu",
+		"create": "Přidat cestu (lano)",
+		"close": "Zavřít"
+	},
+	"boulders": {
+		"title": "Cesty - boulder",
+		"add": "Přidat cestu (boulder)",
+		"edit": "Upravit cestu",
+		"create": "Přidat cestu (boulder)",
+		"close": "Zavřít"
+	},
+	"settings": {
+		"title": "Nastavení",
+		"general": "Nastavení zdi",
+		"default": {
+			"name": "Jméno",
+			"street": "Ulice",
+			"number": "Číslo popisné",
+			"country": "Země",
+			"zip": "PSČ",
+			"submit": "Uložit"
+		}
+	},
+	"roles": {
+		"title": "Role",
+		"manageUsers": "Seznam uživatelů"
+	},
+	"404":{
+		"notFound": "Stránka nenalezena",
+		"dashboard": "Hlavní stránka",
+		"back": "Zpět"
+	}
+}
