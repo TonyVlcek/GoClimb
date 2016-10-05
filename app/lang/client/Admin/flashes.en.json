@@ -52,6 +52,7 @@
 		}
 	},
 	"roles": {
+		"userNotFound": "User with this email not found. Tell him to register first.",
 		"userLinkedUp": "User was successfully added to this role",
 		"userUnlinked": "User was successfully removed from this role",
 		"unlink": "Are you sure you want to remove this user from this role?",
@@ -93,7 +94,7 @@
 			"updated": {
 				"success": "Boulder route was updated."
 			},
-			"delete": "Route will get erased from logs. You should prefer setting date of removal. Are you sure you want to delete this rope route anyway?",
+			"delete": "Route will get erased from logs. You should prefer setting date of removal. Are you sure you want to delete this boulder route anyway?",
 			"deleted": {
 				"success": "Boulder route was deleted."
 			},

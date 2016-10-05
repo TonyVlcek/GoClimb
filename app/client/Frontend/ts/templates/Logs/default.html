@@ -5,7 +5,6 @@
 				<span class="fa fa-sign-in"></span>
 				{{'templates.logs.login'|translate}}
 			</a>
-			{{'templates.logs.or'|translate}}
 			<a class="btn btn-lg btn-success add-route" href="{{logsCtrl.links.register}}">
 				<span class="fa fa-users"></span>
 				{{'templates.logs.register'|translate}}
@@ -63,7 +62,7 @@
 						<th>
 							{{'grids.routes.parameters'|translate}}
 						</th>
-						<th>
+						<th data-ng-show="logsCtrl.user">
 							{{'grids.routes.log'|translate}}
 						</th>
 					</tr>
@@ -84,12 +83,8 @@
 							</ul>
 							<span data-ng-hide="rope.parameters.length">-</span>
 						</td>
-						<td>
-							<a ng-hide="logsCtrl.user" class="btn btn-success add-route" href="{{logsCtrl.links.login}}">
-								<span class="fa fa-pencil"></span>
-								{{'templates.logs.create'|translate}}
-							</a>
-							<a ng-show="logsCtrl.user" class="btn btn-success add-route" data-ui-sref="logs.create({id: rope.id, type: 'rope'})">
+						<td data-ng-show="logsCtrl.user">
+							<a class="btn btn-success add-route" data-ui-sref="logs.create({id: rope.id, type: 'rope'})">
 								<span class="fa fa-plus"></span>
 								{{'templates.logs.create'|translate}}
 							</a>
@@ -120,7 +115,7 @@
 						<th>
 							{{'grids.routes.end'|translate}}
 						</th>
-						<th>
+						<th data-ng-show="logsCtrl.user">
 							{{'grids.routes.log'|translate}}
 						</th>
 					</tr>
@@ -133,12 +128,8 @@
 						<td>{{boulder.line.name}}</td>
 						<td>{{boulder.start}}</td>
 						<td>{{boulder.end}}</td>
-						<td>
-							<a ng-hide="logsCtrl.user" class="btn btn-success add-route" href="{{logsCtrl.links.login}}">
-								<span class="fa fa-pencil"></span>
-								{{'templates.logs.create'|translate}}
-							</a>
-							<a ng-show="logsCtrl.user" class="btn btn-success add-route" data-ui-sref="logs.create({id: boulder.id, type: 'boulder'})">
+						<td data-ng-show="logsCtrl.user">
+							<a class="btn btn-success add-route" data-ui-sref="logs.create({id: boulder.id, type: 'boulder'})">
 								<span class="fa fa-plus"></span>
 								{{'templates.logs.create'|translate}}
 							</a>

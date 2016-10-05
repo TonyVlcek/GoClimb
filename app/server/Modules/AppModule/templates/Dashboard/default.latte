@@ -43,7 +43,7 @@
 									{$log->getLoggedDate()|date}
 								</td>
 								<td>
-									{$log->getStyle()->getName()}
+									{_'const.styles.' . $log->getStyle()->getName()}
 								</td>
 								<td>{$log->getPoints()}</td>
 								<td>{$log->getDescription()}</td>
@@ -64,8 +64,8 @@
 								<td>
 									{if $log->getRoute()->isRope() && count($log->getRoute()->getRouteParameters())}
 										<ul>
-											<li n:inner-foreach="$log->getRoute()->getRouteParameters() as $parameter">
-												{$parameter->getName()}: {$parameter->getLevel()}
+											<li n:foreach="$log->getRoute()->getRouteParameters() as $parameter">
+												{_'const.parameters.' . $parameter->getParameter()->getName()}: {$parameter->getLevel()}
 											</li>
 										</ul>
 									{else}

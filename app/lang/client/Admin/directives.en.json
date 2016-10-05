@@ -26,5 +26,9 @@
 			"rope": "Difficulty: UIAA | FR - rope (points)",
 			"boulder": "Difficulty: HUECO | FR - boulder (points)"
 		}
+	},
+	"topPanel": {
+		"logout": "Logout",
+		"displayFrontend": "Show website"
 	}
 }

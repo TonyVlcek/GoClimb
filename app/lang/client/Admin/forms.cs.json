@@ -1,0 +1,70 @@
+{
+	"common": {
+		"unsavedData": "Máš neuložená data, která se touto akcí ztratí. Opravdu chceš pokračovat?"
+	},
+	"articles": {
+		"title": "Název",
+		"content": "Obsah",
+		"author": "Autor",
+		"save": "Uložit",
+		"saveAsDraft": "Uložit jako koncept",
+		"saveAndPublish": "Uložit a publikovat",
+		"delete": "Smazat"
+	},
+	"news": {
+		"title": "Obsah",
+		"author": "Author",
+		"save": "Uložit",
+		"saveAndPublish": "Uložit a publikovat",
+		"delete": "Smazat"
+	},
+	"events": {
+		"title": "Název",
+		"content": "Obsah",
+		"eventDate": "Datum události",
+		"author": "Autor",
+		"save": "Uložit",
+		"startDate": "Začátek události",
+		"endDate": "Konec události",
+		"saveAsDraft": "Uložit jako koncept",
+		"saveAndPublish": "Uložit a publikovat",
+		"delete": "Smazat"
+	},
+	"roles": {
+		"email": "Přidat uživatele podle emailu",
+		"add": "Přidat"
+	},
+	"ropes": {
+		"sector": "Sektor",
+		"newSector": "Jméno nového sektoru",
+		"line": "Linie",
+		"newLine": "Jméno nové linie",
+		"name": "Jméno",
+		"description": "Popisek",
+		"length": "Délka (metry)",
+		"steps": "Počet kroků",
+		"colors": "Barvy",
+		"parameters": "Parametry",
+		"parameter": {
+			"name": "Parametr:",
+			"level": "Úroveň:"
+		},
+		"dateCreated": "Postaveno dne",
+		"dateRemoved": "Sundáno dne",
+		"save": "Uložit"
+	},
+	"boulders": {
+		"sector": "Sektor",
+		"newSector": "Jméno nového sektoru",
+		"line": "Linie",
+		"newLine": "Jméno nové linie",
+		"name": "Jméno",
+		"description": "Popisek",
+		"start": "Začátek",
+		"end": "Konec",
+		"colors": "Barvy",
+		"dateCreated": "Postaveno dne",
+		"dateRemoved": "Sundáno dne",
+		"save": "Uložit"
+	}
+}

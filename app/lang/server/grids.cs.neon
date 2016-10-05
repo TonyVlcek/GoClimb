@@ -1,0 +1,54 @@
+base:
+	paginator:
+		first: První
+		previous: Předchozí
+		next: Další
+		last: Poslední
+
+user:
+	fields:
+		id: ID
+		nick: Přezdívka
+		firstName: Křestní jméno
+		lastName: Příjmení
+		email: Email
+	filter:
+		nick: Přezdívka
+		firstName: Křestní jméno
+		lastName: Příjmení
+		email: Email
+		apply: Vyhledat
+		cancel: Zrušit
+
+company:
+	fields:
+		name: Jméno
+	filter:
+		name: Jméno
+		apply: Vyhledat
+		cancel: Zrušit
+
+wall:
+	fields:
+		id: ID
+		name: Jméno
+		lang: Jazyky
+	filter:
+		name: Jméno
+		apply: Vyhledat
+		cancel: Zrušit
+	adminLink: administrace
+	webLink: web
+
+app:
+	dashboard:
+		fields:
+			name: Jméno
+			difficulty: Obtížnost
+			logged: Datum přelezu
+			style: Styl
+			points: Body
+			description: Popis
+			length: Délka
+			steps: Počet kroků
+			parameters: Parametry

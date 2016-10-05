@@ -17,12 +17,11 @@ auth:
 			login: Login
 		register:
 			register: Registration into GoClimb.
-	descriptions:
-		app: You can see your logs here.
 
 app:
 	layout:
 		title: Logs
+		logout: Logout
 	dashboard:
 		title: Logs
 	menu:

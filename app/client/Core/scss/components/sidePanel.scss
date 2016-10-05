@@ -9,7 +9,7 @@
 	height: 100%;
 	display: block;
 	overflow-y: auto;
-	position: fixed;
+	position: absolute;
 	z-index: $side-panel-z-index;
 	background: #FFFFFF !important;
 	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25);
@@ -86,7 +86,7 @@
 .panel-is-compressed.panel-is-active {
 	@include breakpoint(large) {
 		.#{$class-prefix}-main-view {
-			padding-right: $side-panel-width-compress;
+			margin-right: $side-panel-width-compress;
 		}
 
 		//In progress
@@ -112,7 +112,7 @@
 		right: 0;
 		height: 100%;
 		width: 100%;
-		position: fixed;
+		position: absolute;
 		display: block;
 		transition: all 0.5s ease-in-out;
 	}

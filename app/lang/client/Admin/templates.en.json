@@ -23,17 +23,6 @@
 		"add": "Add event",
 		"close": "Close"
 	},
-	"plugins": {
-		"table": {
-			"pluginName": "Plugin name",
-			"pluginDescription": "Description",
-			"status": "Status",
-			"actions": "Actions",
-			"search": "Search",
-			"enable": "Enable",
-			"disable": "Disable"
-		}
-	},
 	"ropes": {
 		"title": "Routes - Rope",
 		"add": "Add rope route",

@@ -1,84 +1,84 @@
 {
 	"content": {
-		"title": "Content",
+		"title": "Obsah",
 		"items": {
 			"createArticle": {
-				"title": "Create article",
+				"title": "Napsat článek",
 				"description": "",
 				"aliases": ""
 			},
 			"listArticles": {
-				"title": "List articles",
+				"title": "Seznam článků",
 				"description": "",
 				"aliases": ""
 			},
 			"createNews": {
-				"title": "Create news",
+				"title": "Přidat novinku",
 				"description": "",
 				"aliases": ""
 			},
 			"listNews": {
-				"title": "List news",
+				"title": "Seznam novinek",
 				"description": "",
 				"aliases": ""
 			},
 			"createEvent": {
-				"title": "Create event",
+				"title": "Přidat událost",
 				"description": "",
 				"aliases": ""
 			},
 			"listEvents": {
-				"title": "List events",
+				"title": "Seznam událostí",
 				"description": "",
 				"aliases": ""
 			}
 		}
 	},
 	"routes": {
-		"title": "Routes",
+		"title": "Cesty",
 		"items": {
 			"ropeList": {
-				"title": "List rope routes",
+				"title": "Seznam cest - lano",
 				"description": "",
 				"aliases": ""
 			},
 			"ropeCreate": {
-				"title": "Create rope route",
+				"title": "Přidat novou cestu - lano",
 				"description": "",
 				"aliases": ""
 			},
 			"boulderList": {
-				"title": "List boulder routes",
+				"title": "Senzam cest - boulder",
 				"description": "",
 				"aliases": ""
 			},
 			"boulderCreate": {
-				"title": "Create boulder route",
+				"title": "Přidat novou cestu - boulder",
 				"description": "",
 				"aliases": ""
 			}
 		}
 	},
 	"settings": {
-		"title": "Settings",
+		"title": "Nastavení",
 		"items": {
 			"listRoles": {
-				"title": "Roles list",
-				"description": "",
+				"title": "Seznam rolí",
+				"description": "Role umožňují přiřazovat oprávnění uživatelům",
 				"aliases": ""
 			},
 			"listSettings": {
-				"title": "All settings",
-				"description": "List of all settings",
+				"title": "Nastavení",
+				"description": "Seznam všech možností nastavení",
 				"aliases": ""
 			},
 			"advancedSettings": {
-				"title": "Global settings",
-				"description": "Wall name, address",
+				"title": "Nastavení stěny",
+				"description": "Jméno a adresa stěny",
 				"aliases": ""
 			}
 		}
 	},
-	"searchPlaceholder": "Search action",
-	"cancel": "Cancel"
+	"searchPlaceholder": "Vyhledat akci",
+	"cancel": "Zrušit"
 }

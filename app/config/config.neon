@@ -141,10 +141,10 @@ services:
 	- GoClimb\UI\Grids\Wall\IWallGridFactory
 
 translation:
-	default: en
-	fallback: [en]
+	default: cs
+	fallback: [cs, en]
 	whitelist:
+		- cs
 		- en
-		- cz
 	dirs:
 		- %appDir%/lang/server

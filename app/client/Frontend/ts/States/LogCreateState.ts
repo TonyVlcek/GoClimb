@@ -69,6 +69,7 @@ namespace GoClimb.Frontend.States
 			$scope.saving = false;
 			$scope.log = log;
 			$scope.styles = styles;
+			$scope.route = route;
 
 			$scope.save = () => {
 				if ($scope.logForm.$invalid) {

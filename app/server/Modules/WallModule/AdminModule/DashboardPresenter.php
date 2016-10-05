@@ -4,6 +4,7 @@ namespace GoClimb\Modules\WallModule\AdminModule;
 
 use GoClimb\Model\Enums\AclResource;
 use GoClimb\Model\Facades\RestFacade;
+use GoClimb\Model\Rest\Mappers\UserMapper;
 
 
 class DashboardPresenter extends BaseAdminPresenter
@@ -50,6 +51,10 @@ class DashboardPresenter extends BaseAdminPresenter
 			'restToken' => $this->user->isLoggedIn() ? $this->restFacade->getOrGenerateRestToken($this->wall, $this->user->getUserEntity(), $this->getHttpRequest()->getRemoteAddress())->getToken() : NULL,
 			'cdnUrl' => $this->cdnLinkGenerator->getCdnUrl(),
 			'permissions' => $this->getPermissions(),
+			'user' => $this->user->isLoggedIn() ? UserMapper::mapBasicInfo($this->user->getUserEntity()) : NULL,
+			'links' => [
+				'frontend' => $this->link('//:Wall:Front:Dashboard:default'),
+			],
 		];
 		$this->template->locale = $this->locale;
 	}

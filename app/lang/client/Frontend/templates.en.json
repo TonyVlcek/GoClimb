@@ -1,7 +1,6 @@
 {
 	"logs": {
 		"create": "Create log",
-		"or": "or",
 		"register": "Register",
 		"login": "Login",
 		"logout": "Logout",
