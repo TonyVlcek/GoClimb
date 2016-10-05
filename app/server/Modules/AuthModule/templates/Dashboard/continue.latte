@@ -15,8 +15,8 @@
 		<div class="content-block continue js-continue">
 			<h2 class="title"> {_templates.auth.dashboard.default.loggedIn}</h2>
 
-			<img src="http://placehold.it/70x70">
-			<h3 class="name">{$user->getUserEntity()->getEmail()}</h3>
+			{*<img src="http://placehold.it/70x70">*}
+			<h3 class="name">{$user->getUserEntity()->getDisplayedName()}</h3>
 			<div class="form-body">
 				{control continueForm}
 				{*<a href="#" class="btn js-not-you">{_templates.auth.dashboard.default.notYou}</a>*}

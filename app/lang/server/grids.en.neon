@@ -39,3 +39,16 @@ wall:
 		cancel: Cancel
 	adminLink: administration
 	webLink: web
+
+app:
+	dashboard:
+		fields:
+			name: Name
+			difficulty: Difficulty
+			logged: Log date
+			style: Style
+			points: Points
+			description: Description
+			length: Length
+			steps: Steps
+			parameters: Params

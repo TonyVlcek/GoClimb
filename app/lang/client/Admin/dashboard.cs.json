@@ -1,0 +1,84 @@
+{
+	"content": {
+		"title": "Obsah",
+		"items": {
+			"createArticle": {
+				"title": "Napsat článek",
+				"description": "",
+				"aliases": ""
+			},
+			"listArticles": {
+				"title": "Seznam článků",
+				"description": "",
+				"aliases": ""
+			},
+			"createNews": {
+				"title": "Přidat novinku",
+				"description": "",
+				"aliases": ""
+			},
+			"listNews": {
+				"title": "Seznam novinek",
+				"description": "",
+				"aliases": ""
+			},
+			"createEvent": {
+				"title": "Přidat událost",
+				"description": "",
+				"aliases": ""
+			},
+			"listEvents": {
+				"title": "Seznam událostí",
+				"description": "",
+				"aliases": ""
+			}
+		}
+	},
+	"routes": {
+		"title": "Cesty",
+		"items": {
+			"ropeList": {
+				"title": "Seznam cest - lano",
+				"description": "",
+				"aliases": ""
+			},
+			"ropeCreate": {
+				"title": "Přidat novou cestu - lano",
+				"description": "",
+				"aliases": ""
+			},
+			"boulderList": {
+				"title": "Senzam cest - boulder",
+				"description": "",
+				"aliases": ""
+			},
+			"boulderCreate": {
+				"title": "Přidat novou cestu - boulder",
+				"description": "",
+				"aliases": ""
+			}
+		}
+	},
+	"settings": {
+		"title": "Nastavení",
+		"items": {
+			"listRoles": {
+				"title": "Seznam rolí",
+				"description": "Role umožňují přiřazovat oprávnění uživatelům",
+				"aliases": ""
+			},
+			"listSettings": {
+				"title": "Nastavení",
+				"description": "Seznam všech možností nastavení",
+				"aliases": ""
+			},
+			"advancedSettings": {
+				"title": "Nastavení stěny",
+				"description": "Jméno a adresa stěny",
+				"aliases": ""
+			}
+		}
+	},
+	"searchPlaceholder": "Vyhledat akci",
+	"cancel": "Zrušit"
+}

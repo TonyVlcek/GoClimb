@@ -1,0 +1,57 @@
+<div class="grid-block vertical gc-main-view">
+	<div data-admin-menu-button></div>
+	<div class="gc-title-bar gc-with-menu">
+		<h2 class="gc-title">{{'templates.boulders.title'|translate}}</h2>
+		<div class="gc-menu">
+			<button type="button" class="gc-item" data-ui-sref="boulders.create">
+				<span class="fa fa-plus gc-icon"></span> {{'templates.boulders.add'|translate}}
+			</button>
+		</div>
+	</div>
+
+	<div class="grid-container contain-left">
+		<h2 class="notitle grid-content"></h2>
+		<div class="grid-content" data-ng-hide="bouldersCtrl.getBoulders()">
+			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
+		</div>
+		<div class="grid-content" data-ng-show="bouldersCtrl.getBoulders()">
+			<table data-st-table="boulders" data-st-safe-src="bouldersCtrl.getBoulders().getAsArray()" class="table">
+				<thead>
+					<tr>
+						<th data-st-sort="name" data-st-skip-natural="true" data-st-sort-default="true" class="clickable">
+							{{'grids.boulders.name'|translate}}
+						</th>
+						<th data-st-sort="sector.name" data-st-skip-natural="true" class="clickable">
+							{{'grids.boulders.sector'|translate}}
+						</th>
+						<th data-st-sort="line.name" data-st-skip-natural="true" class="clickable">
+							{{'grids.boulders.line'|translate}}
+						</th>
+						<th data-st-sort="builder.name" data-st-skip-natural="true" class="clickable">
+							{{'grids.boulders.builder'|translate}}
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="boulder in boulders">
+						<td>{{boulder.name}}</td>
+						<td>{{boulder.sector.name}}</td>
+						<td>{{boulder.line.name}}</td>
+						<td>{{boulder.builder.name}}</td>
+						<td>
+							<button class="button hollow warning" type="button" data-ui-sref="boulders.edit({id: boulder.id})">
+								<span class="fa fa-pencil"></span> {{'grids.boulders.edit'|translate}}
+							</button>
+							<button class="button hollow alert" data-ng-class="{spinner : bouldersCtrl.processingDelete === boulder.id}" type="button" data-ng-click="bouldersCtrl.deleteBoulder(boulder)">
+								<span class="fa fa-remove"></span> {{'grids.boulders.delete'|translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div data-ui-view class="gc-panel-view"></div>

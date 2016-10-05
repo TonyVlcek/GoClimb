@@ -6,7 +6,7 @@ trait Id
 {
 
 	/**
-	 * @var integer
+	 * @var int
 	 *
 	 * @ORM\Id
 	 * @ORM\Column(type="integer", options={"unsigned": TRUE})
@@ -16,7 +16,7 @@ trait Id
 
 
 	/**
-	 * @return integer
+	 * @return int
 	 */
 	final public function getId()
 	{

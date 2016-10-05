@@ -38,6 +38,16 @@ class AclRoleRepository extends BaseRepository
 
 
 	/**
+	 * @param int $id
+	 * @return AclRole|NULL
+	 */
+	public function getById($id)
+	{
+		return $this->getDoctrineRepository()->find($id);
+	}
+
+
+	/**
 	 * @param string $name
 	 * @param Wall $wall
 	 * @return AclRole|NULL

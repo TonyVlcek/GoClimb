@@ -1,0 +1,65 @@
+.landing-page {
+	.row {
+		h1 {
+			font-size: 4em;
+			margin-bottom: 30px;
+		}
+
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+	.features {
+		.fa-stack .fa-square {
+			color: $frontend-theme-accent-color;
+		}
+
+		.title {
+			font-size: 15px;
+		}
+
+		.value {
+			color: #777777;
+			font-weight: bold;
+			font-size: 30px;
+		}
+	}
+}
+
+.landing-page-temp {
+	.logo-container {
+		text-align: center;
+		padding: 45px 0;
+	}
+
+	.logo {
+		height: 150px;
+	}
+
+	@media screen and (min-width: 750px) {
+		.navbar-nav {
+			float: none;
+			margin: 0 auto;
+			display: table;
+			table-layout: fixed;
+
+			a {
+				padding: 17px 35px;
+			}
+		}
+	}
+
+	.user-section {
+		margin-top: 40px;
+	}
+
+	.add-route {
+		border-radius: 0;
+		margin-bottom: 15px;
+	}
+
+	.datagrid {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+}

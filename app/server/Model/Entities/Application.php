@@ -12,6 +12,7 @@ use GoClimb\Model\Entities\Attributes\Id;
 class Application
 {
 	const BACKEND_TOKEN = 'admin';
+	const APP_TOKEN = 'app';
 
 	use Id;
 

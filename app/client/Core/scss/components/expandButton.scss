@@ -1,0 +1,6 @@
+.#{$class-prefix}-expand-button {
+	display: none !important;
+	@include breakpoint(large) {
+		display: inline-block !important;
+	}
+}

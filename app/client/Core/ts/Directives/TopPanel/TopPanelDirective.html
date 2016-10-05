@@ -2,15 +2,13 @@
 	<div class="menu-group dark top-panel">
 		<div class="menu-group-left">
 			<ul class="dark menu-bar">
-				<li><a href="javascript: void(0);">Home</a></li>
+				<li><a href="{{links.frontend}}">{{'directives.topPanel.displayFrontend'|translate}}</a></li>
 			</ul>
 		</div>
 		<div class="menu-group-right">
 			<ul class="dark menu-bar">
-				<li ng-hide="availableLanguages.length < 2" ng-repeat="(key, link) in availableLanguages">
-					<a href="javascript: void(0);" ng-click="changeLanguage(key)">{{key}}</a>
-				</li>
-				<li><a href="javascript: void(0);">Administration</a></li>
+				<li><a href="javascript: void(0);">{{user.name}}</a></li>
+				<li><a href="javascript: void(0);">{{'directives.topPanel.logout'|translate}}</a></li>
 			</ul>
 		</div>
 	</div>

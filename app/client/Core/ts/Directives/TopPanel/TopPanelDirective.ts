@@ -10,7 +10,7 @@ namespace GoClimb.Core.Directives
 		public link: Function = null;
 
 
-		public constructor(languageService: LanguageService)
+		public constructor(languageService: LanguageService, user, links)
 		{
 			super();
 			this.link = function ($scope) {
@@ -18,11 +18,13 @@ namespace GoClimb.Core.Directives
 				$scope.changeLanguage = function (newLang) {
 					languageService.changeLanguage(newLang);
 				};
+				$scope.user = user;
+				$scope.links = links;
 			};
 		}
 
 	}
 
-	TopPanelDirective.register(angular, 'topPanel', ['languageService']);
+	TopPanelDirective.register(angular, 'topPanel', ['languageService', 'user', 'links']);
 
 }

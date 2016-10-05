@@ -1,11 +1,11 @@
 namespace GoClimb.Admin.Controllers
 {
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import IEvent = GoClimb.Admin.Model.Entities.IEvent;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
-	import ArticlesFacade = GoClimb.Admin.Model.Facades.ArticlesFacade;
+	import IEvent = GoClimb.Core.Model.Entities.IEvent;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
+	import ArticlesFacade = GoClimb.Core.Model.Facades.ArticlesFacade;
 	import DialogService = GoClimb.Admin.Services.DialogService;
-	import EventsFacade = GoClimb.Admin.Model.Facades.EventsFacade;
+	import EventsFacade = GoClimb.Core.Model.Facades.EventsFacade;
 
 
 	export class EventsController extends BaseAdminController

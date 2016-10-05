@@ -1,0 +1,50 @@
+<div id="advancedSettingsPanel" class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h2 class="gc-title">{{'templates.settings.general'|translate}}</h2>
+		<span class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</span>
+	</div>
+	<div class="gc-content gc-flex">
+		<form name="advancedSettingsForm" class="form grid-block wrap" novalidate>
+			<div class="notitle"></div>
+			<div class="grid-content small-12 noscroll">
+				<label>
+					{{'templates.settings.default.name'|translate}}
+					<input type="text" data-ng-model="advancedSettings.details.name" required>
+				</label>
+				<label>
+					{{'templates.settings.default.street'|translate}}
+					<input type="text" data-ng-model="advancedSettings.details.street">
+				</label>
+				<label>
+					{{'templates.settings.default.number'|translate}}
+					<input type="text" data-ng-model="advancedSettings.details.number">
+				</label>
+				<label>
+					{{'templates.settings.default.country'|translate}}
+					<input type="text" data-ng-model="advancedSettings.details.country">
+				</label>
+				<label>
+					{{'templates.settings.default.zip'|translate}}
+					<input type="text" data-ng-model="advancedSettings.details.zip">
+				</label>
+			</div>
+
+			<div class="grid-content small-12">
+
+				<button type="submit" class="button default"
+					data-ng-class="{spinner : processingSave}"
+					data-ng-disabled="(advancedSettingsForm.$invalid || isProcessing() || advancedSettingsForm.$pristine)"
+					data-ng-click="save()">
+					{{'templates.settings.default.submit'|translate}}
+				</button>
+
+				<button type="button" data-ui-sref="settings" class="button secondary">
+					{{'templates.news.close'|translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

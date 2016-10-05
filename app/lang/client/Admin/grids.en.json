@@ -7,6 +7,13 @@
 		"unpublished": "Unpublished",
 		"author": "Author"
 	},
+	"news": {
+		"title": "Content",
+		"edit": "Edit",
+		"delete": "Delete",
+		"publishedDate": "Publish date",
+		"author": "Author"
+	},
 	"events": {
 		"title": "Title",
 		"edit": "Edit",
@@ -15,5 +22,26 @@
 		"startDate": "Date of the event",
 		"unpublished": "Unpublished",
 		"author": "Author"
+	},
+	"roles": {
+		"nick": "Nick",
+		"email": "Email",
+		"delete": "Delete"
+	},
+	"ropes": {
+		"name": "Name",
+		"sector": "Sector",
+		"line": "Line",
+		"builder": "Builder",
+		"edit": "Edit",
+		"delete": "Delete"
+	},
+	"boulders": {
+		"name": "Name",
+		"sector": "Sector",
+		"line": "Line",
+		"builder": "Builder",
+		"edit": "Edit",
+		"delete": "Delete"
 	}
 }

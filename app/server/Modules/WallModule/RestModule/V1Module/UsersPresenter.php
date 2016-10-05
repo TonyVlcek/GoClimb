@@ -2,51 +2,49 @@
 
 namespace GoClimb\Modules\WallModule\RestModule\V1Module;
 
-use GoClimb\Model\Facades\ArticleFacade;
 use GoClimb\Model\Facades\UserFacade;
-use GoClimb\Model\Rest\Mappers\ArticleMapper;
+use GoClimb\Model\Repositories\UserRepository;
+use GoClimb\Model\Rest\Mappers\UserMapper;
 
 
-class UsersPresenter /*extends BaseV1Presenter*/
+class UsersPresenter extends BaseV1Presenter
 {
 
 	/** @var UserFacade */
 	private $userFacade;
 
+	/** @var UserRepository */
+	private $userRepository;
 
-	public function __construct(UserFacade $userFacade)
+
+	public function __construct(UserFacade $userFacade, UserRepository $userRepository)
 	{
 		parent::__construct();
+
 		$this->userFacade = $userFacade;
+		$this->userRepository = $userRepository;
 	}
 
 
-	public function actionDefault($id = NULL)
+	public function actionGet($id = NULL, $email = NULL)
 	{
-		switch ($this->getHttpRequest()->getMethod()) {
-			case 'GET':
-				if ($id === NULL) {
-					$this->sendMethodNotAllowed();
-					break;
-				}
-				$this->detail($id);
-				break;
-			case 'POST':
-			case 'DELETE':
-				$this->sendMethodNotAllowed();
-				break;
 
-			default:
-				$this->sendMethodNotAllowed();
-				break;
+		if ($id !== NULL) {
+			if (!$user = $this->userFacade->getById($id)) {
+				$this->sendNotFound();
+			}
+
+			$this->addData('user', UserMapper::map($user));
 		}
-	}
 
+		if ($email !== NULL) {
+			if (!$user = $this->userRepository->getByEmail($email)) {
+				$this->sendNotFound();
+			}
 
-	public function detail($id)
-	{
-		$user = $this->userFacade->getById($id);
-		$this->addData('user', ArticleMapper::map($user));
+			$this->addData('user', UserMapper::map($user));
+		}
+
 	}
 
 }

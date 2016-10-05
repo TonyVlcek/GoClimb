@@ -37,7 +37,7 @@ class EventMapper
 			'content' => $event->getContent(),
 			'author' => [
 				'id' => $event->getAuthor()->getId(),
-				'name' => $event->getAuthor()->getFullName(),
+				'name' => $event->getAuthor()->getDisplayedName(),
 			],
 			'startDate' => Utils::formatDateTime($event->getStartDate()),
 			'endDate' => Utils::formatDateTime($event->getEndDate()),

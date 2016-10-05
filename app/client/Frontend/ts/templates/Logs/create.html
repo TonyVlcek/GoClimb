@@ -1,0 +1,34 @@
+<div id="logPanel" class="gc-side-panel gc-small js-disable-compress">
+	<span data-close-button></span>
+	<div class="gc-title-bar">
+		<h1 class="gc-title">{{'templates.logs.create'|translate}}</h1>
+	</div>
+	<div class="gc-content">
+		<h3>{{route.name}}</h3>
+		<form name="logForm" class="gc-form" novalidate>
+			<label>
+				{{'forms.logs.date'|translate}}:
+				<input type="date" required data-ng-model="log.loggedDate">
+			</label>
+
+			<label>
+				{{'forms.logs.style'|translate}}:
+				<select required data-ng-model="log.style">
+					<option value="">{{'forms.logs.noStyle'|translate}}</option>
+					<option data-ng-repeat="style in styles" data-ng-value="style.id">{{'enums.styles.' + style.name|translate}}</option>
+				</select>
+			</label>
+
+			<label>
+				{{'forms.logs.description'|translate}}:
+				<textarea data-ng-model="log.description"></textarea>
+			</label>
+
+			<button class="gc-button" data-ng-class="{spinner: saving}" data-ng-disabled="(logForm.$invalid || saving)" data-ng-click="save()">
+				{{'forms.logs.save'|translate}}
+			</button>
+			<button class="gc-button gc-secondary" data-ui-sref="^">{{'templates.panel.close'|translate}}</button>
+		</form>
+
+	</div>
+</div>

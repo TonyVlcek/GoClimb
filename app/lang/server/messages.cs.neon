@@ -1,0 +1,15 @@
+company:
+	created: Společnost byla vytvořena
+	renamed: Společnost byla upravena
+user:
+	added: Uživatel byl přidán
+	removed: Uživatel %email% byl odstraněn
+	login:
+		success: Přihlášení proběhlo úspěšně
+		error: Přihlášení selhalo
+	logout:
+		success: Odhlášení proběhlo úspěšně
+	register:
+		success: Registrace proběhla úspěšně.
+wall:
+	created: Lezecká stěna byla vytvořena.

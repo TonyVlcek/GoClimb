@@ -1,14 +1,10 @@
 namespace GoClimb.Admin.Controllers
 {
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import DialogService = GoClimb.Admin.Services.DialogService;
-	import IStateService = angular.ui.IStateService;
-	import ArticlesFacade = GoClimb.Admin.Model.Facades.ArticlesFacade;
-	import ITimeoutService = angular.ITimeoutService;
-	import IFormController = angular.IFormController;
-	import IArticle = GoClimb.Admin.Model.Entities.IArticle;
-	import IScope = angular.IScope;
+	import ArticlesFacade = GoClimb.Core.Model.Facades.ArticlesFacade;
+	import IArticle = GoClimb.Core.Model.Entities.IArticle;
 
 
 	export class ArticlesController extends BaseAdminController

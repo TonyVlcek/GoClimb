@@ -1,0 +1,20 @@
+.table {
+	thead {
+		background: $frontend-theme-accent-color;
+		color: #FFFFFF;
+		border: 1px solid $frontend-theme-accent-color;
+		border-bottom: 0;
+
+		th {
+			border-bottom: 0 !important;
+		}
+	}
+
+	th, td {
+		padding: 15px !important;
+	}
+
+	td {
+		border: 1px solid #e8e8e8 !important;
+	}
+}

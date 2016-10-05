@@ -1,0 +1,23 @@
+$frontend-theme-accent-color: #77B21D;
+$frontend-theme-dark: #343538;
+$frontend-theme-dark-font-color: #e2e2e2;
+
+$footer-background: $frontend-theme-dark;
+$footer-color: $frontend-theme-dark-font-color;
+
+$navbar-background: $frontend-theme-dark;
+$navbar-btn-color: $frontend-theme-dark-font-color;
+$navbar-btn-hover: $frontend-theme-accent-color;
+
+.thumbnail {
+	&:hover {
+		border-color: $frontend-theme-accent-color !important;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.caption {
+		display: block;
+
+	}
+}

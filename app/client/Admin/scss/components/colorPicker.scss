@@ -1,0 +1,25 @@
+.color-picker {
+	margin-top: 0.5rem;
+	.color-button {
+		@include breakpoint(large) {
+			height: $color-picker-color-size;
+			width: $color-picker-color-size;
+		}
+
+		height: $color-picker-color-size-small;
+		width: $color-picker-color-size-small;
+
+		display: inline-block;
+		margin: 0 $color-picker-color-size-small/2 $color-picker-color-size-small/2 auto;
+		border: 1px solid rgba(0, 0, 0, 0.46);
+
+		&:hover {
+			cursor: pointer;
+			outline: 2.5px solid $global-theme-divider !important;
+		}
+
+		&.active {
+			outline: 3.5px solid $global-theme-disable !important;
+		}
+	}
+}

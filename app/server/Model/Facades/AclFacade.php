@@ -82,10 +82,13 @@ class AclFacade
 
 		$resources = $this->getResourcesKeyIndexed();
 		$this->addPermission($builder, $resources[AclResourceEnum::ADMIN_DASHBOARD])
+			->addPermission($builder, $resources[AclResourceEnum::ADMIN_ROUTES_ROPE])
+			->addPermission($builder, $resources[AclResourceEnum::ADMIN_ROUTES_BOULDER])
 			->addPermission($admin, $resources[AclResourceEnum::ADMIN_ARTICLES])
 			->addPermission($admin, $resources[AclResourceEnum::ADMIN_EVENTS])
 			->addPermission($admin, $resources[AclResourceEnum::ADMIN_NEWS])
-			->addPermission($owner, $resources[AclResourceEnum::ADMIN_SETTINGS_ADVANCED]);
+			->addPermission($owner, $resources[AclResourceEnum::ADMIN_SETTINGS_ADVANCED])
+			->addPermission($owner, $resources[AclResourceEnum::ADMIN_ACL]);
 
 		$user->addRole($owner);
 		$owner->addUser($user);

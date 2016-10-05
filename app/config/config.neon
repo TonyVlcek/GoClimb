@@ -73,25 +73,39 @@ services:
 	- GoClimb\Model\Repositories\AclRoleRepository
 	- GoClimb\Model\Repositories\ApplicationRepository
 	- GoClimb\Model\Repositories\ArticleRepository
+	- GoClimb\Model\Repositories\BoulderRepository
+	- GoClimb\Model\Repositories\ColorRepository
 	- GoClimb\Model\Repositories\CompanyRepository
 	- GoClimb\Model\Repositories\ContentPartRepository
+	- GoClimb\Model\Repositories\DifficultyRepository
 	- GoClimb\Model\Repositories\EventRepository
 	- GoClimb\Model\Repositories\FileRepository
 	- GoClimb\Model\Repositories\ImageRepository
 	- GoClimb\Model\Repositories\LanguageRepository
 	- GoClimb\Model\Repositories\LineRepository
 	- GoClimb\Model\Repositories\LoginTokenRepository
+	- GoClimb\Model\Repositories\LogRepository
+	- GoClimb\Model\Repositories\NewsRepository
 	- GoClimb\Model\Repositories\PageRepository
+	- GoClimb\Model\Repositories\ParameterRepository
 	- GoClimb\Model\Repositories\RestTokenRepository
+	- GoClimb\Model\Repositories\RopeRepository
+	- GoClimb\Model\Repositories\RouteParameterRepository
 	- GoClimb\Model\Repositories\RouteRepository
 	- GoClimb\Model\Repositories\SectorRepository
+	- GoClimb\Model\Repositories\StyleRepository
 	- GoClimb\Model\Repositories\UserRepository
 	- GoClimb\Model\Repositories\WallRepository
 
 	# updaters
 
 	- GoClimb\Model\Rest\Updaters\ArticleUpdater
+	- GoClimb\Model\Rest\Updaters\BoulderUpdater
 	- GoClimb\Model\Rest\Updaters\EventUpdater
+	- GoClimb\Model\Rest\Updaters\LogUpdater
+	- GoClimb\Model\Rest\Updaters\NewsUpdater
+	- GoClimb\Model\Rest\Updaters\RoleUpdater
+	- GoClimb\Model\Rest\Updaters\RopeUpdater
 	- GoClimb\Model\Rest\Updaters\WallUpdater
 
 	# filters
@@ -127,10 +141,10 @@ services:
 	- GoClimb\UI\Grids\Wall\IWallGridFactory
 
 translation:
-	default: en
-	fallback: [en]
+	default: cs
+	fallback: [cs, en]
 	whitelist:
+		- cs
 		- en
-		- cz
 	dirs:
 		- %appDir%/lang/server

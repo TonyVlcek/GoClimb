@@ -49,7 +49,7 @@
 	},
 	"frontend": {
 		"src": [
-			"bower_components/foundation-apps/dist/css/foundation-apps.min.css",
+			"bower_components/bootstrap/dist/css/bootstrap.min.css",
 			"bower_components/font-awesome/css/font-awesome.min.css",
 			"temp/build/frontend.css"
 		],
@@ -57,7 +57,7 @@
 	},
 	"frontend-dev": {
 		"src": [
-			"bower_components/foundation-apps/dist/css/foundation-apps.css",
+			"bower_components/bootstrap/dist/css/bootstrap.css",
 			"bower_components/font-awesome/css/font-awesome.css",
 			"temp/build/frontend.css"
 		],

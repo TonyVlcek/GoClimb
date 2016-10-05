@@ -2,11 +2,11 @@ namespace GoClimb.Admin.States
 {
 
 	import BaseState = GoClimb.Core.States.BaseState;
-	import FlashMessageSender = GoClimb.Admin.Services.FlashMessageSender;
+	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import IStateService = angular.ui.IStateService;
 	import BasePanelState = GoClimb.Core.States.BasePanelState;
-	import EventsFacade = GoClimb.Admin.Model.Facades.EventsFacade;
-	import IEvent = GoClimb.Admin.Model.Entities.IEvent;
+	import EventsFacade = GoClimb.Core.Model.Facades.EventsFacade;
+	import IEvent = GoClimb.Core.Model.Entities.IEvent;
 
 	export class EventCreateState extends BasePanelState
 	{

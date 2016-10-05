@@ -1,0 +1,47 @@
+{
+	"articles": {
+		"title": "Název",
+		"edit": "Upravit",
+		"delete": "Smazat",
+		"publishedDate": "Publikováno dne",
+		"unpublished": "Nepublikováno",
+		"author": "Autor"
+	},
+	"news": {
+		"title": "Obsah",
+		"edit": "Upravit",
+		"delete": "Smazat",
+		"publishedDate": "Publikována dne",
+		"author": "Autor"
+	},
+	"events": {
+		"title": "Název",
+		"edit": "Upravit",
+		"delete": "Smazat",
+		"publishedDate": "Publikována dne",
+		"startDate": "Začátek události",
+		"unpublished": "Nepublikována",
+		"author": "Autor"
+	},
+	"roles": {
+		"displayedName": "Zobrazované jméno",
+		"email": "Email",
+		"delete": "Delete"
+	},
+	"ropes": {
+		"name": "Jméno",
+		"sector": "Sektor",
+		"line": "Linie",
+		"builder": "Stavěč",
+		"edit": "Upravit",
+		"delete": "Smazat"
+	},
+	"boulders": {
+		"name": "Jméno",
+		"sector": "Sektor",
+		"line": "Linie",
+		"builder": "Stavěč",
+		"edit": "Upravit",
+		"delete": "Smazat"
+	}
+}

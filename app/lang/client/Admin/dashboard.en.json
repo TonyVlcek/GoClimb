@@ -1,0 +1,84 @@
+{
+	"content": {
+		"title": "Content",
+		"items": {
+			"createArticle": {
+				"title": "Create article",
+				"description": "",
+				"aliases": ""
+			},
+			"listArticles": {
+				"title": "List articles",
+				"description": "",
+				"aliases": ""
+			},
+			"createNews": {
+				"title": "Create news",
+				"description": "",
+				"aliases": ""
+			},
+			"listNews": {
+				"title": "List news",
+				"description": "",
+				"aliases": ""
+			},
+			"createEvent": {
+				"title": "Create event",
+				"description": "",
+				"aliases": ""
+			},
+			"listEvents": {
+				"title": "List events",
+				"description": "",
+				"aliases": ""
+			}
+		}
+	},
+	"routes": {
+		"title": "Routes",
+		"items": {
+			"ropeList": {
+				"title": "List rope routes",
+				"description": "",
+				"aliases": ""
+			},
+			"ropeCreate": {
+				"title": "Create rope route",
+				"description": "",
+				"aliases": ""
+			},
+			"boulderList": {
+				"title": "List boulder routes",
+				"description": "",
+				"aliases": ""
+			},
+			"boulderCreate": {
+				"title": "Create boulder route",
+				"description": "",
+				"aliases": ""
+			}
+		}
+	},
+	"settings": {
+		"title": "Settings",
+		"items": {
+			"listRoles": {
+				"title": "Roles list",
+				"description": "",
+				"aliases": ""
+			},
+			"listSettings": {
+				"title": "All settings",
+				"description": "List of all settings",
+				"aliases": ""
+			},
+			"advancedSettings": {
+				"title": "Global settings",
+				"description": "Wall name, address",
+				"aliases": ""
+			}
+		}
+	},
+	"searchPlaceholder": "Search action",
+	"cancel": "Cancel"
+}

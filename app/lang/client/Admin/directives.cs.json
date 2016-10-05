@@ -1,0 +1,34 @@
+{
+	"adminMenu": {
+		"items": {
+			"articles": "Články",
+			"roles": "Oprávnění",
+			"dashboard": "Hlavní stránka",
+			"settings": "Nastavení",
+			"news": "Novinky",
+			"events": "Události",
+			"ropes": "Cesty - Lano",
+			"boulders": "Cesty - Boulder"
+		}
+	},
+	"loading": {
+		"title": "Načítám"
+	},
+	"expandButton": {
+		"compress": "Zmenšit",
+		"expand": "Zvětšit"
+	},
+	"colorPicker": {
+		"max": "Můžeš vybrat maximálně 3 barvy."
+	},
+	"difficultyPicker": {
+		"label": {
+			"rope": "Obtížnost: UIAA | FR (body)",
+			"boulder": "Obtížnost: HUECO | FR - boulder (body)"
+		}
+	},
+	"topPanel": {
+		"logout": "Odhlásit se",
+		"displayFrontend": "Zobrazit stránky"
+	}
+}

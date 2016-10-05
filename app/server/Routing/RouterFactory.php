@@ -54,6 +54,7 @@ class RouterFactory
 		$router[] = $this->createWallRoutes();
 		$router[] = $this->createAuthRoutes();
 		$router[] = $this->createAdminRoutes();
+		$router[] = $this->createAppRoutes();
 		$router[] = $this->createPortalRoutes();
 		return $router;
 	}
@@ -83,10 +84,10 @@ class RouterFactory
 			Route::VALUE => $wall,
 			Route::FILTER_OUT => function ($wall) use ($wallLanguage) {
 				return (isset($wall) && $wallLanguage->getWall() === $wall) ? $wall : NULL;
-			}
+			},
 		];
 
-		$router[] = new RestRoute('//' . $this->createRouteUrl($wallLanguage->getUrl()) . '/api/v1/<presenter>[/<id>]', [
+		$router[] = new RestRoute('//' . $this->createRouteUrl($wallLanguage->getUrl()) . '/api/v1/<presenter>[/<id>[/<otherAction>[/<otherId>]]]', [
 			'module' => 'Wall:Rest:V1',
 			'presenter' => 'Dashboard',
 			'action' => 'default',
@@ -174,6 +175,21 @@ class RouterFactory
 	}
 
 
+	private function createAppRoutes()
+	{
+		$router = new RouteList('App');
+
+		$this->addRoute($router, 'app', '<presenter>/<action>[/<id>]', [
+			'locale' => NULL,
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+			'id' => NULL,
+		]);
+
+		return $router;
+	}
+
+
 	private function addRoute(RouteList $routeList, $prefix, $route, $args = [])
 	{
 		if ($this->useVirtualHosts) {
@@ -193,7 +209,7 @@ class RouterFactory
 		$result = [];
 
 		foreach ($domains as $domain => $languages) {
-			$result[] = str_replace('<locale>', '<locale ' . implode('|', $languages). '>', $domain);
+			$result[] = str_replace('<locale>', '<locale ' . implode('|', $languages) . '>', $domain);
 		}
 
 		return $result;

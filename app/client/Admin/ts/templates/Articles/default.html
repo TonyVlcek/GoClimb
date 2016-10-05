@@ -1,13 +1,13 @@
 <!--Title bar-->
-<div class="grid-block vertical main-view">
+<div class="grid-block vertical gc-main-view">
 	<div data-admin-menu-button></div>
-	<div class="title-bar main">
-		<h1 class="title">{{'templates.articles.title'|translate}}</h1>
-		<span class="menu">
-			<button type="button" class="remove-button-styles" data-ui-sref="articles.create">
-				<span class="fa fa-pencil-square-o"></span> {{'templates.articles.add'|translate}}
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{'templates.articles.title'|translate}}</h1>
+		<div class="gc-menu">
+			<button type="button" class="gc-item" data-ui-sref="articles.create">
+				<span class="fa fa-plus gc-icon"></span> {{'templates.articles.add'|translate}}
 			</button>
-		</span>
+		</div>
 	</div>
 	<!--End of Title bar-->
 
@@ -17,7 +17,7 @@
 		<div class="grid-content" data-ng-hide="articlesCtrl.getArticles()">
 			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
 		</div>
-		<div class="grid-content"  data-ng-show="articlesCtrl.getArticles()">
+		<div class="grid-content" data-ng-show="articlesCtrl.getArticles()">
 			<table data-st-table="articles" data-st-safe-src="articlesCtrl.getArticles().getAsArray()" class="table">
 				<thead>
 					<tr>
@@ -37,7 +37,7 @@
 					<tr data-ng-repeat="article in articles">
 						<td>{{article.name|limitTo:40}}{{article.name.length > 40 ? '...' : ''}}</td>
 						<td>{{article.author.name}}</td>
-						<td data-ng-show="article.published">{{article.publishedDate|date: 'yyyy. MM. dd.'}}</td>
+						<td data-ng-show="article.published">{{article.publishedDate|date: 'yyyy MM. dd.'}}</td>
 						<!-- High number is hack to sort unpublished articles as first. This won't work after year 99999 -->
 						<td data-ng-hide="article.published"><span class="hide-for-small">99999</span>
 							{{'grids.articles.unpublished'|translate}}
@@ -58,5 +58,5 @@
 </div>
 <!--End of content-->
 <!--Panels-->
-<div data-ui-view class="panel-view"></div>
+<div data-ui-view class="gc-panel-view"></div>
 <!--End of panels-->

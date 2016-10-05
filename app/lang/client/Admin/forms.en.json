@@ -11,6 +11,13 @@
 		"saveAndPublish": "Save and publish",
 		"delete": "Delete"
 	},
+	"news": {
+		"title": "Content",
+		"author": "Author",
+		"save": "Save",
+		"saveAndPublish": "Save and publish",
+		"delete": "Delete"
+	},
 	"events": {
 		"title": "Title",
 		"content": "Content",
@@ -22,5 +29,42 @@
 		"saveAsDraft": "Save as draft",
 		"saveAndPublish": "Save and publish",
 		"delete": "Delete"
+	},
+	"roles": {
+		"email": "Add user by email",
+		"add": "Add"
+	},
+	"ropes": {
+		"sector": "Sector",
+		"newSector": "New sector name",
+		"line": "Line",
+		"newLine": "New line name",
+		"name": "Name",
+		"description": "Description",
+		"length": "Length (meters)",
+		"steps": "Number of steps",
+		"colors": "Colors",
+		"parameters": "Parameters",
+		"parameter": {
+			"name": "Parameter:",
+			"level": "Level:"
+		},
+		"dateCreated": "Built on",
+		"dateRemoved": "Removed on",
+		"save": "Save"
+	},
+	"boulders": {
+		"sector": "Sector",
+		"newSector": "New sector name",
+		"line": "Line",
+		"newLine": "New line name",
+		"name": "Name",
+		"description": "Description",
+		"start": "Start",
+		"end": "End",
+		"colors": "Colors",
+		"dateCreated": "Built on",
+		"dateRemoved": "Removed on",
+		"save": "Save"
 	}
 }

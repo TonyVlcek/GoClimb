@@ -1,0 +1,110 @@
+<div id="boulderPanel" class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h2 class="gc-title">{{'templates.boulders.create'|translate}}</h2>
+		<div class="gc-menu">
+			<span data-expand-button class="gc-item-container"></span>
+		</div>
+	</div>
+	<div class="gc-content gc-flex">
+		<form name="boulderForm" class="form" novalidate>
+			<div class="grid-block wrap">
+				<div class="notitle"></div>
+
+				<div class="grid-content noscroll small-12">
+					<label>
+						{{'forms.boulders.sector'|translate}}
+						<span class="inline-label">
+							<select name="sector" data-ng-model="boulder.sector" data-ng-options="option.name for option in sectors track by option.id" data-ng-disabled="newSector !== null || newLine !== null"></select>
+							<button class="button" data-ng-click="newSector = ''"><span class="fa fa-plus"></span></button>
+						</span>
+					</label>
+
+					<label data-ng-hide="newSector === null">
+						<span class="inline-label">
+							<input type="text" placeholder="{{'forms.boulders.newSector'|translate}}" ng-model="newSector">
+							<button class="button" data-ng-click="saveSector()" data-ng-disabled="!newSector || sectorSaving" data-ng-class="{spinner: sectorSaving}">
+								<span class="fa fa-check"></span>
+							</button>
+							<button class="button dark" data-ng-click="newSector = null" data-ng-disabled="sectorSaving">
+								<span class="fa fa-times"></span>
+							</button>
+						</span>
+					</label>
+				</div>
+
+				<div class="grid-content noscroll small-12" data-ng-show="isSectorOk()">
+					<label>
+						{{'forms.boulders.line'|translate}}
+						<span class="inline-label">
+							<select name="sector" data-ng-model="boulder.line" data-ng-options="option.name for option in boulder.sector.lines track by option.id" data-ng-disabled="newSector !== null || newLine !== null"></select>
+							<button class="button" data-ng-click="newLine = ''"><span class="fa fa-plus"></span></button>
+						</span>
+					</label>
+
+					<label data-ng-hide="newLine === null">
+						<span class="inline-label">
+							<input type="text" placeholder="{{'forms.boulders.newLine'|translate}}" ng-model="newLine">
+							<button class="button" data-ng-click="saveLine()" data-ng-disabled="!newLine || lineSaving" data-ng-class="{spinner: lineSaving}">
+								<span class="fa fa-check"></span>
+							</button>
+							<button class="button dark" data-ng-click="newLine = null" data-ng-disabled="lineSaving">
+								<span class="fa fa-times"></span>
+							</button>
+						</span>
+					</label>
+				</div>
+
+				<div class="grid-content small-12 noscroll" data-ng-show="displayRest()">
+					<label>
+						{{'forms.boulders.name'|translate}}:
+						<input type="text" data-ng-model="boulder.name" required>
+					</label>
+					<label>
+						{{'forms.boulders.description'|translate}}:
+						<input type="text" data-ng-model="boulder.description">
+					</label>
+					<label>
+						{{'forms.boulders.start'|translate}}:
+						<input type="text" data-ng-model="boulder.start">
+					</label>
+					<label>
+						{{'forms.boulders.end'|translate}}:
+						<input type="text" data-ng-model="boulder.end">
+					</label>
+					<label>
+						{{'forms.boulders.colors'|translate}}:
+						<span data-color-picker="boulder.colors"></span>
+					</label>
+
+					<div data-difficulty-picker="boulder.difficulty" data-type="'boulder'"></div>
+				</div>
+
+				<div class="grid-block noscroll" data-ng-show="displayRest()">
+					<label class="grid-content medium-12">
+						{{'forms.boulders.dateCreated'|translate}}:
+						<input type="datetime-local" ng-model="boulder.dateCreated" required>
+					</label>
+				</div>
+
+				<div class="grid-block noscroll" data-ng-show="displayRest()">
+					<label class="grid-content medium-12">
+						{{'forms.boulders.dateRemoved'|translate}}:
+						<input type="datetime-local" ng-model="boulder.dateRemoved">
+					</label>
+				</div>
+				<div class="notitle"></div>
+
+				<div class="grid-content small-12">
+					<button data-ng-show="displayRest()" type="submit" class="button primary" data-ng-class="{spinner: saving}"
+						data-ng-disabled="(boulderForm.$invalid || saving)" data-ng-click="save()">
+						{{'forms.boulders.save'|translate}}
+					</button>
+
+					<button type="button" data-ui-sref="boulders" class="button secondary">{{'templates.boulders.close'|translate}}</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</div>

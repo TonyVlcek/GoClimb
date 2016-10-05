@@ -34,19 +34,10 @@ class EventUpdater
 			throw MappingException::invalidData();
 		}
 
-		$properties = [
+		Utils::updateProperties($event, $data, [
 			'name' => TRUE,
 			'content' => TRUE,
-		];
-
-		foreach ($properties as $field => $required) {
-			if ((!property_exists($data, $field)) || ($required && ($data->$field === NULL))) {
-				throw MappingException::invalidField($field, $required);
-			}
-
-			$method = 'set' . ucfirst($field);
-			$event->$method($data->$field);
-		}
+		]);
 
 		$event->setStartDate(Utils::toDateTime($data->startDate));
 		if ($data->endDate) {
@@ -58,6 +49,8 @@ class EventUpdater
 		}
 
 		$this->eventRepository->save($event);
+
+		return $event;
 	}
 
 }

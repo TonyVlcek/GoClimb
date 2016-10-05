@@ -2,23 +2,33 @@
 	"adminMenu": {
 		"items": {
 			"articles": "Articles",
+			"roles": "Roles",
 			"dashboard": "Dashboard",
 			"settings": "Settings",
+			"news": "News",
 			"events": "Events",
-			"plugins": "Plugins"
-		}
-	},
-	"dashboard": {
-		"shortcuts": {
-			"title": "Shortcuts",
-			"settings": "Settings"
+			"ropes": "Routes - Rope",
+			"boulders": "Routes - Boulder"
 		}
 	},
 	"loading": {
 		"title": "Loading"
 	},
-	"expandButton":{
+	"expandButton": {
 		"compress": "Compress",
 		"expand": "Expand"
+	},
+	"colorPicker": {
+		"max": "You can select maximum of 3 colors."
+	},
+	"difficultyPicker": {
+		"label": {
+			"rope": "Difficulty: UIAA | FR - rope (points)",
+			"boulder": "Difficulty: HUECO | FR - boulder (points)"
+		}
+	},
+	"topPanel": {
+		"logout": "Logout",
+		"displayFrontend": "Show website"
 	}
 }

@@ -1,0 +1,14 @@
+{
+	"logs": {
+		"create": "Create log",
+		"register": "Register",
+		"login": "Login",
+		"logout": "Logout",
+		"goToLogs": "Go to Logs",
+		"rope": "Rope",
+		"boulder": "Boulder"
+	},
+	"panel": {
+		"close": "Close"
+	}
+}

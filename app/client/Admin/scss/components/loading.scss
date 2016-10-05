@@ -1,5 +1,5 @@
 .loading {
-	color: $theme-accent-color;
+	color: $global-theme-accent-color;
 	font-size: 1.75rem;
 	font-weight: normal;
 	line-height: 1.4;
@@ -32,7 +32,7 @@
 		}
 
 		50% {
-			transform: translateY(-1rem);
+			transform: translateY(-0.6rem);
 		}
 
 	}

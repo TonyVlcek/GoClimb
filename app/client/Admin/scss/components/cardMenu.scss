@@ -1,0 +1,14 @@
+.card .block-list {
+	margin-bottom: 0;
+
+	li {
+		border: 0;
+		a {
+			color: $global-theme-accent-color;
+		}
+	}
+}
+
+.description {
+	color: $global-theme-light-font-color;
+}

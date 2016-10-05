@@ -1,0 +1,164 @@
+<div class="container user-section" data-ng-controller="LogsController as logsCtrl">
+	<div class="row" ng-hide="logsCtrl.user">
+		<div class="col-sm-6">
+			<a class="btn btn-lg btn-success add-route" href="{{logsCtrl.links.login}}">
+				<span class="fa fa-sign-in"></span>
+				{{'templates.logs.login'|translate}}
+			</a>
+			<a class="btn btn-lg btn-success add-route" href="{{logsCtrl.links.register}}">
+				<span class="fa fa-users"></span>
+				{{'templates.logs.register'|translate}}
+			</a>
+		</div>
+	</div>
+
+	<div class="row" ng-show="logsCtrl.user">
+		<h2 class="col-md-6">{{logsCtrl.user.name}}</h2>
+		<div class="col-md-6 text-right">
+			<a class="btn btn-lg btn-info add-route" target="_blank" href="{{logsCtrl.links.logs}}">
+				<span class="fa fa-bars"></span>
+				{{'templates.logs.goToLogs'|translate}}
+			</a>
+			<a class="btn btn-lg btn-success add-route" href="{{logsCtrl.links.logout}}">
+				<span class="fa fa-sign-out"></span>
+				{{'templates.logs.logout'|translate}}
+			</a>
+		</div>
+	</div>
+
+
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript: void(0);" data-target="#rope" role="tab" data-toggle="tab">{{'templates.logs.rope'|translate}}</a>
+		</li>
+		<li role="presentation">
+			<a href="javascript: void(0);" data-target="#boulder" role="tab" data-toggle="tab">{{'templates.logs.boulder'|translate}}</a>
+		</li>
+	</ul>
+
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane fade in active datagrid table-responsive" id="rope">
+			<table class="table" data-ng-show="logsCtrl.getRopes()">
+				<thead>
+					<tr>
+						<th>
+							{{'grids.routes.name'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.ratingRope'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.sector'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.line'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.length'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.steps'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.parameters'|translate}}
+						</th>
+						<th data-ng-show="logsCtrl.user">
+							{{'grids.routes.log'|translate}}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="rope in logsCtrl.getRopes().getAsArray()">
+						<td>{{rope.name}}</td>
+						<td>{{rope.difficulty.UIAA}} / {{rope.difficulty.FRL}}</td>
+						<td>{{rope.sector.name}}</td>
+						<td>{{rope.line.name}}</td>
+						<td>{{rope.length}}m</td>
+						<td>{{rope.steps}}</td>
+						<td>
+							<ul>
+								<li data-ng-repeat="parameter in rope.parameters">
+									{{'enums.parameters.' + parameter.parameter|translate}}: {{parameter.level}}
+								</li>
+							</ul>
+							<span data-ng-hide="rope.parameters.length">-</span>
+						</td>
+						<td data-ng-show="logsCtrl.user">
+							<a class="btn btn-success add-route" data-ui-sref="logs.create({id: rope.id, type: 'rope'})">
+								<span class="fa fa-plus"></span>
+								{{'templates.logs.create'|translate}}
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div role="tabpanel" class="tab-pane fade datagrid table-responsive" id="boulder">
+			<table class="table" data-ng-show="logsCtrl.getBoulders()">
+				<thead>
+					<tr>
+						<th>
+							{{'grids.routes.name'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.ratingBoulder'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.sector'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.line'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.start'|translate}}
+						</th>
+						<th>
+							{{'grids.routes.end'|translate}}
+						</th>
+						<th data-ng-show="logsCtrl.user">
+							{{'grids.routes.log'|translate}}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="boulder in logsCtrl.getBoulders().getAsArray()">
+						<td>{{boulder.name}}</td>
+						<td>{{boulder.difficulty.HUECO}} / {{boulder.difficulty.FRB}}</td>
+						<td>{{boulder.sector.name}}</td>
+						<td>{{boulder.line.name}}</td>
+						<td>{{boulder.start}}</td>
+						<td>{{boulder.end}}</td>
+						<td data-ng-show="logsCtrl.user">
+							<a class="btn btn-success add-route" data-ui-sref="logs.create({id: boulder.id, type: 'boulder'})">
+								<span class="fa fa-plus"></span>
+								{{'templates.logs.create'|translate}}
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<footer class="footer">
+	<div class="container-fluid">
+		<div class="col-md-4 col-md-offset-2">
+			<h2>Kontakt</h2>
+			<ul>
+				<li>Tel.: 731 654 474</li>
+				<li>Email: info@tr13.cz</li>
+				<li>Kurzy: kurzy@tr13.cz</li>
+			</ul>
+		</div>
+
+		<div class="col-md-4 col-md-offset-2 partners">
+			<h2>Patrneři</h2>
+			<img class="logo" src="http://stenastodulky.cz/wp-content/uploads/2016/02/10660101_881178705312876_262818610110744274_n.png">
+			<img class="logo" src="http://stenastodulky.cz/wp-content/uploads/2016/02/logo_bigwall.jpg">
+		</div>
+	</div>
+</footer>
+
+<div data-ui-view class="gc-panel-view"></div>

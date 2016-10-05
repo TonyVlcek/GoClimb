@@ -1,0 +1,14 @@
+{
+	"logs": {
+		"create": "Zapsat přelez",
+		"register": "Registrovat se",
+		"login": "Přihlásit se",
+		"logout": "Odhlásit se",
+		"goToLogs": "Deníčky",
+		"rope": "Lano",
+		"boulder": "Boulder"
+	},
+	"panel": {
+		"close": "Zrušit"
+	}
+}

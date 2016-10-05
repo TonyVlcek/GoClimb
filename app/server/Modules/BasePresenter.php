@@ -180,6 +180,17 @@ abstract class BasePresenter extends Presenter
 
 
 	/**
+	 * @param string $applicationToken
+	 * @param string $backlink
+	 * @return string
+	 */
+	public function getRegisterLink($applicationToken, $backlink)
+	{
+		return $this->link('//:Auth:Dashboard:register', ['token' => $applicationToken, 'back' => $backlink]);
+	}
+
+
+	/**
 	 * @return string
 	 */
 	abstract protected function getApplicationToken();

@@ -1,0 +1,35 @@
+.navbar {
+	background: $navbar-background;
+	-webkit-font-smoothing: antialiased;
+	border-radius: 0;
+	border: 0;
+	margin-bottom: 0;
+
+	.navbar-nav .active a {
+		background: darken($navbar-background, 5);
+	}
+
+	.navbar-nav li a {
+		font-weight: bold;
+		color: $navbar-btn-color;
+	}
+
+	.navbar-nav li a:hover, .navbar-nav .open .dropdown-toggle {
+		background: $navbar-btn-hover !important;
+	}
+
+	.dropdown-menu {
+		border-radius: 0;
+		background: lighten($navbar-background, 10);
+		border: 0;
+
+		li a {
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			&:hover {
+				color: #FFFFFF;
+			}
+		}
+	}
+}

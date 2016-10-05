@@ -1,0 +1,72 @@
+user:
+	signIn:
+		fields:
+			login: Přezdívka nebo email
+			password: Heslo
+			remember: Zapamatuj si mě
+			submit: Přihlásit se
+		errors:
+			login:
+				required: 'Prosím, zadej přezdívku nebo email.'
+				notFound: Uživatel s touto přezdívkou nebo emailem nebyl nalezen.
+			password:
+				required: Prosím zadej heslo.
+				invalid: Špatné heslo.
+	continue:
+		fields:
+			remember: Zapamatuj si mě
+			continue: Pokračovat
+
+	register:
+		fields:
+			nick: Přezdívka
+			email: Email
+			password: Heslo
+			passwordCheck: Heslo pro kontrolu
+			register: Registrovat se
+		errors:
+			password:
+				required: Prosím zadej heslo.
+				doesNotMatch: Hesla se neshodují.
+			nick:
+				registered: 'Tuto přezdívku už někdo používá, zkus si vymyslet jinou.'
+				invalid: 'Přezdívka musí být alespoň 3 znaky dlouhá a může obsahovat pouze písmena a čísla anglické abecedy, podtržítko a pomlčku.'
+			email:
+				required: Prosím zadej email.
+				registered: Tento email již někdo používá.
+				invalid: 'Prosím, zadej platný email.'
+
+
+company:
+	companyForm:
+		fields:
+			name: Jméno
+			add: Přidat
+			edit: Uložit
+	memberForm:
+		fields:
+			member: Člen
+			submit: Přidat člena
+
+wall:
+	wallForm:
+		fields:
+			name: Jméno
+			language: Jazyk
+			description: Popis
+			token: Token
+			url: URL
+			submit: Přidat lezeckou stěnu
+		prompts:
+			language: Vyber
+		errors:
+			name:
+				required: Prosím zadej jméno.
+			language:
+				required: Prosím zadej jazyk.
+			description:
+				required: Prosím zadej popis.
+			token:
+				required: Prosím zadej token.
+			url:
+				required: Prosím zadej URL.

@@ -1,18 +1,15 @@
-//TODO: Fix
-$foundation-version: 1.2 .0;
-@import "../../../../bower_components/foundation-apps/scss/helpers/functions";
-@import "../../../../bower_components/foundation-apps/scss/helpers/breakpoints";
-@import "../../../../bower_components/foundation-apps/scss/components/motion";
-
+@import "settings";
+@import "components/about-text";
 @import "components/switch";
 @import "components/spinner";
 @import "components/loading";
 @import "components/form";
 @import "components/typography";
 @import "components/adminMenu";
-@import "components/titleBar";
 @import "components/content";
 @import "components/tabs";
 @import "components/table";
-@import "components/sidePanel";
 @import "components/card";
+@import "components/colorPicker";
+@import "components/cardMenu";
+@import "components/blockList";

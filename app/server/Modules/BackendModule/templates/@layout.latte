@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{include ../../templates/includes/favicon.latte}
 
 	<title>
 		{ifset #title}{include title|striptags} &middot; {/ifset}
@@ -10,7 +11,7 @@
 		{_templates.core.websiteName}
 	</title>
 
-	<link rel="stylesheet" href="{$cdn('assets/backend.css')}">
+	<link rel="stylesheet" n:cdnHref="assets/backend.css">
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -58,6 +59,6 @@
 		{include content}
 	</div>
 
-	<script src="{$cdn('assets/backend.js')}"></script>
+	<script n:cdnSrc="assets/backend.js"></script>
 </body>
 </html>
