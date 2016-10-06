@@ -33,7 +33,7 @@ abstract class BasePresenter extends Presenter
 	/** @var ApplicationPartsManager */
 	protected $applicationPartsManager;
 
-	/** @var  LoginTokenRepository */
+	/** @var LoginTokenRepository */
 	protected $loginTokenRepository;
 
 	/** @var CdnLinkGenerator */

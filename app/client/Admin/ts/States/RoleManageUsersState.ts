@@ -66,7 +66,7 @@ namespace GoClimb.Admin.States
 				}
 
 				this.unlinkProcessing = userId;
-				rolesFacade.unlinkUser($scope.role.id, userId,  (role) => {
+				rolesFacade.unlinkUser($scope.role.id, userId, (role) => {
 					this.unlinkProcessing = null;
 					$scope.role = role;
 					flashMessageSender.sendSuccess('flashes.roles.userUnlinked');
