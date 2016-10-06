@@ -57,8 +57,8 @@ backend:
 admin:
 	loading:
 		loading: Načítám
-		madeWithLove: Vytvořeno s láskou.
-		madeBy: Vytvořeno pomocí GoClimb.
+		madeWithLove: Made with love.
+		madeBy: Made by GoClimb.
 	error:
 		forbidden:
 			title: Tak tohle ne!

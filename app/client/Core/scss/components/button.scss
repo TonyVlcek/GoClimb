@@ -19,4 +19,8 @@
 	&:hover {
 		background: darken($global-theme-accent-color, 3);
 	}
+
+	&:disabled {
+		opacity: 0.6;
+	}
 }
