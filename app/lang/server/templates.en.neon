@@ -87,3 +87,64 @@ errors:
 		name: error 410
 		title: Page Not Found
 		description: The page you requested has been taken off the site. We apologize for the inconvenience.
+
+public:
+	title: GoClimb
+	copyright: Copyright &copy; GoClimb 2016
+
+	landing:
+		menu:
+			button: Menu
+			about: About us
+			portfolio: Portfolio
+			whyUs: Why us?
+			contact: Contact
+
+		title:
+			title: First climbing platform on the word.
+			more: More
+
+		about:
+			whoWeAre: Who we are?
+			weAre: GoClimb.cz is new platform for climber of every performence category.
+			objective:
+				title: Goal
+				content: 'Our goal is allow climbers to creat logs of theier climbing activity and base on that give feedback to builders of routes, so they can build routs reflecting needs of local climbing comunity. We have began shipping our product at Semtember of 2016. Basic functionality is already woriking and more is comming'
+			future:
+				title: Future
+				content: Features such as ????
+			partners:
+				title: Partners
+				content: 'We are so excited about our partnership with Tr-Walls. GoClimb is in fact succesor to BigWall web aplicatio. GoClimb was build from the groud up and completely redesigned. Using all expirience we gain by building its predecessor BigWall'
+
+		portfolio:
+			title: Portfolio
+			subtitle: 'Wall, that use our platform'
+			yourWall: Do you want your wall here?
+
+			stodulky:
+				title: Stenastodulky.cz
+				location: Prague 5 - Stodůlky
+				modal:
+					title: Moder climbing center located in Prague - first GoClimb wall
+					content:  'Stodulky wall with height over 17m (56 feet) and area that takes more then 1600 m<sup>2</sup> (0.4 acres) is one of the biggist in Czech Repunlic. And this wall is first wall using our new platform <strong>GoClimb</strong>.'
+
+
+			bigwall:
+				title: Big Wall
+				location: Prague 9 - Vysočany
+				modal:
+					content: 'The biggist climbing center in the Czech Republic. And the next wall that will use GoClimb platform. BigWall is original wall that used GoClimb predecessor, in other words GoClimb is based on years of expierence. GoClimb predecessor already has more that 3000 users and more then 35 logs. As you can see all users are fully satisfied with current system, yet we will enhance theier user expierence by shifting BigWall to GoClimb platform. By this shift user will be able to compere theyere performaces with visitors of other climbing center that use GoClimb platform'
+
+			modal:
+				date: When
+				client: Client
+				close: Close
+
+
+		contact:
+			title: Contact
+			why:
+				title: Why you should contact us?
+				reason1: 'Do you run climbing center? Would you like to discover more abot GoClimb platform? Contact us! We will answer any of your question.'
+				reason2: 'Are you climber and would you like to create logs of your performace in your local climbing center? Just let us know and will take care of rest'

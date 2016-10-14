@@ -62,5 +62,21 @@
 			"temp/build/frontend.css"
 		],
 		"dest": "cdn/assets/frontend.css"
+	},
+	"public": {
+		"src": [
+			"bower_components/bootstrap/dist/css/bootstrap.min.css",
+			"bower_components/font-awesome/css/font-awesome.min.css",
+			"temp/build/public.css"
+		],
+		"dest": "cdn/assets/public.css"
+	},
+	"public-dev": {
+		"src": [
+			"bower_components/bootstrap/dist/css/bootstrap.css",
+			"bower_components/font-awesome/css/font-awesome.css",
+			"temp/build/public.css"
+		],
+		"dest": "cdn/assets/public.css"
 	}
 }

@@ -13,3 +13,7 @@ user:
 		success: Registrace proběhla úspěšně.
 wall:
 	created: Lezecká stěna byla vytvořena.
+
+contact:
+	sent: Zpráva byla odeslána.
+	error: 'Nepodařilo se odeslat e-mail, zkuste to prosím za chvíli.'

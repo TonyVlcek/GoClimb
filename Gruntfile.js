@@ -50,6 +50,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('ts:auth-dev', ['ts:auth']);
 	grunt.registerTask('ts:backend-dev', ['ts:backend']);
 	grunt.registerTask('ts:frontend-dev', ['ts:frontend']);
+	grunt.registerTask('ts:public-dev', ['ts:public']);
 
 	grunt.registerTask('ts:app', ['ts:admin', 'ts:auth', 'ts:backend', 'ts:frontend']);
 	grunt.registerTask('ts:app-dev', ['ts:admin-dev', 'ts:auth-dev', 'ts:backend-dev', 'ts:frontend-dev']);
@@ -79,6 +80,9 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build:frontend', ['typings', 'sass:frontend', 'ts:frontend', 'postcss', 'concat:frontend', 'json:frontend', 'ngtemplates:frontend', 'uglify:frontend', 'clean']);
 	grunt.registerTask('build:frontend-dev', ['typings', 'sass:frontend-dev', 'ts:frontend-dev', 'postcss', 'concat:frontend-dev', 'json:frontend', 'ngtemplates:frontend-dev', 'uglify:frontend-dev', 'clean']);
+
+	grunt.registerTask('build:public', ['typings', 'sass:public', 'ts:public', 'postcss', 'concat:public', 'uglify:public', 'clean']);
+	grunt.registerTask('build:public-dev', ['sass:public-dev', 'ts:public-dev', 'postcss', 'concat:public-dev', 'uglify:public-dev', 'clean']);
 
 	grunt.registerTask('build:app', ['typings', 'sass:app', 'ts:app', 'concat:app', 'json:app', 'ngtemplates:app', 'uglify:app', 'copy:all', 'clean']);
 	grunt.registerTask('build:app-dev', ['typings', 'sass:app-dev', 'ts:app-dev', 'concat:app-dev', 'json:app', 'ngtemplates:app-dev', 'uglify:app-dev', 'copy:all', 'clean']);

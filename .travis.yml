@@ -10,6 +10,7 @@ before_install:
   - composer self-update --no-interaction
   - composer global require "hirak/prestissimo:^0.3"
   - git config --global github.accesstoken $GITHUB_OAUTH_TOKEN
+  - nvm install node
 
 install:
   - composer install --no-interaction --prefer-dist

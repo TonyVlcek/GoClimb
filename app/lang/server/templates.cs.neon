@@ -87,3 +87,63 @@ errors:
 		name: Chyba 410
 		title: Stránka nenalezena
 		description: 'Stránka nebyla nalezena, protože byla smazána ze systému.'
+
+public:
+	title: GoClimb
+	copyright: Copyright &copy; GoClimb 2016
+
+	landing:
+		menu:
+			button: Menu
+			about: O nás
+			portfolio: Portfolio
+			whyUs: Proč my?
+			contact: Kontakt
+
+		title:
+			title: První lezecká platforma na světě.
+			more: Více
+
+		about:
+			whoWeAre: Kdo jsme?
+			weAre: GoClimb.cz je nově vznikající platforma pro lezce všech výkonnostních kategorií.
+			objective:
+				title: Cíl
+				content: 'Cílem projektu je umožnit návštěvníkům lezeckých center zaznamenávat své lezecké výkony a předat zpětnou vazbu stavěčům cest, aby mohli lépe stavět podle poptávky místní lezecké komunity. Provoz jsme zahájili na začátku září 2016. Základní funkce jsou již v provozu a postupně přidáváme další.'
+			future:
+				title: Budoucnost
+				content: 'Můžete se těšit například na: řazení a filtrování cest a přelezů ve vašem deníčku přehledné statistiky, které vám nabídnou komplexnější pohled na váš trénink (nebo zábavu) žebříčky a soutěže, díky kterým budete moci své výkony porovnávat s ostatními a spoustu dalšího!'
+			partners:
+				title: Partneři
+				content: 'Jsme rádi, že na tomto projketu spolupracujeme s Tr-Walls a při realizaci čerpáme ze zkušeností získaných při vývoji webové aplikace pro lezeckou stěnu BigWall. Přejeme Vám hodně lezeckých úspěchů a doufáme, že se Vám GoClimb bude líbit natolik, že ho doporučíte všem známým a přátelům! Váš GoClimb tým.'
+
+		portfolio:
+			title: Portfolio
+			subtitle: 'Stěny, které používají náš systém.'
+			yourWall: Tvoje stěna?
+
+			stodulky:
+				title: Stenastodulky.cz
+				location: Praha 5 - Stodůlky
+				modal:
+					title: Moderní lezecké centrum v Praze Stodůlkách - první GoClimb stěna.
+					content: 'S maximální výškou přes 17 m a celkovou plochou okolo 1600 m<sup>2</sup> se řadí mezi největší stěny v ČR. Právě zde jsme nasadil první verzi nového systému <strong>GoClimb</strong>. V lezeckém centru je k dispozici přibližně 40 liní jištění, na kterých je postaveno přes 100 lezeckých cest. Zárovň je tu i boulderovka, kde se staví a pravidleně přestavuje okolo 200 značených boulderů. Všechny tyto informace jsou zpracovány a GoClimb tím umožňuje návštěvníků zapisovat jejich výkony a přelezy do deníčků. Díky tomu můžeme zobrazit vedení Stodůlek například které cesty jsou oblíbené, jaké rozmezí obtížností je pro jejich návštěvníky optimální a spoustu dalších informací.'
+
+			bigwall:
+				title: Big Wall
+				location: Praha 9 - Vysočany
+				modal:
+					title: Moderní lezecké centrum v Praze Stodůlkách - první GoClimb stěna.
+					content: 'Největší lezecká stěna v ČR - a je další na řadě. Ze zkušeností získaných při vývoji původního stytému deníčků a žebříčků na webu BigWall.cz čerpáme při vývoji a vylepšování služby GoClimb. Původní systém, do kterého se zaregistrovalo přes 3000 uživatelů a společně si do deníčků zapsali téměř 35 000 záznamů, máme v plánu zmodernizovat a zapojit do platformy GoClimb. Díky tomu bude moci lezec na stěně BigWall porovnávat své výkony s návštěvníky ostatních lezeckých center zapojených do platformy GoClimb.'
+
+			modal:
+				date: Kdy
+				client: Klient
+				close: Zavřít
+
+
+		contact:
+			why:
+				title: Proč nás kontaktovat?
+				reason1: 'Provozujete lezeckou stěnu a rádi byste se o GoClimb dozvěděli více? Obraťte se na nás jakýkmoli dotazem, nebo si domluvte nezávaznou konzultaci.'
+				reason2: 'Chodíte často lézt a chtěli byste si zapisovat cesty do deníčku i na vaší lezecké stěně? Dejte nám vědět a my stěnu kontaktujeme.'

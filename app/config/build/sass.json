@@ -70,5 +70,23 @@
 		"files": {
 			"temp/build/frontend.css": "app/client/Frontend/main.scss"
 		}
+	},
+	"public": {
+		"options": {
+			"sourcemap": "none",
+			"style": "compressed"
+		},
+		"files": {
+			"temp/build/public.css": "app/client/Public/main.scss"
+		}
+	},
+	"public-dev": {
+		"options": {
+			"sourcemap": "none",
+			"style": "expanded"
+		},
+		"files": {
+			"temp/build/public.css": "app/client/Public/main.scss"
+		}
 	}
 }

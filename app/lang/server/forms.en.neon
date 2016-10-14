@@ -70,3 +70,22 @@ wall:
 				required: Please enter token.
 			url:
 				required: Please enter URL.
+
+public:
+	contactForm:
+		fields:
+			name: My name
+			email: My email
+			phone: My phone
+			message: message
+			send: Send
+		errors:
+			name:
+				required: Please enter name.
+			email:
+				required: Please enter language.
+				invalid: Invalid email
+			message:
+				required: Please enter message.
+
+			error: 'Email could not be sended, please try it again later.'
