@@ -52,3 +52,4 @@ app:
 			length: Délka
 			steps: Počet kroků
 			parameters: Parametry
+		empty: 'Zatím nemáš žádné přelezy, jdi na stránky lezeckého centra a nějaké přelezy si přidej!'

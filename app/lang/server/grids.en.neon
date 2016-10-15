@@ -52,3 +52,4 @@ app:
 			length: Length
 			steps: Steps
 			parameters: Params
+		empty: It appears that you do not have any logs now. Go to wall site and add some!
