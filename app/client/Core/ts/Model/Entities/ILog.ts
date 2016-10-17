@@ -11,7 +11,7 @@ namespace GoClimb.Core.Model.Entities
 		};
 		style?: IStyle;
 		route?: IRoute;
-		loggedDate: any /* string|Date */;
+		loggedDate: any /*string|Date*/;
 		description?: string;
 		points?: number;
 

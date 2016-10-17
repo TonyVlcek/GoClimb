@@ -36,7 +36,7 @@ class CompanyEditControl extends BaseControl
 	/** @var Company */
 	private $company;
 
-	/** @var  array */
+	/** @var array */
 	public $onUserRemoved;
 
 
