@@ -10,13 +10,13 @@ use GoClimb\UI\Grids\User\IUserGridFactory;
 class UserPresenter extends BaseBackendPresenter
 {
 
-	/** @var  IUserFormFactory */
+	/** @var IUserFormFactory */
 	private $userFormFactory;
 
 	/** @var IUserGridFactory */
 	private $userGridFactory;
 
-	/** @var  User */
+	/** @var User */
 	private $user;
 
 

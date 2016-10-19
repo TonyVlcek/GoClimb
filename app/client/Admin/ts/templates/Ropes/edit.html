@@ -1,4 +1,4 @@
-<div id="ropePanel" class="gc-side-panel">
+<div class="gc-side-panel">
 	<span data-close-button></span>
 	<div class="gc-title-bar gc-with-menu">
 		<h2 class="gc-title">{{'templates.ropes.edit'|translate}}</h2>
@@ -138,7 +138,7 @@
 
 				<div class="grid-content small-12">
 					<button data-ng-show="displayRest()" type="submit" class="button primary" data-ng-class="{spinner: saving}"
-					        data-ng-disabled="(ropeForm.$invalid || saving)" data-ng-click="save()">
+						data-ng-disabled="(ropeForm.$invalid || saving)" data-ng-click="save()">
 						{{'forms.ropes.save'|translate}}
 					</button>
 
