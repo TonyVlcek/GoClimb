@@ -6,7 +6,9 @@ use GoClimb\Model\Entities\AclRole;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Repositories\AclRoleRepository;
 use GoClimb\Model\Repositories\UserRepository;
-
+use GoClimb\Security\Authorizator;
+use Nette\Caching\Cache;
+use Nette\Caching\IStorage;
 
 class RoleUpdater
 {
@@ -18,8 +20,9 @@ class RoleUpdater
 	private $userRepository;
 
 
-	public function __construct(AclRoleRepository $aclRoleRepository, UserRepository $userRepository)
+	public function __construct(AclRoleRepository $aclRoleRepository, UserRepository $userRepository, IStorage $storage)
 	{
+		$this->cache = new Cache($storage, Authorizator::class);
 		$this->aclRoleRepository = $aclRoleRepository;
 		$this->userRepository = $userRepository;
 	}
@@ -36,6 +39,7 @@ class RoleUpdater
 
 		$this->aclRoleRepository->save($role, FALSE);
 		$this->userRepository->save($user);
+		$this->cache->remove('acl');
 	}
 
 
@@ -46,6 +50,7 @@ class RoleUpdater
 
 		$this->aclRoleRepository->save($role, FALSE);
 		$this->userRepository->save($user);
+		$this->cache->remove('acl');
 	}
 
 }
