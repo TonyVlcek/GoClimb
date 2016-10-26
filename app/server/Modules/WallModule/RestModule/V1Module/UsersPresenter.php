@@ -28,7 +28,6 @@ class UsersPresenter extends BaseV1Presenter
 
 	public function actionGet($id = NULL, $email = NULL)
 	{
-
 		if ($id !== NULL) {
 			if (!$user = $this->userFacade->getById($id)) {
 				$this->sendNotFound();
