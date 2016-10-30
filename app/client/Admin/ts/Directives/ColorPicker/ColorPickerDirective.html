@@ -1,3 +1,6 @@
 <div class="color-picker">
+	<!--Fix to prevent triggering first button by click on div-->
+	<button style="display: none;"></button>
+
 	<button ng-repeat="color in colors" type="button" class="color-button" ng-class="{'active': isColorActive(color)}" style="background: {{color}};" ng-click="toggleColor(color)"></button>
 </div>
