@@ -58,6 +58,20 @@ namespace GoClimb.Core.Model.Facades
 			});
 		}
 
+		public updateLog(log: ILog, callback: (log: ILog) => void = null, errorCallback: Function = null)
+		{
+			log = angular.copy(log);
+			log.style = log.style.id as any;
+			log = LogsFacade.logToJson(log);
+			this.httpService.requestPost('logs/' + log.id, {log: log}, (data) => {
+				this.logs.setIndex(data.log.id.toString(), LogsFacade.mapLog(data.log));
+				if (callback) {
+					callback(this.logs.getIndex(data.log.id.toString()));
+				}
+			}, errorCallback);
+			return this;
+		}
+
 		private static mapLog(log: ILog): ILog
 		{
 			if (log.loggedDate) {

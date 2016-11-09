@@ -1,0 +1,70 @@
+<div class="grid-block vertical gc-main-view">
+	<div data-admin-menu-button></div>
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{'templates.app.dashboard.title'|translate}}</h1>
+	</div>
+
+	<div class="grid-container contain-left">
+		<h2 class="notitle grid-content"></h2>
+		<div class="grid-content">
+			<div></div>
+		</div>
+
+		<div class="grid-content" data-ng-hide="dashboardCtrl.getLogs()">
+			<div ng-include="'app/client/Core/ts/templates/components/loading.html'"></div>
+		</div>
+		<div class="grid-content" data-ng-show="dashboardCtrl.getLogs()">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>{{'grids.logs.wall'|translate}}</th>
+						<th>{{'grids.logs.name'|translate}}</th>
+						<th>{{'grids.logs.difficulty'|translate}}</th>
+						<th>{{'grids.logs.logged'|translate}}</th>
+						<th>{{'grids.logs.style'|translate}}</th>
+						<th>{{'grids.logs.points'|translate}}</th>
+						<th>{{'grids.logs.description'|translate}}</th>
+						<th>{{'grids.logs.length'|translate}}</th>
+						<th>{{'grids.logs.steps'|translate}}</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="log in dashboardCtrl.getLogs().getAsArray()">
+						<td>
+							{{log.wall.name}}
+						</td>
+						<td>
+							{{log.route.name}}
+						</td>
+						<td>
+							<span data-ng-show="log.route.rope">UIAA: {{log.route.difficulty.UIAA}} / FR: {{log.route.difficulty.FRL}}</span>
+							<span data-ng-show="log.route.boulder">UIAA: {{log.route.difficulty.HUECO}} / FR: {{log.route.difficulty.FRB}}</span>
+						</td>
+						<td>
+							{{log.loggedDate|date:'j.n.Y'}}
+						</td>
+						<td>
+							{{'enums.styles.' + log.style.name|translate}}
+						</td>
+						<td>{{log.points}}</td>
+						<td>{{log.description}}</td>
+						<td>
+							<span data-ng-show="log.route.rope">{{log.route.length}}m</span>
+						</td>
+						<td>
+							<span data-ng-show="log.route.rope">{{log.route.steps}}</span>
+						</td>
+						<td>
+							<button class="button hollow warning" type="button" data-ui-sref="dashboard.edit({id: log.id})">
+								<span class="fa fa-pencil"></span> {{'grids.logs.edit'|translate}}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div data-ui-view class="gc-panel-view"></div>

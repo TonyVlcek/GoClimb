@@ -34,6 +34,41 @@
 		],
 		"dest": "temp/build/admin.js"
 	},
+	"app": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb",
+			"htmlmin": {
+				"collapseBooleanAttributes": true,
+				"collapseWhitespace": true,
+				"removeAttributeQuotes": true,
+				"removeComments": true,
+				"removeEmptyAttributes": true,
+				"removeScriptTypeAttributes": true,
+				"removeStyleLinkTypeAttributes": true
+			}
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/App/**/*.html"
+		],
+		"dest": "temp/build/app.js"
+	},
+	"app-dev": {
+		"options": {
+			"append": true,
+			"quotes": "single",
+			"module": "GoClimb"
+		},
+		"src": [
+			"app/client/Common/**/*.html",
+			"app/client/Core/**/*.html",
+			"app/client/App/**/*.html"
+		],
+		"dest": "temp/build/app.js"
+	},
 	"auth": {
 		"options": {
 			"append": true,

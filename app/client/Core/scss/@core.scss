@@ -6,6 +6,8 @@ $foundation-version: 1.2 .0;
 
 @import "helpers/function";
 @import "settings";
+@import "components/adminMenu";
+@import "components/loading";
 @import "components/topPanel";
 @import "components/titleBar";
 @import "components/sidePanel";

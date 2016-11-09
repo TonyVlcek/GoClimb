@@ -24,6 +24,22 @@ class RestTokenRepository extends BaseRepository
 			'wall' => $wall,
 			'user' => $user,
 			'remoteIp' => $ip,
+			'expiration >=' => new DateTime,
+		]);
+	}
+
+
+	/**
+	 * @param User $user
+	 * @param string $ip
+	 * @return RestToken|NULL
+	 */
+	public function getGlobalRestTokenByUser(User $user, $ip)
+	{
+		return $this->getDoctrineRepository()->findOneBy([
+			'wall' => NULL,
+			'user' => $user,
+			'remoteIp' => $ip,
 			'expiration >=' => new DateTime(),
 		]);
 	}
@@ -54,6 +70,25 @@ class RestTokenRepository extends BaseRepository
 
 		$restToken->setWall($wall);
 		$wall->addRestToken($restToken);
+
+		$restToken->setRemoteIp($ip);
+		$restToken->setToken($this->generateRandomToken());
+
+		return $this->refreshToken($restToken);
+	}
+
+
+	/**
+	 * @param User $user
+	 * @param string $ip
+	 * @return RestToken
+	 */
+	public function createGlobalRestToken(User $user, $ip)
+	{
+		$restToken = new RestToken;
+
+		$restToken->setUser($user);
+		$user->addRestToken($restToken);
 
 		$restToken->setRemoteIp($ip);
 		$restToken->setToken($this->generateRandomToken());

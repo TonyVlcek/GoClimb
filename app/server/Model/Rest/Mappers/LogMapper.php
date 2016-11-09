@@ -6,6 +6,7 @@
 namespace GoClimb\Model\Rest\Mappers;
 
 use GoClimb\Model\Entities\Log;
+use GoClimb\Model\Entities\Rope;
 use GoClimb\Model\Rest\Utils;
 
 
@@ -32,14 +33,16 @@ class LogMapper
 	 */
 	public static function map(Log $log)
 	{
+		$route = ($log->getRoute() instanceof Rope) ? RopeMapper::map($log->getRoute()) : BoulderMapper::map($log->getRoute());
 		return [
 			'id' => $log->getId(),
 			'user' => UserMapper::mapBasicInfo($log->getUser()),
 			'style' => StyleMapper::map($log->getStyle()),
-			'route' => RouteMapper::map($log->getRoute()),
+			'route' => $route,
 			'loggedDate' => Utils::formatDateTime($log->getLoggedDate()),
 			'description' => $log->getDescription(),
 			'points' => $log->getPoints(),
+			'wall' => WallMapper::mapBasicInfo($log->getRoute()->getLine()->getSector()->getWall())
 		];
 	}
 

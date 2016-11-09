@@ -55,6 +55,7 @@ class RouterFactory
 		$router[] = $this->createAuthRoutes();
 		$router[] = $this->createAdminRoutes();
 		$router[] = $this->createAppRoutes();
+		$router[] = $this->createRestRoutes();
 		$router[] = $this->createPortalRoutes();
 		return $router;
 	}
@@ -179,27 +180,52 @@ class RouterFactory
 	{
 		$router = new RouteList('App');
 
-		$this->addRoute($router, 'app', '<presenter>/<action>[/<id>]', [
+		$this->addRoute($router, 'app', '[<path .*>]', [
 			'locale' => NULL,
 			'presenter' => 'Dashboard',
 			'action' => 'default',
 			'id' => NULL,
+			'path' => [
+				Route::VALUE => '',
+				Route::FILTER_OUT => NULL,
+				Route::FILTER_IN => NULL,
+			],
 		]);
 
 		return $router;
 	}
 
 
-	private function addRoute(RouteList $routeList, $prefix, $route, $args = [])
+	public function createRestRoutes()
+	{
+		$router = new RouteList('Rest:V1');
+
+		$this->addRoute($router, 'api', 'v1/<presenter>[/<id>[/<otherAction>[/<otherId>]]]', [
+			'locale' => NULL,
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+			'id' => NULL,
+			'path' => [
+				Route::VALUE => '',
+				Route::FILTER_OUT => NULL,
+				Route::FILTER_IN => NULL,
+			],
+		], RestRoute::class);
+
+		return $router;
+	}
+
+
+	private function addRoute(RouteList $routeList, $prefix, $route, $args = [], $class = Route::class)
 	{
 		if ($this->useVirtualHosts) {
 			$prefix = $prefix ? $prefix . '.' : $prefix;
 			foreach ($this->domains as $domain) {
-				$routeList[] = new Route('//' . $prefix . $domain . '/' . $route, $args);
+				$routeList[] = new $class('//' . $prefix . $domain . '/' . $route, $args);
 			}
 		} else {
 			$prefix = $prefix ? $prefix . '/' : $prefix;
-			$routeList[] = new Route($prefix . '<locale>/' . $route, $args);
+			$routeList[] = new $class($prefix . '<locale>/' . $route, $args);
 		}
 	}
 

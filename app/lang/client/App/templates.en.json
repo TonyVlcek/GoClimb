@@ -1,0 +1,11 @@
+{
+	"app": {
+		"dashboard": {
+			"title": "Dashboard",
+			"edit": "Edit log"
+		}
+	},
+	"panel": {
+		"close": "Close"
+	}
+}

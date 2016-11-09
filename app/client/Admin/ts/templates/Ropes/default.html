@@ -12,7 +12,7 @@
 	<div class="grid-container contain-left">
 		<h2 class="notitle grid-content"></h2>
 		<div class="grid-content" data-ng-hide="ropesCtrl.getRopes()">
-			<div ng-include="'app/client/Admin/ts/templates/Includes/loading.html'"></div>
+			<div ng-include="'app/client/Core/ts/templates/components/loading.html'"></div>
 		</div>
 		<div class="grid-content" data-ng-show="ropesCtrl.getRopes()">
 			<table data-st-table="ropes" data-st-safe-src="ropesCtrl.getRopes().getAsArray()" class="table">

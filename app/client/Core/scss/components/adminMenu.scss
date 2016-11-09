@@ -1,0 +1,55 @@
+.admin-menu-container {
+	background: $admin-menu-background;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	z-index: $admin-menu-z-index;
+}
+
+.admin-menu-panel {
+	@extend .admin-menu-width;
+	background: $admin-menu-background;
+
+	.logo {
+		text-align: center;
+		padding: 25px 20px 6px;
+		height: 130px;
+	}
+
+	.admin-menu {
+		@extend .admin-menu-width;
+		@include breakpoint(large) {
+			padding-top: 17px;
+		}
+
+		background: $admin-menu-background;
+		text-align: center;
+
+		li a {
+			font-size: $admin-menu-text-size;
+			font-weight: bold;
+			color: $admin-menu-text;
+
+			&:hover {
+				background: $admin-menu-hover-background;
+			}
+
+			span:not(.fa) {
+				margin-left: 20px;
+			}
+
+			.fa {
+				width: 30px;
+				margin: 0;
+			}
+		}
+	}
+}
+
+.admin-menu-width {
+	@include breakpoint(large) {
+		width: $admin-menu-width !important;
+	}
+}
+
+.admin-menu-btn {
+	margin: 1rem auto;
+}

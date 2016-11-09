@@ -24,4 +24,12 @@ class WallMapper
 		];
 	}
 
+
+	public static function mapBasicInfo(Wall $wall)
+	{
+		return [
+			'name' => $wall->getName(),
+		];
+	}
+
 }

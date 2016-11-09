@@ -5,7 +5,9 @@
 
 namespace GoClimb\Model\Rest\Mappers;
 
+use GoClimb\Model\Entities\Boulder;
 use GoClimb\Model\Entities\Color;
+use GoClimb\Model\Entities\Rope;
 use GoClimb\Model\Entities\Route;
 use GoClimb\Model\Entities\RouteParameter;
 use GoClimb\Model\Rest\Utils;
@@ -37,6 +39,8 @@ class RouteMapper
 			'colors' => self::mapColors($route->getColors()),
 			'difficulty' => DifficultyMapper::map($route->getDifficulty()),
 			'parameters' => self::mapParameters($route->getRouteParameters()),
+			'rope' => $route instanceof Rope,
+			'boulder' => $route instanceof Boulder,
 		];
 	}
 

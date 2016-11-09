@@ -62,6 +62,7 @@ services:
 
 	- GoClimb\Model\Facades\AclFacade
 	- GoClimb\Model\Facades\AuthFacade
+	- GoClimb\Model\Facades\LogsFacade
 	- GoClimb\Model\Facades\UserFacade
 	- GoClimb\Model\Facades\RestFacade
 	- GoClimb\Model\Facades\WallFacade

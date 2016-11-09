@@ -1,0 +1,24 @@
+<div class="vertical grid-frame">
+	<div class="grid-block">
+		<div data-zf-notification-set id="flashMessages" data-position="bottom-left"></div>
+		<div class="grid-block shrink">
+			<div class="shrink grid-block admin-menu-container">
+				<div class="large-grid-block admin-menu-panel easeInOut fast panel ng-isolate-scope panel-left" id="admin-menu">
+					<button class="hide-for-large close-button remove-button-styles ng-scope">×</button>
+					<section class="ng-scope">
+						<img class="logo" data-cdn-image="static/GoClimbLogo.png">
+						<ul class="menu-bar admin-menu vertical">
+							<li data-ui-sref-active="is-active">
+								<a data-ui-sref="dashboard"><span class="fa fa-dashboard"></span>{{'directives.app.menu.dashboard'|translate}}</a>
+							</li>
+							<li data-ui-sref-active="is-active">
+								<a data-ui-sref="about"><span class="fa fa-comment"></span>{{'directives.app.menu.about'|translate}}</a>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+		<div data-ui-view class="grid-block"></div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+{
+	"app": {
+		"dashboard": {
+			"title": "Přelezy",
+			"edit": "Upravit"
+		}
+	},
+	"panel": {
+		"close": "Zrušit"
+	}
+}

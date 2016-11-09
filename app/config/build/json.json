@@ -9,6 +9,16 @@
 		],
 		"dest": "temp/build/admin-lang.js"
 	},
+	"app": {
+		"options": {
+			"namespace": "_translations"
+		},
+		"src": [
+			"app/lang/client/Core/*.json",
+			"app/lang/client/App/*.json"
+		],
+		"dest": "temp/build/app-lang.js"
+	},
 	"frontend": {
 		"options": {
 			"namespace": "_translations"

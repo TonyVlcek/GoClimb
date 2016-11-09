@@ -17,6 +17,24 @@
 			"temp/build/admin.css": "app/client/Admin/main.scss"
 		}
 	},
+	"app": {
+		"options": {
+			"sourcemap": "none",
+			"style": "compressed"
+		},
+		"files": {
+			"temp/build/app.css": "app/client/App/main.scss"
+		}
+	},
+	"app-dev": {
+		"options": {
+			"sourcemap": "none",
+			"style": "expanded"
+		},
+		"files": {
+			"temp/build/app.css": "app/client/App/main.scss"
+		}
+	},
 	"auth": {
 		"options": {
 			"sourcemap": "none",

@@ -52,4 +52,19 @@ class RestFacade
 		}
 	}
 
+
+	/**
+	 * @param User $user
+	 * @param string $ip
+	 * @return RestToken
+	 */
+	public function getOrGenerateGlobalRestToken(User $user, $ip)
+	{
+		if ($restToken = $this->restTokenRepository->getGlobalRestTokenByUser($user, $ip)) {
+			return $this->restTokenRepository->refreshToken($restToken);
+		} else {
+			return $this->restTokenRepository->createGlobalRestToken($user, $ip);
+		}
+	}
+
 }
