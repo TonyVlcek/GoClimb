@@ -70,3 +70,20 @@ wall:
 				required: Prosím zadej token.
 			url:
 				required: Prosím zadej URL.
+
+public:
+	contactForm:
+		fields:
+			name: Moje jméno
+			email: Můj email
+			phone: Můj telefon
+			message: Zpráva
+			send: Odeslat
+		errors:
+			name:
+				required: Prosím zadej jméno.
+			email:
+				required: Prosím zadej email.
+				invalid: Neplatý email
+			message:
+				required: Prosím zadej zaprávu.

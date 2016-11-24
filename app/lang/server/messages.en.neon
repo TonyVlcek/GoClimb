@@ -13,3 +13,7 @@ user:
 		success: Register successful.
 wall:
 	created: Wall has been created
+
+contact:
+	sent: Message has been send.
+	error: 'Message could nit be sent, please try it again later'

@@ -34,5 +34,14 @@
 		"files": {
 			"temp/build/frontend.js": "app/client/Frontend/references.d.ts"
 		}
+	},
+	"public": {
+		"options": {
+			"moduleResolution": "classic",
+			"sourceMap": false
+		},
+		"files": {
+			"temp/build/frontend.js": "app/client/Public/references.d.ts"
+		}
 	}
 }

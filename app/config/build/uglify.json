@@ -135,5 +135,37 @@
 			"temp/build/frontend.js"
 		],
 		"dest": "cdn/assets/frontend.js"
+	},
+	"public": {
+		"options": {
+			"compress": true,
+			"mangle": true,
+			"beautify": false
+		},
+		"src": [
+			"bower_components/jquery/dist/jquery.min.js",
+			"bower_components/jquery.easing/js/jquery.easing.min.js",
+			"bower_components/bootstrap/dist/js/bootstrap.min.js",
+			"app/client/Public/js/jqBootstrapValidation.js",
+			"app/client/Public/js/contact_me.js",
+			"app/client/Public/js/agency.js",
+			"temp/build/public.js"
+		],
+		"dest": "cdn/assets/public.js"
+	},
+	"public-dev": {
+		"options": {
+			"compress": false,
+			"mangle": false,
+			"beautify": true
+		},
+		"src": [
+			"bower_components/jquery/dist/jquery.js",
+			"bower_components/jquery.easing/js/jquery.easing.js",
+			"bower_components/bootstrap/dist/js/bootstrap.js",
+			"app/client/Public/js/agency.js",
+			"temp/build/public.js"
+		],
+		"dest": "cdn/assets/public.js"
 	}
 }

@@ -1,1 +1,326 @@
 {block content}
+<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header page-scroll">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				{_templates.public.landing.menu.button} <i class="fa fa-bars"></i>
+			</button>
+			<a class="navbar-brand page-scroll gc-logo-container" href="#page-top">
+				<img class="gc-logo-full" n:cdnSrc="static/public/logos/gc-logo.png" alt="">
+				<img class="gc-logo-small" n:cdnSrc="static/public/logos/gc-logo-small.png" alt="">
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="hidden">
+					<a href="#page-top"></a>
+				</li>
+				<li>
+					<a class="page-scroll" href="#services">{_templates.public.landing.menu.about}</a>
+				</li>
+				<li>
+					<a class="page-scroll" href="#portfolio">{_templates.public.landing.menu.portfolio}</a>
+				</li>
+				<li>
+					<a class="page-scroll" href="#why">{_templates.public.landing.menu.whyUs}</a>
+				</li>
+				{*<li>
+					<a class="page-scroll" href="#team">Tým</a>
+				</li>*}
+				<li>
+					<a class="page-scroll" href="#contact">{_templates.public.landing.menu.contact}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<header>
+	<div class="container">
+		<div class="intro-text">
+			<div class="intro-heading">{_templates.public.landing.title.title}</div>
+			<a href="#services" class="page-scroll btn btn-xl">{_templates.public.landing.title.more}</a>
+		</div>
+	</div>
+	<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible fade in" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+		{$flash->message}
+	</div>
+</header>
+
+<section id="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">{_templates.public.landing.about.whoWeAre}</h2>
+				<h3 class="section-subheading text-muted">{_templates.public.landing.about.weAre}</h3>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-compass fa-stack-1x fa-inverse"></i>
+                    </span>
+				<h4 class="service-heading">{_templates.public.landing.about.objective.title}</h4>
+				<p class="text-muted">
+					{_templates.public.landing.about.objective.content}
+				</p>
+			</div>
+			<div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
+                    </span>
+				<h4 class="service-heading">{_templates.public.landing.about.future.title}</h4>
+				<p class="text-muted">
+					{_templates.public.landing.about.future.content}
+				</p>
+			</div>
+			<div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                    </span>
+				<h4 class="service-heading">{_templates.public.landing.about.partners.title}</h4>
+				<p class="text-muted">
+					{_templates.public.landing.about.partners.content}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="portfolio" class="bg-light-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">{_templates.public.landing.portfolio.title}</h2>
+				<h3 class="section-subheading text-muted">{_templates.public.landing.portfolio.subtitle}</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+					<div class="portfolio-hover">
+						<div class="portfolio-hover-content">
+							<i class="fa fa-plus fa-3x"></i>
+						</div>
+					</div>
+					<img n:cdnSrc="static/public/portfolio/stodulky.jpg" class="img-responsive" alt="">
+				</a>
+				<div class="portfolio-caption">
+					<h4>{_templates.public.landing.portfolio.stodulky.title}</h4>
+					<p class="text-muted">{_templates.public.landing.portfolio.stodulky.location}</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+					<div class="portfolio-hover">
+						<div class="portfolio-hover-content">
+							<i class="fa fa-plus fa-3x"></i>
+						</div>
+					</div>
+					<img n:cdnSrc="static/public/portfolio/bigwall.jpg" class="img-responsive" alt="">
+				</a>
+				<div class="portfolio-caption">
+					<h4>{_templates.public.landing.portfolio.bigwall.title}</h4>
+					<p class="text-muted">{_templates.public.landing.portfolio.bigwall.location}</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 portfolio-item">
+				<a href="#contact" class="page-scroll portfolio-link">
+					<div class="portfolio-hover">
+						<div class="portfolio-hover-content">
+							<i class="fa fa-plus fa-3x"></i>
+						</div>
+					</div>
+					<img n:cdnSrc="static/public/portfolio/bigwall.jpg" class="img-responsive" alt="">
+				</a>
+				<div class="portfolio-caption">
+					<h4>{_templates.public.landing.portfolio.yourWall}</h4>
+					<p class="text-muted"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section id="why" class="">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">{_templates.public.landing.contact.why.title}</h2>
+				<h3 class="section-subheading text-muted"></h3>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-offset-1 col-md-4">
+
+				<p class="text-muted">
+					{_templates.public.landing.contact.why.reason1}
+				</p>
+			</div>
+			<div class="col-md-offset-2 col-md-4">
+				<p class="text-muted">
+					{_templates.public.landing.contact.why.reason2}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading">{_templates.public.landing.contact.title}</h2>
+				<h3 class="section-subheading text-muted"></h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row">
+					{form contactForm, class => form}
+						<div class="col-md-6">
+
+							<div n:class="form-group, $form['name']->error ? error">
+								{input name, class => form-control}
+							</div>
+							<div n:class="form-group, $form['email']->error ? error">
+								{input email, class => form-control}
+							</div>
+							<div n:class="form-group, $form['phone']->error ? error">
+								{input phone, class => form-control}
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div n:class="form-group, $form['phone']->error ? error">
+								{input text, class => form-control}
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-lg-12 text-center">
+							<div id="success"></div>
+							{input submit, class =>"btn btn-xl"}
+						</div>
+					{/form}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<aside class="clients">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-4 col-md-4 col-sm-12">
+				<a href="http://tr-walls.eu/">
+					<img n:cdnSrc="static/public/logos/tr-walls.png" class="img-responsive img-centered" alt="Tr-walls">
+				</a>
+			</div>
+		</div>
+	</div>
+</aside>
+
+<footer class="bg-light-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<span class="copyright">{_templates.public.copyright}</span>
+			</div>
+			{* <div class="col-md-4">
+				 <ul class="list-inline social-buttons">
+					 <li><a href="#"><i class="fa fa-twitter"></i></a>
+					 </li>
+					 <li><a href="#"><i class="fa fa-facebook"></i></a>
+					 </li>
+					 <li><a href="#"><i class="fa fa-linkedin"></i></a>
+					 </li>
+				 </ul>
+			 {*</div>      *}
+			<div class="col-md-4">
+				<ul class="list-inline quicklinks">
+					<li><a href="mailto:info@goclimb.cz">goclimb@email.cz</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- Portfolio Modal 1 -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl">
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<div class="modal-body">
+							<h2>{_templates.public.landing.portfolio.stodulky.title}</h2>
+							<p class="item-intro text-muted">{_templates.public.landing.portfolio.stodulky.modal.title}</p>
+							<img class="img-responsive img-centered" n:cdnSrc="static/public/portfolio/stodulky.jpg" alt="">
+							<p>
+								{_templates.public.landing.portfolio.stodulky.modal.content}
+							</p>
+							<p>
+								<a href="stenastodulky.cz">stenastodulky.cz</a>,
+								<a href="cesty.stenastodulky.cz">cesty.stenastodulky.cz</a></p>
+							<ul class="list-inline">
+								<li>{_templates.public.landing.portfolio.modal.date}: 2016</li>
+								<li>{_templates.public.landing.portfolio.modal.client}: TrWalls</li>
+							</ul>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
+								<i class="fa fa-times"></i> {_templates.public.landing.portfolio.modal.close}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Portfolio Modal 2 -->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl">
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<div class="modal-body">
+							<h2>{_templates.public.landing.portfolio.bigwall.title}</h2>
+							<p class="item-intro text-muted">{_templates.public.landing.portfolio.bigwall.modal.title}</p>
+							<img class="img-responsive img-centered" n:cdnSrc="static/public/portfolio/bigwall.jpg" alt="">
+							<p>
+								{_templates.public.landing.portfolio.bigwall.modal.content}
+							</p>
+							<p>
+								<a href="big-wall.cz">big-wall.cz</a>
+							<ul class="list-inline">
+								<li>{_templates.public.landing.portfolio.modal.date}: 2016</li>
+								<li>{_templates.public.landing.portfolio.modal.client}: TrWalls</li>
+							</ul>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
+								<i class="fa fa-times"></i> {_templates.public.landing.portfolio.modal.close}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
