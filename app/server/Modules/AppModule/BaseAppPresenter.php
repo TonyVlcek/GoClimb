@@ -9,6 +9,7 @@ use Nette\Application\Request;
 
 abstract class BaseAppPresenter extends BasePresenter
 {
+
 	public function startup()
 	{
 		parent::startup();
@@ -32,6 +33,7 @@ abstract class BaseAppPresenter extends BasePresenter
 	{
 		$this->applicationPartsManager->setAsApp();
 	}
+
 
 	/**
 	 * @inheritdoc

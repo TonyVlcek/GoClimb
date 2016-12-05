@@ -14,6 +14,7 @@ use GoClimb\Model\Repositories\RouteRepository;
 use GoClimb\Model\Repositories\StyleRepository;
 use GoClimb\Model\Rest\Utils;
 use stdClass;
+use Tracy\Debugger;
 
 
 class LogUpdater
@@ -49,7 +50,7 @@ class LogUpdater
 	public function updateLog(Log $log, stdClass $data)
 	{
 		Utils::updateProperties($log, $data, [
-			'description' => TRUE
+			'description' => FALSE
 		]);
 
 		Utils::checkProperty($data, 'loggedDate', TRUE);

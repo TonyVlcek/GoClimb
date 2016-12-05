@@ -8,14 +8,6 @@ $form-invalid: red;
 $form-disable: $global-theme-disable;
 $form-disable-color: $global-theme-font-color;
 
-//Admin Menu
-$admin-menu-width: 220px;
-$admin-menu-background: #FAFAFA;
-$admin-menu-text: $global-theme-light-font-color;
-$admin-menu-text-size: 1rem; //18
-$admin-menu-hover-background: $global-theme-divider; //transparentize(invert(#F7F7F7), 0.86);
-$admin-menu-z-index: 101;
-
 //Grid
 $grid-container-padding-sides-large: 2.5rem;
 $grid-content-dark: #F7F7F7;

@@ -27,6 +27,8 @@ namespace GoClimb.Core.Model.Entities
 			parameter: string;
 			level: number;
 		}>;
+		rope?: boolean,
+		boulder?: boolean,
 
 	}
 

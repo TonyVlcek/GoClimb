@@ -19,6 +19,22 @@
 		],
 		"dest": "cdn/assets/admin.css"
 	},
+	"app": {
+		"src": [
+			"bower_components/foundation-apps/dist/css/foundation-apps.min.css",
+			"bower_components/font-awesome/css/font-awesome.min.css",
+			"temp/build/app.css"
+		],
+		"dest": "cdn/assets/app.css"
+	},
+	"app-dev": {
+		"src": [
+			"bower_components/foundation-apps/dist/css/foundation-apps.css",
+			"bower_components/font-awesome/css/font-awesome.css",
+			"temp/build/app.css"
+		],
+		"dest": "cdn/assets/app.css"
+	},
 	"auth": {
 		"src": [
 			"temp/build/auth.css"

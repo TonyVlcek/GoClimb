@@ -1,0 +1,14 @@
+{
+	"logs": {
+		"wall": "Wall",
+		"name": "Name",
+		"difficulty": "Difficulty",
+		"style": "Style",
+		"logged": "Date",
+		"points": "Points",
+		"description": "Description",
+		"length": "Length",
+		"steps": "Steps",
+		"edit": "Edit"
+	}
+}

@@ -8,6 +8,15 @@
 			"temp/build/admin.js": "app/client/Admin/references.d.ts"
 		}
 	},
+	"app": {
+		"options": {
+			"moduleResolution": "classic",
+			"sourceMap": false
+		},
+		"files": {
+			"temp/build/app.js": "app/client/App/references.d.ts"
+		}
+	},
 	"auth": {
 		"options": {
 			"moduleResolution": "classic",

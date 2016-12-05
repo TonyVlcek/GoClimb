@@ -52,6 +52,14 @@ $core-form-invalid-color: #E23237;
 //Button (Core component)
 $core-button-secondary-color: #e5e5e5;
 
+//Admin Menu
+$admin-menu-width: 220px;
+$admin-menu-background: #FAFAFA;
+$admin-menu-text: $global-theme-light-font-color;
+$admin-menu-text-size: 1rem; //18
+$admin-menu-hover-background: $global-theme-divider; //transparentize(invert(#F7F7F7), 0.86);
+$admin-menu-z-index: 101;
+
 html {
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;

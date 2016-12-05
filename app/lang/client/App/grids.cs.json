@@ -1,0 +1,14 @@
+{
+	"logs": {
+		"wall": "Lezecké centrum",
+		"name": "Jméno",
+		"difficulty": "Obtížnost",
+		"style": "Styl",
+		"logged": "Datum",
+		"points": "Body",
+		"description": "Popis",
+		"length": "Délka",
+		"steps": "Počet kroků",
+		"edit": "Upravit"
+	}
+}

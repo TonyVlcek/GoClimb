@@ -1,0 +1,5 @@
+@import '../Common/scss/@common';
+@import '../Core/scss/@core';
+//As for now app have same styles as Admin.
+@import '../Admin/scss/@admin';
+@import 'scss/@app';

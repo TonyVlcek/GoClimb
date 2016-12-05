@@ -9,6 +9,9 @@ namespace GoClimb.Core.Model.Entities
 			id: number;
 			name: string;
 		};
+		wall?: {
+			name: string;
+		}
 		style?: IStyle;
 		route?: IRoute;
 		loggedDate: any /*string|Date*/;

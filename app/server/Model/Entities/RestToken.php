@@ -23,9 +23,9 @@ class RestToken
 	private $user;
 
 	/**
-	 * @var Wall
+	 * @var Wall|NULL
 	 * @ORM\ManyToOne(targetEntity="Wall", inversedBy="restTokens")
-	 * @ORM\JoinColumn(nullable=FALSE)
+	 * @ORM\JoinColumn(nullable=TRUE)
 	 */
 	private $wall;
 
@@ -69,7 +69,7 @@ class RestToken
 
 
 	/**
-	 * @return Wall
+	 * @return Wall|NULL
 	 */
 	public function getWall()
 	{
@@ -78,10 +78,10 @@ class RestToken
 
 
 	/**
-	 * @param Wall $wall
+	 * @param Wall|NULL $wall
 	 * @return $this
 	 */
-	public function setWall(Wall $wall)
+	public function setWall(Wall $wall = NULL)
 	{
 		$this->wall = $wall;
 		return $this;

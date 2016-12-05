@@ -1,0 +1,31 @@
+<div class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar">
+		<h1 class="gc-title">{{'templates.app.dashboard.edit'|translate}}</h1>
+	</div>
+	<div class="gc-content">
+		<h3>{{route.name}}</h3>
+		<form name="logForm" class="gc-form" novalidate>
+			<label>
+				{{'forms.logs.date'|translate}}:
+				<input type="date" required data-ng-model="log.loggedDate">
+			</label>
+
+			<label>
+				{{'forms.logs.style'|translate}}:
+				<select ng-model="log.style" ng-options="'enums.styles.' + style.name | translate for style in styles track by style.id"></select>
+			</label>
+
+			<label>
+				{{'forms.logs.description'|translate}}:
+				<textarea data-ng-model="log.description"></textarea>
+			</label>
+
+			<button class="button" data-ng-class="{spinner: saving}" data-ng-disabled="(logForm.$invalid || saving)" data-ng-click="save()">
+				{{'forms.logs.save'|translate}}
+			</button>
+			<button class="button secondary" data-ui-sref="^">{{'templates.panel.close'|translate}}</button>
+		</form>
+
+	</div>
+</div>

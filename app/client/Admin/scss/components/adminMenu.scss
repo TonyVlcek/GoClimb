@@ -8,12 +8,6 @@
 	@extend .admin-menu-width;
 	background: $admin-menu-background;
 
-	.logo {
-		text-align: center;
-		padding: 25px 20px 6px;
-		height: 130px;
-	}
-
 	.admin-menu {
 		@extend .admin-menu-width;
 		@include breakpoint(large) {

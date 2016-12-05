@@ -19,4 +19,13 @@ class LogRepository extends BaseRepository
 	{
 		return $this->getDoctrineRepository()->find($id);
 	}
+
+
+	/**
+	 * @return Log[]
+	 */
+	public function getAll()
+	{
+		return $this->getDoctrineRepository()->findBy([], ['loggedDate' => 'DESC']);
+	}
 }
