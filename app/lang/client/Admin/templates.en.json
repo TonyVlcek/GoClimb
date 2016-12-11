@@ -28,6 +28,7 @@
 		"add": "Add rope route",
 		"edit": "Edit rope route",
 		"create": "Create rope route",
+		"generateLabels": "Generate labels",
 		"close": "Close"
 	},
 	"boulders": {
@@ -35,6 +36,7 @@
 		"add": "Add boulder route",
 		"edit": "Edit boulder route",
 		"create": "Create boulder route",
+		"generateLabels": "Generate labels",
 		"close": "Close"
 	},
 	"settings": {

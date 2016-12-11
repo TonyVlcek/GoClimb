@@ -4,6 +4,7 @@
 		"edit": "Upravit článek",
 		"create": "Napsat článek",
 		"add": "Napsat článek",
+		"generateLabels": "Vytisknout štítek",
 		"close": "Zavřít"
 	},
 	"dashboard": {
@@ -14,6 +15,7 @@
 		"edit": "Upravit novinku",
 		"create": "Přidat novinku",
 		"add": "Přidat novinku",
+		"generateLabels": "Vytisknout štítek",
 		"close": "Zavřít"
 	},
 	"events": {
@@ -28,6 +30,7 @@
 		"add": "Přidat cestu (lano)",
 		"edit": "Upravit cestu",
 		"create": "Přidat cestu (lano)",
+		"generateLabels": "Vytovořit štítky",
 		"close": "Zavřít"
 	},
 	"boulders": {
@@ -35,6 +38,7 @@
 		"add": "Přidat cestu (boulder)",
 		"edit": "Upravit cestu",
 		"create": "Přidat cestu (boulder)",
+		"generateLabels": "Vytovořit štítky",
 		"close": "Zavřít"
 	},
 	"settings": {
@@ -58,7 +62,7 @@
 		"title": "Role",
 		"manageUsers": "Seznam uživatelů"
 	},
-	"404":{
+	"404": {
 		"notFound": "Stránka nenalezena",
 		"dashboard": "Hlavní stránka",
 		"back": "Zpět"

@@ -5,6 +5,9 @@
 			<button type="button" class="gc-item js-disable-close-directive" data-ui-sref="ropes.create">
 				<span class="fa fa-plus gc-icon"></span> {{'templates.ropes.add'|translate}}
 			</button>
+			<a class="gc-item" target="_blank" href="{{ropesCtrl.pdfUrl}}" data-ng-show="!!ropesCtrl.selectedRopes.length">
+				<span class="fa fa-qrcode gc-icon"></span> {{'templates.ropes.generateLabels'|translate}}
+			</a>
 		</div>
 	</div>
 
@@ -17,6 +20,7 @@
 			<table data-st-table="ropes" data-st-safe-src="ropesCtrl.getRopes().getAsArray()" class="table">
 				<thead>
 					<tr>
+						<th></th>
 						<th data-st-sort="name" data-st-skip-natural="true" data-st-sort-default="true" class="clickable">
 							{{'grids.ropes.name'|translate}}
 						</th>
@@ -34,16 +38,17 @@
 				</thead>
 				<tbody>
 					<tr data-ng-repeat="rope in ropes">
+						<td><label><input type="checkbox" data-checklist-model="ropesCtrl.selectedRopes" data-checklist-value="rope.id"></label></td>
 						<td>{{rope.name}}</td>
 						<td>{{rope.sector.name}}</td>
 						<td>{{rope.line.name}}</td>
 						<td>{{rope.builder.name}}</td>
 						<td>
 							<button class="button hollow warning" type="button" data-ui-sref="ropes.edit({id: rope.id})">
-								<span class="fa fa-pencil"></span> {{'grids.ropes.edit'|translate}}
+								<span class="fa fa-pencil"></span> <!--{{'grids.ropes.edit'|translate}}-->
 							</button>
 							<button class="button hollow alert" data-ng-class="{spinner : ropesCtrl.processingDelete === rope.id}" type="button" data-ng-click="ropesCtrl.deleteRope(rope)">
-								<span class="fa fa-remove"></span> {{'grids.ropes.delete'|translate}}
+								<span class="fa fa-remove"></span> <!--{{'grids.ropes.delete'|translate}}-->
 							</button>
 						</td>
 					</tr>

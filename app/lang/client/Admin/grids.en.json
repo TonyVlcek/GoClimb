@@ -31,16 +31,12 @@
 		"name": "Name",
 		"sector": "Sector",
 		"line": "Line",
-		"builder": "Builder",
-		"edit": "Edit",
-		"delete": "Delete"
+		"builder": "Builder"
 	},
 	"boulders": {
 		"name": "Name",
 		"sector": "Sector",
 		"line": "Line",
-		"builder": "Builder",
-		"edit": "Edit",
-		"delete": "Delete"
+		"builder": "Builder"
 	}
 }

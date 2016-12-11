@@ -31,16 +31,12 @@
 		"name": "Jméno",
 		"sector": "Sektor",
 		"line": "Linie",
-		"builder": "Stavěč",
-		"edit": "Upravit",
-		"delete": "Smazat"
+		"builder": "Stavěč"
 	},
 	"boulders": {
 		"name": "Jméno",
 		"sector": "Sektor",
 		"line": "Linie",
-		"builder": "Stavěč",
-		"edit": "Upravit",
-		"delete": "Smazat"
+		"builder": "Stavěč"
 	}
 }

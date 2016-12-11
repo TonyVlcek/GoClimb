@@ -43,6 +43,19 @@ app:
 		dashboard: Logs
 		about: About
 
+api:
+	labels:
+		buildDate: Build at
+		builder: Builder
+		name: Name
+		UIAA: UIAA
+		scan: Scan QR
+		line: Line
+		start: Start
+		top: Top
+		fr: Fr
+		note: Note
+
 backend:
 	layout:
 		title: Administration

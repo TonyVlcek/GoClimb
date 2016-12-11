@@ -26,6 +26,13 @@
 	}
 }
 
+.gc-menu .spinner {
+	&:before {
+		animation: animation-enter-table 0.3s;
+		animation-fill-mode: forwards;
+	}
+}
+
 .table .spinner {
 
 	&:before {

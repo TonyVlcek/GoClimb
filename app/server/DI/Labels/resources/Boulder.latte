@@ -1,0 +1,48 @@
+{php $counter = 0}
+{foreach $boulders as $boulder}
+	{if $counter == 0}
+		<div class="header">
+			<div class="reference-box"></div>
+			<div class="reference-box-desc"> = 1cm</div>
+			<img class="header-gc-logo" n:cdnSrc="static/logos/gc-logo-small-black.png">
+		</div>
+		<div class="content">
+	{/if}
+	<div class="bolder-box boulder-even-{$iterator->isEven()}">
+		<div class="boulder-row">
+			<div class="boulder-name">
+				<h2 class="boulder-name-heading">{$boulder->getName()}</h2>
+			</div>
+			<div class="boulder-qr">
+				{$image = ('<img class="boulder-qr-img" src="' . $getQR($boulder->getId()) . '">')|noescape}
+				<br>
+				<span class="boulder-qr-desc">{_templates.api.labels.scan}</span>
+			</div>
+		</div>
+		<div class="boulder-row boulder-info">
+			<ul class="boulder-info-ul">
+				<li><span>{_templates.api.labels.start}</span>: {$boulder->getStart()}</li>
+				<li><span>{_templates.api.labels.top}</span>: {$boulder->getEnd()}</li>
+				<li><span>{_templates.api.labels.note}</span>: {$boulder->getDescription()}</li>
+			</ul>
+			<h2 class="boulder-author">{_templates.api.labels.builder}:<br>
+				<span class="bold">{$boulder->getBuilder()->getDisplayedName()}</span></h2>
+		</div>
+		<div class="boulder-row">
+			<div class="boulder-difficulty-hueco">
+				<h2 class="boulder-difficulty-hueco-title">{$boulder->getDifficulty()->getRatingHUECO()}</h2>
+			</div>
+			<h2 class="boulder-difficulty-fr"><span class="bold">(</span>{_templates.api.labels.fr}.<span class="bold"> {$boulder->getDifficulty()->getRatingFRB()})</span></h2>
+			<img class="boulder-gc-logo" n:cdnSrc="static/logos/gc-logo-small-black.png">
+		</div>
+	</div>
+	{php $counter++}
+	{if $iterator->isEven()}
+		<div class="boulder-row boulder-spacer"></div>
+	{/if}
+	{if $counter == 4}
+		{php $counter = 0}
+		</div>
+		{sep}<div class="break"></div>{/sep}
+	{/if}
+{/foreach}

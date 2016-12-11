@@ -5,12 +5,16 @@ namespace GoClimb.Admin.Controllers
 	import DialogService = GoClimb.Admin.Services.DialogService;
 	import BouldersFacade = GoClimb.Core.Model.Facades.BouldersFacade;
 	import IBoulder = GoClimb.Core.Model.Entities.IBoulder;
+	import LabelsFacade = GoClimb.Core.Model.Facades.LabelsFacade;
+	import IScope = angular.IScope;
 
 
 	export class BouldersController extends BaseAdminController
 	{
 
 		public processingDelete: number = null;
+		public selectedBoulders: [number] = null;
+		public pdfUrl: string = null;
 
 		private boulders: IndexedArray<IBoulder> = null;
 		private loading: boolean = false;
@@ -18,14 +22,24 @@ namespace GoClimb.Admin.Controllers
 		private flashMessageSender: FlashMessageSender;
 		private dialogService: DialogService;
 		private bouldersFacade: BouldersFacade;
+		private labelsFacade: LabelsFacade;
 
 
-		public constructor(flashMessageSender: FlashMessageSender, dialogService: DialogService, bouldersFacade: BouldersFacade)
+		public constructor(flashMessageSender: FlashMessageSender, dialogService: DialogService, bouldersFacade: BouldersFacade, labelsFacade: LabelsFacade, $scope: IScope)
 		{
 			super();
 			this.flashMessageSender = flashMessageSender;
 			this.dialogService = dialogService;
 			this.bouldersFacade = bouldersFacade;
+			this.labelsFacade = labelsFacade;
+
+			$scope.$watchCollection(() => {return this.selectedBoulders}, (newVal: any, oldVal) =>{
+				if (newVal && newVal.length) {
+					this.pdfUrl = this.labelsFacade.generateLabels(this.selectedBoulders);
+				} else {
+					this.pdfUrl = null;
+				}
+			});
 		}
 
 
@@ -54,9 +68,8 @@ namespace GoClimb.Admin.Controllers
 				this.flashMessageSender.sendSuccess('flashes.boulders.deleted.success');
 			});
 		}
-
 	}
 
-	BouldersController.register(angular, 'BouldersController', ['flashMessageSender', 'dialogService', 'bouldersFacade']);
+	BouldersController.register(angular, 'BouldersController', ['flashMessageSender', 'dialogService', 'bouldersFacade', 'labelsFacade', '$scope']);
 
 }

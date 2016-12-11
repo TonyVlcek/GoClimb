@@ -72,10 +72,10 @@ abstract class BaseV1Presenter extends BaseRestPresenter
 	}
 
 
-	public function actionGet()
-	{
-		$this->sendMethodNotAllowed();
-	}
+//	public function actionGet()
+//	{
+//		$this->sendMethodNotAllowed();
+//	}
 
 
 	public function actionPost()

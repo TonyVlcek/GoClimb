@@ -43,7 +43,6 @@ namespace GoClimb.Core.Model.Http
 			this.request(request, 'DELETE', params, successCallback, errorCallback);
 		}
 
-
 		private request(request: string, method: string, params: {}, successCallback: Function, errorCallback = null)
 		{
 			var that = this;

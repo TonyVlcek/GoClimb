@@ -3,6 +3,7 @@
 	margin-bottom: 1rem;
 	border-collapse: separate;
 	border-spacing: 0;
+	white-space:nowrap;
 
 	th {
 		padding: 0 2rem 1.5rem 0;
@@ -35,13 +36,17 @@
 	}
 
 	td {
-		padding: 1.1rem 0;
+		padding: 1.1rem 0.8rem 1.1rem 0;
 		vertical-align: middle;
 		border-top: $table-border;
 
 		&:last-of-type {
 			text-align: right;
 		}
+	}
+
+	tr:not(:first-child):hover {
+		background: transparentize($global-theme-color, 0.97);
 	}
 
 	.button {

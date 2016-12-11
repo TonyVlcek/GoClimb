@@ -5,12 +5,16 @@ namespace GoClimb.Admin.Controllers
 	import DialogService = GoClimb.Admin.Services.DialogService;
 	import RopesFacade = GoClimb.Core.Model.Facades.RopesFacade;
 	import IRope = GoClimb.Core.Model.Entities.IRope;
+	import LabelsFacade = GoClimb.Core.Model.Facades.LabelsFacade;
+	import IScope = angular.IScope;
 
 
 	export class RopesController extends BaseAdminController
 	{
 
 		public processingDelete: number = null;
+		public selectedRopes: [number] = null;
+		public pdfUrl: string = null;
 
 		private ropes: IndexedArray<IRope> = null;
 		private loading: boolean = false;
@@ -18,14 +22,24 @@ namespace GoClimb.Admin.Controllers
 		private flashMessageSender: FlashMessageSender;
 		private dialogService: DialogService;
 		private ropesFacade: RopesFacade;
+		private labelsFacade: LabelsFacade;
 
 
-		public constructor(flashMessageSender: FlashMessageSender, dialogService: DialogService, ropesFacade: RopesFacade)
+		public constructor(flashMessageSender: FlashMessageSender, dialogService: DialogService, ropesFacade: RopesFacade, labelsFacade: LabelsFacade, $scope: IScope)
 		{
 			super();
 			this.flashMessageSender = flashMessageSender;
 			this.dialogService = dialogService;
 			this.ropesFacade = ropesFacade;
+			this.labelsFacade = labelsFacade;
+
+			$scope.$watchCollection(() => {return this.selectedRopes}, (newVal: any, oldVal) =>{
+				if (newVal && newVal.length) {
+					this.pdfUrl = this.labelsFacade.generateLabels(this.selectedRopes);
+				} else {
+					this.pdfUrl = null;
+				}
+			});
 		}
 
 
@@ -57,6 +71,6 @@ namespace GoClimb.Admin.Controllers
 
 	}
 
-	RopesController.register(angular, 'RopesController', ['flashMessageSender', 'dialogService', 'ropesFacade']);
+	RopesController.register(angular, 'RopesController', ['flashMessageSender', 'dialogService', 'ropesFacade', 'labelsFacade', '$scope']);
 
 }
