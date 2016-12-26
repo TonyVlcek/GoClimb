@@ -18,6 +18,8 @@
 
 	&:hover {
 		background: darken($global-theme-accent-color, 3);
+		text-decoration: none;
+		color: $global-theme-accent-font-color;
 	}
 
 	&:disabled {

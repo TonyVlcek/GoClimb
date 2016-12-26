@@ -10,6 +10,7 @@
 	</ul>
 	<ul class="gc-menu gc-menu-right">
 		<li><a href="{{ MenuCtrl.menu.app}}" class="gc-btn"><span class="fa fa-book"></span> {_'templates.core.topMenu.logs'}</a></li>
-		<li><a dropdown-menu="MenuCtrl.menu.user" class="gc-btn"><span class="fa fa-user"></span> {_'templates.core.topMenu.me.title'} <span class="fa fa-angle-down"></span></a></li>
+		<li ng-hide="!MenuCtrl.menu.user"><a dropdown-menu="MenuCtrl.menu.user" class="gc-btn"><span class="fa fa-user"></span> {_'templates.core.topMenu.me.title'} <span class="fa fa-angle-down"></span></a></li>
+		<li ng-hide="MenuCtrl.menu.user"><a href="{{ MenuCtrl.menu.loginLink}}" class="gc-btn"><span class="fa fa-sign-in"></span> {_'templates.core.topMenu.login'}</a></li>
 	</ul>
 </div>

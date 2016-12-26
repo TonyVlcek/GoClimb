@@ -13,6 +13,7 @@ namespace GoClimb.Admin.Controllers
 
 		public user = null;
 		public links = null;
+		public wall = null;
 
 		private ropesFacade: RopesFacade;
 		private ropesLoading: boolean = false;
@@ -21,11 +22,12 @@ namespace GoClimb.Admin.Controllers
 		private bouldersLoading: boolean = false;
 		private boulders: IndexedArray<IBoulder> = null;
 
-		public constructor(user, authLinks, ropesFacade: RopesFacade, bouldersFacade: BouldersFacade)
+		public constructor(wall, user, authLinks, ropesFacade: RopesFacade, bouldersFacade: BouldersFacade)
 		{
 			super();
 			this.user = user;
 			this.links = authLinks;
+			this.wall = wall;
 			this.ropesFacade = ropesFacade;
 			this.bouldersFacade = bouldersFacade;
 		}
@@ -56,6 +58,6 @@ namespace GoClimb.Admin.Controllers
 
 	}
 
-	LogsController.register(angular, 'LogsController', ['user', 'links', 'ropesFacade', 'bouldersFacade']);
+	LogsController.register(angular, 'LogsController', ['wall', 'user', 'links', 'ropesFacade', 'bouldersFacade']);
 
 }

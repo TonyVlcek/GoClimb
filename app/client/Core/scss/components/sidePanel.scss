@@ -4,12 +4,13 @@
 	max-width: 90%;
 	transition: width .3s;
 
-	top: 0;
+	top: $top-panel-height;
+	padding-bottom: $top-panel-height;
 	right: 0;
 	height: 100%;
 	display: block;
 	overflow-y: auto;
-	position: absolute;
+	position: fixed;
 	z-index: $side-panel-z-index;
 	background: #FFFFFF !important;
 	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25);
@@ -63,23 +64,35 @@
 	transition: margin 0.3s, padding 0.3s;
 }
 
-.#{$class-prefix}-overlay{
+.#{$class-prefix}-overlay {
 	position: absolute;
 	opacity: 0;
 	top: 0;
 	left: 0;
 	width: 0;
-	height:0;
+	height: 0;
 	z-index: $side-panel-z-index - 2;
 	transition: background-color 0.3s;
 	background-color: transparent;
 }
-.panel-is-active:not(.panel-is-compressed){
-	.#{$class-prefix}-overlay{
+
+.panel-is-active:not(.panel-is-compressed) {
+	.#{$class-prefix}-overlay {
 		opacity: 1;
 		width: 100%;
 		height: 100%;
 		background-color: $global-theme-disable;
+	}
+}
+
+.panel-is-active:not(.panel-is-compressed).#{$class-prefix}-overlay-prevent-scroll {
+	overflow: hidden;
+	.#{$class-prefix}-overlay {
+		position: fixed;
+	}
+
+	.#{$class-prefix}-side-panel {
+		position: fixed;
 	}
 }
 
@@ -112,7 +125,7 @@
 		right: 0;
 		height: 100%;
 		width: 100%;
-		position: absolute;
+		position: fixed;
 		display: block;
 		transition: all 0.5s ease-in-out;
 	}

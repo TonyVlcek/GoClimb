@@ -1,39 +1,45 @@
-.loading {
-	color: $global-theme-accent-color;
-	font-size: 1.75rem;
-	font-weight: normal;
-	line-height: 1.4;
-	margin: 0;
+.bounce-box {
+	text-align: center;
+}
 
-	.dot-box {
-		position: relative;
+.bounce-box > div {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border-radius: 100%;
+	background: #616161;
+	-webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+	animation: bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.bounce-box .one {
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s
+}
+
+.bounce-box .two {
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s
+}
+
+@-webkit-keyframes bouncedelay {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0)
 	}
 
-	.dot-1 {
-		position: absolute;
-		animation: upAnimation 1.5s infinite;
+	40% {
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes bouncedelay {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0);
+		transform: scale(0)
 	}
 
-	.dot-2 {
-		position: absolute;
-		left: 0.6rem;
-		animation: upAnimation 1.5s infinite 0.2s;
-	}
-
-	.dot-3 {
-		position: absolute;
-		left: 1.2rem;
-		animation: upAnimation 1.5s infinite 0.4s;
-	}
-
-	@keyframes upAnimation {
-		0%, 100% {
-			transform: translateY(0);
-		}
-
-		50% {
-			transform: translateY(-0.6rem);
-		}
-
+	40% {
+		transform: scale(1);
+		-webkit-transform: scale(1)
 	}
 }

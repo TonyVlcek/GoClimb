@@ -23,6 +23,7 @@ abstract class BasePresenter extends Presenter
 	const TOKEN_PLACEHOLDER = '__TOKEN__';
 	const LOGIN_PARAMETER = 'loginToken';
 	const LOGOUT_PARAMETER = 'logout';
+	const PATH_PARAMETER = 'path';
 
 
 	/** @var string @persistent */
@@ -138,7 +139,7 @@ abstract class BasePresenter extends Presenter
 
 			$this->flashMessageSuccess('user.login.success');
 		}
-		$this->redirect('this', ['token' => NULL]);
+		$this->redirect('this', ['path' => $this->getParameter($this::PATH_PARAMETER), 'token' => NULL]);
 	}
 
 
@@ -197,36 +198,43 @@ abstract class BasePresenter extends Presenter
 
 	protected function initMenu()
 	{
-		$user = [
-			[
-				'text' => $this->translator->translate('templates.core.topMenu.me.settings'),
-				'href' => $this->link('//:App:Dashboard:default') . '/profile/edit',
-			]];
+		if (!$this->user->isLoggedIn()) {
+			$user = NULL;
+			$loginLink =  $this->getLoginLink($this->getApplicationToken(), $this->link('//this', [$this::LOGIN_PARAMETER => $this::TOKEN_PLACEHOLDER]));
+		} else {
+			$loginLink = NULL;
+			$user = [
+				[
+					'text' => $this->translator->translate('templates.core.topMenu.me.settings'),
+					'href' => $this->link('//:App:Dashboard:default') . '/profile/edit',
+				]];
 
-		if ($wallAdminList = $this->wallAdminList()) {
-			$user = array_merge($user, [[
-				'text' => $this->translator->translate('templates.core.topMenu.me.admins'),
-				'divider' => TRUE,
-			]]);
+			if ($wallAdminList = $this->wallAdminList()) {
+				$user = array_merge($user, [[
+					'text' => $this->translator->translate('templates.core.topMenu.me.admins'),
+					'divider' => TRUE,
+				]]);
 
-			$user = array_merge($user, $this->wallAdminList());
+				$user = array_merge($user, $this->wallAdminList());
 
-			$user = array_merge($user, [[
-				'divider' => TRUE,
-			]]);
+				$user = array_merge($user, [[
+					'divider' => TRUE,
+				]]);
+			}
+
+			$user = array_merge($user, [
+				[
+					'text' => $this->translator->translate('templates.core.topMenu.me.logout'),
+					'href' => $this->getLogoutLink($this->getApplicationToken(), $this->link('//this', [$this::LOGOUT_PARAMETER => 1])),
+				],
+			]);
 		}
-
-		$user = array_merge($user, [
-			[
-				'text' => $this->translator->translate('templates.core.topMenu.me.logout'),
-				'href' => $this->getLogoutLink($this->getApplicationToken(), $this->link('//this', [$this::LOGOUT_PARAMETER => 1])),
-			],
-		]);
 
 		$this->template->data['menu'] = [
 			'walls' => $this->wallList(),
 			'app' => $this->link('//:App:Dashboard:default'),
 			'user' => $user,
+			'loginLink' => $loginLink,
 		];
 	}
 
@@ -237,7 +245,7 @@ abstract class BasePresenter extends Presenter
 		foreach ($this->wallRepository->getAll() as $wall) {
 			$wallList[] = [
 				'text' => $wall->getName(),
-				'href' => $this->link(':Wall:Front:Dashboard:default', ['wall' => $wall]),
+				'href' => $this->link('//:Wall:Front:Dashboard:default', ['wall' => $wall]),
 			];
 		}
 
@@ -251,7 +259,7 @@ abstract class BasePresenter extends Presenter
 		foreach ($this->wallRepository->getUsersAdmin($this->getUser()->getUserEntity()) as $wall) {
 			$wallList[] = [
 				'text' => $wall->getName(),
-				'href' => $this->link(':Wall:Admin:Dashboard:default', ['wall' => $wall]),
+				'href' => $this->link('//:Wall:Admin:Dashboard:default', ['wall' => $wall]),
 			];
 		}
 

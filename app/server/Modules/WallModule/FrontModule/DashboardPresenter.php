@@ -55,7 +55,10 @@ class DashboardPresenter extends BaseFrontPresenter
 				'register' => $this->getRegisterLink($this->getApplicationToken(), $loginBacklink),
 			],
 			'user' => $user,
+			'wall' => $this->wall->getName(),
 		];
+
+		$this->initMenu();
 
 		$this->template->locale = $this->locale;
 	}
