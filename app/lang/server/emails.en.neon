@@ -1,0 +1,4 @@
+passwordReset:
+	title: Password Reset
+	description: "There was recently a request to reset the password on your account. Follow this link to reset your password:"
+	reset: Reset password

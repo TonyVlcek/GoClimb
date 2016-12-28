@@ -11,6 +11,10 @@ user:
 		success: Odhlášení proběhlo úspěšně
 	register:
 		success: Registrace proběhla úspěšně.
+	passwordResetConfirm:
+		success: Na zadaný email byl odeslán odkaz pro obnovu hesla.
+	passwordReset:
+		success: Heslo bylo změněno.
 wall:
 	created: Lezecká stěna byla vytvořena.
 

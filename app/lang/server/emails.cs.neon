@@ -1,0 +1,4 @@
+passwordReset:
+	title: Obnova hesla
+	description: "Nedávno byla zaslána žádost o obnovu hesla pro účet GoClim spojený s tímto emailem. Otevři následující odkaz pro reset hesla:"
+	reset: Resetovat heslo

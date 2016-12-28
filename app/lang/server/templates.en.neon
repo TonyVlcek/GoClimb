@@ -15,9 +15,13 @@ auth:
 			register: Create new account
 			notYou: Not You?
 			login: Login
+			forgotPassword: Forgot password...
 		register:
 			register: Registration into GoClimb.
-
+		confirm:
+			title: Generate password reset link
+		reset:
+			title: Reset password
 app:
 	layout:
 		title: Logs

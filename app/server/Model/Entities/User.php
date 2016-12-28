@@ -53,6 +53,18 @@ class User
 	 * @var string|NULL
 	 * @ORM\Column(type="string", nullable=TRUE, options={"default": NULL})
 	 */
+	private $passwordReset = NULL;
+
+	/**
+	 * @var DateTime|NULL
+	 * @ORM\Column(type="datetime", nullable=TRUE, options={"default": NULL})
+	 */
+	private $passwordResetExpiration = NULL;
+
+	/**
+	 * @var string|NULL
+	 * @ORM\Column(type="string", nullable=TRUE, options={"default": NULL})
+	 */
 	private $firstName = NULL;
 
 	/**
@@ -251,6 +263,32 @@ class User
 	public function setPassword($password)
 	{
 		$this->password = $password;
+		return $this;
+	}
+
+
+	/**
+	 * @return string|NULL
+	 */
+	public function getPasswordReset()
+	{
+		if ($this->passwordResetExpiration && (new DateTime)->diff($this->passwordResetExpiration)->h < 23) {
+			return $this->passwordReset;
+		} else {
+			return NULL;
+		}
+
+	}
+
+
+	/**
+	 * @param string|NULL $passwordReset
+	 * @return $this
+	 */
+	public function setPasswordReset($passwordReset)
+	{
+		$this->passwordResetExpiration = new DateTime();
+		$this->passwordReset = $passwordReset;
 		return $this;
 	}
 
