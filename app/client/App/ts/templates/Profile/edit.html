@@ -1,0 +1,55 @@
+<div class="gc-side-panel">
+	<span data-close-button></span>
+	<div class="gc-title-bar">
+		<h1 class="gc-title">{{'templates.app.profile.edit'|translate}}</h1>
+	</div>
+	<div class="gc-content">
+		<form name="userForm" class="gc-form" novalidate>
+			<label>
+				{{'forms.user.nick'|translate}}:
+				<input type="text" data-ng-model="user.nick">
+			</label>
+
+			<label>
+				{{'forms.user.firstName'|translate}}:
+				<input type="text" data-ng-model="user.firstName">
+			</label>
+
+			<label>
+				{{'forms.user.lastName'|translate}}:
+				<input type="text" data-ng-model="user.lastName">
+			</label>
+
+			<label>
+				{{'forms.user.height'|translate}}(cm):
+				<input type="text" data-ng-model="user.height">
+			</label>
+
+			<label>
+				{{'forms.user.weight'|translate}}(kg):
+				<input type="text" data-ng-model="user.weight">
+			</label>
+
+			<label>
+				{{'forms.user.phone'|translate}}:
+				<input type="text" data-ng-model="user.phone">
+			</label>
+
+			<label>
+				{{'forms.user.climbingSince'|translate}}:
+				<input type="date" data-ng-model="user.climbingSince">
+			</label>
+
+			<label>
+				{{'forms.user.birthDate'|translate}}:
+				<input type="date" data-ng-model="user.birthDate">
+			</label>
+
+			<button class="button" data-ng-class="{spinner: saving}" data-ng-disabled="(userForm.$invalid || saving)" data-ng-click="save()">
+				{{'forms.user.save'|translate}}
+			</button>
+			<button class="button secondary" data-ui-sref="^">{{'templates.panel.close'|translate}}</button>
+		</form>
+
+	</div>
+</div>

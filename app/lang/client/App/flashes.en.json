@@ -2,6 +2,9 @@
 	"logs": {
 		"saved": "Log was saved."
 	},
+	"user": {
+		"saved": "Changes were saved."
+	},
 	"error": {
 		"invalidForm": "Invalid form."
 	}

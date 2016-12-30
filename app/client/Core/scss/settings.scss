@@ -24,8 +24,13 @@ $global-side-padding: 3.4rem;
 $class-prefix: 'gc';
 
 //Top bar (Core component)
-$top-panel-backgound: #000000;
-$top-panel-hover-backgound: transparentize(invert(#000000), 0.86);
+$top-panel-background: #616161; //#2D2E2F
+$top-panel-hover-background: transparentize(invert($top-panel-background), 0.86);
+$top-panel-color: #FFFFFF;
+$top-panel-dropdown-background: #FAFAFA;
+$top-panel-dropdown-hover-background: transparentize($global-theme-color, 0.94);
+$top-panel-dropdown-color: $global-theme-light-font-color;
+$top-panel-z-index: 1024;
 
 //Title bar (Core component)
 $title-bar-minimal-height: 130px;

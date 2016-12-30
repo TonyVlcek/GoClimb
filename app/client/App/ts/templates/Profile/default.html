@@ -1,0 +1,27 @@
+<div class="grid-block vertical gc-main-view">
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{'templates.app.profile.title'|translate}}</h1>
+		<div class="gc-menu">
+			<button type="button" class="gc-item" data-ui-sref="profile.edit">
+				<span class="fa fa-pencil gc-icon"></span> {{'templates.app.profile.edit'|translate}}
+			</button>
+		</div>
+	</div>
+
+	<div class="grid-container contain-left">
+		<h2 class="grid-content">{{profileCtrl.getUser().firstName}} {{profileCtrl.getUser().lastName}}</h2>
+		<div class="grid-content">
+			<ul class="no-bullet">
+				<li>{{'templates.app.profile.email'|translate}}: {{profileCtrl.getUser().email}}</li>
+				<li>{{'templates.app.profile.phone'|translate}}: {{profileCtrl.getUser().phone}}</li>
+				<li>{{'templates.app.profile.nick'|translate}}: {{profileCtrl.getUser().nick}}</li>
+				<li>{{'templates.app.profile.height'|translate}}: {{profileCtrl.getUser().height}} cm</li>
+				<li>{{'templates.app.profile.weight'|translate}}: {{profileCtrl.getUser().weight}} kg</li>
+				<li>{{'templates.app.profile.climbingSince'|translate}}: {{profileCtrl.getUser().climbingSince|date: 'yyyy MM. dd.'}}</li>
+				<li>{{'templates.app.profile.birthDate'|translate}}: {{profileCtrl.getUser().birthDate|date: 'yyyy MM. dd.'}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div data-ui-view class="gc-panel-view"></div>

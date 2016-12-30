@@ -1,0 +1,67 @@
+<style>
+	html, body {
+		height: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	body {
+		background: #f9f9f9;
+		position: relative;
+	}
+
+	.bounce-box {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.bounce-box > div {
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		border-radius: 100%;
+		background: #616161;
+		-webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+		animation: bouncedelay 1.4s infinite ease-in-out both;
+	}
+
+	.bounce-box .one {
+		-webkit-animation-delay: -0.32s;
+		animation-delay: -0.32s
+	}
+
+	.bounce-box .two {
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s
+	}
+
+	@-webkit-keyframes bouncedelay {
+		0%, 80%, 100% {
+			-webkit-transform: scale(0)
+		}
+
+		40% {
+			-webkit-transform: scale(1)
+		}
+	}
+
+	@keyframes bouncedelay {
+		0%, 80%, 100% {
+			-webkit-transform: scale(0);
+			transform: scale(0)
+		}
+
+		40% {
+			transform: scale(1);
+			-webkit-transform: scale(1)
+		}
+	}
+
+</style>
+<div class="bounce-box">
+	<div class="one"></div>
+	<div class="two"></div>
+	<div class="three"></div>
+</div>

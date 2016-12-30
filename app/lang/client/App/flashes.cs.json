@@ -2,6 +2,9 @@
 	"logs": {
 		"saved": "Přelez byl upraven."
 	},
+	"user": {
+		"saved": "Změny byly uloženy."
+	},
 	"error": {
 		"invalidForm": "Prosím vyplň všechna povinná pole."
 	}

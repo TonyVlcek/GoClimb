@@ -8,5 +8,17 @@
 		"noStyle": "Not finished",
 		"description": "Description",
 		"save": "Save"
+	},
+	"user": {
+		"nick": "Nick",
+		"firstName": "First name",
+		"lastName": "Last name",
+		"height": "Height",
+		"weight": "Weight",
+		"phone": "Phone",
+		"email": "Email",
+		"climbingSince": "Climbing since",
+		"birthDate": "Date of birth:",
+		"save": "Save"
 	}
 }

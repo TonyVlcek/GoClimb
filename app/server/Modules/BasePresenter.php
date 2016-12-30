@@ -3,6 +3,7 @@
 namespace GoClimb\Modules;
 
 use GoClimb\Model\Repositories\LoginTokenRepository;
+use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\UI\CdnLinkGenerator;
 use Kdyby\Translation\Translator;
 use Nette\Application\Request;
@@ -39,6 +40,9 @@ abstract class BasePresenter extends Presenter
 	/** @var CdnLinkGenerator */
 	protected $cdnLinkGenerator;
 
+	/** @var WallRepository */
+	private $wallRepository;
+
 
 	public function run(Request $request)
 	{
@@ -59,12 +63,13 @@ abstract class BasePresenter extends Presenter
 	}
 
 
-	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository, CdnLinkGenerator $imageLinkGenerator)
+	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository, CdnLinkGenerator $imageLinkGenerator, WallRepository $wallRepository)
 	{
 		$this->translator = $translator;
 		$this->applicationPartsManager = $applicationPartsManager;
 		$this->loginTokenRepository = $loginTokenRepository;
 		$this->cdnLinkGenerator = $imageLinkGenerator;
+		$this->wallRepository = $wallRepository;
 	}
 
 
@@ -187,6 +192,70 @@ abstract class BasePresenter extends Presenter
 	public function getRegisterLink($applicationToken, $backlink)
 	{
 		return $this->link('//:Auth:Dashboard:register', ['token' => $applicationToken, 'back' => $backlink]);
+	}
+
+
+	protected function initMenu()
+	{
+		$user = [
+			[
+				'text' => $this->translator->translate('templates.core.topMenu.me.settings'),
+				'href' => $this->link('//:App:Dashboard:default') . '/profile/edit',
+			]];
+
+		if ($wallAdminList = $this->wallAdminList()) {
+			$user = array_merge($user, [[
+				'text' => $this->translator->translate('templates.core.topMenu.me.admins'),
+				'divider' => TRUE,
+			]]);
+
+			$user = array_merge($user, $this->wallAdminList());
+
+			$user = array_merge($user, [[
+				'divider' => TRUE,
+			]]);
+		}
+
+		$user = array_merge($user, [
+			[
+				'text' => $this->translator->translate('templates.core.topMenu.me.logout'),
+				'href' => $this->getLogoutLink($this->getApplicationToken(), $this->link('//this', [$this::LOGOUT_PARAMETER => 1])),
+			],
+		]);
+
+		$this->template->data['menu'] = [
+			'walls' => $this->wallList(),
+			'app' => $this->link('//:App:Dashboard:default'),
+			'user' => $user,
+		];
+	}
+
+
+	private function wallList()
+	{
+		$wallList = [];
+		foreach ($this->wallRepository->getAll() as $wall) {
+			$wallList[] = [
+				'text' => $wall->getName(),
+				'href' => $this->link(':Wall:Front:Dashboard:default', ['wall' => $wall]),
+			];
+		}
+
+		return $wallList;
+	}
+
+
+	private function wallAdminList()
+	{
+		$wallList = [];
+		foreach ($this->wallRepository->getUsersAdmin($this->getUser()->getUserEntity()) as $wall) {
+			$wallList[] = [
+				'text' => $wall->getName(),
+				'href' => $this->link(':Wall:Admin:Dashboard:default', ['wall' => $wall]),
+			];
+		}
+
+		return $wallList;
 	}
 
 

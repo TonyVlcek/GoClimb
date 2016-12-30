@@ -3,6 +3,17 @@
 		"dashboard": {
 			"title": "Dashboard",
 			"edit": "Edit log"
+		},
+		"profile": {
+			"title": "Profile",
+			"edit": "Edit profile",
+			"email": "Email",
+			"phone": "Phone",
+			"nick": "Nick",
+			"height": "Height",
+			"weight": "Weight",
+			"birthDate": "Date of birth",
+			"climbingSince": "Climbing since"
 		}
 	},
 	"panel": {

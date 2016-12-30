@@ -104,6 +104,7 @@ services:
 	- GoClimb\Model\Rest\Updaters\BoulderUpdater
 	- GoClimb\Model\Rest\Updaters\EventUpdater
 	- GoClimb\Model\Rest\Updaters\LogUpdater
+	- GoClimb\Model\Rest\Updaters\UserUpdater
 	- GoClimb\Model\Rest\Updaters\NewsUpdater
 	- GoClimb\Model\Rest\Updaters\RoleUpdater
 	- GoClimb\Model\Rest\Updaters\RopeUpdater
