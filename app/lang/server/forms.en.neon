@@ -17,6 +17,24 @@ user:
 			remember: Remember me
 			continue: Continue
 
+	passwordReset:
+			fields:
+				reset: Reset
+				password: New password
+				passwordCheck: New password again
+			errors:
+				password:
+					required: Please enter password.
+					doesNotMatch: Passwords are not same.
+
+	confirmPasswordReset:
+				fields:
+					email: Email of account for password recovery
+					reset: Send
+				errors:
+					email:
+						notFound: User with this email not found.
+
 	register:
 		fields:
 			nick: Nick

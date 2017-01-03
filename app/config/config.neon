@@ -134,6 +134,8 @@ services:
 	- GoClimb\UI\Forms\User\ISignInFormFactory
 	- GoClimb\UI\Forms\User\IUserFormFactory
 	- GoClimb\UI\Forms\Wall\IWallFormFactory
+	- GoClimb\UI\Forms\User\IConfirmPasswordResetFormFactory
+	- GoClimb\UI\Forms\User\IPasswordResetFormFactory
 
 	# grids
 

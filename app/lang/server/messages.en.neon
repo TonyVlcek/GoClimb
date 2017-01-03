@@ -11,6 +11,10 @@ user:
 		success: Logout successful
 	register:
 		success: Register successful.
+	passwordResetConfirm:
+		success: Link for password reset has been sent to your email.
+	passwordReset:
+		success: Password has been changed.
 wall:
 	created: Wall has been created
 

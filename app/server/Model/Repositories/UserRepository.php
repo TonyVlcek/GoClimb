@@ -39,6 +39,15 @@ class UserRepository extends BaseRepository
 		return $this->getDoctrineRepository()->findOneBy(['email' => $email]);
 	}
 
+	/**
+	 * @param string $passwordReset
+	 * @return User|NULL
+	 */
+	public function getByPasswordReset($passwordReset)
+	{
+		return $this->getDoctrineRepository()->findOneBy(['passwordReset' => $passwordReset]);
+	}
+
 
 	/**
 	 * @param string $email

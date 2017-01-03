@@ -6,6 +6,11 @@
 	background: white;
 	padding: 15px;
 
+	&.success {
+		background: #DFF0D8;
+		border-color: darken(#DFF0D8, 10);
+	}
+
 	&.continue {
 		text-align: center;
 

@@ -17,6 +17,23 @@ user:
 			remember: Zapamatuj si mě
 			continue: Pokračovat
 
+	passwordReset:
+			fields:
+				reset: Reset
+				password: Nové heslo
+				passwordCheck: Nové heslo pro kontrolu
+			errors:
+				password:
+					required: Prosím zadej heslo.
+					doesNotMatch: Hesla se neshodují.
+
+	confirmPasswordReset:
+				fields:
+					email: Email účtu pro obnovu hesla
+					reset: Odeslat
+				errors:
+					email:
+						notFound: Uživatel s stímto emailem nebyl nalezen.
 	register:
 		fields:
 			nick: Přezdívka

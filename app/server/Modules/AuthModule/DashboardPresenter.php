@@ -4,11 +4,20 @@ namespace GoClimb\Modules\AuthModule;
 
 use GoClimb\Model\Entities\Application;
 use GoClimb\Model\Entities\LoginToken;
+use GoClimb\Model\Entities\User;
 use GoClimb\Model\Facades\AuthFacade;
+use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\UI\Forms\Form;
+use GoClimb\UI\Forms\User\IConfirmPasswordResetFormFactory;
 use GoClimb\UI\Forms\User\IContinueFormFactory;
+use GoClimb\UI\Forms\User\IPasswordResetFormFactory;
 use GoClimb\UI\Forms\User\IRegisterFormFactory;
 use GoClimb\UI\Forms\User\ISignInFormFactory;
+use Latte\Engine;
+use Nette\Mail\IMailer;
+use Nette\Mail\Message;
+use Nette\Security\Passwords;
+use Nette\Bridges\ApplicationLatte\ILatteFactory;
 
 
 final class DashboardPresenter extends BaseAuthPresenter
@@ -32,14 +41,37 @@ final class DashboardPresenter extends BaseAuthPresenter
 	/** @var AuthFacade */
 	private $authFacade;
 
+	/** @var IConfirmPasswordResetFormFactory */
+	private $confirmPasswordResetFormFactory;
 
-	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, IRegisterFormFactory $registerFormFactory, AuthFacade $authFacade)
+	/** @var IPasswordResetFormFactory */
+	private $passwordResetFormFactory;
+
+	/** @var UserRepository */
+	private $userRepository;
+
+	/** @var IMailer */
+	private $mailer;
+
+	/** @var Engine */
+	private $engine;
+
+	/** @var User */
+	private $userForReset;
+
+
+	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, IRegisterFormFactory $registerFormFactory, AuthFacade $authFacade, UserRepository $userRepository, IMailer $mailer, ILatteFactory $latteFactory, IConfirmPasswordResetFormFactory $confirmPasswordResetFormFactory, IPasswordResetFormFactory $passwordResetFormFactory)
 	{
 		parent::__construct();
 		$this->signInFormFactory = $signInFormFactory;
 		$this->continueFormFactory = $continueFormFactory;
 		$this->registerFormFactory = $registerFormFactory;
 		$this->authFacade = $authFacade;
+		$this->userRepository = $userRepository;
+		$this->mailer = $mailer;
+		$this->engine = $latteFactory->create();
+		$this->confirmPasswordResetFormFactory = $confirmPasswordResetFormFactory;
+		$this->passwordResetFormFactory = $passwordResetFormFactory;
 	}
 
 
@@ -57,6 +89,33 @@ final class DashboardPresenter extends BaseAuthPresenter
 		if ($this->user->isLoggedIn()) {
 			$this->setView('continue');
 		}
+	}
+
+
+	public function actionLogout($back)
+	{
+		$this->user->logout(TRUE);
+		$this->redirectUrl($back);
+	}
+
+
+	public function actionReset($back, $hash)
+	{
+		$this->template->back = $this->addTokenToUrl($back, NULL);
+		$this->back = $back;
+
+		$this->userForReset = $this->userRepository->getByPasswordReset($hash);
+
+		if (!$this->userForReset || !$this->userForReset->getPasswordReset()) {
+			$this->flashMessageError('user.passwordReset.invalidHash');
+			$this->redirect('confirm');
+		}
+	}
+
+
+	public function actionConfirm($back)
+	{
+		$this->template->back = $this->addTokenToUrl($back, NULL);
 	}
 
 
@@ -78,13 +137,6 @@ final class DashboardPresenter extends BaseAuthPresenter
 	{
 		$this->template->application = $application;
 		$this->template->isGoClimb = $application->getToken() === Application::APP_TOKEN;
-	}
-
-
-	public function actionLogout($back)
-	{
-		$this->user->logout(TRUE);
-		$this->redirectUrl($back);
 	}
 
 
@@ -115,6 +167,22 @@ final class DashboardPresenter extends BaseAuthPresenter
 	}
 
 
+	protected function createComponentConfirmResetForm()
+	{
+		$form = $this->confirmPasswordResetFormFactory->create();
+		$form->onSuccess[] = [$this, 'sendResetLink'];
+		return $form;
+	}
+
+
+	protected function createComponentResetForm()
+	{
+		$form = $this->passwordResetFormFactory->create();
+		$form->onSuccess[] = [$this, 'resetPassword'];
+		return $form;
+	}
+
+
 	public function loginUser(Form $form)
 	{
 		$values = $form->getValues();
@@ -128,6 +196,42 @@ final class DashboardPresenter extends BaseAuthPresenter
 		$values = $form->getValues();
 		$token = $this->authFacade->getLoginTokenForUser($this->getUser()->getUserEntity(), $values->remember);
 		$this->redirectLoggedUser($token);
+	}
+
+
+	public function sendResetLink(Form $form)
+	{
+		$user = $this->userRepository->getByEmail($form->values['email']);
+
+		$hash = $user->getId() . uniqid();
+		$user->setPasswordReset($hash);
+
+		$mail = new Message;
+		$mail->setSubject($this->translator->translate('emails.passwordReset.title'));
+		//TODO: Email?
+		$mail->setFrom('noreply@goclimb.cz', 'GoClimb');
+		$mail->addTo($user->getEmail(), $user->getFullName());
+
+		$link = $this->link("//:Auth:Dashboard:reset", ['back' => $this->back, 'hash' => $hash]);
+
+		$mail->setHtmlBody($this->engine->renderToString(__DIR__ . '/templates/passwordResetEmail.latte', ['link' => $link]));
+
+		$this->userRepository->save($user);
+		$this->mailer->send($mail);
+
+		$this->flashMessageSuccess('user.passwordResetConfirm.success');
+		$this->redirect('Dashboard:login', ['back' => $this->back]);
+	}
+
+
+	public function resetPassword(Form $form)
+	{
+		$this->userForReset->setPasswordReset(NULL);
+		$this->userForReset->setPassword(Passwords::hash($form->values['password']));
+		$this->userRepository->save($this->userForReset);
+
+		$this->flashMessageSuccess('user.passwordReset.success');
+		$this->redirect('Dashboard:login', ['back' => $this->back]);
 	}
 
 

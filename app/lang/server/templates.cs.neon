@@ -15,8 +15,13 @@ auth:
 			register: Vytvořit nový účet
 			notYou: Nejsi to ty?
 			login: Přihlásit se
+			forgotPassword: Zapomenuté heslo...
 		register:
 			register: Registrace do GoClimb.
+		confirm:
+			title: Vygenerovat odkaz pro obnovu hesla
+		reset:
+			title: Resetovat heslo
 
 app:
 	layout:
