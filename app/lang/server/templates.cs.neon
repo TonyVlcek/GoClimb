@@ -1,5 +1,14 @@
 core:
 	websiteName: GoClimb
+	topMenu:
+		walls: Stěny
+		logs: Deníček
+		menu: Menu
+		me:
+			title: Já
+			settings: Nastavení
+			admins: Administrace
+			logout: Odhlásit
 
 auth:
 	layout:
@@ -60,10 +69,6 @@ backend:
 
 
 admin:
-	loading:
-		loading: Načítám
-		madeWithLove: Made with love.
-		madeBy: Made by GoClimb.
 	error:
 		forbidden:
 			title: Tak tohle ne!

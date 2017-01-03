@@ -45,7 +45,8 @@
 	}
 
 	.button {
-		border-radius: $table-button-size;
+		white-space: nowrap;
+		border-radius: 0;
 		height: $table-button-size;
 		font-size: 1.1rem;
 		margin: 0 !important;

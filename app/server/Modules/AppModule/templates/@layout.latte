@@ -10,104 +10,11 @@
 	<link rel="stylesheet" n:cdnHref="assets/app.css">
 </head>
 <body>
-<div class="vertical grid-frame">
-	<div>
-		<div class="grid-content shrink collapse">
-			<div class="menu-group dark top-panel">
-				<div class="menu-group-left">
-					<ul class="dark menu-bar">
-						<li n:foreach="$walls as $wall">
-							<a n:href=":Wall:Front:Dashboard:default, wall => $wall" target="_blank">{$wall->getName()}</a>
-						</li>
-					</ul>
-				</div>
-				<div class="menu-group-right">
-					<ul class="dark menu-bar">
-						<li><a href="javascript: void(0);">{$user->getUserEntity()->getDisplayedName()}</a></li>
-						<li><a href="{$logoutLink}">{_templates.app.layout.logout}</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="loading-box" data-app>
-		<style>
-			html, body {
-				height: 100%;
-				padding: 0;
-				margin: 0;
-			}
-
-			body {
-				background: #f9f9f9;
-				font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-				-webkit-font-smoothing: antialiased;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.loading-box {
-				margin: auto;
-				margin-left: 45%;
-			}
-
-			h1 {
-				color: #004876;
-				font-size: 2.75rem;
-				font-weight: normal;
-				line-height: 1.4;
-				margin: 0;
-			}
-
-			b {
-				padding-top: 0.3rem;
-				padding-left: 2px;
-				color: #6f6f6f;
-				line-height: 1;
-				font-weight: normal;
-				display: inline-block;
-			}
-
-			.dot-box {
-				position: relative;
-			}
-
-			.dot-1 {
-				position: absolute;
-				animation: upAnimation 1.5s infinite;
-			}
-
-			.dot-2 {
-				position: absolute;
-				left: 15px;
-				animation: upAnimation 1.5s infinite 0.2s;
-			}
-
-			.dot-3 {
-				position: absolute;
-				left: 30px;
-				animation: upAnimation 1.5s infinite 0.4s;
-			}
-
-			@keyframes upAnimation {
-				0%, 100% {
-					transform: translateY(0);
-				}
-
-				50% {
-					transform: translateY(-20px);
-				}
-
-			}
-		</style>
-		<h1>{_templates.admin.loading.loading}
-			<span class="dot-box"><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></span>
-		</h1>
-		<b>{_templates.admin.loading.madeWithLove}</b><br>
-		<b>{_templates.admin.loading.madeBy}</b>
-	</div>
+{include ../../templates/includes/topPanel.latte}
+<div class="loading-box" data-app>
+	{include ../../templates/includes/loading.latte}
 </div>
+
 <script n:cdnSrc="assets/app.js"></script>
 <script n:syntax="double">(function (a, m, s, l){a.module(m).config([s,function(t){t.preferredLanguage(l).fallbackLanguage(l)}])})(angular, 'GoClimb', '$translateProvider',{{$locale}})</script>
 <script n:syntax="double">(function (a, m, d){var g=a.module(m),k;for(k in d){d.hasOwnProperty(k)?g.constant(k,d[k]):0;}})(angular, 'GoClimb',{{$data}})</script>

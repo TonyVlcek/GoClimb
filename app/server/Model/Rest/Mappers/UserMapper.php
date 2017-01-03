@@ -3,6 +3,7 @@
 namespace GoClimb\Model\Rest\Mappers;
 
 use GoClimb\Model\Entities\User;
+use GoClimb\Model\Rest\Utils;
 
 
 class UserMapper
@@ -32,7 +33,16 @@ class UserMapper
 	{
 		return [
 			'id' => $user->getId(),
+			'email' => $user->getEmail(),
 			'name' => $user->getDisplayedName(),
+			'weight' => $user->getWeight(),
+			'height' => $user->getHeight(),
+			'phone' => $user->getPhone(),
+			'climbingSince' => Utils::formatDateTime($user->getClimbingSince()),
+			'birthDate' => Utils::formatDateTime($user->getBirthDate()),
+			'firstName' => $user->getFirstName(),
+			'lastName' => $user->getLastName(),
+			'nick' => $user->getNick(),
 		];
 	}
 
@@ -47,6 +57,7 @@ class UserMapper
 			'id' => $user->getId(),
 			'name' => $user->getDisplayedName(),
 			'email' => $user->getEmail(),
+			'basic' => true,
 		];
 	}
 

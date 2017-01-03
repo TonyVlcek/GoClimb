@@ -39,15 +39,18 @@ class DashboardPresenter extends BaseAppPresenter
 			$shortcut = $language->getShortcut();
 			$languages[$shortcut] = $this->link('//this', ['path' => '__PATH__', 'locale' => $shortcut]);
 		}
+
 		$this->template->data = [
 			'availableLanguages' => $languages,
 			'apiUrl' => $this->link('//:Rest:V1:Dashboard:default'),
 			'restToken' => $this->user->isLoggedIn() ? $this->restFacade->getOrGenerateGlobalRestToken($this->user->getUserEntity(), $this->getHttpRequest()->getRemoteAddress())->getToken() : NULL,
 			'cdnUrl' => $this->cdnLinkGenerator->getCdnUrl(),
 			'permissions' => $this->getPermissions(),
-			'user' => $this->user->isLoggedIn() ? UserMapper::mapBasicInfo($this->user->getUserEntity()) : NULL,
+			'user' => $this->user->isLoggedIn() ? UserMapper::map($this->user->getUserEntity()) : NULL,
 			'links' => [],
 		];
+
+		$this->initMenu();
 		$this->template->locale = $this->locale;
 	}
 
@@ -88,6 +91,5 @@ class DashboardPresenter extends BaseAppPresenter
 		}
 		return $permissions;
 	}
-
 
 }

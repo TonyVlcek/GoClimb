@@ -1,3 +1,71 @@
-.top-panel {
-	background: #222222;
+//.top-panel {
+//	background: #222222;
+//}
+
+.#{$class-prefix}-top-panel {
+	background: $top-panel-background;
+	z-index: $top-panel-z-index;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+	width: 100%;
+	height: 50px;
+	top: 0;
+	padding: 0 1rem;
+	position: absolute;
+	clear: both;
+
+	.gc-menu {
+		margin: 0;
+	}
+
+	.gc-menu > li {
+		position: relative;
+		float: left;
+	}
+
+	.gc-menu > li > a, .gc-menu > li > div > a {
+		height: 100%;
+		padding: 13px 15px;
+		font-size: 15px;
+		background: transparent;
+		color: $top-panel-color;
+		border: 0;
+		vertical-align: middle;
+		display: block;
+
+		&:hover {
+			background: $top-panel-hover-background;
+		}
+	}
+
+	.#{$class-prefix}-menu-left {
+		list-style: none;
+		float: left;
+		height: 100%;
+	}
+
+	.#{$class-prefix}-menu-right {
+		list-style: none;
+		float: right;
+		height: 100%;
+
+		.wrap-dd-menu {
+			& .dropdown {
+				right: 0;
+			}
+		}
+	}
+
+	.wrap-dd-menu {
+		@include breakpoint(small only) {
+			position: inherit !important;
+		}
+	}
+}
+
+body {
+	padding-top: 50px;
+}
+
+.grid-frame {
+	height: calc(100vh - 50px);
 }

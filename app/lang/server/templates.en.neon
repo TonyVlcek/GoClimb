@@ -1,5 +1,15 @@
 core:
 	websiteName: GoClimb
+	topMenu:
+		walls: Walls
+		logs: Logs
+		menu: Menu
+		me:
+			title: Me
+			settings: Settings
+			admins: Admins
+			logout: Logout
+
 
 auth:
 	layout:
@@ -59,10 +69,6 @@ backend:
 
 
 admin:
-	loading:
-		loading: Loading
-		madeWithLove: "Made with love."
-		madeBy: "Made by GoClimb."
 	error:
 		forbidden:
 			title: Forbidden

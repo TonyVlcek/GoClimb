@@ -6,6 +6,7 @@ namespace GoClimb
 	var goClimb = angular.module('GoClimb', [
 		'ui.router',
 		'ngAnimate',
+		'ngDropdowns',
 		'pascalprecht.translate',
 		'smart-table',
 		'foundation',

@@ -2,7 +2,8 @@
 	"app": {
 		"menu": {
 			"dashboard": "Přelezy",
-			"about": "O GoClimb"
+			"about": "O GoClimb",
+			"profile": "Profil"
 		}
 	}
 }

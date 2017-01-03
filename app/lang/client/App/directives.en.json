@@ -2,7 +2,8 @@
 	"app": {
 		"menu": {
 			"dashboard": "Dashboard",
-			"about": "About"
+			"about": "About",
+			"profile": "Profile"
 		}
 	}
 }

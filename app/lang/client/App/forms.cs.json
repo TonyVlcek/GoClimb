@@ -8,5 +8,17 @@
 		"noStyle": "Nedokončeno",
 		"description": "Poznámka",
 		"save": "Uložit"
+	},
+	"user": {
+		"nick": "Přezdívka",
+		"firstName": "Jméno",
+		"lastName": "Příjmení",
+		"height": "Výška",
+		"weight": "Váha",
+		"phone": "Telefon",
+		"email": "Email",
+		"climbingSince": "Lezu od",
+		"birthDate": "Narozeniny",
+		"save": "Uložit"
 	}
 }

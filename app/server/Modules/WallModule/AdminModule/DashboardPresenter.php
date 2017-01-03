@@ -54,8 +54,9 @@ class DashboardPresenter extends BaseAdminPresenter
 			'user' => $this->user->isLoggedIn() ? UserMapper::mapBasicInfo($this->user->getUserEntity()) : NULL,
 			'links' => [
 				'frontend' => $this->link('//:Wall:Front:Dashboard:default'),
-			],
+			]
 		];
+		$this->initMenu();
 		$this->template->locale = $this->locale;
 	}
 

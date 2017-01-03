@@ -32,6 +32,7 @@
 
 
 /// <reference path='ts/Controllers/BaseController.ts' />
+/// <reference path='ts/Controllers/MenuController.ts' />
 
 
 /// <reference path="ts/Directives/BaseDirective.ts" />
@@ -56,6 +57,7 @@
 /// <reference path="ts/Model/Entities/IRoute.ts" />
 /// <reference path="ts/Model/Entities/IBoulder.ts" />
 /// <reference path="ts/Model/Entities/IRope.ts" />
+/// <reference path="ts/Model/Entities/IUser.ts" />
 /// <reference path="ts/Model/Entities/IWallDetails.ts" />
 
 

@@ -3,6 +3,17 @@
 		"dashboard": {
 			"title": "Přelezy",
 			"edit": "Upravit"
+		},
+		"profile": {
+			"title": "Profil",
+			"edit": "Editovat profil",
+			"email": "Email",
+			"phone": "Telefon",
+			"nick": "Přezdívka",
+			"height": "Výška",
+			"weight": "Váha",
+			"birthDate": "Narozeniny",
+			"climbingSince": "Lezu od"
 		}
 	},
 	"panel": {

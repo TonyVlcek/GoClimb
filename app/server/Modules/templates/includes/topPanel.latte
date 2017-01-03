@@ -1,0 +1,15 @@
+<div class="gc-top-panel" ng-controller="MenuController as MenuCtrl">
+	<ul class="gc-menu gc-menu-left">
+		<li class="hide-for-small-only"><a dropdown-menu="MenuCtrl.menu.walls"><span class="fa fa-compass"></span> {_'templates.core.topMenu.walls'} <span class="fa fa-angle-down"></span></a></li>
+		{ifCurrent :App:Dashboard:default}
+			<li class="hide-for-large"><a data-zf-toggle="admin-menu"><span class="fa fa-navicon"></span> {_'templates.core.topMenu.menu'}</a></li>
+		{/ifCurrent}
+		{ifCurrent :Wall:Admin:Dashboard:default}
+			<li class="hide-for-large"><a data-zf-toggle="admin-menu"><span class="fa fa-navicon"></span> {_'templates.core.topMenu.menu'}</a></li>
+		{/ifCurrent}
+	</ul>
+	<ul class="gc-menu gc-menu-right">
+		<li><a href="{{ MenuCtrl.menu.app}}" class="gc-btn"><span class="fa fa-book"></span> {_'templates.core.topMenu.logs'}</a></li>
+		<li><a dropdown-menu="MenuCtrl.menu.user" class="gc-btn"><span class="fa fa-user"></span> {_'templates.core.topMenu.me.title'} <span class="fa fa-angle-down"></span></a></li>
+	</ul>
+</div>
