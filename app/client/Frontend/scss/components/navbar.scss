@@ -1,35 +1,39 @@
-.navbar {
-	background: $navbar-background;
-	-webkit-font-smoothing: antialiased;
-	border-radius: 0;
+.gc-navbar {
+	padding: 16px;
+	background: white;
 	border: 0;
-	margin-bottom: 0;
+	border-radius: 0;
+	border-bottom: 1px solid #CDCDCD;
 
-	.navbar-nav .active a {
-		background: darken($navbar-background, 5);
-	}
+	.gc-navbar-btn {
+		border-radius: 0 !important;
+		background: $global-theme-accent-color;
+		color: $global-theme-accent-font-color !important;
 
-	.navbar-nav li a {
-		font-weight: bold;
-		color: $navbar-btn-color;
-	}
+		text-decoration: none;
+		font-size: 0.9rem;
+		border: none;
+		padding: 0.5rem 1rem !important;
+		margin: 0.45rem;
+		cursor: pointer;
 
-	.navbar-nav li a:hover, .navbar-nav .open .dropdown-toggle {
-		background: $navbar-btn-hover !important;
-	}
+		transition: background 0.25s ease-out;
 
-	.dropdown-menu {
-		border-radius: 0;
-		background: lighten($navbar-background, 10);
-		border: 0;
-
-		li a {
-			padding-top: 10px;
-			padding-bottom: 10px;
-
-			&:hover {
-				color: #FFFFFF;
-			}
+		&:hover {
+			background: lighten($global-theme-accent-color, 6) !important;
 		}
 	}
+}
+
+.navbar-brand-centered {
+	position: absolute;
+	left: 50%;
+	display: block;
+	width: 160px;
+	text-align: center;
+	background-color: transparent;
+}
+.navbar>.container .navbar-brand-centered,
+.navbar>.container-fluid .navbar-brand-centered {
+	margin-left: -80px;
 }

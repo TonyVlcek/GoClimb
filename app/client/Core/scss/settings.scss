@@ -1,7 +1,8 @@
 //Global
 $global-theme-background: #FFFFFF;
 $global-theme-color: set-text-color($global-theme-background);
-$global-theme-accent-color: #004876; //#162430; //#2E79F4;
+// #004876  => "Administrační modrá"
+$global-theme-accent-color: #004876 !default; //#162430; //#2E79F4;
 $global-font-color: #222222; // Same as in foundation
 
 $text-opacaty: 0.13;
@@ -25,6 +26,7 @@ $class-prefix: 'gc';
 
 //Top bar (Core component)
 $top-panel-background: #616161; //#2D2E2F
+$top-panel-height: 50px;
 $top-panel-hover-background: transparentize(invert($top-panel-background), 0.86);
 $top-panel-color: #FFFFFF;
 $top-panel-dropdown-background: #FAFAFA;

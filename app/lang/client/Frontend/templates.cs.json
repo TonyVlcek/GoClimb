@@ -6,7 +6,8 @@
 		"logout": "Odhlásit se",
 		"goToLogs": "Deníčky",
 		"rope": "Lano",
-		"boulder": "Boulder"
+		"boulder": "Boulder",
+		"back": "Zpět"
 	},
 	"panel": {
 		"close": "Zrušit"

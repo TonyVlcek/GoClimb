@@ -10,6 +10,7 @@ namespace GoClimb.Frontend.States
 	import LogsFacade = GoClimb.Core.Model.Facades.LogsFacade;
 	import BouldersFacade = GoClimb.Core.Model.Facades.BouldersFacade;
 	import RopesFacade = GoClimb.Core.Model.Facades.RopesFacade;
+	import UserService = GoClimb.Admin.Services.UserService;
 
 	export class LogCreateState extends BasePanelState
 	{
@@ -17,7 +18,12 @@ namespace GoClimb.Frontend.States
 		public url = 'create/{type}/{id}';
 		public templateUrl = 'app/client/Frontend/ts/templates/Logs/create.html';
 		public resolve = {
-			log: (): ILog => {
+			user: ['userService', (userService: UserService) =>
+			{
+				userService.requireLogin();
+			}],
+			log: (): ILog =>
+			{
 				return {
 					style: null,
 					route: null,
@@ -25,18 +31,24 @@ namespace GoClimb.Frontend.States
 					description: null,
 				};
 			},
-			styles: ['stylesFacade', (stylesFacade: StylesFacade) => {
-				return new Promise((resolve) => {
-					stylesFacade.getStyles((styles) => {
+			styles: ['stylesFacade', (stylesFacade: StylesFacade) =>
+			{
+				return new Promise((resolve) =>
+				{
+					stylesFacade.getStyles((styles) =>
+					{
 						resolve(styles);
 					})
 				});
 			}],
-			route: ['$stateParams', 'ropesFacade', 'bouldersFacade', ($stateParams, ropesFacade: RopesFacade, bouldersFacade: BouldersFacade) => {
+			route: ['$stateParams', 'ropesFacade', 'bouldersFacade', ($stateParams, ropesFacade: RopesFacade, bouldersFacade: BouldersFacade) =>
+			{
 				switch ($stateParams.type) {
 					case 'rope':
-						return new Promise((resolve, reject) => {
-							ropesFacade.getRope($stateParams.id, (rope) => {
+						return new Promise((resolve, reject) =>
+						{
+							ropesFacade.getRope($stateParams.id, (rope) =>
+							{
 								if (rope) {
 									resolve(rope);
 								} else {
@@ -45,8 +57,10 @@ namespace GoClimb.Frontend.States
 							});
 						});
 					case 'boulder':
-						return new Promise((resolve, reject) => {
-							bouldersFacade.getBoulder($stateParams.id, (boulder) => {
+						return new Promise((resolve, reject) =>
+						{
+							bouldersFacade.getBoulder($stateParams.id, (boulder) =>
+							{
 								if (boulder) {
 									resolve(boulder);
 								} else {
@@ -61,8 +75,10 @@ namespace GoClimb.Frontend.States
 		};
 
 
-		public controller = ['$scope', 'route', 'log', 'styles', '$state', 'flashMessageSender', 'logsFacade', ($scope, route, log, styles, $state: IStateService, flashMessageSender: FlashMessageSender, logsFacade: LogsFacade) => {
-			this.data.canLeave = () => {
+		public controller = ['$scope', 'route', 'log', 'styles', '$state', 'flashMessageSender', 'logsFacade', ($scope, route, log, styles, $state: IStateService, flashMessageSender: FlashMessageSender, logsFacade: LogsFacade) =>
+		{
+			this.data.canLeave = () =>
+			{
 				return !($scope.logForm && $scope.logForm.$dirty);
 			};
 
@@ -71,7 +87,8 @@ namespace GoClimb.Frontend.States
 			$scope.styles = styles;
 			$scope.route = route;
 
-			$scope.save = () => {
+			$scope.save = () =>
+			{
 				if ($scope.logForm.$invalid) {
 					flashMessageSender.sendError('flashes.logs.error.invalidForm');
 					return;
@@ -79,14 +96,15 @@ namespace GoClimb.Frontend.States
 
 				$scope.saving = true;
 
-				logsFacade.createLog($scope.log, route, (log: ILog) => {
+				logsFacade.createLog($scope.log, route, (log: ILog) =>
+				{
 					$scope.logForm.$setPristine();
 					$scope.saving = false;
 					flashMessageSender.sendSuccess('flashes.logs.created.success');
 					$state.go('^');
 				});
 			};
-		 }];
+		}];
 
 	}
 

@@ -6,7 +6,8 @@
 		"logout": "Logout",
 		"goToLogs": "Go to Logs",
 		"rope": "Rope",
-		"boulder": "Boulder"
+		"boulder": "Boulder",
+		"back": "Back"
 	},
 	"panel": {
 		"close": "Close"

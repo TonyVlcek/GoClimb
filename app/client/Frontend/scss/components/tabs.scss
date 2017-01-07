@@ -1,6 +1,15 @@
-.nav-tabs{
+.nav-tabs {
+	text-align: center;
 	margin-top: 30px;
-	& > li > a {
-		border-radius: 0;
+	& > li {
+		float: none;
+		display: inline-block;
+		& > a {
+			border-radius: 0;
+		}
 	}
+}
+
+.tab-pane {
+	margin-top: 30px;
 }

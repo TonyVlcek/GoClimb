@@ -4,6 +4,7 @@ core:
 		walls: Stěny
 		logs: Deníček
 		menu: Menu
+		login: Přihlásit se
 		me:
 			title: Já
 			settings: Nastavení

@@ -4,6 +4,7 @@ core:
 		walls: Walls
 		logs: Logs
 		menu: Menu
+		login: Login
 		me:
 			title: Me
 			settings: Settings

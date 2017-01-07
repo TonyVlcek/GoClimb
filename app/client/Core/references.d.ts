@@ -16,6 +16,7 @@
 /// <reference path="ts/Services/FlashMessageType.ts" />
 /// <reference path="ts/Services/FlashMessageSender.ts" />
 /// <reference path="ts/Services/LanguageService.ts" />
+/// <reference path="ts/Services/UserService.ts" />
 
 /// <reference path="ts/Plugins/PluginDefinition.ts" />
 
