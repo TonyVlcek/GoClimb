@@ -134,6 +134,15 @@
 						<input type="datetime-local" ng-model="rope.dateRemoved">
 					</label>
 				</div>
+
+				<div class="grid-content noscroll" data-ng-show="displayRest()">
+					<label>
+						{{'forms.ropes.builder'|translate}}:
+						<span class="inline-label">
+							<select name="builder" data-ng-model="rope.builder" data-ng-options="option.name for option in builders.getAsArray() track by option.id"></select>
+						</span>
+					</label>
+				</div>
 				<div class="notitle"></div>
 
 				<div class="grid-content small-12">

@@ -51,6 +51,7 @@
 		},
 		"dateCreated": "Postaveno dne",
 		"dateRemoved": "Sundáno dne",
+		"builder": "Stavěč",
 		"save": "Uložit"
 	},
 	"boulders": {
@@ -65,6 +66,7 @@
 		"colors": "Barvy",
 		"dateCreated": "Postaveno dne",
 		"dateRemoved": "Sundáno dne",
+		"builder": "Stavěč",
 		"save": "Uložit"
 	}
 }

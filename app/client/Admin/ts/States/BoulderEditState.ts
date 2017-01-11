@@ -13,6 +13,9 @@ namespace GoClimb.Admin.States
 	import ITranslateService = angular.translate.ITranslateService;
 	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
 	import IStateService = angular.ui.IStateService;
+	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
+	import Utils = GoClimb.Core.Utils.Utils;
+	import IUser = GoClimb.Core.Model.Entities.IUser;
 
 	export class BoulderEditState extends BasePanelState
 	{
@@ -39,11 +42,18 @@ namespace GoClimb.Admin.States
 					});
 				});
 			}],
+			builders: ['rolesFacade', (rolesFacade: RolesFacade) => {
+				return new Promise((resolve) => {
+					rolesFacade.getBuilders((users) => {
+						resolve(users);
+					});
+				})
+			}],
 		};
 
 
-		public controller = ['$scope', 'boulder', 'sectors', 'bouldersFacade', 'sectorsFacade', 'flashMessageSender',
-			($scope, boulder: IBoulder, sectors: ISector[], bouldersFacade: BouldersFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender) => {
+		public controller = ['$scope', 'boulder', 'sectors', 'builders', 'bouldersFacade', 'sectorsFacade', 'flashMessageSender',
+			($scope, boulder: IBoulder, sectors: ISector[], builders: IndexedArray<IUser>, bouldersFacade: BouldersFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender) => {
 
 			this.data.canLeave = () => {
 				return !($scope.boulderForm && $scope.boulderForm.$dirty);
@@ -51,6 +61,11 @@ namespace GoClimb.Admin.States
 
 			this.updateBoulder(boulder, sectors);
 
+			if (!builders.getIndex(boulder.builder.id.toString())) {
+				builders.setIndex(boulder.builder.id.toString(), boulder.builder as any);
+			}
+
+			$scope.builders = builders;
 			$scope.saving = false;
 			$scope.boulder = boulder;
 			$scope.sectors = sectors;

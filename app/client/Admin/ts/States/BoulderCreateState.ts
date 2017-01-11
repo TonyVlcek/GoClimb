@@ -13,6 +13,10 @@ namespace GoClimb.Admin.States
 	import ILine = GoClimb.Core.Model.Entities.ILine;
 	import ITranslateService = angular.translate.ITranslateService;
 	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
+	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
+	import IUser = GoClimb.Core.Model.Entities.IUser;
+	import UserFacade = GoClimb.Core.Model.Facades.UserFacade;
+	import Utils = GoClimb.Core.Utils.Utils;
 
 	export class BoulderCreateState extends BasePanelState
 	{
@@ -42,16 +46,24 @@ namespace GoClimb.Admin.States
 					});
 				});
 			}],
+			builders: ['rolesFacade', (rolesFacade: RolesFacade) => {
+				return new Promise((resolve) => {
+					rolesFacade.getBuilders((users) => {
+						resolve(users);
+					});
+				})
+			}],
 		};
 
 
-		public controller = ['$scope', 'boulder', 'sectors', 'bouldersFacade', 'sectorsFacade', 'flashMessageSender', '$state',
-			($scope, boulder, sectors, bouldersFacade: BouldersFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender, $state: IStateService) => {
+		public controller = ['$scope', 'boulder', 'sectors', 'builders', 'bouldersFacade', 'sectorsFacade', 'flashMessageSender', '$state', 'userFacade',
+			($scope, boulder, sectors, builders, bouldersFacade: BouldersFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender, $state: IStateService, userFacade: UserFacade) => {
 
 			this.data.canLeave = () => {
 				return !($scope.boulderForm && $scope.boulderForm.$dirty);
 			};
 
+			$scope.builders = builders;
 			$scope.saving = false;
 			$scope.boulder = boulder;
 			$scope.sectors = sectors;
@@ -59,6 +71,14 @@ namespace GoClimb.Admin.States
 			$scope.sectorSaving = false;
 			$scope.newLine = null;
 			$scope.lineSaving = false;
+
+			//Probably should be in resolve section
+			userFacade.getLoggedUser((user: IUser) => {
+				$scope.boulder.builder = {
+					'id': user.id,
+					'name': user.nick
+				}
+			});
 
 			$scope.isSectorOk = () => {
 				return $scope.boulder.sector && $scope.boulder.sector.id;

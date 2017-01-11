@@ -6,9 +6,11 @@ namespace GoClimb.Core.Utils
 		private arrayData: T[] = [];
 
 
-		constructor(data: {[key: string]: T})
+		constructor(data: {[key: string]: T} = null)
 		{
-			this.setData(data);
+			if (data) {
+				this.setData(data);
+			}
 		}
 
 		public setData(value: {[key: string]: T})

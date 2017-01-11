@@ -13,6 +13,8 @@ namespace GoClimb.Admin.States
 	import ILine = GoClimb.Core.Model.Entities.ILine;
 	import ITranslateService = angular.translate.ITranslateService;
 	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
+	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
+	import Utils = GoClimb.Core.Utils.Utils;
 
 	export class RopeEditState extends BasePanelState
 	{
@@ -43,14 +45,21 @@ namespace GoClimb.Admin.States
 				return new Promise((resolve) => {
 					parametersFacade.getParameters((parameters) => {
 						resolve(parameters);
-					})
+					});
+				})
+			}],
+			builders: ['rolesFacade', (rolesFacade: RolesFacade) => {
+				return new Promise((resolve) => {
+					rolesFacade.getBuilders((users) => {
+						resolve(users);
+					});
 				})
 			}],
 		};
 
 
-		public controller = ['$scope', 'rope', 'sectors', 'parameters', 'ropesFacade', 'sectorsFacade', 'flashMessageSender',
-			($scope, rope: IRope, sectors: ISector[], parameters, ropesFacade: RopesFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender) => {
+		public controller = ['$scope', 'rope', 'sectors', 'parameters', 'builders', 'ropesFacade', 'sectorsFacade', 'flashMessageSender',
+			($scope, rope: IRope, sectors: ISector[], parameters, builders, ropesFacade: RopesFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender) => {
 
 			this.data.canLeave = () => {
 				return !($scope.ropeForm && $scope.ropeForm.$dirty);
@@ -58,6 +67,11 @@ namespace GoClimb.Admin.States
 
 			this.updateRope(rope, sectors);
 
+			if (!builders.getIndex(rope.builder.id.toString())) {
+				builders.setIndex(rope.builder.id.toString(), rope.builder as any);
+			}
+
+			$scope.builders = builders;
 			$scope.parameters = parameters;
 			$scope.saving = false;
 			$scope.rope = rope;

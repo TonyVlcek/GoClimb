@@ -7,7 +7,6 @@ namespace GoClimb\Model\Rest\Updaters;
 
 use GoClimb\Model\Entities\Route;
 use GoClimb\Model\Entities\RouteParameter;
-use GoClimb\Model\Entities\Wall;
 use GoClimb\Model\Enums\Parameter;
 use GoClimb\Model\MappingException;
 use GoClimb\Model\Repositories\ColorRepository;
@@ -16,6 +15,7 @@ use GoClimb\Model\Repositories\LineRepository;
 use GoClimb\Model\Repositories\ParameterRepository;
 use GoClimb\Model\Repositories\RouteParameterRepository;
 use GoClimb\Model\Repositories\SectorRepository;
+use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Model\Rest\Utils;
 use stdClass;
 
@@ -41,8 +41,10 @@ abstract class RouteUpdater
 	/** @var RouteParameterRepository */
 	private $routeParameterRepository;
 
+	/** @var UserRepository */
+	private $userRepository;
 
-	public function __construct(LineRepository $lineRepository, SectorRepository $sectorRepository, DifficultyRepository $difficultyRepository, ColorRepository $colorRepository, ParameterRepository $parameterRepository, RouteParameterRepository $routeParameterRepository)
+	public function __construct(LineRepository $lineRepository, SectorRepository $sectorRepository, DifficultyRepository $difficultyRepository, ColorRepository $colorRepository, ParameterRepository $parameterRepository, RouteParameterRepository $routeParameterRepository, UserRepository $userRepository)
 	{
 		$this->lineRepository = $lineRepository;
 		$this->sectorRepository = $sectorRepository;
@@ -50,6 +52,7 @@ abstract class RouteUpdater
 		$this->colorRepository = $colorRepository;
 		$this->parameterRepository = $parameterRepository;
 		$this->routeParameterRepository = $routeParameterRepository;
+		$this->userRepository = $userRepository;
 	}
 
 
@@ -133,6 +136,10 @@ abstract class RouteUpdater
 				$route->removeRouteParameter($routeParameter);
 			}
 		}
+
+		// user
+		Utils::checkProperty($data, 'builder', TRUE);
+		$route->setBuilder($this->userRepository->getById($data->builder->id));
 
 		// done
 		return $route;

@@ -13,6 +13,10 @@ namespace GoClimb.Admin.States
 	import ILine = GoClimb.Core.Model.Entities.ILine;
 	import ITranslateService = angular.translate.ITranslateService;
 	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
+	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
+	import IUser = GoClimb.Core.Model.Entities.IUser;
+	import UserFacade = GoClimb.Core.Model.Facades.UserFacade;
+	import Utils = GoClimb.Core.Utils.Utils;
 
 	export class RopeCreateState extends BasePanelState
 	{
@@ -49,16 +53,24 @@ namespace GoClimb.Admin.States
 					})
 				})
 			}],
+			builders: ['rolesFacade', (rolesFacade: RolesFacade) => {
+				return new Promise((resolve) => {
+					rolesFacade.getBuilders((users) => {
+						resolve(users);
+					});
+				})
+			}],
 		};
 
 
-		public controller = ['$scope', 'rope', 'sectors', 'parameters', 'ropesFacade', 'sectorsFacade', 'flashMessageSender', '$state',
-			($scope, rope, sectors, parameters, ropesFacade: RopesFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender, $state: IStateService) => {
+		public controller = ['$scope', 'rope', 'sectors', 'parameters', 'builders', 'ropesFacade', 'sectorsFacade', 'flashMessageSender', '$state', 'userFacade',
+			($scope, rope, sectors, parameters, builders, ropesFacade: RopesFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender, $state: IStateService, userFacade: UserFacade) => {
 
 			this.data.canLeave = () => {
 				return !($scope.ropeForm && $scope.ropeForm.$dirty);
 			};
 
+			$scope.builders = builders;
 			$scope.parameters = parameters;
 			$scope.saving = false;
 			$scope.rope = rope;
@@ -67,6 +79,14 @@ namespace GoClimb.Admin.States
 			$scope.sectorSaving = false;
 			$scope.newLine = null;
 			$scope.lineSaving = false;
+
+			//Probably should be in resolve section
+			userFacade.getLoggedUser((user: IUser) => {
+				$scope.rope.builder = {
+					  'id': user.id,
+					  'name': user.nick
+				}
+			});
 
 			$scope.isSectorOk = () => {
 				return $scope.rope.sector && $scope.rope.sector.id;
