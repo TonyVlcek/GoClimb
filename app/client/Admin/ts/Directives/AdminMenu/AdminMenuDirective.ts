@@ -6,8 +6,7 @@ namespace GoClimb.Admin.Directives
 	export class AdminMenuDirective extends BaseDirective
 	{
 
-		public templateUrl: string = 'app/client/Admin/ts/Directives/AdminMenu/AdminMenuDirective.html'
-
+		public templateUrl: string = 'app/client/Admin/ts/Directives/AdminMenu/AdminMenuDirective.html';
 	}
 
 	AdminMenuDirective.register(angular, 'adminMenu');

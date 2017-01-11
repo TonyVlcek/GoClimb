@@ -25,9 +25,9 @@
 
 	.gc-menu > li > a, .gc-menu > li > div > a {
 		height: 100%;
-		padding: 13px 15px;
-		font-size: 15px;
-		line-height: 24px;
+		padding: rem-calc(13px) rem-calc(15px);
+		font-size: rem-calc(15px);
+		line-height: rem-calc(24px);
 		text-decoration: none !important;
 		background: transparent;
 		color: $top-panel-color;
@@ -67,9 +67,9 @@
 }
 
 body {
-	padding-top: 50px;
+	padding-top: 3.125rem;
 }
 
 .grid-frame {
-	height: calc(100vh - 50px);
+	height: calc(100vh - 3.125rem);
 }

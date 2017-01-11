@@ -11,4 +11,9 @@ namespace GoClimb
 		});
 	}]);
 
+	angular.module('GoClimb').run(['$transitions', 'FoundationApi', function ($transitions, foundationApi) {
+		$transitions.onSuccess({to:'*'}, () => {
+			foundationApi.publish('admin-menu', 'hide');
+		});
+	}]);
 }

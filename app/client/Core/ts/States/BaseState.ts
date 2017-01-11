@@ -7,6 +7,10 @@ namespace GoClimb.Core.States
 	export abstract class BaseState
 	{
 
+		public onEnterSuper = ['FoundationApi', (foundationApi) => {
+			foundationApi.publish('admin-menu', 'hide');
+		}];
+
 		public static register(angular: IAngularStatic, name: string) {
 			var proto = this.prototype;
 			angular.module('GoClimb').config(['$stateProvider', function ($stateProvider: IStateProvider) {
