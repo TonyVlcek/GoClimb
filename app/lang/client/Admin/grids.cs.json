@@ -24,7 +24,6 @@
 		"author": "Autor"
 	},
 	"roles": {
-		"displayedName": "Zobrazované jméno",
 		"email": "Email",
 		"delete": "Delete"
 	},

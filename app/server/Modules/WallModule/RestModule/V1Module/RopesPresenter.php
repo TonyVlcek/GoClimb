@@ -43,7 +43,6 @@ class RopesPresenter extends BaseV1Presenter
 		try {
 			if ($id === NULL) {
 				$rope = new Rope;
-				$rope->setBuilder($this->getUser()->getUserEntity());
 			} else {
 				$rope = $this->getRope($id);
 			}

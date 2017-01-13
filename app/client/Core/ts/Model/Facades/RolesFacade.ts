@@ -5,6 +5,7 @@ namespace GoClimb.Core.Model.Facades
 	import BaseFacade = GoClimb.Core.Model.Facades.BaseFacade;
 	import IndexedArray = GoClimb.Core.Utils.IndexedArray;
 	import IRole = GoClimb.Core.Model.Entities.IRole;
+	import IUser = GoClimb.Core.Model.Entities.IUser;
 
 
 	export class RolesFacade extends BaseFacade
@@ -34,6 +35,23 @@ namespace GoClimb.Core.Model.Facades
 		public getRole(id: string, callback: (role: IRole) => void = null, errorCallback: Function = null) {
 			this.getRoles((roles) => {
 				callback(roles.getIndex(id));
+			}, errorCallback);
+		}
+
+		public getBuilders(callback: (users: IndexedArray<IUser>) => void = null, errorCallback: Function = null)
+		{
+			this.getRoles((roles) => {
+				var rolesArray = roles.getAsArray();
+				var users = new IndexedArray<IUser>();
+				for (var index in rolesArray){
+					for (var userIndex in rolesArray[index].users) {
+						var user: any = rolesArray[index].users[userIndex];
+						if (!users.getIndex(user.id.toString())) {
+							users.setIndex(user.id.toString(), user);
+						}
+					}
+				}
+				callback(users);
 			}, errorCallback);
 		}
 

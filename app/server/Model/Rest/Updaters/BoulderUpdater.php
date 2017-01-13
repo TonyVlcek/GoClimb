@@ -14,6 +14,7 @@ use GoClimb\Model\Repositories\ParameterRepository;
 use GoClimb\Model\Repositories\BoulderRepository;
 use GoClimb\Model\Repositories\RouteParameterRepository;
 use GoClimb\Model\Repositories\SectorRepository;
+use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\Model\Rest\Utils;
 use stdClass;
 
@@ -25,10 +26,10 @@ class BoulderUpdater extends RouteUpdater
 	private $boulderRepository;
 
 
-	public function __construct(BoulderRepository $boulderRepository, LineRepository $lineRepository, SectorRepository $sectorRepository, DifficultyRepository $difficultyRepository, ColorRepository $colorRepository, ParameterRepository $parameterRepository, RouteParameterRepository $routeParameterRepository)
+	public function __construct(BoulderRepository $boulderRepository, LineRepository $lineRepository, SectorRepository $sectorRepository, DifficultyRepository $difficultyRepository, ColorRepository $colorRepository, ParameterRepository $parameterRepository, RouteParameterRepository $routeParameterRepository, UserRepository $userRepository)
 	{
 		$this->boulderRepository = $boulderRepository;
-		parent::__construct($lineRepository, $sectorRepository, $difficultyRepository, $colorRepository, $parameterRepository, $routeParameterRepository);
+		parent::__construct($lineRepository, $sectorRepository, $difficultyRepository, $colorRepository, $parameterRepository, $routeParameterRepository, $userRepository);
 	}
 
 

@@ -24,7 +24,6 @@
 		"author": "Author"
 	},
 	"roles": {
-		"nick": "Nick",
 		"email": "Email",
 		"delete": "Delete"
 	},
