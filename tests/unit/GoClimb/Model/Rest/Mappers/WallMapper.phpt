@@ -23,6 +23,7 @@ $data = [
 	'number' => '99t',
 	'country' => 'The United States of Tests',
 	'zip' => '99T 00',
+	'analyticsCode' => 'UA-XXXX-XX',
 ];
 
 $wallTranslation->setDescription($data['description']['en']);

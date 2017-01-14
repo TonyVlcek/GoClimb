@@ -9,6 +9,7 @@
 	},
 	"settings": {
 		"updated": "Wall settings updated.",
+		"updatedAnalytics": "Google Analytics settings updated.",
 		"error": {
 			"invalidForm": "Invalid form."
 		}

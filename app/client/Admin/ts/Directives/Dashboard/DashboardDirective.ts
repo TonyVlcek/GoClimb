@@ -81,6 +81,10 @@ namespace GoClimb.Admin.Directives
 						link: 'settings.advancedSettings',
 						permission: 'admin.settings.advanced'
 					},
+					analyticsSettings: {
+						link: 'settings.analytics',
+						permission: 'admin.settings.advanced'
+					},
 				},
 			};
 

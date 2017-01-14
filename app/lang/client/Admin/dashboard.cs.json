@@ -76,6 +76,11 @@
 				"title": "Nastavení stěny",
 				"description": "Jméno a adresa stěny",
 				"aliases": ""
+			},
+			"analyticsSettings": {
+				"title": "Nastavení Google Analytics",
+				"description": "Nastavení pro Google Analytics",
+				"aliases": "Universal Analytics"
 			}
 		}
 	},

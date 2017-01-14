@@ -41,6 +41,7 @@ class WallUpdater
 			'number' => FALSE,
 			'country' => FALSE,
 			'zip' => FALSE,
+			'analyticsCode' => FALSE,
 		]);
 
 		foreach ($data->description as $lang => $description) {

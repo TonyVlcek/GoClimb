@@ -1,0 +1,31 @@
+<div class="gc-side-panel gc-small">
+	<span data-close-button></span>
+	<div class="gc-title-bar">
+		<h2 class="gc-title">{{'templates.settings.analytics.title'|translate}}</h2>
+	</div>
+	<div class="gc-content gc-flex">
+		<form name="analyticsForm" class="form grid-block wrap" novalidate>
+			<div class="notitle"></div>
+			<div class="grid-content small-12 noscroll">
+				<label>
+					{{'templates.settings.analytics.code'|translate}}
+					<input type="text" data-ng-model="analytics.details.analyticsCode">
+				</label>
+			</div>
+
+			<div class="grid-content small-12">
+
+				<button type="submit" class="button default"
+					data-ng-class="{spinner : processingSave}"
+					data-ng-disabled="(analyticsForm.$invalid || isProcessing() || analyticsForm.$pristine)"
+					data-ng-click="save()">
+					{{'templates.settings.analytics.submit'|translate}}
+				</button>
+
+				<button type="button" data-ui-sref="settings" class="button secondary">
+					{{'templates.news.close'|translate}}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

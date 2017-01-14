@@ -3,7 +3,9 @@ namespace GoClimb
 
 	import IAnimateService = angular.animate.IAnimateService;
 
-	angular.module('GoClimb').config(['$urlRouterProvider', function ($urlRouterProvider) {
+	var goClimb = angular.module('GoClimb');
+
+	goClimb.config(['$urlRouterProvider', function ($urlRouterProvider) {
 		$urlRouterProvider.when('', '/');
 		$urlRouterProvider.otherwise(function ($injector, $location) {
 			$injector.get('$state').go('404');
@@ -11,4 +13,15 @@ namespace GoClimb
 		});
 	}]);
 
+	//Setup and start tracking
+	goClimb.config(['AnalyticsProvider', 'analyticsCode', (analyticsProvider, analyticsCode) => {
+		if (analyticsCode) {
+			analyticsProvider.setAccount(analyticsCode);
+		} else {
+			analyticsProvider.setAccount(null);
+			analyticsProvider.disableAnalytics(true);
+		}
+	}]);
+
+	goClimb.run(['Analytics', (Analytics) => {}]);
 }

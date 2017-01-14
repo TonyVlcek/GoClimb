@@ -3,14 +3,17 @@ namespace GoClimb
 
 	import ITranslateProvider = angular.translate.ITranslateProvider;
 
-	var goClimb = angular.module('GoClimb', [
+	export var coreModules = [
 		'ui.router',
 		'ngAnimate',
 		'ngDropdowns',
 		'pascalprecht.translate',
+		'angular-google-analytics',
 		'smart-table',
 		'foundation',
-	]);
+	];
+
+	var goClimb = angular.module('GoClimb', coreModules);
 
 	goClimb.config(['$locationProvider', '$translateProvider', function ($locationProvider, $translateProvider: ITranslateProvider) {
 		$locationProvider.html5Mode({

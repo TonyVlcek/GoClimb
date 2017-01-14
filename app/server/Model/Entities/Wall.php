@@ -97,6 +97,12 @@ class Wall
 	 */
 	private $logo;
 
+	/**
+	 * @var string
+	 * @ORM\Column(type="string", nullable=TRUE, unique=FALSE)
+	 */
+	private $analyticsCode;
+
 
 	public function __construct()
 	{
@@ -508,6 +514,25 @@ class Wall
 	public function setLogo(Image $logo = NULL)
 	{
 		$this->logo = $logo;
+		return $this;
+	}
+
+	/**
+	 * @return string|NULL
+	 */
+	public function getAnalyticsCode()
+	{
+		return $this->analyticsCode;
+	}
+
+
+	/**
+	 * @param string|NULL analyticsCode
+	 * @return $this
+	 */
+	public function setAnalyticsCode($analyticsCode)
+	{
+		$this->analyticsCode = $analyticsCode;
 		return $this;
 	}
 

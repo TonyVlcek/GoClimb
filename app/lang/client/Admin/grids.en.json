@@ -25,7 +25,7 @@
 	},
 	"roles": {
 		"email": "Email",
-		"delete": "Delete"
+		"delete": "Remove"
 	},
 	"ropes": {
 		"name": "Name",

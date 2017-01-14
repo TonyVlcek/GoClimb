@@ -47,6 +47,11 @@
 			"country": "Country",
 			"zip": "Postal code",
 			"submit": "Submit"
+		},
+		"analytics": {
+			"title": "Analytics settings",
+			"code": "Google Analytics code",
+			"submit": "Submit"
 		}
 	},
 	"roles": {

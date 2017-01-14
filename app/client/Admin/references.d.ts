@@ -4,6 +4,7 @@
 
 
 /// <reference path="ts/States/AdvancedSettingsState.ts" />
+/// <reference path="ts/States/AnalyticsSettingsState.ts" />
 /// <reference path="ts/States/ArticlesState.ts" />
 /// <reference path="ts/States/ArticleCreateState.ts" />
 /// <reference path="ts/States/ArticleEditState.ts" />

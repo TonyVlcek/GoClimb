@@ -47,6 +47,11 @@
 			"country": "Země",
 			"zip": "PSČ",
 			"submit": "Uložit"
+		},
+		"analytics": {
+			"title": "Nastavení Google Analytics",
+			"code": "Google Analytics kód",
+			"submit": "Uložit"
 		}
 	},
 	"roles": {

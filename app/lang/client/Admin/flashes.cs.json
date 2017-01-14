@@ -9,6 +9,7 @@
 	},
 	"settings": {
 		"updated": "Nastavení zdi bylo uloženo.",
+		"updatedAnalytics": "Nastavení Google Analytics bylo uloženo",
 		"error": {
 			"invalidForm": "Prosím vyplň všechna povinná pole."
 		}
