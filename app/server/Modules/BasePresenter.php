@@ -2,6 +2,7 @@
 
 namespace GoClimb\Modules;
 
+use GoClimb\Model\Facades\AuthFacade;
 use GoClimb\Model\Repositories\LoginTokenRepository;
 use GoClimb\Model\Repositories\WallRepository;
 use GoClimb\UI\CdnLinkGenerator;
@@ -41,6 +42,9 @@ abstract class BasePresenter extends Presenter
 	/** @var CdnLinkGenerator */
 	protected $cdnLinkGenerator;
 
+	/** @var AuthFacade */
+	protected $authFacade;
+
 	/** @var WallRepository */
 	private $wallRepository;
 
@@ -64,13 +68,14 @@ abstract class BasePresenter extends Presenter
 	}
 
 
-	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository, CdnLinkGenerator $imageLinkGenerator, WallRepository $wallRepository)
+	public function injectEssentials(Translator $translator, ApplicationPartsManager $applicationPartsManager, LoginTokenRepository $loginTokenRepository, CdnLinkGenerator $imageLinkGenerator, WallRepository $wallRepository, AuthFacade $authFacade)
 	{
 		$this->translator = $translator;
 		$this->applicationPartsManager = $applicationPartsManager;
 		$this->loginTokenRepository = $loginTokenRepository;
 		$this->cdnLinkGenerator = $imageLinkGenerator;
 		$this->wallRepository = $wallRepository;
+		$this->authFacade = $authFacade;
 	}
 
 
@@ -206,7 +211,7 @@ abstract class BasePresenter extends Presenter
 			$user = [
 				[
 					'text' => $this->translator->translate('templates.core.topMenu.me.settings'),
-					'href' => $this->link('//:App:Dashboard:default') . '/profile/edit',
+					'href' => $this->createLinkWithRedirectToken($this->link('//:App:Dashboard:default') . 'profile/edit'),
 				]];
 
 			if ($wallAdminList = $this->wallAdminList()) {
@@ -232,7 +237,7 @@ abstract class BasePresenter extends Presenter
 
 		$this->template->data['menu'] = [
 			'walls' => $this->wallList(),
-			'app' => $this->link('//:App:Dashboard:default'),
+			'app' => $this->createLinkWithRedirectToken($this->link('//:App:Dashboard:default')),
 			'user' => $user,
 			'loginLink' => $loginLink,
 		];
@@ -245,7 +250,7 @@ abstract class BasePresenter extends Presenter
 		foreach ($this->wallRepository->getAll() as $wall) {
 			$wallList[] = [
 				'text' => $wall->getName(),
-				'href' => $this->link('//:Wall:Front:Dashboard:default', ['wall' => $wall]),
+				'href' => $this->createLinkWithRedirectToken($this->link('//:Wall:Front:Dashboard:default', ['wall' => $wall])),
 			];
 		}
 
@@ -259,11 +264,20 @@ abstract class BasePresenter extends Presenter
 		foreach ($this->wallRepository->getUsersAdmin($this->getUser()->getUserEntity()) as $wall) {
 			$wallList[] = [
 				'text' => $wall->getName(),
-				'href' => $this->link('//:Wall:Admin:Dashboard:default', ['wall' => $wall]),
+				'href' => $this->createLinkWithRedirectToken($this->link('//:Wall:Admin:Dashboard:default', ['wall' => $wall])),
 			];
 		}
 
 		return $wallList;
+	}
+
+	private function createLinkWithRedirectToken($link)
+	{
+		if ($this->user->isLoggedIn()) {
+			return $link . '?' . $this::LOGIN_PARAMETER . '=' . $this->authFacade->getRedirectTokenForUser($this->getUser()->getUserEntity())->getToken();
+		} else {
+			return $link;
+		}
 	}
 
 

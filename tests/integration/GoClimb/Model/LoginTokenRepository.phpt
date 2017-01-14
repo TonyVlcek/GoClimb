@@ -61,10 +61,17 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 		$now = new DateTime;
 		list($user) = $this->getEntities();
 
-		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($user, TRUE));
+		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($user, DateTime::from('+1 minute'), TRUE));
 		Assert::true($now < $loginToken->getExpiration());
 		Assert::type(User::class, $user = $loginToken->getUser());
 		Assert::equal('aa@aa.aa', $user->getEmail());
+
+		$userTwo = $this->getEntities()[3];
+		Assert::type(LoginToken::class, $loginToken = $this->loginTokenRepository->createLoginToken($userTwo, DateTime::from('+1 hour'), FALSE));
+		Assert::true(DateTime::from('+58 minute') < $loginToken->getExpiration());
+		Assert::equal(FALSE, $loginToken->isLongTerm());
+		Assert::type(User::class, $user = $loginToken->getUser());
+		Assert::equal('dd@dd.dd', $user->getEmail());
 	}
 
 
@@ -86,6 +93,7 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 			$userActiveToken = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
 			$userExpiredToken = (new User)->setEmail('bb@bb.bb')->setPassword('bbb'),
 			(new User)->setEmail('cc@cc.cc')->setPassword('ccc'),
+			(new User)->setEmail('dd@dd.dd')->setPassword('ddd'),
 			$activeToken = (new LoginToken)->setToken(self::ACTIVE_TOKEN)->setUser($userActiveToken)->setExpiration((new DateTime)->modify('+1 day'))->setLongTerm(0),
 			$expiredToken = (new LoginToken)->setToken(self::EXPIRED_TOKEN)->setUser($userExpiredToken)->setExpiration((new DateTime)->modify('-1 day'))->setLongTerm(0),
 		];
@@ -102,6 +110,7 @@ class LoginTokenRepositoryTestCase extends DatabaseTestCase
 			$this->userRepository->getByEmail('aa@aa.aa'),
 			$this->userRepository->getByEmail('bb@bb.bb'),
 			$this->userRepository->getByEmail('cc@cc.cc'),
+			$this->userRepository->getByEmail('dd@dd.dd'),
 		];
 	}
 }
