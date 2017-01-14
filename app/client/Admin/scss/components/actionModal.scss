@@ -1,0 +1,11 @@
+.action-modal {
+	top: $top-panel-height;
+	align-items: flex-start;
+	padding-top: 1.3rem;
+	padding-bottom: 1.3rem;
+
+	.grid-block, .block-list {
+		margin-left: -1rem;
+		margin-right: -1rem;
+	}
+}

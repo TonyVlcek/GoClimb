@@ -3,6 +3,7 @@ namespace GoClimb.Admin.Directives
 
 	import BaseDirective = GoClimb.Core.Directives.BaseDirective;
 	import Authorizator = GoClimb.Admin.Services.Authorizator;
+	import IApi = Foundation.IApi;
 
 	export class DashboardDirective extends BaseDirective
 	{
@@ -12,12 +13,14 @@ namespace GoClimb.Admin.Directives
 		private $state;
 		private $translate;
 		private authorizator: Authorizator;
+		private foundationApi: IApi;
 
-		public constructor($state, $translate, authorizator: Authorizator) {
+		public constructor($state, $translate, authorizator: Authorizator, foundationApi: IApi) {
 			super();
 			this.$state = $state;
 			this.$translate = $translate;
 			this.authorizator = authorizator;
+			this.foundationApi = foundationApi;
 		}
 
 		public link = (scope) =>
@@ -121,12 +124,16 @@ namespace GoClimb.Admin.Directives
 			}
 
 			scope.goTo = (link: string) => {
+				var modal = $('.is-active[zf-closable]#action-modal');
+				if (modal.length) {
+					this.foundationApi.publish('action-modal', 'close');
+				}
 				this.$state.go(link);
 			}
 		}
 
 	}
 
-	DashboardDirective.register(angular, 'dashboard', ['$state', '$translate', 'authorizator']);
+	DashboardDirective.register(angular, 'dashboard', ['$state', '$translate', 'authorizator', 'FoundationApi']);
 
 }

@@ -96,6 +96,14 @@
 	}
 }
 
+.panel-is-compressed.panel-is-closing {
+	@include breakpoint(large) {
+		.#{$class-prefix}-main-view {
+			margin-right: 0 !important;
+		}
+	}
+}
+
 .panel-is-compressed.panel-is-active {
 	@include breakpoint(large) {
 		.#{$class-prefix}-main-view {
