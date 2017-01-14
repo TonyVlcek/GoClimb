@@ -7,6 +7,7 @@ use GoClimb\Model\Entities\LoginToken;
 use GoClimb\Model\Entities\User;
 use GoClimb\Model\Repositories\ApplicationRepository;
 use GoClimb\Model\Repositories\LoginTokenRepository;
+use Nette\Utils\DateTime;
 
 
 class AuthFacade
@@ -46,7 +47,20 @@ class AuthFacade
 		if ($token = $this->loginTokenRepository->getByUser($user)) {
 			return $token;
 		}
-		return $this->loginTokenRepository->createLoginToken($user, $longTerm);
+		return $this->loginTokenRepository->createLoginToken($user, DateTime::from('+1 minute'), $longTerm);
+	}
+
+	/**
+	 * @param User $user
+	 * @param bool $longTerm
+	 * @return LoginToken
+	 */
+	public function getRedirectTokenForUser(User $user)
+	{
+		if ($token = $this->loginTokenRepository->getByUser($user, DateTime::from('+58 minute'))) {
+			return $token;
+		}
+		return $this->loginTokenRepository->createLoginToken($user, DateTime::from('+1 hour'), FALSE);
 	}
 
 

@@ -23,6 +23,7 @@ class AuthFacadeTestCase extends DatabaseTestCase
 	const ACTIVE_TOKEN = 'ACTIVE_TokenString';
 	const EXPIRED_TOKEN = 'EXPIRED_TokenString';
 	const NOT_ASSIGNED_TOKEN = 'NO_User_Has_This_Token';
+	const REDIRECT_TOKEN = 'REDIRECT_TOKEN_STRING';
 
 
 	/** @var AuthFacade */
@@ -66,6 +67,21 @@ class AuthFacadeTestCase extends DatabaseTestCase
 	}
 
 
+	public function testGetRedirectTokenForUser()
+	{
+		$userWithToken = $this->userRepository->getById(3);
+
+		//returned
+		Assert::type(LoginToken::class, $loginToken = $this->authFacade->getRedirectTokenForUser($userWithToken));
+		Assert::equal(3, $loginToken->getUser()->getId());
+
+		//test expiration
+		Assert::true($loginToken->getExpiration() > DateTime::from('+58 minute'));
+		Assert::true($loginToken->getExpiration() < DateTime::from('+62 minute'));
+
+	}
+
+
 	public function testGetUserByToken()
 	{
 		Assert::null($this->authFacade->getUserByToken(self::EXPIRED_TOKEN));
@@ -84,9 +100,11 @@ class AuthFacadeTestCase extends DatabaseTestCase
 		return [
 			$userOne = (new User)->setEmail('aa@aa.aa')->setPassword('aaa'),
 			$userTwo = (new User)->setEmail('bb@bb.bb')->setPassword('bbb'),
+			$userThree = (new User)->setEmail('cc@cc.cc')->setPassword('ccc'),
 			(new Application)->setName('App')->setDescription('desc')->setToken(self::APPLICATION_TOKEN),
 			(new LoginToken)->setUser($userOne)->setToken(self::EXPIRED_TOKEN)->setExpiration(new DateTime('-1 day'))->setLongTerm(0),
 			(new LoginToken)->setUser($userOne)->setToken(self::ACTIVE_TOKEN)->setExpiration(new DateTime('+1 day'))->setLongTerm(0),
+			(new LoginToken)->setUser($userThree)->setToken(self::REDIRECT_TOKEN)->setExpiration(new DateTime('+1 hour'))->setLongTerm(0)
 		];
 	}
 }

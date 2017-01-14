@@ -38,9 +38,6 @@ final class DashboardPresenter extends BaseAuthPresenter
 	/** @var IRegisterFormFactory */
 	private $registerFormFactory;
 
-	/** @var AuthFacade */
-	private $authFacade;
-
 	/** @var IConfirmPasswordResetFormFactory */
 	private $confirmPasswordResetFormFactory;
 
@@ -60,13 +57,12 @@ final class DashboardPresenter extends BaseAuthPresenter
 	private $userForReset;
 
 
-	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, IRegisterFormFactory $registerFormFactory, AuthFacade $authFacade, UserRepository $userRepository, IMailer $mailer, ILatteFactory $latteFactory, IConfirmPasswordResetFormFactory $confirmPasswordResetFormFactory, IPasswordResetFormFactory $passwordResetFormFactory)
+	public function __construct(ISignInFormFactory $signInFormFactory, IContinueFormFactory $continueFormFactory, IRegisterFormFactory $registerFormFactory, UserRepository $userRepository, IMailer $mailer, ILatteFactory $latteFactory, IConfirmPasswordResetFormFactory $confirmPasswordResetFormFactory, IPasswordResetFormFactory $passwordResetFormFactory)
 	{
 		parent::__construct();
 		$this->signInFormFactory = $signInFormFactory;
 		$this->continueFormFactory = $continueFormFactory;
 		$this->registerFormFactory = $registerFormFactory;
-		$this->authFacade = $authFacade;
 		$this->userRepository = $userRepository;
 		$this->mailer = $mailer;
 		$this->engine = $latteFactory->create();

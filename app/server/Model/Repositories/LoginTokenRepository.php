@@ -13,36 +13,46 @@ class LoginTokenRepository extends BaseRepository
 
 	/**
 	 * @param User $user
+	 * @param DateTime $expiration
 	 * @return LoginToken|NULL
 	 */
-	public function getByUser(User $user)
+	public function getByUser(User $user, $expiration = NULL)
 	{
-		return $this->getDoctrineRepository()->findOneBy(['user' => $user, 'expiration >=' => new DateTime]);
+		if (!$expiration){
+			$expiration = new DateTime;
+		}
+
+		return $this->getDoctrineRepository()->findOneBy(['user' => $user, 'expiration >=' => $expiration ]);
 	}
 
 
 	/**
 	 * @param string $token
+	 * @param DateTime $expiration
 	 * @return LoginToken|NULL
 	 */
-	public function getByToken($token)
+	public function getByToken($token, $expiration = NULL)
 	{
-		return $this->getDoctrineRepository()->findOneBy(['token' => $token, 'expiration >=' => new DateTime]);
+		if (!$expiration){
+			$expiration = new DateTime;
+		}
+		return $this->getDoctrineRepository()->findOneBy(['token' => $token, 'expiration >=' => $expiration]);
 	}
 
 
 	/**
 	 * @param User $user
+	 * @param DateTime $expiration
 	 * @param bool $longTerm
 	 * @return LoginToken
 	 */
-	public function createLoginToken(User $user, $longTerm)
+	public function createLoginToken(User $user, $expiration, $longTerm)
 	{
 		$token = new LoginToken;
 		$token->setUser($user);
 		$user->addLoginToken($token);
 		$token->setToken($this->generateRandomToken());
-		$token->setExpiration(DateTime::from('+1 minute'));
+		$token->setExpiration($expiration);
 		$token->setLongTerm($longTerm);
 		$this->getEntityManager()
 			->persist($token)
