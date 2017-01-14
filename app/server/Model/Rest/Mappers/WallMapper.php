@@ -21,6 +21,7 @@ class WallMapper
 			'number' => $wall->getNumber(),
 			'country' => $wall->getCountry(),
 			'zip' => $wall->getZip(),
+			'analyticsCode' => $wall->getAnalyticsCode(),
 		];
 	}
 

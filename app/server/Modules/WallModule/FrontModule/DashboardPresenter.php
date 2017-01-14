@@ -56,6 +56,7 @@ class DashboardPresenter extends BaseFrontPresenter
 			],
 			'user' => $user,
 			'wall' => $this->wall->getName(),
+			'analyticsCode' => $this->wall->getAnalyticsCode(),
 		];
 
 		$this->initMenu();

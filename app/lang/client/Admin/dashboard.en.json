@@ -76,6 +76,11 @@
 				"title": "Global settings",
 				"description": "Wall name, address",
 				"aliases": ""
+			},
+			"analyticsSettings": {
+				"title": "Analytics settings",
+				"description": "Setting for Google Analytics",
+				"aliases": "Universal Analytics"
 			}
 		}
 	},
