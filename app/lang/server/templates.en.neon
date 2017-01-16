@@ -101,7 +101,7 @@ errors:
 
 public:
 	title: GoClimb
-	copyright: Copyright &copy; GoClimb 2016
+	copyright: Copyright © GoClimb 2016
 
 	landing:
 		menu:
@@ -110,6 +110,8 @@ public:
 			portfolio: Portfolio
 			whyUs: Why us?
 			contact: Contact
+			czech: Česky
+			english: English
 
 		title:
 			title: First climbing platform on the word.
