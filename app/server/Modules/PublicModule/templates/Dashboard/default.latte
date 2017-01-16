@@ -31,6 +31,15 @@
 				<li>
 					<a class="page-scroll" href="#contact">{_templates.public.landing.menu.contact}</a>
 				</li>
+				{ifCurrent this locale => en}
+				<li>
+					<a class="page-scroll"  n:href="this locale => cs"><span class="fa fa-flag" aria-hidden="true"></span> {_templates.public.landing.menu.czech}</a>
+				</li>
+				{else}
+				<li>
+					<a class="page-scroll" n:href="this locale => en"><span class="fa fa-flag" aria-hidden="true"></span> {_templates.public.landing.menu.english}</a>
+				</li>
+				{/ifCurrent}
 			</ul>
 		</div>
 	</div>
@@ -243,7 +252,7 @@
 			 {*</div>      *}
 			<div class="col-md-4">
 				<ul class="list-inline quicklinks">
-					<li><a href="mailto:info@goclimb.cz">goclimb@email.cz</a></li>
+					<li><a href="mailto:goclimb@email.cz">goclimb@email.cz</a></li>
 				</ul>
 			</div>
 		</div>

@@ -101,7 +101,7 @@ errors:
 
 public:
 	title: GoClimb
-	copyright: Copyright &copy; GoClimb 2016
+	copyright: Copyright © GoClimb 2016
 
 	landing:
 		menu:
@@ -110,6 +110,8 @@ public:
 			portfolio: Portfolio
 			whyUs: Proč my?
 			contact: Kontakt
+			czech: Česky
+			english: English
 
 		title:
 			title: První lezecká platforma na světě.
@@ -154,6 +156,7 @@ public:
 
 
 		contact:
+			title: Kontakt
 			why:
 				title: Proč nás kontaktovat?
 				reason1: 'Provozujete lezeckou stěnu a rádi byste se o GoClimb dozvěděli více? Obraťte se na nás jakýkmoli dotazem, nebo si domluvte nezávaznou konzultaci.'
