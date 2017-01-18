@@ -50,9 +50,9 @@ class AuthFacade
 		return $this->loginTokenRepository->createLoginToken($user, DateTime::from('+1 minute'), $longTerm);
 	}
 
+
 	/**
 	 * @param User $user
-	 * @param bool $longTerm
 	 * @return LoginToken
 	 */
 	public function getRedirectTokenForUser(User $user)

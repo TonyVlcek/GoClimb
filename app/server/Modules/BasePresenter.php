@@ -250,7 +250,7 @@ abstract class BasePresenter extends Presenter
 		foreach ($this->wallRepository->getAll() as $wall) {
 			$wallList[] = [
 				'text' => $wall->getName(),
-				'href' => $this->createLinkWithRedirectToken($this->link('//:Wall:Front:Dashboard:default', ['wall' => $wall])),
+				'href' => $this->createLinkWithRedirectToken($this->link('//:Wall:Front:Dashboard:default', ['wall' => $wall, 'locale' => $wall->getPrimaryLanguage()->getLanguage()->getShortcut()])),
 			];
 		}
 
@@ -264,7 +264,7 @@ abstract class BasePresenter extends Presenter
 		foreach ($this->wallRepository->getUsersAdmin($this->getUser()->getUserEntity()) as $wall) {
 			$wallList[] = [
 				'text' => $wall->getName(),
-				'href' => $this->createLinkWithRedirectToken($this->link('//:Wall:Admin:Dashboard:default', ['wall' => $wall])),
+				'href' => $this->createLinkWithRedirectToken($this->link('//:Wall:Admin:Dashboard:default', ['wall' => $wall, 'locale' => $wall->getPrimaryLanguage()->getLanguage()->getShortcut()])),
 			];
 		}
 

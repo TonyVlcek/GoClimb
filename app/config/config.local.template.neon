@@ -12,6 +12,14 @@ monolog:
 
 goClimb:
 	cdnUrl: http://localhost/GoClimb/cdn/
+	#routes:
+		#useVirtualHosts: true
+		#domains:
+			#goclimb.cz/<locale>:
+				#- cs
+				#- en
+			#goclimb.de:
+				#- de
 
 console:
 	url: http://example.com
