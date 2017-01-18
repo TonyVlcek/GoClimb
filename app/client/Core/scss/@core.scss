@@ -1,4 +1,4 @@
-//TODO: Fix
+@charset "utf-8";
 $foundation-version: 1.2.0;
 @import "../../../../bower_components/foundation-apps/scss/helpers/functions";
 @import "../../../../bower_components/foundation-apps/scss/helpers/breakpoints";
@@ -6,6 +6,8 @@ $foundation-version: 1.2.0;
 
 @import "helpers/function";
 @import "settings";
+@import "helpers/mixins";
+@import "helpers/placeholders";
 @import "components/adminMenu";
 @import "components/dropdown";
 @import "components/loading";
