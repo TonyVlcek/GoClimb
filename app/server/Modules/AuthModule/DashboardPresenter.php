@@ -5,7 +5,6 @@ namespace GoClimb\Modules\AuthModule;
 use GoClimb\Model\Entities\Application;
 use GoClimb\Model\Entities\LoginToken;
 use GoClimb\Model\Entities\User;
-use GoClimb\Model\Facades\AuthFacade;
 use GoClimb\Model\Repositories\UserRepository;
 use GoClimb\UI\Forms\Form;
 use GoClimb\UI\Forms\User\IConfirmPasswordResetFormFactory;
