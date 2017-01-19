@@ -52,11 +52,9 @@
 							<td>{{rope.length}}m</td>
 							<td>{{rope.steps}}</td>
 							<td>
-								<ul>
-									<li data-ng-repeat="parameter in rope.parameters">
-										{{'enums.parameters.' + parameter.parameter|translate}}: {{parameter.level}}
-									</li>
-								</ul>
+								<span data-ng-repeat="parameter in rope.parameters">
+									<img data-cdn-image="static/parameters-icons/{{parameter.parameter}}-{{parameter.level}}.png" alt="{{'enums.parameters.' + parameter.parameter|translate}}: {{parameter.level}}" class="gc-parameter-icon">
+								</span>
 								<span data-ng-hide="rope.parameters.length">-</span>
 							</td>
 							<td data-ng-show="logsCtrl.user">

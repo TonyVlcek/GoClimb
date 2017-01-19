@@ -71,8 +71,20 @@ namespace GoClimb.Admin.States
 				builders.setIndex(rope.builder.id.toString(), rope.builder as any);
 			}
 
+			$scope.parameters = angular.copy(parameters);
+
+			var names = [];
+			for (var i in rope.parameters) {
+				names.push(rope.parameters[i].parameter);
+			}
+
+			for (var i in $scope.parameters) {
+				if (names.indexOf($scope.parameters[i].name) >= 0) {
+					$scope.parameters[i].disabled = true;
+				}
+			}
+
 			$scope.builders = builders;
-			$scope.parameters = parameters;
 			$scope.saving = false;
 			$scope.rope = rope;
 			$scope.sectors = sectors;
@@ -139,7 +151,21 @@ namespace GoClimb.Admin.States
 				});
 			};
 
+			$scope.updateParameterSelection = (name) => {
+				for (var i in $scope.parameters) {
+					if($scope.parameters[i].name == name){
+						$scope.parameters[i].disabled = true;
+					}
+				}
+			};
+
 			$scope.removeParameter = (index) => {
+				var name = $scope.rope.parameters[index].parameter;
+				for (var i in $scope.parameters) {
+					if($scope.parameters[i].name == name){
+						$scope.parameters[i].disabled = false;
+					}
+				}
 				$scope.rope.parameters.splice(index, 1);
 			};
 
