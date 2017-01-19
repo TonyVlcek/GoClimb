@@ -84,8 +84,8 @@
 						<label>
 							{{'forms.ropes.parameter.name'|translate}}
 							<span class="inline-label">
-								<select data-ng-hide="parameter.parameter" data-ng-model="parameter.parameter">
-									<option data-ng-repeat="item in parameters" data-ng-value="item.name">
+								<select data-ng-hide="parameter.parameter" data-ng-model="parameter.parameter" data-ng-change="updateParameterSelection(parameter.parameter)">
+									<option data-ng-repeat="item in parameters" data-ng-value="item.name" data-ng-disabled="item.disabled">
 										{{'enums.parameters.' + item.name|translate}}
 									</option>
 								</select>
