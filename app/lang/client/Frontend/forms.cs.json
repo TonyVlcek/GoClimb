@@ -6,7 +6,18 @@
 		"date": "Datum přelezu",
 		"style": "Styl",
 		"noStyle": "Nedokončeno",
-		"description": "Poznámka",
-		"save": "Uložit"
+		"privateNote": "Soukromá poznámka ",
+		"routeRating": "Jaký je tvůj názor na tuto cestu?",
+		"save": "Uložit",
+		"tries": "Pokusy",
+		"rating": {
+			"comment": "Komentář",
+			"rating": "Kolik hvědiček bys dal této cestě?",
+			"1": "Bylo to špatné.",
+			"2": "Mohlo by to být lepší.",
+			"3": "Bavylo mě to, takový zlatý střed.",
+			"4": "Snad by to nemohlo být lepší.",
+			"5": "Naprosto perfektní."
+		}
 	}
 }

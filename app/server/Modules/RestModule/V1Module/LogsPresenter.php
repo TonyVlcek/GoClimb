@@ -64,7 +64,7 @@ class LogsPresenter extends BaseV1Presenter
 				$this->sendForbidden();
 			}
 
-			$this->logUpdater->updateLog($log, $this->getData('log'));
+			$this->logUpdater->updateLog($log, $this->user->getUserEntity(), $this->getData('log'));
 			$this->addLogData($log);
 		} catch (MappingException $e) {
 			$this->sendUnprocessableEntity($e->getMessage());

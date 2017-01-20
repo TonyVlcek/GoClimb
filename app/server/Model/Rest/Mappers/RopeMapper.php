@@ -33,6 +33,7 @@ class RopeMapper
 	public static function map(Rope $rope)
 	{
 		$result = RouteMapper::map($rope);
+		$result['ratings'] = RatingMapper::mapArray($rope->getRatings());
 		$result['length'] = $rope->getLength();
 		$result['steps'] = $rope->getSteps();
 		return $result;

@@ -1,6 +1,6 @@
 .#{$class-prefix}-form {
 	margin-top: 1em;
-	font-size: 14px;
+	font-size: $form-font-size;
 
 	label {
 		display: block;
@@ -44,7 +44,77 @@
 		padding-right: 1.6em;
 	}
 
+	input[type="range"] {
+		$margin: ($slider-thumb-height - $slider-height) / 2;
+
+		appearance: none;
+		display: block;
+		width: 100%;
+		height: auto;
+		cursor: pointer;
+		margin-top: $margin;
+		margin-bottom: $margin;
+		border: 0;
+		line-height: 1;
+		border-radius: $slider-radius;
+
+		&:focus {
+			outline: 0;
+		}
+
+		// Chrome/Safari
+		&::-webkit-slider-runnable-track {
+			height: $slider-height;
+			background: $slider-background;
+		}
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			background: $slider-thumb-color;
+			width: $slider-thumb-height;
+			height: $slider-thumb-height;
+			margin-top: -$margin;
+			border-radius: $slider-thumb-radius;
+		}
+
+		// Firefox
+		&::-moz-range-track {
+			-moz-appearance: none;
+			height: $slider-height;
+			background: #ccc;
+		}
+		&::-moz-range-thumb {
+			-moz-appearance: none;
+			background: $slider-thumb-color;
+			width: $slider-thumb-height;
+			height: $slider-thumb-height;
+			margin-top: -$margin;
+			border-radius: $slider-thumb-radius;
+		}
+
+		// Internet Explorer
+		&::-ms-track {
+			height: $slider-height;
+			background: $slider-background;
+			color: transparent;
+			border: 0;
+			overflow: visible;
+			border-top: $margin solid $global-theme-background;
+			border-bottom: $margin solid $global-theme-background;
+		}
+		&::-ms-thumb {
+			background: $slider-thumb-color;
+			width: $slider-thumb-height;
+			height: $slider-thumb-height;
+			border: 0;
+			border-radius: $slider-thumb-radius;
+		}
+		&::-ms-fill-lower, &::-ms-fill-upper {
+			background: $slider-background;
+		}
+	}
+
 	&.ng-dirty .ng-invalid {
-		border-color: $core-form-invalid-color !important;
+		border-color: $invalid-color !important;
 	}
 }

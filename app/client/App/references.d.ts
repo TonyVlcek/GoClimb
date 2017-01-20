@@ -9,7 +9,7 @@
 
 /// <reference path="ts/States/AboutState.ts" />
 /// <reference path="ts/States/DashboardState.ts" />
-/// <reference path="ts/States/LogEditState.ts" />
+/*/// <reference path="ts/States/LogEditState.ts" />*/
 /// <reference path="ts/States/ProfileState.ts" />
 /// <reference path="ts/States/ProfileEditState.ts" />
 /// <reference path="ts/States/ErrorState.ts" />

@@ -24,6 +24,7 @@ class BoulderRepository extends BaseRepository
 
 
 	/**
+	 * @param Wall $wall
 	 * @return Boulder[]
 	 */
 	public function getByWall(Wall $wall)
@@ -33,6 +34,17 @@ class BoulderRepository extends BaseRepository
 		]);
 	}
 
+	/**
+	 * @param Wall $wall
+	 * @return Boulder[]
+	 */
+	public function getStandingByWall(Wall $wall)
+	{
+		return $this->getDoctrineRepository()->findBy([
+			'line.sector.wall' => $wall,
+			'dateRemoved' => NULL,
+		]);
+	}
 
 	/**
 	 * @param Boulder $boulder

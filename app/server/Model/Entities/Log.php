@@ -50,6 +50,12 @@ class Log
 	 */
 	private $description;
 
+	/**
+	 * @var int
+	 * @ORM\Column(type="smallint", nullable=FALSE)
+	 */
+	private $tries;
+
 
 	/**
 	 * @return User
@@ -149,6 +155,25 @@ class Log
 		$this->description = $description;
 		return $this;
 	}
+
+
+	/**
+	 * @return int
+	 */
+	public function getTries()
+	{
+		return $this->tries;
+	}
+
+
+	/**
+	 * @param int $tries
+	 */
+	public function setTries($tries)
+	{
+		$this->tries = $tries;
+	}
+
 
 
 	/**

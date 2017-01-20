@@ -19,6 +19,19 @@ class StyleRepository extends BaseRepository
 		return $this->getDoctrineRepository()->findAll();
 	}
 
+	/**
+	 * @param String $names
+	 * @return Style[]
+	 */
+	public function getExpect($names)
+	{
+		if ($names === []){
+			$names = NULL;
+		}
+
+		return $this->getDoctrineRepository()->findBy(['name NOT IN' => $names]);
+	}
+
 
 	/**
 	 * @param int $id

@@ -7,28 +7,28 @@ namespace GoClimb.App.Controllers
 	import LogsFacade = GoClimb.Core.Model.Facades.LogsFacade;
 	import FlashMessageSender = GoClimb.Core.Services.FlashMessageSender;
 	import DialogService = GoClimb.Admin.Services.DialogService;
-	import UserFacade = GoClimb.Core.Model.Facades.UserFacade;
 	import IUser = GoClimb.Core.Model.Entities.IUser;
+	import UserService = GoClimb.Admin.Services.UserService;
 
 	export class ProfileController extends BaseController
 	{
 		private user: IUser;
 		private flashMessageSender: FlashMessageSender;
 		private dialogService: DialogService;
-		private userFacade: UserFacade;
+		private userService: UserService;
 
 
-		public constructor(flashMessageSender: FlashMessageSender, dialogService: DialogService, userFacade: UserFacade)
+		public constructor(flashMessageSender: FlashMessageSender, dialogService: DialogService, userService: UserService)
 		{
 			super();
 			this.flashMessageSender = flashMessageSender;
 			this.dialogService = dialogService;
-			this.userFacade = userFacade;
+			this.userService = userService;
 		}
 
 		public getUser()
 		{
-			this.userFacade.getLoggedUser((user) => {
+			this.userService.getUser((user) => {
 				this.user = user;
 			});
 
@@ -36,6 +36,6 @@ namespace GoClimb.App.Controllers
 		}
 	}
 
-	ProfileController.register(angular, 'ProfileController', ['flashMessageSender', 'dialogService', 'userFacade']);
+	ProfileController.register(angular, 'ProfileController', ['flashMessageSender', 'dialogService', 'userService']);
 
 }

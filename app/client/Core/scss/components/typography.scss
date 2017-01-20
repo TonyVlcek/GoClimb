@@ -1,0 +1,27 @@
+
+
+//Create gc typography
+.#{$class-prefix}-title-1 { font-size: $font-size-h1; }
+.#{$class-prefix}-title-2 { font-size: $font-size-h2; }
+.#{$class-prefix}-title-3 { font-size: $font-size-h3; }
+.#{$class-prefix}-title-4 { font-size: $font-size-h4; }
+.#{$class-prefix}-title-5 { font-size: $font-size-h5; }
+.#{$class-prefix}-title-6 { font-size: $font-size-h6; }
+
+.#{$class-prefix}-top-panel, .#{$class-prefix}-title-bar, .#{$class-prefix}-side-panel {
+	font-family: $headings-font-family !important;
+}
+
+//General properties
+%title-general-properties {
+	margin-bottom: $headings-margin-bottom;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	line-height: $headings-line-height;
+	color: $headings-color;
+}
+
+
+@for $i from 1 through 6 {
+	.#{$class-prefix}-title-#{$i} { @extend %title-general-properties; }
+}

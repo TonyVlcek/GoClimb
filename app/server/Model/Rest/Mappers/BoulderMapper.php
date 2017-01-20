@@ -33,6 +33,7 @@ class BoulderMapper
 	public static function map(Boulder $boulder)
 	{
 		$result = RouteMapper::map($boulder);
+		$result['ratings'] = RatingMapper::mapArray($boulder->getRatings());
 		$result['start'] = $boulder->getStart();
 		$result['end'] = $boulder->getEnd();
 		return $result;

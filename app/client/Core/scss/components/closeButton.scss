@@ -1,0 +1,18 @@
+.#{$class-prefix}-close-button, .close-button {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 2.5em;
+	height: 1.5rem;
+	width: 1.5rem;
+	color: rgba(222, 222, 222, 0.71);
+	line-height: 0.5;
+	cursor: pointer;
+	border: 0;
+	background: transparent;
+
+	&:hover {
+		text-decoration: none !important;
+		color: rgba(33, 33, 33, 0.71);
+	}
+}

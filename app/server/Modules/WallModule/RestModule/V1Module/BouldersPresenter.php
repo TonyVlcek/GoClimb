@@ -33,7 +33,11 @@ class BouldersPresenter extends BaseV1Presenter
 
 	public function actionGet()
 	{
-		$this->addBouldersData($this->boulderRepository->getByWall($this->wall));
+		if ($this->user->isAllowed('admin.routes.boulder')) {
+			$this->addBouldersData($this->boulderRepository->getByWall($this->wall));
+		} else {
+			$this->addBouldersData($this->boulderRepository->getStandingByWall($this->wall));
+		}
 	}
 
 

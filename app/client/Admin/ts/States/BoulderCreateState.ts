@@ -15,8 +15,8 @@ namespace GoClimb.Admin.States
 	import ParametersFacade = GoClimb.Core.Model.Facades.ParametersFacade;
 	import RolesFacade = GoClimb.Core.Model.Facades.RolesFacade;
 	import IUser = GoClimb.Core.Model.Entities.IUser;
-	import UserFacade = GoClimb.Core.Model.Facades.UserFacade;
 	import Utils = GoClimb.Core.Utils.Utils;
+	import UserService = GoClimb.Admin.Services.UserService;
 
 	export class BoulderCreateState extends BasePanelState
 	{
@@ -56,8 +56,8 @@ namespace GoClimb.Admin.States
 		};
 
 
-		public controller = ['$scope', 'boulder', 'sectors', 'builders', 'bouldersFacade', 'sectorsFacade', 'flashMessageSender', '$state', 'userFacade',
-			($scope, boulder, sectors, builders, bouldersFacade: BouldersFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender, $state: IStateService, userFacade: UserFacade) => {
+		public controller = ['$scope', 'boulder', 'sectors', 'builders', 'bouldersFacade', 'sectorsFacade', 'flashMessageSender', '$state', 'userService',
+			($scope, boulder, sectors, builders, bouldersFacade: BouldersFacade, sectorsFacade: SectorsFacade, flashMessageSender: FlashMessageSender, $state: IStateService, userService: UserService) => {
 
 			this.data.canLeave = () => {
 				return !($scope.boulderForm && $scope.boulderForm.$dirty);
@@ -73,7 +73,7 @@ namespace GoClimb.Admin.States
 			$scope.lineSaving = false;
 
 			//Probably should be in resolve section
-			userFacade.getLoggedUser((user: IUser) => {
+			userService.getUser((user: IUser) => {
 				$scope.boulder.builder = {
 					'id': user.id,
 					'name': user.nick

@@ -6,15 +6,16 @@
 namespace GoClimb\Model\Rest\Updaters;
 
 use GoClimb\Model\Entities\Log;
+use GoClimb\Model\Entities\User;
+use GoClimb\Model\Enums\Style;
+use GoClimb\Model\LogException;
 use GoClimb\Model\MappingException;
 use GoClimb\Model\Repositories\BoulderRepository;
 use GoClimb\Model\Repositories\LogRepository;
 use GoClimb\Model\Repositories\RopeRepository;
-use GoClimb\Model\Repositories\RouteRepository;
 use GoClimb\Model\Repositories\StyleRepository;
 use GoClimb\Model\Rest\Utils;
 use stdClass;
-use Tracy\Debugger;
 
 
 class LogUpdater
@@ -44,13 +45,15 @@ class LogUpdater
 
 	/**
 	 * @param Log $log
+	 * @param User $user
 	 * @param stdClass $data
 	 * @return Log
+	 * @throws
 	 */
-	public function updateLog(Log $log, stdClass $data)
+	public function updateLog(Log $log, User $user, stdClass $data)
 	{
 		Utils::updateProperties($log, $data, [
-			'description' => FALSE
+			'description' => FALSE,
 		]);
 
 		Utils::checkProperty($data, 'loggedDate', TRUE);
@@ -65,12 +68,27 @@ class LogUpdater
 		}
 		$log->setRoute($route);
 
+		$specialStyles = [Style::OS, Style::FLASH];
+
 		Utils::checkProperty($data, 'style', TRUE);
 		if ($data->style !== NULL) {
 			if (!$style = $this->styleRepository->getById($data->style)) {
 				throw MappingException::invalidRelation('style', $data->style);
 			}
+
+			$logDb = $this->logRepository->getByUserAndRoute($user, $route);
+			if ($logDb && in_array($log->getStyle(), $specialStyles) && ($style->getId() === NULL || $style->getId() !== $logDb)) {
+				throw LogException::duplicateLogForStyle($logDb->getId(), $style->getName());
+			}
+
 			$log->setStyle($style);
+		}
+
+		Utils::checkProperty($data, 'tries', TRUE);
+		if (in_array($log->getStyle(), $specialStyles)) {
+			$log->setTries(1);
+		} else {
+			$log->setTries($data->tries);
 		}
 
 		$this->logRepository->save($log);

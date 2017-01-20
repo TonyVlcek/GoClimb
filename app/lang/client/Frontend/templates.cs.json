@@ -1,13 +1,25 @@
 {
-	"logs": {
-		"create": "Zapsat přelez",
+	"routes": {
 		"register": "Registrovat se",
 		"login": "Přihlásit se",
 		"logout": "Odhlásit se",
 		"goToLogs": "Deníčky",
 		"rope": "Lano",
 		"boulder": "Boulder",
-		"back": "Zpět"
+		"createLog": "Přidat přelez",
+		"back": "Zpět",
+		"detail": {
+			"detail": "Detail",
+			"description": "Popis cesty",
+			"parameters": "Parametry",
+			"createdDate": "Vytvořeno dne",
+			"rating": "Hodnocení",
+			"ratingAverage": "Průměrný počet hvezdiček",
+			"unrated": "Ještě nehodoceno"
+		}
+	},
+	"logs": {
+		"create": "Přidat přelez"
 	},
 	"panel": {
 		"close": "Zrušit"

@@ -36,9 +36,9 @@ namespace GoClimb.Core.Model.Facades
 			}
 		}
 
-		public getLog(id: string, callback: (log: ILog) => void = null, errorCallback: Function = null) {
+		public getLog(id: number, callback: (log: ILog) => void = null, errorCallback: Function = null) {
 			this.getLogs((logs) => {
-				callback(logs.getIndex(id));
+				callback(logs.getIndex(id.toString()));
 			}, errorCallback);
 		}
 

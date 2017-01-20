@@ -100,7 +100,11 @@ abstract class RouteUpdater
 		Utils::checkProperty($data, 'dateCreated', FALSE);
 		$route->setDateCreated(Utils::toDateTime($data->dateCreated));
 		Utils::checkProperty($data, 'dateRemoved', FALSE);
-		$route->setDateCreated(Utils::toDateTime($data->dateRemoved));
+		if ($data->dateRemoved) {
+			$route->setDateRemoved(Utils::toDateTime($data->dateRemoved));
+		} else {
+			$route->setDateRemoved(NULL);
+		}
 
 		// colors
 		Utils::checkProperty($data, 'colors', TRUE);

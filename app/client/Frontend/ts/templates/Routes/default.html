@@ -1,20 +1,21 @@
+<div data-zf-notification-set id="flashMessages" data-position="bottom-left"></div>
 <div class="container">
-	<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+	<div class="col-sm-12 col-lg-10 col-lg-offset-1">
 		<ul class="nav nav-tabs" role="tablist">
 			<li style="position: absolute; left: 0;">
-				<a href="javascript: window.history.back();" class="btn btn-success"><span class="fa fa-chevron-left"></span> {{'templates.logs.back'|translate}}</a>
+				<a href="javascript: window.history.back();" class="btn btn-success"><span class="fa fa-chevron-left"></span> {{'templates.routes.back'|translate}}</a>
 			</li>
 			<li role="presentation" class="active">
-				<a href="javascript: void(0);" data-target="#rope" role="tab" data-toggle="tab"> {{'templates.logs.rope'|translate}}</a>
+				<a href="javascript: void(0);" data-target="#rope" role="tab" data-toggle="tab"> {{'templates.routes.rope'|translate}}</a>
 			</li>
 			<li role="presentation">
-				<a href="javascript: void(0);" data-target="#boulder" role="tab" data-toggle="tab"> {{'templates.logs.boulder'|translate}}</a>
+				<a href="javascript: void(0);" data-target="#boulder" role="tab" data-toggle="tab"> {{'templates.routes.boulder'|translate}}</a>
 			</li>
 		</ul>
 
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active datagrid table-responsive" id="rope">
-				<table data-st-table="logs" data-st-safe-src="logsCtrl.getRopes().getAsArray()" class="table">
+				<table data-st-table="ropes" data-st-safe-src="routesCtrl.getRopes().getAsArray()" class="table">
 					<thead>
 						<tr>
 							<th data-st-sort="name" data-st-skip-natural="true" class="clickable">
@@ -38,18 +39,21 @@
 							<th>
 								{{'grids.routes.parameters'|translate}}
 							</th>
-							<th data-ng-show="logsCtrl.user">
+							<th>
+								{{'grids.routes.detail'|translate}}
+							</th>
+							<th data-ng-show="routesCtrl.user">
 								{{'grids.routes.log'|translate}}
 							</th>
 						</tr>
 					</thead>
-					<tbody data-ng-hide="logsCtrl.getRopes()">
+					<tbody data-ng-hide="routesCtrl.getRopes()">
 						<tr>
 							<td colspan="10" class="text-center" ng-include="'app/client/Core/ts/templates/components/loading.html'"></td>
 						</tr>
 					</tbody>
-					<tbody data-ng-show="logsCtrl.getRopes()">
-						<tr data-ng-repeat="rope in logs">
+					<tbody data-ng-show="routesCtrl.getRopes()">
+						<tr data-ng-repeat="rope in ropes">
 							<td>{{rope.name}}</td>
 							<td>{{rope.difficulty.UIAA}} / {{rope.difficulty.FRL}}</td>
 							<td>{{rope.sector.name}}</td>
@@ -62,9 +66,14 @@
 								</span>
 								<span data-ng-hide="rope.parameters.length">-</span>
 							</td>
-							<td data-ng-show="logsCtrl.user">
-								<a class="gc-button" data-ui-sref="logs.create({id: rope.id, type: 'rope'})">
-									<span class="fa fa-plus"></span> {{'templates.logs.create'|translate}}
+							<td>
+								<a class="gc-button" data-ui-sref="routes.detail({id: rope.id, type: 'rope'})">
+									<span class="fa fa-search"></span> {{'templates.routes.detail.detail'|translate}}
+								</a>
+							</td>
+							<td data-ng-show="routesCtrl.user">
+								<a class="gc-button" data-ui-sref="routes.create({id: rope.id, type: 'rope'})">
+									<span class="fa fa-plus"></span> {{'templates.routes.createLog'|translate}}
 								</a>
 							</td>
 						</tr>
@@ -72,7 +81,7 @@
 				</table>
 			</div>
 			<div role="tabpanel" class="tab-pane fade datagrid table-responsive" id="boulder">
-				<table data-st-table="boulders" data-st-safe-src="logsCtrl.getBoulders().getAsArray()" class="table">
+				<table data-st-table="boulders" data-st-safe-src="routesCtrl.getBoulders().getAsArray()" class="table">
 					<thead>
 						<tr>
 							<th data-st-sort="name" data-st-skip-natural="true" class="clickable">
@@ -93,17 +102,20 @@
 							<th data-st-sort="end" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.end'|translate}}
 							</th>
-							<th data-ng-show="logsCtrl.user">
+							<th>
+								{{'grids.routes.detail'|translate}}
+							</th>
+							<th data-ng-show="routesCtrl.user">
 								{{'grids.routes.log'|translate}}
 							</th>
 						</tr>
 					</thead>
-					<tbody data-ng-hide="logsCtrl.getBoulders()">
+					<tbody data-ng-hide="routesCtrl.getBoulders()">
 						<tr>
 							<td colspan="10" class="text-center" ng-include="'app/client/Core/ts/templates/components/loading.html'"></td>
 						</tr>
 					</tbody>
-					<tbody data-ng-show="logsCtrl.getBoulders()">
+					<tbody data-ng-show="routesCtrl.getBoulders()">
 						<tr data-ng-repeat="boulder in boulders">
 							<td>{{boulder.name}}</td>
 							<td>{{boulder.difficulty.HUECO}} / {{boulder.difficulty.FRB}}</td>
@@ -111,10 +123,15 @@
 							<td>{{boulder.line.name}}</td>
 							<td>{{boulder.start}}</td>
 							<td>{{boulder.end}}</td>
-							<td data-ng-show="logsCtrl.user">
-								<a class="gc-button" data-ui-sref="logs.create({id: boulder.id, type: 'boulder'})">
+							<td>
+								<a class="gc-button" data-ui-sref="routes.detail({id: boulder.id, type: 'boulder'})">
+									<span class="fa fa-search"></span> {{'templates.routes.detail.detail'|translate}}
+								</a>
+							</td>
+							<td data-ng-show="routesCtrl.user">
+								<a class="gc-button" data-ui-sref="routes.create({id: boulder.id, type: 'boulder'})">
 									<span class="fa fa-plus"></span>
-									{{'templates.logs.create'|translate}}
+									{{'templates.routes.createLog'|translate}}
 								</a>
 							</td>
 						</tr>

@@ -9,6 +9,7 @@
 		"steps": "Steps",
 		"parameters": "Parameters",
 		"log": "Log",
+		"detail": "Detail",
 		"start": "Start",
 		"end": "End"
 	}

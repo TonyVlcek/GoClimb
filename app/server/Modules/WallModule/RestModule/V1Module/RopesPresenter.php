@@ -31,9 +31,19 @@ class RopesPresenter extends BaseV1Presenter
 	}
 
 
-	public function actionGet()
+	public function actionGet($id = NULL)
 	{
-		$this->addRopesData($this->ropeRepository->getByWall($this->wall));
+		if (!$id) {
+			if ($this->user->isAllowed('admin.routes.rope')) {
+				$this->addRopesData($this->ropeRepository->getByWall($this->wall));
+			} else {
+				$this->addRopesData($this->ropeRepository->getStandingByWall($this->wall));
+			}
+		} elseif ($rope = $this->ropeRepository->getById($id)) {
+			$this->addRopeData($rope);
+		} else {
+			$this->sendNotFound();
+		}
 	}
 
 

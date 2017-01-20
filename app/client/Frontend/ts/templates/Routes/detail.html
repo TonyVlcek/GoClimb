@@ -1,0 +1,34 @@
+<div id="logPanel" class="gc-side-panel gc-small js-disable-compress">
+	<span data-close-button></span>
+	<div class="gc-title-bar gc-with-menu">
+		<h1 class="gc-title">{{route.name}}</h1>
+		<div class="gc-menu">
+			<button type="button" class="gc-item" data-ui-sref="routes.create({id: route.id, type: type})">
+				<span class="fa fa-plus gc-icon"></span> {{'templates.routes.createLog'|translate}}
+			</button>
+		</div>
+	</div>
+	<div class="gc-content">
+		<h2 data-ng-show="route.description" class="gc-title-5">{{'templates.routes.detail.description'|translate}}</h2>
+		<p data-ng-show="route.description">{{route.description}}</p>
+
+		<h2 data-ng-show="route.parameters.length > 0" class="gc-title-5">{{'templates.routes.detail.parameters'|translate}}</h2>
+		<span data-ng-repeat="parameter in route.parameters">
+			<img data-cdn-image="static/parameters-icons/{{parameter.parameter}}-{{parameter.level}}.png" alt="{{'enums.parameters.' + parameter.parameter|translate}}: {{parameter.level}}" class="gc-parameter-icon">
+		</span>
+		<p data-ng-show="route.parameters.lenght">{{'templates.routes.detail.noParameters'|translate}}</p>
+
+		<h2 class="gc-title-5">{{'templates.routes.detail.createdDate'|translate}}</h2>
+		<p>{{route.dateCreated|date: 'yyyy/MM/dd'}}</p>
+
+		<h2 class="gc-title-5">{{'templates.routes.detail.rating'|translate}}</h2>
+		<span data-ng-show="average">{{'templates.routes.detail.ratingAverage'|translate}}: {{average}} <hr></span>
+		<span data-ng-hide="average">{{'templates.routes.detail.unrated'|translate}}</span>
+		<div data-ng-repeat="rating in route.ratings">
+			<h3 class="gc-title-6">{{rating.author.name}}</h3>
+			<p>{{rating.note}}</p>
+			<span data-ng-repeat="i in range(rating.rating) track by $index" class="fa fa-star"></span>
+			<hr>
+		</div>
+	</div>
+</div>

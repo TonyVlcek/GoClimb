@@ -141,6 +141,12 @@ class User
 	 */
 	private $roles;
 
+	/**
+	 * @var Rating[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Rating", mappedBy="author")
+	 */
+	private $ratings;
+
 
 	public function __construct()
 	{
@@ -152,6 +158,7 @@ class User
 		$this->restTokens = new ArrayCollection;
 		$this->roles = new ArrayCollection;
 		$this->logs = new ArrayCollection;
+		$this->ratings = new ArrayCollection;
 	}
 
 
@@ -658,4 +665,22 @@ class User
 		return $this->logs->toArray();
 	}
 
+	/**
+	 * @return Rating[]
+	 */
+	public function getRatings()
+	{
+		return $this->ratings->toArray();
+	}
+
+
+	/**
+	 * @param Rating $rating
+	 * @return $this
+	 */
+	public function addRating(Rating $rating)
+	{
+		$this->ratings->add($rating);
+		return $this;
+	}
 }
