@@ -14,25 +14,25 @@
 
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active datagrid table-responsive" id="rope">
-				<table class="table" data-ng-show="logsCtrl.getRopes()">
+				<table data-st-table="logs" data-st-safe-src="logsCtrl.getRopes().getAsArray()" class="table">
 					<thead>
 						<tr>
-							<th>
+							<th data-st-sort="name" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.name'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="ratingRope" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.ratingRope'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="sector" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.sector'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="line" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.line'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="length" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.length'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="steps" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.steps'|translate}}
 							</th>
 							<th>
@@ -43,8 +43,13 @@
 							</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr data-ng-repeat="rope in logsCtrl.getRopes().getAsArray()">
+					<tbody data-ng-hide="logsCtrl.getRopes()">
+						<tr>
+							<td colspan="10" class="text-center" ng-include="'app/client/Core/ts/templates/components/loading.html'"></td>
+						</tr>
+					</tbody>
+					<tbody data-ng-show="logsCtrl.getRopes()">
+						<tr data-ng-repeat="rope in logs">
 							<td>{{rope.name}}</td>
 							<td>{{rope.difficulty.UIAA}} / {{rope.difficulty.FRL}}</td>
 							<td>{{rope.sector.name}}</td>
@@ -67,25 +72,25 @@
 				</table>
 			</div>
 			<div role="tabpanel" class="tab-pane fade datagrid table-responsive" id="boulder">
-				<table class="table" data-ng-show="logsCtrl.getBoulders()">
+				<table data-st-table="boulders" data-st-safe-src="logsCtrl.getBoulders().getAsArray()" class="table">
 					<thead>
 						<tr>
-							<th>
+							<th data-st-sort="name" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.name'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="ratingBoulder" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.ratingBoulder'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="sector" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.sector'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="line" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.line'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="start" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.start'|translate}}
 							</th>
-							<th>
+							<th data-st-sort="end" data-st-skip-natural="true" class="clickable">
 								{{'grids.routes.end'|translate}}
 							</th>
 							<th data-ng-show="logsCtrl.user">
@@ -93,8 +98,13 @@
 							</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr data-ng-repeat="boulder in logsCtrl.getBoulders().getAsArray()">
+					<tbody data-ng-hide="logsCtrl.getBoulders()">
+						<tr>
+							<td colspan="10" class="text-center" ng-include="'app/client/Core/ts/templates/components/loading.html'"></td>
+						</tr>
+					</tbody>
+					<tbody data-ng-show="logsCtrl.getBoulders()">
+						<tr data-ng-repeat="boulder in boulders">
 							<td>{{boulder.name}}</td>
 							<td>{{boulder.difficulty.HUECO}} / {{boulder.difficulty.FRB}}</td>
 							<td>{{boulder.sector.name}}</td>

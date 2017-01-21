@@ -1,0 +1,9 @@
+.placeholder-gc-content-padding {
+	@include breakpoint(medium) {
+		padding-left: $side-panel-content-padding-sides-medium;
+		padding-right: $side-panel-content-padding-sides-medium;
+	}
+
+	padding-left: $side-panel-content-padding-sides;
+	padding-right: $side-panel-content-padding-sides;
+}

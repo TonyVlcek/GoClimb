@@ -1,23 +1,28 @@
 .#{$class-prefix}-side-panel {
+	@include breakpoint(medium) {
+		max-width: 90%;
+	}
+
 	//Expand is default width
 	width: $side-panel-width-expand;
-	max-width: 90%;
-	transition: width .3s;
+	max-width: 100%;
+	height: 100%;
 
+	position: fixed;
+	display: block;
+	right: 0;
 	top: $top-panel-height;
 	padding-bottom: $top-panel-height;
-	right: 0;
-	height: 100%;
-	display: block;
 	overflow-y: auto;
-	position: fixed;
 	z-index: $side-panel-z-index;
+
+	transition: width .3s;
 	background: #FFFFFF !important;
 	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25);
 	animation-fill-mode: forwards;
 
 	&.#{$class-prefix}-small {
-		max-width: $side-panel-width-compress;
+		width: $side-panel-width-compress;
 	}
 
 	.#{$class-prefix}-close-button {
@@ -38,30 +43,22 @@
 
 	.#{$class-prefix}-title-bar {
 		.#{$class-prefix}-title {
-			padding-left: $side-panel-content-padding-sides;
-			padding-right: $side-panel-content-padding-sides;
+			@extend .placeholder-gc-content-padding;
 		}
 
 		.#{$class-prefix}-menu {
-			padding-left: $side-panel-content-padding-sides - $title-bar-button-padding;
-			padding-right: $side-panel-content-padding-sides - $title-bar-button-padding;
+			@include subtract-from-gc-content-padding($title-bar-button-padding);
 		}
 	}
 
 	.#{$class-prefix}-content {
-		padding-left: $side-panel-content-padding-sides;
-		padding-right: $side-panel-content-padding-sides;
+		@extend .placeholder-gc-content-padding;
 
 		// Removes bigger padding caused by flex box content element
 		&.#{$class-prefix}-flex {
-			padding-left: $side-panel-content-padding-sides - $side-panel-grid-block-padding;
-			padding-right: $side-panel-content-padding-sides - $side-panel-grid-block-padding;
+			@include subtract-from-gc-content-padding($side-panel-grid-block-padding);
 		}
 	}
-}
-
-.#{$class-prefix}-main-view, .#{$class-prefix}-main-view .#{$class-prefix}-title-bar, .#{$class-prefix}-main-view .#{$class-prefix}-grid-container {
-	transition: margin 0.3s, padding 0.3s;
 }
 
 .#{$class-prefix}-overlay {
@@ -110,15 +107,6 @@
 			margin-right: $side-panel-width-compress;
 		}
 
-		//In progress
-		//.main-view .title-bar {
-		//	padding-right: $side-panel-width-compress;
-		//}
-		//
-		//.main-view .grid-container {
-		//	margin-right: $side-panel-width-compress !important;
-		//}
-
 		.#{$class-prefix}-side-panel {
 			width: $side-panel-width-compress;
 		}
@@ -153,4 +141,8 @@
 	&.ng-leave-active {
 		transform: translateX(100%);
 	}
+}
+
+.#{$class-prefix}-main-view, .#{$class-prefix}-main-view .#{$class-prefix}-title-bar, .#{$class-prefix}-main-view .#{$class-prefix}-grid-container {
+	transition: margin 0.3s, padding 0.3s;
 }

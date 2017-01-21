@@ -1,0 +1,9 @@
+@mixin subtract-from-gc-content-padding($padding) {
+	@include breakpoint(medium) {
+		padding-left: $side-panel-content-padding-sides-medium - $padding;
+		padding-right: $side-panel-content-padding-sides-medium - $padding;
+	}
+
+	padding-left: $side-panel-content-padding-sides - $padding;
+	padding-right: $side-panel-content-padding-sides - $padding;
+}

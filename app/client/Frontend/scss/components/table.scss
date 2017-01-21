@@ -3,6 +3,33 @@
 		vertical-align: middle !important;
 	}
 
+	th {
+		position: relative;
+
+		&:after {
+			position: absolute;
+			font-size: 12px;
+			padding-left: 5px;
+		}
+
+		&.st-sort-ascent:after {
+			content: "\f077";
+			color: $global-theme-font-color;
+			font-family: 'FontAwesome';
+		}
+
+		&.st-sort-descent:after {
+			content: "\f078";
+			color: $global-theme-font-color;
+			font-family: 'FontAwesome';
+		}
+	}
+
+
+	.clickable {
+		cursor: pointer;
+	}
+
 	.gc-button {
 		margin: 0;
 		white-space: nowrap;
