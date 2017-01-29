@@ -12,6 +12,7 @@ namespace GoClimb.App.States
 	import RopesFacade = GoClimb.Core.Model.Facades.RopesFacade;
 	import UserFacade = GoClimb.Core.Model.Facades.UserFacade;
 	import IUser = GoClimb.Core.Model.Entities.IUser;
+	import UserService = GoClimb.Admin.Services.UserService;
 
 	export class ProfileEditState extends BasePanelState
 	{
@@ -19,9 +20,9 @@ namespace GoClimb.App.States
 		public url = '/edit';
 		public templateUrl = 'app/client/App/ts/templates/Profile/edit.html';
 		public resolve = {
-			userFromFacade: ['userFacade', (userFacade: UserFacade) => {
+			userFromFacade: ['userService', (userService: UserService) => {
 				return new Promise((resolve, reject) => {
-					userFacade.getLoggedUser(function (user) {
+					userService.getUser((user) => {
 						resolve(angular.copy(user));
 					});
 				});

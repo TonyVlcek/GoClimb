@@ -6,7 +6,18 @@
 		"date": "Date of climbing",
 		"style": "Style",
 		"noStyle": "Not finished",
-		"description": "Description",
-		"save": "Save"
+		"privateNote": "Private note",
+		"routeRating": "What is your opinion on this route?",
+		"save": "Save",
+		"tries": "Tries",
+		"rating": {
+			"comment": "Comment",
+			"rating": "How many stars you would give this route?",
+			"1": "It was bad.",
+			"2": "Could be better.",
+			"3": "I enjoyed climbing it.",
+			"4": "Almost perfect.",
+			"5": "Perfect!"
+		}
 	}
 }

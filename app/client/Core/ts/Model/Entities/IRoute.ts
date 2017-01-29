@@ -29,6 +29,7 @@ namespace GoClimb.Core.Model.Entities
 		}>;
 		rope?: boolean,
 		boulder?: boolean,
+		ratings?: IRating[],
 
 	}
 

@@ -22,6 +22,13 @@ namespace GoClimb.Core.Model.Facades
 			}
 		}
 
+		public getStylesForLog(routeId: number, callback: (styles: IStyle[]) => void = null)
+		{
+			this.httpService.requestGet('styles/' + routeId, (data) => {
+				callback(data.styles);
+			});
+		}
+
 	}
 
 	StylesFacade.register(angular, 'stylesFacade', ['httpService']);

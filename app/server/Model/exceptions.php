@@ -114,6 +114,18 @@ class UserException extends ModelException
 
 }
 
+class LogException extends ModelException
+{
+
+	const DUPLICATE_LOG = 1;
+
+	public static function duplicateLogForStyle($routeId, $styleName)
+	{
+		return new self(sprintf('Log with id \'%s\' and this style \'%s\' already exists.', $routeId, $styleName), self::DUPLICATE_LOG);
+	}
+
+}
+
 
 class WallException extends ModelException
 {

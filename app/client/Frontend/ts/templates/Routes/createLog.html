@@ -1,0 +1,57 @@
+<div id="logPanel" class="gc-side-panel gc-small js-disable-compress">
+	<span data-close-button></span>
+	<div class="gc-title-bar">
+		<h1 class="gc-title">{{'templates.logs.create'|translate}}</h1>
+	</div>
+	<div class="gc-content">
+		<h3 class="gc-title-5">{{route.name}}</h3>
+		<form name="logForm" class="gc-form" novalidate>
+			<label>
+				<span class="gc-required">{{'forms.logs.date'|translate}}:</span>
+				<input type="date" required data-ng-model="log.loggedDate">
+			</label>
+
+			<label>
+				<span class="gc-required">{{'forms.logs.style'|translate}}:</span>
+				<select required data-ng-model="log.style" ng-change="setTries()">
+					<!--<option value="">{{'forms.logs.noStyle'|translate}}</option>-->
+					<option data-ng-repeat="style in styles" data-ng-value="style.id">{{'enums.styles.' + style.name|translate}}
+					</option>
+				</select>
+			</label>
+
+			<label ng-click="explainTries()" ng-class="{'gc-disabled': disableTries}">
+				{{'forms.logs.tries'|translate}}:
+				<input type="range" data-ng-input-range min="1" max="10" step="1" data-ng-model="log.tries" data-ng-disabled="disableTries">
+				<span class="gc-clearfix"><span class="gc-pull-left">1</span><span class="gc-pull-right">10</span></span>
+				<input type="number" ng-model="log.tries" data-ng-disabled="disableTries">
+			</label>
+			<label>
+				{{'forms.logs.privateNote'|translate}}:
+				<textarea data-ng-model="log.description"></textarea>
+			</label>
+			<hr>
+			<div ng-hide="allreadyRated">
+				<h3 class="gc-title-5">{{'forms.logs.routeRating'|translate}}</h3>
+				<label>
+					{{'forms.logs.rating.comment'|translate}}:
+					<textarea data-ng-model="rating.note"></textarea>
+				</label>
+				<div ng-class="{'gc-disabled': !rating.note}" ng-click="explainRating()">
+					<label>
+						{{'forms.logs.rating.'|translate}}:
+						<input type="range" data-ng-input-range min="1" max="5" step="1" ng-model="rating.rating" data-ng-disabled="!rating.note">
+						<span class="gc-clearfix gc-text-center"><span class="gc-pull-left">+1</span>+{{rating.rating}}<span class="gc-pull-right">+5</span></span>
+					</label>
+					<p>{{'forms.logs.rating.' + rating.rating|translate}}</p>
+				</div>
+				<hr>
+			</div>
+			<button class="gc-button" data-ng-class="{spinner: saving}" data-ng-disabled="(logForm.$invalid || saving)" data-ng-click="save()">
+				{{'forms.logs.save'|translate}}
+			</button>
+			<button class="gc-button gc-secondary" data-ui-sref="^">{{'templates.panel.close'|translate}}</button>
+		</form>
+
+	</div>
+</div>

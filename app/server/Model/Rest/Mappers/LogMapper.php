@@ -41,6 +41,7 @@ class LogMapper
 			'route' => $route,
 			'loggedDate' => Utils::formatDateTime($log->getLoggedDate()),
 			'description' => $log->getDescription(),
+			'tries' => $log->getTries(),
 			'points' => $log->getPoints(),
 			'wall' => WallMapper::mapBasicInfo($log->getRoute()->getLine()->getSector()->getWall())
 		];

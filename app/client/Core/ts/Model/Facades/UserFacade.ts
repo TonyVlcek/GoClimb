@@ -26,18 +26,6 @@ namespace GoClimb.Core.Model.Facades
 			this.httpService.requestGet('users/' + id, callback, {}, errorCallback);
 		}
 
-		public getLoggedUser(callback: Function, errorCallback: Function = null)
-		{
-			if (this.user.basic) {
-				this.httpService.requestGet('users/' + this.user.id, (data) => {
-					this.user = UserFacade.mapUser(data.user);
-					callback(data.user);
-				}, {}, errorCallback);
-			} else {
-				callback(this.user)
-			}
-		}
-
 		public updateUser(user: IUser, callback: (user: IUser) => void = null, errorCallback: Function = null): UserFacade
 		{
 			user = angular.copy(user);

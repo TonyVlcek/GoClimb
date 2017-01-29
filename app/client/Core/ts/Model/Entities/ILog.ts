@@ -17,6 +17,7 @@ namespace GoClimb.Core.Model.Entities
 		loggedDate: any /*string|Date*/;
 		description?: string;
 		points?: number;
+		tries?: number;
 
 	}
 

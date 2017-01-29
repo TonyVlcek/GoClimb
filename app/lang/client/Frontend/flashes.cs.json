@@ -1,0 +1,22 @@
+{
+	"http": {
+		"error403": "Omlouváme se, ale nemáš přístup. Zkus obnovit stránku nebo kontaktovat administrátora.",
+		"error404": "Tato stránka nebo entita nebyla nalezena. Zkus obnovit stránku.",
+		"error500": "Omlouváme se, ale server nefunguje úplně podle našich představ. Zkus obnovit stránku. Chyba nám přišla na email a už ji opravujeme.",
+		"error600": "Omlouváme se, něco je špatně. Zkus obnovit stránku.",
+		"error601": "Tvoje přihlášení vypršelo. Prosím obnov stránku, nebo se přihlaš znova.",
+		"error602": "Tvoje IP adresa se změnila od poslední návštěvy. Prosím obnov stránku."
+	},
+	"logs": {
+		"created": "Přelez byl přidán do deníčku.",
+		"error": {
+			"invalidForm": "Prosím vyplň všechna povinná pole.",
+			"removed": "Nelze přidat přelez k již sundané cestě.",
+			"explainTries": "Pro styly přelezu OS a FLASH nelze mít víc jak jeden pokud. Podrobné vysvětlění, proč to takhle je najdeš v nápovědě.",
+			"explainRating": "Pro přidání hodnocení nejprve musíš vyplnit komentřář."
+		}
+	},
+	"rating": {
+		"added": "Hodnocení cesty bylo přidáno."
+	}
+}

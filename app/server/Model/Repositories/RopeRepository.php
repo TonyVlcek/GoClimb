@@ -24,12 +24,26 @@ class RopeRepository extends BaseRepository
 
 
 	/**
+	 * @param Wall $wall
 	 * @return Rope[]
 	 */
 	public function getByWall(Wall $wall)
 	{
 		return $this->getDoctrineRepository()->findBy([
 			'line.sector.wall' => $wall,
+		]);
+	}
+
+
+	/**
+	 * @param Wall $wall
+	 * @return Rope[]
+	 */
+	public function getStandingByWall(Wall $wall)
+	{
+		return $this->getDoctrineRepository()->findBy([
+			'line.sector.wall' => $wall,
+			'dateRemoved' => NULL,
 		]);
 	}
 

@@ -26,7 +26,7 @@
 						<th>{{'grids.logs.description'|translate}}</th>
 						<th>{{'grids.logs.length'|translate}}</th>
 						<th>{{'grids.logs.steps'|translate}}</th>
-						<th></th>
+						<!--<th></th>-->
 					</tr>
 				</thead>
 				<tbody data-ng-hide="dashboardCtrl.getLogs()">
@@ -60,11 +60,11 @@
 						<td>
 							<span data-ng-show="log.route.rope">{{log.route.steps}}</span>
 						</td>
-						<td>
-							<button class="button hollow warning" type="button" data-ui-sref="dashboard.edit({id: log.id})">
-								<span class="fa fa-pencil"></span> {{'grids.logs.edit'|translate}}
-							</button>
-						</td>
+						<!--<td>-->
+							<!--<button class="button hollow warning" type="button" data-ui-sref="dashboard.edit({id: log.id})">-->
+								<!--<span class="fa fa-pencil"></span> {{'grids.logs.edit'|translate}}-->
+							<!--</button>-->
+						<!--</td>-->
 					</tr>
 				</tbody>
 			</table>

@@ -83,12 +83,19 @@ abstract class Route
 	 */
 	private $routeParameters;
 
+	/**
+	 * @var Rating[]|ArrayCollection
+	 * @ORM\OneToMany(targetEntity="Rating", mappedBy="route")
+	 */
+	private $ratings;
+
 
 	public function __construct()
 	{
 		$this->colors = new ArrayCollection;
 		$this->routeParameters = new ArrayCollection;
 		$this->logs = new ArrayCollection;
+		$this->ratings = new ArrayCollection;
 	}
 
 
@@ -312,4 +319,22 @@ abstract class Route
 		return $this instanceof Boulder;
 	}
 
+	/**
+	 * @return Rating[]
+	 */
+	public function getRatings()
+	{
+		return $this->ratings->toArray();
+	}
+
+
+	/**
+	 * @param Rating $rating
+	 * @return $this
+	 */
+	public function addRating(Rating $rating)
+	{
+		$this->ratings->add($rating);
+		return $this;
+	}
 }

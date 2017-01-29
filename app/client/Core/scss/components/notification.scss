@@ -1,0 +1,49 @@
+.notification-container {
+	position: fixed;
+	width: calc(100% - #{$notification-space-from-left * 2});
+	@include breakpoint(medium) {
+		width: $notification-width;
+	}
+	left: $notification-space-from-left;
+	top: auto;
+	bottom: 0;
+	z-index: $top-panel-z-index;
+}
+
+.notification {
+	margin: $notification-margin $notification-margin / 2;
+	padding: $notification-padding;
+	border-radius: $notification-border-radius;
+	background: $global-theme-accent-color;
+	position: relative;
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+
+	&.success {
+		background: $global-theme-success;
+	}
+
+	&.alert {
+		background: $global-theme-alert;
+	}
+
+	.notification-content {
+		color: white;
+		@include breakpoint(medium) {
+			width: 21rem;
+		}
+		h1 {
+			font-size: 1.25em;
+			margin: 0;
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: 1.6;
+			margin: 0;
+		}
+	}
+}

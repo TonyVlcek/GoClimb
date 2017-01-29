@@ -6,11 +6,15 @@ $foundation-version: 1.2.0;
 
 @import "helpers/function";
 @import "settings";
-@import "helpers/mixins";
 @import "helpers/placeholders";
+@import "helpers/mixins";
+@import "helpers/HelperClasses";
+@import "components/typography";
 @import "components/adminMenu";
+@import "components/closeButton";
 @import "components/dropdown";
 @import "components/loading";
+@import "components/notification";
 @import "components/topPanel";
 @import "components/titleBar";
 @import "components/sidePanel";

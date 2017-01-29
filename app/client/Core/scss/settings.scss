@@ -8,7 +8,6 @@ $global-font-color: #222222; // Same as in foundation
 $text-opacaty: 0.13;
 $light-text-opacaty: 0.46;
 $dividers-opacaty: 0.88;
-//$disable-opacaty: 0.62;
 $disable-opacaty: 0.72;
 
 $global-theme-font-color: transparentize($global-theme-color, $text-opacaty);
@@ -17,14 +16,22 @@ $global-theme-accent-font-color: transparentize(set-text-color($global-theme-acc
 $global-theme-divider: transparentize($global-theme-color, $dividers-opacaty);
 $global-theme-disable: transparentize($global-theme-color, $disable-opacaty);
 
+$global-theme-success: #43AC6A;
+$global-theme-alert: #E23237;
+
+
 //Side padding
 $global-side-padding: 3.4rem;
+
+//Define default space between objects
+$spacer: 1rem;
 
 //Class prefix
 //Don't forget to change it in CloseDirective.ts
 $class-prefix: 'gc';
 
-//Top bar (Core component)
+
+//Top panel (Core component)
 $top-panel-background: #616161; //#2D2E2F
 $top-panel-height: 3.125rem; // = 50px
 $top-panel-hover-background: transparentize(invert($top-panel-background), 0.86);
@@ -34,31 +41,72 @@ $top-panel-dropdown-hover-background: transparentize($global-theme-color, 0.94);
 $top-panel-dropdown-color: $global-theme-light-font-color;
 $top-panel-z-index: 1024;
 
+
 //Title bar (Core component)
 $title-bar-minimal-height: 8.125rem; // = 130px
 $title-bar-background: $global-theme-accent-color;
-$title-bar-padding: 1rem;
+$title-bar-padding: $spacer;
 $title-bar-padding-sides: $global-side-padding;
 $title-bar-title-size: 2.25rem;
 $title-bar-title-color: $global-theme-accent-font-color;
-$title-bar-button-padding: 1rem;
+
+$title-bar-button-padding: $spacer;
 $title-bar-button-color: $global-theme-accent-font-color;
+$title-bar-button-font-size: 1rem;
+
 
 //Side panel (Core component)
 $side-panel-content-padding-sides: 1rem;
 $side-panel-content-padding-sides-medium: 2rem;
 //See usage for more details
-$side-panel-grid-block-padding: 1rem;
+$side-panel-grid-block-padding: $spacer;
 $side-panel-width-compress: 28em;
 $side-panel-width-expand: 57em;
-// $side-panel-z-index - 1 = panel-view, $side-panel-z-index - 2 = overlay
 $side-panel-z-index: 502;
 
+
 //Form (Core component)
-$core-form-invalid-color: #E23237;
+$invalid-color: $global-theme-alert;
+$form-font-size: 0.875rem;
+
+$slider-background: $global-theme-divider;
+$slider-height: 1rem;
+$slider-radius: 0px;
+$slider-thumb-height: 1.5rem;
+$slider-thumb-color: $global-theme-accent-color;
+$slider-thumb-radius: 0px;
+
 
 //Button (Core component)
 $core-button-secondary-color: #e5e5e5;
+
+
+//Notification (Core component)
+$notification-width: 26rem;
+$notification-space-from-left: $spacer;
+$notification-margin: $spacer;
+$notification-padding: $spacer;
+$notification-border-radius: 4px;
+
+
+//Typography (Core)
+$fonts: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.75rem;
+$font-size-h4: 1.5rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: 1rem;
+
+$headings-margin-bottom: ($spacer / 2);
+$headings-font-family:   $fonts;
+$headings-font-weight:   500;
+$headings-line-height:   1.1;
+$headings-color:         inherit;
+
+$text-font-family: $fonts;
+
 
 //Admin Menu
 $admin-menu-width: 220px;
@@ -69,6 +117,7 @@ $admin-menu-hover-background: $global-theme-divider; //transparentize(invert(#F7
 $admin-menu-z-index: 101;
 
 html {
+	//1rem = 16px
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 }

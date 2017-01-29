@@ -25,22 +25,6 @@
 		width: $side-panel-width-compress;
 	}
 
-	.#{$class-prefix}-close-button {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		font-size: 2em;
-		color: rgba(133, 133, 133, 0.71);
-		line-height: 0.5;
-		cursor: pointer;
-		border: 0;
-		background: transparent;
-
-		&:hover {
-			color: rgba(33, 33, 33, 0.71);
-		}
-	}
-
 	.#{$class-prefix}-title-bar {
 		.#{$class-prefix}-title {
 			@extend .placeholder-gc-content-padding;

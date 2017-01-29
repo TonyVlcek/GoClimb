@@ -1,13 +1,25 @@
 {
-	"logs": {
-		"create": "Create log",
+	"routes": {
 		"register": "Register",
 		"login": "Login",
 		"logout": "Logout",
 		"goToLogs": "Go to Logs",
 		"rope": "Rope",
 		"boulder": "Boulder",
-		"back": "Back"
+		"createLog": "Add log",
+		"back": "Back",
+		"detail": {
+			"detail": "Detail",
+			"description": "Description",
+			"parameters": "Parameters",
+			"createdDate": "Created at",
+			"rating": "Rating",
+			"ratingAverage": "Average of stars",
+			"unrated": "Unrated"
+		}
+	},
+	"logs": {
+		"create": "Add log"
 	},
 	"panel": {
 		"close": "Close"

@@ -8,7 +8,7 @@ namespace GoClimb.Admin.Controllers
 	import IBoulder = GoClimb.Core.Model.Entities.IBoulder;
 	import BouldersFacade = GoClimb.Core.Model.Facades.BouldersFacade;
 
-	export class LogsController extends BaseController
+	export class RoutesController extends BaseController
 	{
 
 		public user = null;
@@ -58,6 +58,6 @@ namespace GoClimb.Admin.Controllers
 
 	}
 
-	LogsController.register(angular, 'LogsController', ['wall', 'user', 'links', 'ropesFacade', 'bouldersFacade']);
+	RoutesController.register(angular, 'RoutesController', ['wall', 'user', 'links', 'ropesFacade', 'bouldersFacade']);
 
 }

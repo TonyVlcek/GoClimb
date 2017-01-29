@@ -1,0 +1,24 @@
+.#{$class-prefix}-clearfix{
+	clear: both;
+	display: block;
+}
+
+.#{$class-prefix}-pull-left{
+	float: left;
+}
+
+.#{$class-prefix}-pull-right{
+	float: right;
+}
+
+.#{$class-prefix}-text-center{
+	text-align: center;
+}
+
+.#{$class-prefix}-disabled {
+	opacity: 0.5;
+}
+
+.#{$class-prefix}-required {
+	font-weight: bold;
+}
