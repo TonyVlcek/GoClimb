@@ -5,6 +5,7 @@
 	display: block;
 	padding-top: $title-bar-padding;
 	padding-bottom: $title-bar-padding;
+	overflow: auto;
 
 	&.#{$class-prefix}-with-menu {
 		padding-bottom: 0;
@@ -12,6 +13,7 @@
 
 	.#{$class-prefix}-title {
 		display: block;
+		white-space: nowrap;
 		font-weight: normal;
 		letter-spacing: 0.1rem;
 		line-height: 1.5;
