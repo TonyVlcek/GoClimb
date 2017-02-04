@@ -36,7 +36,7 @@ namespace GoClimb.Admin.Services
 
 		public getUser(callback: (user) => void)
 		{
-			if (!this.isLoggedIn){
+			if (!this.isLoggedIn()){
 				callback(null);
 			}
 

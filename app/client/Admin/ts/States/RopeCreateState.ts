@@ -86,7 +86,7 @@ namespace GoClimb.Admin.States
 				$scope.rope.builder = {
 					  'id': user.id,
 					  'name': user.nick
-				}
+				};
 			});
 
 			$scope.isSectorOk = () => {

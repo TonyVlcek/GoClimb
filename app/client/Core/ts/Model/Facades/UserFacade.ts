@@ -20,7 +20,9 @@ namespace GoClimb.Core.Model.Facades
 
 		public getUser(id: number, callback: Function, errorCallback: Function = null)
 		{
-			this.httpService.requestGet('users/' + id, callback, {}, errorCallback);
+			this.httpService.requestGet('users/' + id, (data) => {
+				callback(data.user);
+			}, {}, errorCallback);
 		}
 
 		public updateUser(user: IUser, callback: (user: IUser) => void = null, errorCallback: Function = null): UserFacade
