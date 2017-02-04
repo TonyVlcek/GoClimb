@@ -12,6 +12,8 @@ monolog:
 
 goClimb:
 	cdnUrl: http://localhost/GoClimb/cdn/
+	labels:
+		zoom: 1 #float that define pdf page zoom
 	#routes:
 		#useVirtualHosts: true
 		#domains:

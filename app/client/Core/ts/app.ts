@@ -11,6 +11,7 @@ namespace GoClimb
 		'angular-google-analytics',
 		'smart-table',
 		'foundation',
+		'checklist-model',
 	];
 
 	var goClimb = angular.module('GoClimb', coreModules);

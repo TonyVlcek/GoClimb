@@ -43,6 +43,19 @@ app:
 		dashboard: Deníčky
 		about: O aplikaci
 
+api:
+	labels:
+		buildDate: Postaveno
+		builder: Stavěč
+		name: Jméno
+		uiaa: UIAA
+		scan: Naskenuj QR
+		line: Linie
+		start: Start
+		top: Top
+		fr: Fr
+		note: Pozn.
+
 backend:
 	layout:
 		title: Administrace

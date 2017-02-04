@@ -32,7 +32,7 @@ extensions:
 	events: Kdyby\Events\DI\EventsExtension
 	migrations: Zenify\DoctrineMigrations\DI\MigrationsExtension
 	monolog: Kdyby\Monolog\DI\MonologExtension
-	goClimb: GoClimb\DI\GoClimbExtension
+	goClimb: GoClimb\DI\GoClimbExtension(%tempDir%)
 	translation: Kdyby\Translation\DI\TranslationExtension
 
 latte:

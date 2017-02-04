@@ -7,9 +7,9 @@ use GoClimb\UI\Controls\ITranslatableControlFactory;
 use GoClimb\UI\Forms\ITranslatableFormFactory;
 use GoClimb\UI\Grids\ITranslatableGridFactory;
 use GoClimb\UI\CdnLinkGenerator;
-use Nette\Bridges\ApplicationLatte\TemplateFactory;
 use Nette\DI\CompilerExtension;
 use Nette\Utils\Validators;
+use server\DI\Labels\LabelsGenerator;
 
 
 class GoClimbExtension extends CompilerExtension
@@ -18,9 +18,22 @@ class GoClimbExtension extends CompilerExtension
 	private $defaults = [
 		'routes' => [
 			'useVirtualHosts' => FALSE,
-			'domains' => []
-		]
+			'domains' => [],
+		],
 	];
+
+	private $tempDir;
+
+
+	/**
+	 * GoClimbExtension constructor.
+	 *
+	 * @param $tempDir
+	 */
+	public function __construct($tempDir)
+	{
+		$this->tempDir = $tempDir;
+	}
 
 
 	public function loadConfiguration()
@@ -33,6 +46,9 @@ class GoClimbExtension extends CompilerExtension
 
 		Validators::assertField($config['routes'], 'useVirtualHosts', 'bool');
 		Validators::assertField($config['routes'], 'domains', 'array');
+
+		Validators::assertField($config, 'labels', 'array');
+		Validators::assertField($config['labels'], 'zoom', 'number');
 	}
 
 
@@ -44,6 +60,13 @@ class GoClimbExtension extends CompilerExtension
 		$builder->addDefinition('imageLinkGenerator')
 			->setClass(CdnLinkGenerator::class)
 			->setArguments([$this->getCdnUrl()]);
+
+		$builder->addDefinition('labelsGenerator')
+			->setClass(LabelsGenerator::class)
+			->setArguments([
+				$config['labels']['zoom'],
+				$this->tempDir
+			]);
 
 		$routerFactory = $builder->addDefinition($this->prefix('routerFactory'))
 			->setClass(RouterFactory::class)

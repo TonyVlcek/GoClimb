@@ -79,6 +79,7 @@
 /// <reference path="ts/Model/Facades/StylesFacade.ts" />
 /// <reference path="ts/Model/Facades/UserFacade.ts" />
 /// <reference path="ts/Model/Facades/WallDetailsFacade.ts" />
+/// <reference path="ts/Model/Facades/LabelsFacade.ts" />
 
 
 /// <reference path="ts/Model/Http/HttpService.ts" />

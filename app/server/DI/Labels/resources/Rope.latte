@@ -1,0 +1,60 @@
+{php $counter = 0}
+{foreach $ropes as $rope}
+	{if $counter == 0}
+		<div class="header">
+			<div class="reference-box"></div>
+			<div class="reference-box-desc"> = 1cm</div>
+			<img class="header-gc-logo" n:cdnSrc="static/logos/gc-logo-small-black.png">
+		</div>
+		<div class="content">
+	{/if}
+	<div class="position">
+		<div class="rope-box">
+			<img class="rope-polygon-img" n:cdnSrc="static/labels/polygon.png">
+
+			<ul class="rope-data">
+				<li>{_templates.api.labels.buildDate}
+					:<span class="bold"> {$rope->getDateCreated()|date:'%d.%m.%Y'}</span></li>
+				<li>{_templates.api.labels.builder}
+					:<span class="bold"> {$rope->getBuilder()->getDisplayedName()}</span>
+				</li>
+				<li class="rope-data-desc">{$rope->getDescription()}</li>
+			</ul>
+			<div class="rope-difficulty bold">{$rope->getDifficulty()->getRatingFRL()}</div>
+			<div class="rope-title">
+				<table>
+					<tbody>
+						<tr>
+							<td>{_templates.api.labels.name}:</td>
+							<td class="bold">{$rope->getName()}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="rope-difficulty-uiaa">
+				<span class="bold">(</span>{_templates.api.labels.uiaa}:
+				<span class="bold">{$rope->getDifficulty()->getRatingUIAA()})</span>
+			</div>
+			<div class="rope-parameters" n:inner-foreach="$rope->getRouteParameters() as $parameter">
+				<img n:cdnSrc="'/static/parameters-icons/' . $parameter->getParameter()->getName() . '-' . $parameter->getLevel() . '.png'" class="rope-icon">
+			</div>
+			<div class="rope-qr">
+				{$image = ('<img class="rope-qr-image" src="' . $getQR($rope->getId()) . '">')|noescape}<br>
+				<span class="rope-qr-desc">{_templates.api.labels.scan}</span>
+			</div>
+			<div class="rope-gc-line">
+				{_templates.api.labels.line}:
+				<span class="bold rope-gc-line-name">{$rope->getLine()->getName()}</span>
+			</div>
+			<img class="rope-gc-logo" n:cdnSrc="static/logos/gc-logo-small-black.png">
+		</div>
+	</div>
+	{php $counter++}
+	{if $counter == 3}
+		{php $counter = 0}
+		</div>
+		{sep}
+			<div class="break"></div>
+		{/sep}
+	{/if}
+{/foreach}

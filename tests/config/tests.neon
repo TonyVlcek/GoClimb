@@ -5,6 +5,8 @@ doctrine:
 
 goClimb:
 	cdnUrl: http://localhost/cdn
+	labels:
+		zoom: 1
 
 console:
 	url: http://localhost

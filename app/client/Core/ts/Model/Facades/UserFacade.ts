@@ -8,12 +8,9 @@ namespace GoClimb.Core.Model.Facades
 	export class UserFacade extends BaseFacade
 	{
 
-		private user: IUser;
-
 		constructor(httpService: HttpService, user: IUser)
 		{
 			super(httpService);
-			this.user = UserFacade.mapUser(user);
 		}
 
 		public getUsers(callback: Function, errorCallback: Function = null)
@@ -31,9 +28,8 @@ namespace GoClimb.Core.Model.Facades
 			user = angular.copy(user);
 			user = UserFacade.userToJson(user);
 			this.httpService.requestPost('users/' + user.id, {user: user}, (data) => {
-				this.user = UserFacade.mapUser(user);
 				if (callback) {
-					callback(data.user);
+					callback(UserFacade.mapUser(data.user));
 				}
 			}, errorCallback);
 			return this;
@@ -42,7 +38,7 @@ namespace GoClimb.Core.Model.Facades
 		public getByEmail(email: string, callback: (user) => void = null, errorCallback: Function = null)
 		{
 			this.httpService.requestGet('users/?email=' + encodeURIComponent(email), (data) => {
-				callback(data.user);
+				callback(UserFacade.mapUser(data.user));
 			}, {}, errorCallback);
 		}
 
@@ -78,6 +74,6 @@ namespace GoClimb.Core.Model.Facades
 		}
 	}
 
-	UserFacade.register(angular, 'userFacade', ['httpService', 'user']);
+	UserFacade.register(angular, 'userFacade', ['httpService']);
 
 }

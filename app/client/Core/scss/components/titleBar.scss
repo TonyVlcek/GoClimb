@@ -27,6 +27,8 @@
 		display: block;
 		padding: 0 ($title-bar-padding-sides - $title-bar-button-padding);
 		background: $global-theme-divider;
+		white-space: nowrap;
+		overflow: auto;
 
 		.#{$class-prefix}-item-container {
 			display: inline;
