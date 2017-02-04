@@ -77,7 +77,7 @@ namespace GoClimb.Admin.States
 				$scope.boulder.builder = {
 					'id': user.id,
 					'name': user.nick
-				}
+				};
 			});
 
 			$scope.isSectorOk = () => {
