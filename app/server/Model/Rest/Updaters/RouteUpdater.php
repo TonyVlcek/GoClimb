@@ -44,6 +44,7 @@ abstract class RouteUpdater
 	/** @var UserRepository */
 	private $userRepository;
 
+
 	public function __construct(LineRepository $lineRepository, SectorRepository $sectorRepository, DifficultyRepository $difficultyRepository, ColorRepository $colorRepository, ParameterRepository $parameterRepository, RouteParameterRepository $routeParameterRepository, UserRepository $userRepository)
 	{
 		$this->lineRepository = $lineRepository;

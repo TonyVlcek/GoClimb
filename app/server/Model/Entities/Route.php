@@ -79,7 +79,7 @@ abstract class Route
 
 	/**
 	 * @var RouteParameter[]|ArrayCollection
-	 * @ORM\OneToMany(targetEntity="RouteParameter", mappedBy="route", cascade={"persist"})
+	 * @ORM\OneToMany(targetEntity="RouteParameter", mappedBy="route", cascade={"persist"}, orphanRemoval=TRUE)
 	 */
 	private $routeParameters;
 
