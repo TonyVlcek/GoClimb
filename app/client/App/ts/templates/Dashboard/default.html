@@ -31,7 +31,7 @@
 				</thead>
 				<tbody data-ng-hide="dashboardCtrl.getLogs()">
 					<tr>
-						<td colspan="10" class="text-center" ng-include="'app/client/Core/ts/templates/components/loading.html'"></td>
+						<td colspan="9" class="text-center" ng-include="'app/client/Core/ts/templates/components/loading.html'"></td>
 					</tr>
 				</tbody>
 				<tbody data-ng-show="dashboardCtrl.getLogs()">
@@ -65,6 +65,10 @@
 								<!--<span class="fa fa-pencil"></span> {{'grids.logs.edit'|translate}}-->
 							<!--</button>-->
 						<!--</td>-->
+					</tr>
+					<tr data-ng-show="dashboardCtrl.getLogs().count() <= 0">
+						<!--I used gc-center insted of text-center because of text align property for tables-->
+						<td colspan="9" class="gc-text-center">{{'grids.logs.noLogs'|translate}}</td>
 					</tr>
 				</tbody>
 			</table>
