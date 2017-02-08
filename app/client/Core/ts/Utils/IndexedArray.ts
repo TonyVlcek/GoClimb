@@ -65,6 +65,11 @@ namespace GoClimb.Core.Utils
 				this.arrayData.push(this.data[index]);
 			}
 		}
+
+		private count()
+		{
+			return this.arrayData.length;
+		}
 	}
 
 }

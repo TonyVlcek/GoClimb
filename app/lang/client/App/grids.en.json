@@ -9,6 +9,7 @@
 		"description": "Description",
 		"length": "Length",
 		"steps": "Steps",
-		"edit": "Edit"
+		"edit": "Edit",
+		"noLogs": "It seams that you haven't add any log yet. Go to wall site and add some!"
 	}
 }

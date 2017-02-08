@@ -12,7 +12,7 @@
 }
 
 .#{$class-prefix}-text-center{
-	text-align: center;
+	text-align: center !important;
 }
 
 .#{$class-prefix}-disabled {

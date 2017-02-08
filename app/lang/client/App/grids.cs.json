@@ -9,6 +9,7 @@
 		"description": "Popis",
 		"length": "Délka",
 		"steps": "Počet kroků",
-		"edit": "Upravit"
+		"edit": "Upravit",
+		"noLogs": "Ještě nemáš přidaný žádný přelez. Jdi na stránku stěny a přidej si nějaké!"
 	}
 }
