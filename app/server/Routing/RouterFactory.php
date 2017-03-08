@@ -142,6 +142,12 @@ class RouterFactory
 			NULL => $this->authFilter->getFilterDefinition(),
 		]);
 
+		$this->addRoute($router, 'auth', 'remote-login', [
+			'presenter' => 'RemoteLogin',
+			'action' => 'default',
+			'id' => NULL,
+		]);
+
 		return $router;
 	}
 

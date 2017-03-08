@@ -13,6 +13,7 @@ class Application
 {
 	const BACKEND_TOKEN = 'admin';
 	const APP_TOKEN = 'app';
+	const GO_TRACK_TOKEN = 'go_track';
 
 	use Id;
 
