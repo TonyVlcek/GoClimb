@@ -78,6 +78,11 @@
 						{/foreach}
 					</tbody>
 				</table>
+				{if !$user->getUserEntity()->getLogs()}
+					<div class="text-center">
+						{_grids.app.dashboard.empty}
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
