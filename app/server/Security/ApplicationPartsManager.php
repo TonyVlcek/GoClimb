@@ -14,6 +14,7 @@ class ApplicationPartsManager
 	const REST_NAMESPACE = 'GoClimb.rest';
 	const WALL_NAMESPACE = 'GoClimb.wall';
 	const APP_NAMESPACE = 'GoClimb.app';
+	const GOTRACK_NAMESPACE = 'GoClimb.gotrack';
 
 
 	/** @var UserStorage */
@@ -53,6 +54,11 @@ class ApplicationPartsManager
 	public function setAsApp()
 	{
 		$this->userStorage->setNamespace(self::APP_NAMESPACE);
+	}
+
+	public function setAsGoTrack()
+	{
+		$this->userStorage->setNamespace(self::GOTRACK_NAMESPACE);
 	}
 
 }

@@ -55,6 +55,7 @@ class RouterFactory
 		$router[] = $this->createAuthRoutes();
 		$router[] = $this->createAdminRoutes();
 		$router[] = $this->createAppRoutes();
+		$router[] = $this->createGoTrackRoutes();
 		$router[] = $this->createRestRoutes();
 		$router[] = $this->createPortalRoutes();
 		return $router;
@@ -194,6 +195,26 @@ class RouterFactory
 
 		return $router;
 	}
+
+	private function createGoTrackRoutes()
+	{
+		$router = new RouteList('GoTrack');
+
+		$this->addRoute($router, 'gotrack', '[<path .*>]', [
+			'locale' => NULL,
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+			'id' => NULL,
+			'path' => [
+				Route::VALUE => '',
+				Route::FILTER_OUT => NULL,
+				Route::FILTER_IN => NULL,
+			],
+		], RestRoute::class);
+
+		return $router;
+	}
+
 
 
 	public function createRestRoutes()

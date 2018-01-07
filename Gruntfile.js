@@ -42,8 +42,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-json');
 
 	/** SASS */
-	grunt.registerTask('sass:all', ['sass:admin', 'sass:app', 'sass:auth', 'sass:backend', 'sass:frontend', "postcss"]);
-	grunt.registerTask('sass:all-dev', ['sass:admin-dev', 'sass:app-dev', 'sass:auth-dev', 'sass:backend-dev', 'sass:frontend-dev', "postcss"]);
+	grunt.registerTask('sass:all', ['sass:public', 'sass:admin', 'sass:app', 'sass:auth', 'sass:backend', 'sass:frontend', "postcss"]);
+	grunt.registerTask('sass:all-dev', ['sass:public-dev', 'sass:admin-dev', 'sass:app-dev', 'sass:auth-dev', 'sass:backend-dev', 'sass:frontend-dev', "postcss"]);
 
 	/** TS */
 	grunt.registerTask('ts:admin-dev', ['ts:admin']);
@@ -53,8 +53,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('ts:frontend-dev', ['ts:frontend']);
 	grunt.registerTask('ts:public-dev', ['ts:public']);
 
-	grunt.registerTask('ts:all', ['ts:admin', 'ts:app', 'ts:auth', 'ts:backend', 'ts:frontend']);
-	grunt.registerTask('ts:all-dev', ['ts:admin-dev', 'ts:app-dev', 'ts:auth-dev', 'ts:backend-dev', 'ts:frontend-dev']);
+	grunt.registerTask('ts:all', ['ts:public', 'ts:admin', 'ts:app', 'ts:auth', 'ts:backend', 'ts:frontend']);
+	grunt.registerTask('ts:all-dev', ['ts:public-dev', 'ts:admin-dev', 'ts:app-dev', 'ts:auth-dev', 'ts:backend-dev', 'ts:frontend-dev']);
 
 	/** ANGULAR TEMPLATES */
 	grunt.registerTask('ngtemplates:all', ['ngtemplates:admin', 'ngtemplates:app', 'ngtemplates:auth', 'ngtemplates:backend', 'ngtemplates:frontend']);
@@ -89,7 +89,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build:public', ['typings', 'sass:public', 'ts:public', 'postcss', 'concat:public', 'uglify:public', 'clean']);
 
 	grunt.registerTask('build:all', ['typings', 'sass:all', 'ts:all', 'concat:all', 'json:all', 'ngtemplates:all', 'uglify:all', 'copy:all', 'clean']);
-	grunt.registerTask('build:all-dev', ['typings', 'sass:all-dev', 'ts:all-dev', 'concat:all-dev', 'json:all', 'ngtemplates:all-dev', 'uglify:all-dev', 'copy:all', 'clean']);
+	grunt.registerTask('build:all-dev', [ 'sass:all-dev', 'ts:all-dev', 'concat:all-dev', 'json:all', 'ngtemplates:all-dev', 'uglify:all-dev', 'copy:all', 'clean']);
 
 	grunt.registerTask('default', ['build:all-dev']);
 

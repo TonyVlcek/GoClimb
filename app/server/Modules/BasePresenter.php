@@ -107,6 +107,7 @@ abstract class BasePresenter extends Presenter
 		if ($this->getParameter($this::LOGOUT_PARAMETER)) {
 			$this->resolveLogout();
 		} elseif ($token = $this->getParameter($this::LOGIN_PARAMETER)) {
+//			dump($token);
 			$this->resolveLogin($token);
 		}
 

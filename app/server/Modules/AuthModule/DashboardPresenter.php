@@ -117,6 +117,8 @@ final class DashboardPresenter extends BaseAuthPresenter
 	public function renderLogin(Application $application)
 	{
 		$this->template->application = $application;
+		dump($this->token);
+		dump($this->back);
 		$this->template->isGoClimb = $application->getToken() === Application::APP_TOKEN;
 	}
 
